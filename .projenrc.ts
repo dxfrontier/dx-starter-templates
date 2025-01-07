@@ -1,5 +1,5 @@
 import { cdk, javascript } from 'projen';
-import { NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
+import { /*NpmConfigJsii,*/ TypeScriptConfigJsii } from './src/jsii';
 // import { exec } from 'child_process';
 // import { TypeScriptProjectBase } from './src/base';
 
@@ -53,10 +53,10 @@ export const project = new cdk.JsiiProject({
 
 // mimicRegistryHooks(project);+
 const tsConfig = new TypeScriptConfigJsii(project);
-const npmConfig = new NpmConfigJsii(project);
+// const npmConfig = new NpmConfigJsii(project);
 
 tsConfig.setup();
-npmConfig.setup();
+// npmConfig.setup();
 
 // project.tryRemoveFile('package.json');
 // exec('npm run eject')

@@ -13,24 +13,25 @@ export abstract class TypeScriptConfigBase extends Config {
    * @override
    */
   protected get deleteConfigFilePaths(): string[] {
-    return [];
+    return ['tsconfig.json', 'tsconfig.dev.json'];
   }
 
   /**
    * File path to TypeScript config file.
    * @return File path to config file.
    * @protected
-   * @abstract
    */
-  protected abstract get configFilePath(): string;
+  protected get configFilePath(): string {
+    return 'tsconfig.json';
+  }
 
   /**
    * TypeScript config.
-   * @return TypeScript config options.
+   * @return TypeScript config options as array lines or record entries.
    * @protected
    * @abstract
    */
-  protected abstract get tsConfig(): string[];
+  protected abstract get tsConfig(): string[] | Record<string, unknown>;
 
   /**
    * Creates the Config file for the TypeScript configuration.
@@ -38,7 +39,7 @@ export abstract class TypeScriptConfigBase extends Config {
    */
   protected createConfig(): void {
     new SampleFile(this.project, this.configFilePath, {
-      contents: this.tsConfig.join('\n'),
+      contents: (this.tsConfig as string[]).join('\n'),
     });
   }
 

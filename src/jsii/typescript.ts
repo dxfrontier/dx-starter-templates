@@ -1,3 +1,4 @@
+import { JsonFile } from 'projen';
 import { TypeScriptConfigBase } from '../base';
 
 /**
@@ -9,30 +10,35 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
    * @override
    */
   protected get deleteConfigFilePaths(): string[] {
-    return [];
+    return ['tsconfig.dev.json'];
   }
 
   /**
    * @override
    */
   protected get configFilePath(): string {
-    return '';
+    return 'tsconfig.dev.json';
   }
 
   /**
    * @override
    */
-  protected createConfig(): void {}
-
-  /**
-   * @override
-   */
-  protected get tsConfig(): string[] {
-    return [];
+  protected createConfig(): void {
+    new JsonFile(this.project, this.configFilePath, {
+      obj: this.tsConfig,
+    });
   }
 
   /**
    * @override
+   * Existing config of projen is taken into account.
    */
-  public setup(): void {}
+  protected get tsConfig(): Record<string, unknown> {
+    const content = this.deletedConfigFileContents.get(this.configFilePath);
+    if (content) {
+      return JSON.parse(content);
+    }
+
+    return {};
+  }
 }
