@@ -1,6 +1,7 @@
 // import { TypescriptConfig } from 'projen/lib/javascript';
-import { SampleFile } from 'projen';
+import { JsonFile } from 'projen';
 import { Config } from './config';
+import { NpmConfigBase } from './npm';
 // import { ProjenStandardScript } from '../types';
 
 /**
@@ -17,37 +18,39 @@ export abstract class TypeScriptConfigBase extends Config {
   }
 
   /**
-   * File path to TypeScript config file.
-   * @return File path to config file.
-   * @protected
+   * @override
    */
   protected get configFilePath(): string {
     return 'tsconfig.json';
   }
 
   /**
-   * TypeScript config.
-   * @return TypeScript config options as array lines or record entries.
-   * @protected
-   * @abstract
-   */
-  protected abstract get tsConfig(): string[] | Record<string, unknown>;
-
-  /**
-   * Creates the Config file for the TypeScript configuration.
-   * @protected
+   * @override
    */
   protected createConfig(): void {
-    new SampleFile(this.project, this.configFilePath, {
-      contents: (this.tsConfig as string[]).join('\n'),
+    new JsonFile(this.project, this.configFilePath, {
+      obj: this.config,
+      marker: false,
     });
+  }
+
+  /**
+   * Development dependencies for the configuration module.
+   * @protected
+   */
+  protected get devDependencies(): string[] {
+    return ['typescript@^5.7.2'];
   }
 
   /**
    * @override
    */
   public setup(): void {
+    this.addConfigToRegistry('typescript');
     super.setup();
     this.createConfig();
+    
+    const npmConfig = this.configRegistry.get('npm') as NpmConfigBase;
+    npmConfig?.addDevDependencies(this.devDependencies)
   }
 }

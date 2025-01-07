@@ -7,6 +7,25 @@ export class NpmConfigJsii extends NpmConfigBase {
   /**
    * @override
    */
+  protected get configFilePath(): string[] {
+    return [];
+  }
+
+  /**
+   * @override
+   */
+  protected get config(): string[] {
+    return [];
+  }
+
+  /**
+   * @override
+   */
+  protected createConfig(): void {}
+  
+  /**
+   * @override
+   */
   public setup(): void {
     super.setup();
     this.addDevDependencies([

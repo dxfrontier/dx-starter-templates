@@ -33,4 +33,13 @@ export abstract class NpmConfigBase extends Config {
   public addDependencies(dependencies: string[]): void {
     this.project.addDeps(...dependencies);
   }
+
+  /**
+   * @override
+   */
+  public setup(): void {
+    // this.addConfigToRegistry('npm');
+    super.setup();
+    // this.createConfig();
+  }
 }

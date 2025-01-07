@@ -1,6 +1,5 @@
 import { cdk, javascript } from 'projen';
-import { /*NpmConfigJsii,*/ TypeScriptConfigJsii } from './src/jsii';
-// import { exec } from 'child_process';
+import { NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
 // import { TypeScriptProjectBase } from './src/base';
 
 // import { ProjectBase } from './src/base';
@@ -16,6 +15,7 @@ import { /*NpmConfigJsii,*/ TypeScriptConfigJsii } from './src/jsii';
 //   VsCodeJsii,
 // } from './src/jsii';
 
+// TODO:: move options to config modules
 // export project for testing
 export const project = new cdk.JsiiProject({
   name: '@dxfrontier/projen-template-projects',
@@ -52,14 +52,17 @@ export const project = new cdk.JsiiProject({
 });
 
 // mimicRegistryHooks(project);+
+
+// First initialize all configurations to enable config dependencies
+const npmConfig = new NpmConfigJsii(project);
 const tsConfig = new TypeScriptConfigJsii(project);
-// const npmConfig = new NpmConfigJsii(project);
 
+// Then setup all configurations
+npmConfig.setup();
 tsConfig.setup();
-// npmConfig.setup();
 
-// project.tryRemoveFile('package.json');
-// exec('npm run eject')
+
+
 
 // new NpmPackageJsii(project as unknown as TypeScriptProjectBase);
 // new DevContainerJsii(project as unknown as TypeScriptProjectBase);

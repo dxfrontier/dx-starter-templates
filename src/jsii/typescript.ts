@@ -1,4 +1,3 @@
-import { JsonFile } from 'projen';
 import { TypeScriptConfigBase } from '../base';
 
 /**
@@ -22,18 +21,9 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
 
   /**
    * @override
-   */
-  protected createConfig(): void {
-    new JsonFile(this.project, this.configFilePath, {
-      obj: this.tsConfig,
-    });
-  }
-
-  /**
-   * @override
    * Existing config of projen is taken into account.
    */
-  protected get tsConfig(): Record<string, unknown> {
+  protected get config(): Record<string, unknown> {
     const content = this.deletedConfigFileContents.get(this.configFilePath);
     if (content) {
       return JSON.parse(content);

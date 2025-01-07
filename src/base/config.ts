@@ -1,5 +1,6 @@
 import { FileBase } from 'projen';
 import { TypeScriptProjectBase } from './project';
+import type { ConfigRegistry } from '../types';
 import fs from 'fs';
 
 /**
@@ -10,7 +11,17 @@ export abstract class Config {
   protected project: TypeScriptProjectBase;
 
   /**
-   * Internal property to store the content of deleted files.
+   * Register each configuration module in the internal registry.
+   * This enables dependency injection without explicitly passing relevant
+   * config modules to each consuming config module.
+   * 
+   * The key is the name of the configuration module, and the value is the configuration module itself.
+   */
+  private static registry: ConfigRegistry = new Map();
+  
+  /**
+   * Store the content of deleted files.
+   * 
    * The key is the file path, and the value is the file content.
    */
   protected readonly deletedFileContents: Map<string, string | null> = new Map();
@@ -24,8 +35,26 @@ export abstract class Config {
   }
 
   /**
+   * Central config registry.
+   * @protected
+   * @static
+   */
+  protected get configRegistry(): ConfigRegistry {
+    return Config.registry;
+  }
+
+  /**
+   * Adds configuration module to config registry.
+   * @param name The name of the configuration module.
+   * @protected
+   */
+  protected addConfigToRegistry(_name: string): void {
+    Config.registry.set(this.constructor.name, this);
+  }
+
+  /**
    * File paths to be removed for the specific configuration.
-   * @return File paths to projen config files to be deleted.
+   * @return File paths to Projen config files to be deleted.
    * @protected
    * @abstract
    */
@@ -33,7 +62,7 @@ export abstract class Config {
   
   /**
    * Deleted file contents.
-   * @returns File paths and their content or null for projen files.
+   * @returns File paths and their content or null for Projen files.
    * @protected
    */
   protected get deletedConfigFileContents(): Map<string, string | null> {
@@ -79,7 +108,7 @@ export abstract class Config {
       }
 
       try {
-        // In case it was not a projen controlled file
+        // In case it was not a Projen controlled file
         // then the file is deleted directly.
         if (fs.existsSync(path)) {
           fs.unlinkSync(path);
@@ -90,6 +119,31 @@ export abstract class Config {
       }
     }
   };
+
+  /**
+   * File path(s) to configuration module config file(s).
+   * @return File path(s) to config file(s).
+   * @protected
+   * @abstract
+   */
+  protected abstract get configFilePath(): string | string[];
+
+  /**
+   * Config for configuration module.
+   * @return TypeScript config file contents/settings as array lines or record entries.
+   * @protected
+   * @abstract
+   */
+  protected abstract get config(): string[] | Record<string, unknown>;
+
+  /**
+   * Creates the config file(s)/settings for the TypeScript configuration.
+   * Should use `config` to create the configuration file(s)/settings.
+   * @protected
+   * @abstract
+   * @see `config` for the TypeScript configuration settings.
+   */
+  protected abstract createConfig(): void;
 
   /**
    * Set up the configuration for the project.
