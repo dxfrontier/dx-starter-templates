@@ -2,6 +2,7 @@
 import { JsonFile } from 'projen';
 import { Config } from './config';
 import { NpmConfigBase } from './npm';
+import { TypeScriptProjectBase } from './project';
 // import { ProjenStandardScript } from '../types';
 
 /**
@@ -10,6 +11,17 @@ import { NpmConfigBase } from './npm';
  * @extends Config
  */
 export abstract class TypeScriptConfigBase extends Config {
+  protected npmConfig: NpmConfigBase | undefined = this.configRegistry.get('npm') as NpmConfigBase;
+
+  /**
+   * @override 
+   */
+  constructor(project: TypeScriptProjectBase) {
+    super(project);
+
+    this.addConfigToRegistry('typescript');
+  }
+
   /**
    * @override
    */
@@ -46,11 +58,9 @@ export abstract class TypeScriptConfigBase extends Config {
    * @override
    */
   public setup(): void {
-    this.addConfigToRegistry('typescript');
     super.setup();
     this.createConfig();
     
-    const npmConfig = this.configRegistry.get('npm') as NpmConfigBase;
-    npmConfig?.addDevDependencies(this.devDependencies)
+    this.npmConfig?.addDevDependencies(this.devDependencies);
   }
 }

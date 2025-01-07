@@ -1,4 +1,5 @@
 import { Config } from './config';
+import { TypeScriptProjectBase } from './project';
 // import { ProjenStandardScript } from '../types';
 
 /**
@@ -6,6 +7,15 @@ import { Config } from './config';
  * @abstract
  */
 export abstract class NpmConfigBase extends Config {
+  /**
+   * @override 
+   */
+  constructor(project: TypeScriptProjectBase) {
+    super(project);
+
+    this.addConfigToRegistry('npm');
+  }
+  
   protected get deleteConfigFilePaths(): string[] {
     return [];
   }
@@ -38,7 +48,6 @@ export abstract class NpmConfigBase extends Config {
    * @override
    */
   public setup(): void {
-    // this.addConfigToRegistry('npm');
     super.setup();
     // this.createConfig();
   }

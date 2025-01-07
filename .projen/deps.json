@@ -63,6 +63,7 @@
     },
     {
       "name": "typescript",
+      "version": "^5.7.2",
       "type": "build"
     },
     {

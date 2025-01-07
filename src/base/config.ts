@@ -36,8 +36,8 @@ export abstract class Config {
 
   /**
    * Central config registry.
+   * @return Central config registry.
    * @protected
-   * @static
    */
   protected get configRegistry(): ConfigRegistry {
     return Config.registry;
@@ -48,8 +48,8 @@ export abstract class Config {
    * @param name The name of the configuration module.
    * @protected
    */
-  protected addConfigToRegistry(_name: string): void {
-    Config.registry.set(this.constructor.name, this);
+  protected addConfigToRegistry(name: string): void {
+    Config.registry.set(name, this);
   }
 
   /**
