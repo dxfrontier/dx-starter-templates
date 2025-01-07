@@ -1,29 +1,27 @@
-import { NpmPackageBase, TypeScriptProjectBase } from '../base';
+import { NpmConfigBase } from '../base';
 
 /**
- * NPM Package builder implementing all relevant configuration for the Jsii project.
+ * NPM implementing all relevant configuration for the Jsii project.
  */
-export class NpmPackageJsii extends NpmPackageBase {
-  /**
-   * Initializes the NPM Package builder.
-   * It calls the `initialize()` method immediately after invoking `super(project)`
-   * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure NPM Package for.
-   */
-  constructor(project: TypeScriptProjectBase) {
-    super(project);
-    this.initialize();
-  }
-
+export class NpmConfigJsii extends NpmConfigBase {
   /**
    * @override
    */
-  protected get npmFilePaths(): string[] {
-    return ['lib', 'README.md', '.jsii'];
-  }
+  public setup(): void {
+    super.setup();
+    this.addDevDependencies([
+      '@types/node@^22.10.5',
+      'jsii@^5.7.4',
+      'jsii-diff@^1.106.0',
+      'jsii-docgen@^10.6.1',
+      'jsii-pacmak@^1.106.0',
+      'jsii-rosetta@^5.7.2',
+      'ts-node@^10.9.2',
+    ]);
 
-  /**
-   * @override
-   */
-  protected addDevDependencies(): void {}
+    this.addPeerDependencies([
+      'constructs@^10.4.2',
+      'projen@^0.91.5',
+    ]);
+  };
 }

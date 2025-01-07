@@ -56,14 +56,6 @@
       ],
       "condition": "git diff --exit-code > /dev/null"
     },
-    "commit": {
-      "name": "commit",
-      "steps": [
-        {
-          "exec": "commit"
-        }
-      ]
-    },
     "compat": {
       "name": "compat",
       "description": "Perform API compatibility check against latest version",
@@ -112,26 +104,9 @@
         }
       ]
     },
-    "eslint": {
-      "name": "eslint",
-      "steps": [
-        {
-          "exec": "eslint .",
-          "receiveArgs": true
-        }
-      ]
-    },
     "install": {
       "name": "install",
       "description": "Install project dependencies and update lockfile (non-frozen)",
-      "steps": [
-        {
-          "exec": "npm install"
-        }
-      ]
-    },
-    "install-dependencies": {
-      "name": "install-dependencies",
       "steps": [
         {
           "exec": "npm install"
@@ -191,23 +166,6 @@
     "pre-compile": {
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
-    },
-    "prepare": {
-      "name": "prepare",
-      "steps": [
-        {
-          "exec": "husky || true"
-        }
-      ]
-    },
-    "prettier": {
-      "name": "prettier",
-      "steps": [
-        {
-          "exec": "prettier . --write",
-          "receiveArgs": true
-        }
-      ]
     },
     "test": {
       "name": "test",
