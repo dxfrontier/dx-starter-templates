@@ -51,7 +51,11 @@ export abstract class TypeScriptConfigBase extends Config {
    * @protected
    */
   protected get devDependencies(): string[] {
-    return ['typescript@^5.7.2'];
+    return [
+      'typescript@^5.7.2',
+      '@types/node@^22.10.5',
+      'ts-node@^10.9.2',
+    ];
   }
 
   /**

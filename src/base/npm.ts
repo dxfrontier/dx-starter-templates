@@ -16,7 +16,34 @@ export abstract class NpmConfigBase extends Config {
     this.addConfigToRegistry('npm');
   }
   
+  /**
+   * @override
+   */
   protected get deleteConfigFilePaths(): string[] {
+    return [];
+  }
+
+  /**
+   * Development dependencies for the configuration module.
+   * @protected
+   */
+  protected get devDependencies(): string[] {
+    return [];
+  }
+
+  /**
+   * Peer dependencies for the configuration module.
+   * @protected
+   */
+  protected get peerDependencies(): string[] {
+    return [];
+  }
+
+  /**
+   * Dependencies for the configuration module.
+   * @protected
+   */
+  protected get dependencies(): string[] {
     return [];
   }
 
@@ -46,7 +73,7 @@ export abstract class NpmConfigBase extends Config {
 
   /**
    * @override
-   * We do not call `createConfig` here because we use Projen standard NPM configuration.
+   * Use Projen standard NPM configuration.
    */
   public setup(): void {
     // this.createConfig();

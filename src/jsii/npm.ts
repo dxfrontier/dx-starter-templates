@@ -19,6 +19,7 @@ export class NpmConfigJsii extends NpmConfigBase {
 
   /**
    * @override
+   * Use Projen standard TypeScript configuration.
    */
   protected get configFilePath(): string[] {
     return [];
@@ -26,6 +27,7 @@ export class NpmConfigJsii extends NpmConfigBase {
 
   /**
    * @override
+   * Use Projen standard TypeScript configuration.
    */
   protected get config(): string[] {
     return [];
@@ -33,27 +35,42 @@ export class NpmConfigJsii extends NpmConfigBase {
 
   /**
    * @override
+   * Use Projen standard TypeScript configuration.
    */
   protected createConfig(): void {}
+
+  /**
+   * Development dependencies for the configuration module.
+   * @protected
+   */
+  protected get devDependencies(): string[] {
+    return [
+      'jsii@^5.7.4',
+      'jsii-diff@^1.106.0',
+      'jsii-docgen@^10.6.1',
+      'jsii-pacmak@^1.106.0',
+      'jsii-rosetta@^5.7.2',
+    ];
+  }
+
+  /**
+   * Peer dependencies for the configuration module.
+   * @protected
+   */
+  protected get peerDependencies(): string[] {
+    return [
+      'constructs@^10.4.2',
+      'projen@^0.91.5',
+    ];
+  }
   
   /**
    * @override
    */
   public setup(): void {
     super.setup();
-    this.addDevDependencies([
-      '@types/node@^22.10.5',
-      'jsii@^5.7.4',
-      'jsii-diff@^1.106.0',
-      'jsii-docgen@^10.6.1',
-      'jsii-pacmak@^1.106.0',
-      'jsii-rosetta@^5.7.2',
-      'ts-node@^10.9.2',
-    ]);
-
-    this.addPeerDependencies([
-      'constructs@^10.4.2',
-      'projen@^0.91.5',
-    ]);
+    
+    this.addDevDependencies(this.devDependencies);
+    this.addPeerDependencies(this.peerDependencies);
   };
 }
