@@ -39,9 +39,10 @@ export abstract class Config {
   /**
    * Central config registry.
    * @return Central config registry.
-   * @protected
+   * @public
+   * @static
    */
-  protected get configRegistry(): ConfigRegistry {
+  public static get configRegistry(): ConfigRegistry {
     return Config.registry;
   }
 
@@ -49,6 +50,7 @@ export abstract class Config {
    * Adds configuration module to config registry.
    * @param name The name of the configuration module.
    * @protected
+   * 
    */
   protected addConfigToRegistry(name: string): void {
     Config.registry.set(name, this);

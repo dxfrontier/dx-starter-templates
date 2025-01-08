@@ -11,7 +11,7 @@ import { TypeScriptProjectBase } from './project';
  * @extends Config
  */
 export abstract class TypeScriptConfigBase extends Config {
-  protected npmConfig: NpmConfigBase | undefined = this.configRegistry.get('npm') as NpmConfigBase;
+  protected npmConfig: NpmConfigBase | undefined = Config.configRegistry.get('npm') as NpmConfigBase;
 
   /**
    * @override 

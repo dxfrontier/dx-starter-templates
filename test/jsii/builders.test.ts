@@ -3,12 +3,13 @@ import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 // import { TypeScriptProjectBase } from '../../src/base';
 // import { LintStagedConfig } from '../../src/types';
 // import * as commitlint from '../shared/commitlint';
-// import * as common from '../shared/common';
+import * as common from '../shared/common';
+import { Config } from '../../src/base';
 // import * as eslint from '../shared/eslint';
 // import * as devcontainer from '../shared/devcontainer';
 // import * as github from '../shared/github';
 // import * as husky from '../shared/husky';
-// import * as npm from '../shared/npm';
+import * as npm from '../shared/npm';
 // import * as prettier from '../shared/prettier';
 // import * as vscode from '../shared/vscode';
 
@@ -34,9 +35,22 @@ describe('JsiiProject Builders', (): void => {
   });
 
   describe('NPM', (): void => {
-    test('Builder is registered in project registry', (): void => {
-      console.log(snapshot);
-      expect(true).toBeTruthy();
+    test('Config is registered in project registry', (): void => {
+      common.testConfigInRegistry('npm', Config.configRegistry);
     });
+
+    test('Files property in package.json is set properly', (): void => {
+      const additionalPatterns: string[] = ['lib', '.jsii'];
+      npm.testPackageJsonFiles(snapshot, additionalPatterns);
+    });
+
+    // test('Additional/Overrides devDependencies are added properly', (): void => {
+    //   const expectedDevDependencies: string[] = ['ts-node@*', '@types/node@*', 'projen@*'];
+    //   npm.testDevDependencies(snapshot, expectedDevDependencies);
+    // });
+
+    // test('NPM Package related files are added to .gitattributes and defined as linguist-generated', (): void => {
+    //   npm.testGitAttributes(snapshot);
+    // });
   });
 });

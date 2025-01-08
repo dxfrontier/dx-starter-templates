@@ -1,14 +1,10 @@
 import { cdk } from 'projen';
 import { NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
-// import { TypeScriptProjectBase } from './src/base';
-
-// import { ProjectBase } from './src/base';
 // import {
 //   CommitLintJsii,
 //   DevContainerJsii,
 //   GitHubJsii,
 //   HuskyJsii,
-//   mimicRegistryHooks,
 //   NpmPackageJsii,
 //   PrettierJsii,
 //   EslintJsii,
@@ -23,7 +19,7 @@ export const project = new cdk.JsiiProject({
   author: 'Mathias von Kaiz',
   authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
   copyrightOwner: 'ABS GmbH',
-  defaultReleaseBranch: 'dev',
+  defaultReleaseBranch: 'main',
 
   // additional options
   ...NpmConfigJsii.projectOptions,
@@ -37,11 +33,7 @@ export const project = new cdk.JsiiProject({
   release: false, // workflow release.yml
   pullRequestTemplate: false, // pull_request_template.yml
   depsUpgrade: false, // workflow upgrade-main.yml
-
-  // bundledDeps: ['construct'],
 });
-
-// mimicRegistryHooks(project);+
 
 // First initialize all configurations to enable config dependencies between the configuration modules
 const npmConfig = new NpmConfigJsii(project);
@@ -54,7 +46,6 @@ tsConfig.setup();
 
 
 
-// new NpmPackageJsii(project as unknown as TypeScriptProjectBase);
 // new DevContainerJsii(project as unknown as TypeScriptProjectBase);
 // new VsCodeJsii(project as unknown as TypeScriptProjectBase);
 // new GitHubJsii(project as unknown as TypeScriptProjectBase);

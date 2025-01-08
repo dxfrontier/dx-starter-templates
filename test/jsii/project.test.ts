@@ -1,0 +1,95 @@
+/**
+ * We move the options test into a separate file
+ * as the revert of the mocking for testing the builders
+ * is not working properly.
+ */
+import { cdk, javascript } from 'projen';
+import { JsiiProject } from 'projen/lib/cdk/index';
+// import { Config, TypeScriptProjectBase } from '../../src/base/index.ts';
+
+jest.mock('projen', (): any => ({
+  javascript: {
+    NodePackageManager: {
+      NPM: 'npm',
+    },
+  },
+  cdk: {
+    JsiiProject: jest.fn().mockImplementation((_config: any): Record<string, any> => {
+      return {
+        synth: jest.fn(),
+        addFields: jest.fn(),
+        gitattributes: {
+          addAttributes: jest.fn(),
+        },
+        addTask: jest.fn(),
+        addDevDeps: jest.fn(),
+        addPeerDeps: jest.fn(),
+      };
+    }),
+  },
+  JsonFile: jest.fn(),
+  TextFile: jest.fn(),
+}));
+
+jest.mock('projen/lib/github/pr-template', (): any => {
+  return {
+    PullRequestTemplate: jest.fn(),
+  };
+});
+
+describe('JsiiProject Constructor Options', (): void => {
+  let project: JsiiProject;
+
+  beforeEach(async (): Promise<void> => {
+    const projenrc = await import('../../.projenrc.ts');
+    project = projenrc.project;
+  });
+
+  afterEach((): void => {
+    jest.resetAllMocks();
+    jest.resetModules();
+  });
+
+  afterAll((): void => {
+    jest.unmock('projen');
+    jest.unmock('projen/lib/github/pr-template');
+    jest.restoreAllMocks();
+  });
+
+  test('Configuration is set properly', async (): Promise<void> => {
+    expect(cdk.JsiiProject).toHaveBeenCalledWith({
+      name: '@dxfrontier/projen-template-projects',
+      repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
+      author: 'Mathias von Kaiz',
+      authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
+      copyrightOwner: 'ABS GmbH',
+      licensed: false,
+      defaultReleaseBranch: 'main',
+
+      packageManager: javascript.NodePackageManager.NPM,
+      npmignoreEnabled: false,
+
+      projenrcTs: true,
+      disableTsconfigDev: false,
+
+      prettier: false,
+      eslint: false,
+
+      githubOptions: { mergify: false, pullRequestLint: false },
+      buildWorkflow: false,
+      release: false,
+      pullRequestTemplate: false,
+      depsUpgrade: false,
+      
+      tsconfig: {
+        compilerOptions: {
+          allowImportingTsExtensions: true,
+        },
+      },
+    });
+  });
+
+  test('Mock of synth function was successful to avoid installation process', (): void => {
+    expect(project.synth).toHaveBeenCalledTimes(1);
+  });
+});
