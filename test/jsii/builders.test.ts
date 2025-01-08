@@ -44,6 +44,22 @@ describe('JsiiProject Builders', (): void => {
       npm.testPackageJsonFiles(snapshot, additionalPatterns);
     });
 
+    test('Additional/Overrides devDependencies are added properly', (): void => {
+      const expectedDevDependencies: string[] = [
+        'constructs@10.4.2', 'projen@0.91.5', 'jsii@^5.7.4',
+        'jsii-diff@^1.106.0',
+        'jsii-docgen@^10.6.1',
+        'jsii-pacmak@^1.106.0',
+        'jsii-rosetta@^5.7.2',
+      ];
+      npm.testDevDependencies(snapshot, expectedDevDependencies);
+    });
+
+    test('Additional/Overrides peerDependencies are added properly', (): void => {
+      const expectedDevDependencies: string[] = ['constructs@^10.4.2', 'projen@^0.91.5'];
+      npm.testPeerDependencies(snapshot, expectedDevDependencies);
+    });
+    
     // test('Additional/Overrides devDependencies are added properly', (): void => {
     //   const expectedDevDependencies: string[] = ['ts-node@*', '@types/node@*', 'projen@*'];
     //   npm.testDevDependencies(snapshot, expectedDevDependencies);

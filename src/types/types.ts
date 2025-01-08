@@ -15,3 +15,8 @@ export type ProjectStartupOptions = Record<string, string | boolean | string[] |
  * This is derived from them Scripts type but contains an array keeping the task steps.
  */
 export type TaskSteps = Record<string, string[]>;
+
+/**
+ * Entries in the `package.json` file.
+ */
+export type NpmPackageJsonSettings = { [name: string]: any };

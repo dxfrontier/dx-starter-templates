@@ -46,6 +46,24 @@ export function testDevDependencies(snapshot: SynthOutput, expectedDevDependenci
 }
 
 /**
+ * Validates that npm peer dependencies are added properly..
+ * @param snapshot Synthesized project output.
+ * @param expectedPeerDependencies Dependency names to compare with the snapshot.
+ */
+export function testPeerDependencies(snapshot: SynthOutput, expectedPeerDependencies: string[]): void {
+  expectedPeerDependencies.forEach((dep: string): void => {
+    const lastAtIndex: number = dep.lastIndexOf('@');
+    const depName: string = lastAtIndex !== -1 ? dep.slice(0, lastAtIndex) : dep;
+    const depVersion: string | null = lastAtIndex !== -1 ? dep.slice(lastAtIndex + 1) : null;
+
+    expect(snapshot['package.json']!.peerDependencies).toHaveProperty(depName);
+    if (depVersion) {
+      expect(snapshot['package.json']!.peerDependencies[depName]).toBe(depVersion);
+    }
+  });
+}
+
+/**
  * Validates that a config is registered in project registry.
  * @param configName Name of the config to check for in the registry.
  * @param registry Configs registry to search through for the specified config.

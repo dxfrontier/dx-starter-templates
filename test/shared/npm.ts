@@ -24,13 +24,24 @@ export function testDevDependencies(snapshot: SynthOutput, expectedDevDependenci
 }
 
 /**
- * Validates that project related files are added to .gitattributes and defined as linguist-generated.
+ * Validates that npm peer dependencies are added properly.
  * @param snapshot Synthesized project output.
- * @param expectedPatterns List of expected file patterns to test for.
+ * @param expectedDevDependencies List of expected peerDependencies to test for.
  */
-export function testGitAttributes(snapshot: SynthOutput, expectedPatterns: RegExp[] = []): void {
-  const standardPatterns: RegExp[] = [/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m];
-
-  const patterns: RegExp[] = expectedPatterns.length ? expectedPatterns : standardPatterns;
-  common.testGitAttributes(snapshot, patterns);
+export function testPeerDependencies(snapshot: SynthOutput, expectedPeerDependencies: string[] = []): void {
+  const standardPeerDependencies: string[] = [];
+  const peerDependencies: string[] = expectedPeerDependencies.length ? expectedPeerDependencies : standardPeerDependencies;
+  common.testPeerDependencies(snapshot, peerDependencies);
 }
+
+// /**
+//  * Validates that project related files are added to .gitattributes and defined as linguist-generated.
+//  * @param snapshot Synthesized project output.
+//  * @param expectedPatterns List of expected file patterns to test for.
+//  */
+// export function testGitAttributes(snapshot: SynthOutput, expectedPatterns: RegExp[] = []): void {
+//   const standardPatterns: RegExp[] = [/\/tsconfig\.dev\.json linguist-generated( $|\s|$)/m];
+
+//   const patterns: RegExp[] = expectedPatterns.length ? expectedPatterns : standardPatterns;
+//   common.testGitAttributes(snapshot, patterns);
+// }

@@ -1,6 +1,6 @@
 import { javascript } from 'projen';
 import { NpmConfigBase } from '../base';
-import { ProjectStartupOptions } from '../types';
+import { NpmPackageJsonSettings, ProjectStartupOptions } from '../types';
 
 /**
  * NPM implementing all relevant configuration for the Jsii project.
@@ -63,14 +63,23 @@ export class NpmConfigJsii extends NpmConfigBase {
       'projen@^0.91.5',
     ];
   }
+
+  /**
+   * Settings for `package.json` file.
+   * @protected
+   */
+  protected get settings(): NpmPackageJsonSettings {
+    return {
+      files: ['lib', '.jsii', 'README.md'],
+    };
+  }
   
   /**
    * @override
    */
   public setup(): void {
-    super.setup();
-    
     this.addDevDependencies(this.devDependencies);
     this.addPeerDependencies(this.peerDependencies);
+    this.addSettings(this.settings);
   };
 }

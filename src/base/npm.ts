@@ -1,3 +1,4 @@
+import { NpmPackageJsonSettings } from '../types';
 import { Config } from './config';
 import { TypeScriptProjectBase } from './project';
 // import { ProjenStandardScript } from '../types';
@@ -72,10 +73,18 @@ export abstract class NpmConfigBase extends Config {
   }
 
   /**
-   * @override
-   * Use Projen standard NPM configuration.
+   * Settings for `package.json` file.
+   * @protected
    */
-  public setup(): void {
-    // this.createConfig();
+  protected get settings(): NpmPackageJsonSettings {
+    return {};
+  }
+
+  /**
+   * Adds entries in the `package.json` file.
+   * @public
+   */
+  public addSettings(settings: NpmPackageJsonSettings): void {
+    this.project.addFields(settings);
   }
 }
