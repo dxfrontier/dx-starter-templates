@@ -24,28 +24,31 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
   
   /**
    * @override
+   * Use Projen standard TypeScript configuration.
    */
   protected get deleteConfigFilePaths(): string[] {
-    return ['tsconfig.dev.json'];
+    return [];
   }
 
   /**
    * @override
+   * Use Projen standard TypeScript configuration.
    */
   protected get configFilePath(): string {
-    return 'tsconfig.dev.json';
+    return '';
   }
 
   /**
    * @override
-   * Existing config of projen is taken into account.
+   * Use Projen standard TypeScript configuration.
+   */
+  protected createConfig(): void {}
+
+  /**
+   * @override
+   * Use Projen standard TypeScript configuration.
    */
   protected get config(): Record<string, unknown> {
-    // const content = this.deletedConfigFileContents.get(this.configFilePath);
-    // if (content) {
-    //   return JSON.parse(content);
-    // }
-
     return {};
   }
 }

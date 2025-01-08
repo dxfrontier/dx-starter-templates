@@ -56,10 +56,9 @@ export abstract class TypeScriptConfigBase extends Config {
 
   /**
    * @override
-   * We do not call `createConfig` here because we use Projen standard TypeScript configuration.
    */
   public setup(): void {
-    // this.createConfig();
+    this.createConfig();
     
     this.npmConfig?.addDevDependencies(this.devDependencies);
   }
