@@ -1,9 +1,22 @@
+import { javascript } from 'projen';
 import { NpmConfigBase } from '../base';
+import { ProjectStartupOptions } from '../types';
 
 /**
  * NPM implementing all relevant configuration for the Jsii project.
  */
 export class NpmConfigJsii extends NpmConfigBase {
+  /**
+   * @override
+   */
+  public static get projectOptions(): ProjectStartupOptions {
+    return {
+      licensed: false,
+      packageManager: javascript.NodePackageManager.NPM,
+      npmignoreEnabled: false,
+    };
+  }
+
   /**
    * @override
    */

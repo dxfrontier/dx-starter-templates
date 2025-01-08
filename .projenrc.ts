@@ -1,4 +1,4 @@
-import { cdk, javascript } from 'projen';
+import { cdk } from 'projen';
 import { NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
 // import { TypeScriptProjectBase } from './src/base';
 
@@ -15,29 +15,19 @@ import { NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
 //   VsCodeJsii,
 // } from './src/jsii';
 
-// TODO:: move options to config modules
 // export project for testing
 export const project = new cdk.JsiiProject({
+  // These options are mandatory and cannot be spreaded
   name: '@dxfrontier/projen-template-projects',
   repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
   author: 'Mathias von Kaiz',
   authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
   copyrightOwner: 'ABS GmbH',
-  licensed: false,
   defaultReleaseBranch: 'dev',
-  
-  packageManager: javascript.NodePackageManager.NPM,
-  npmignoreEnabled: false,
 
-  projenrcTs: true,
-  disableTsconfigDev: false,
-  // disableTsconfig: false, // cannot be set as Jsii forces its own Typescript file
-  
-  // tsconfig: {
-  //   compilerOptions: {
-  //     allowImportingTsExtensions: true,
-  //   },
-  // },
+  // additional options
+  ...NpmConfigJsii.projectOptions,
+  ...TypeScriptConfigJsii.projectOptions,
   
   prettier: false,
   eslint: false,
@@ -53,7 +43,7 @@ export const project = new cdk.JsiiProject({
 
 // mimicRegistryHooks(project);+
 
-// First initialize all configurations to enable config dependencies
+// First initialize all configurations to enable config dependencies between the configuration modules
 const npmConfig = new NpmConfigJsii(project);
 const tsConfig = new TypeScriptConfigJsii(project);
 

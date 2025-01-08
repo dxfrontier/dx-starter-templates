@@ -46,9 +46,9 @@ export abstract class NpmConfigBase extends Config {
 
   /**
    * @override
+   * We do not call `createConfig` here because we use Projen standard NPM configuration.
    */
   public setup(): void {
-    super.setup();
     // this.createConfig();
   }
 }

@@ -1,10 +1,27 @@
 import { TypeScriptConfigBase } from '../base';
+import { ProjectStartupOptions } from '../types';
 
 /**
  * TypeScript implementing all relevant configuration for the Jsii project.
  * @extends TypeScriptConfigBase
  */
 export class TypeScriptConfigJsii extends TypeScriptConfigBase {
+  /**
+   * @override
+   */
+  public static get projectOptions(): ProjectStartupOptions {
+    return {
+      projenrcTs: true,
+      disableTsconfigDev: false,
+      tsconfig: {
+        compilerOptions: {
+          allowImportingTsExtensions: true,
+        },
+      },
+      // disableTsconfig: false, // cannot be set as Jsii forces its own Typescript file
+    };
+  }
+  
   /**
    * @override
    */
@@ -24,10 +41,10 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
    * Existing config of projen is taken into account.
    */
   protected get config(): Record<string, unknown> {
-    const content = this.deletedConfigFileContents.get(this.configFilePath);
-    if (content) {
-      return JSON.parse(content);
-    }
+    // const content = this.deletedConfigFileContents.get(this.configFilePath);
+    // if (content) {
+    //   return JSON.parse(content);
+    // }
 
     return {};
   }
