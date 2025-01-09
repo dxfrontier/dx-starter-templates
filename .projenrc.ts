@@ -54,4 +54,49 @@ tsConfig.setup();
 // new HuskyJsii(project as unknown as TypeScriptProjectBase);
 // new CommitLintJsii(project as unknown as TypeScriptProjectBase);
 
+// const sample = new SampleFile(project, 'tmp.txt', {
+//   contents: `
+//     a
+//     c
+//   `,
+// });
+
+// new TextFile(project, 'a.txt', {
+//   lines: ['a', 'b']
+// })
+
+// project.preSynthesize = function () {
+//   console.log('preSynthesize');
+//   // project.addFields({
+//   //   tmp: 'tmp'
+//   // });
+// }.bind(project)
+
+// // const tmp = project.files.find(file => file.toString().includes('tmp.txt'));
+// console.log((sample as any).options.contents)
+// // console.log(file)
+// // const options = { contents: '\n    a\n    c\n  ' };
+
+// // Step 1: Parse the contents into an array of lines, trimming whitespace
+// const lines = (sample as any).options.contents
+//   .trim() // Remove any surrounding whitespace
+//   .split('\n') // Split the string into lines
+//   .map((line: any) => line.trim()); // Remove any leading/trailing spaces from each line
+
+// // Step 2: Insert 'b' between 'a' and 'c' (or at the appropriate place)
+// if (!lines.includes('b')) {
+//   lines.push('b'); // Add 'b' to the array if it's not already there
+// }
+
+// // Step 3: Sort the lines alphabetically to ensure order
+// lines.sort((a: any, b: any) => a.localeCompare(b));
+
+// // Step 4: Join the lines back into a string
+// const updatedContents = lines.join('\n');
+
+// // Step 5: Assign the updated string back to sample.options.contents
+// (sample as any).options.contents = updatedContents;
+
+
+
 project.synth();

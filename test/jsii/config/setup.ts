@@ -21,4 +21,3 @@ afterEach((): void => {
   jest.resetAllMocks();
   jest.resetModules();
 });
-// import './npm.test.ts';

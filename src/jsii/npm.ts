@@ -1,6 +1,6 @@
 import { javascript } from 'projen';
 import { NpmConfigBase } from '../base';
-import { NpmPackageJsonSettings, ProjectStartupOptions } from '../types';
+import { ConfigContent, ProjectOptions } from '../types';
 
 /**
  * NPM implementing all relevant configuration for the Jsii project.
@@ -9,7 +9,7 @@ export class NpmConfigJsii extends NpmConfigBase {
   /**
    * @override
    */
-  public static get projectOptions(): ProjectStartupOptions {
+  public static get projectOptions(): ProjectOptions {
     return {
       licensed: false,
       packageManager: javascript.NodePackageManager.NPM,
@@ -19,58 +19,23 @@ export class NpmConfigJsii extends NpmConfigBase {
 
   /**
    * @override
-   * Use Projen standard TypeScript configuration.
    */
-  protected get configFilePath(): string[] {
-    return [];
-  }
-
-  /**
-   * @override
-   * Use Projen standard TypeScript configuration.
-   */
-  protected get config(): string[] {
-    return [];
-  }
-
-  /**
-   * @override
-   * Use Projen standard TypeScript configuration.
-   */
-  protected createConfig(): void {}
-
-  /**
-   * Development dependencies for the configuration module.
-   * @protected
-   */
-  protected get devDependencies(): string[] {
-    return [
-      'jsii@^5.7.4',
-      'jsii-diff@^1.106.0',
-      'jsii-docgen@^10.6.1',
-      'jsii-pacmak@^1.106.0',
-      'jsii-rosetta@^5.7.2',
-    ];
-  }
-
-  /**
-   * Peer dependencies for the configuration module.
-   * @protected
-   */
-  protected get peerDependencies(): string[] {
-    return [
-      'constructs@^10.4.2',
-      'projen@^0.91.5',
-    ];
-  }
-
-  /**
-   * Settings for `package.json` file.
-   * @protected
-   */
-  protected get settings(): NpmPackageJsonSettings {
+  protected get config(): ConfigContent {
     return {
-      files: ['lib', '.jsii', 'README.md'],
+      devDependencies: [    
+        'jsii@^5.7.4',
+        'jsii-diff@^1.106.0',
+        'jsii-docgen@^10.6.3',
+        'jsii-pacmak@^1.106.0',
+        'jsii-rosetta@^5.7.2',
+      ],
+      peerDependencies: [
+        'constructs@^10.4.2',
+        'projen@^0.91.6',
+      ],
+      settings: { 
+        files: ['lib', '.jsii', 'README.md']
+      }
     };
   }
   
@@ -78,8 +43,8 @@ export class NpmConfigJsii extends NpmConfigBase {
    * @override
    */
   public setup(): void {
-    this.addDevDependencies(this.devDependencies);
-    this.addPeerDependencies(this.peerDependencies);
-    this.addSettings(this.settings);
-  };
+    this.addDevDependencies(this.config.devDependencies!);
+    this.addPeerDependencies(this.config.peerDependencies!);
+    this.addSettings(this.config.settings!);
+  }
 }

@@ -13,7 +13,7 @@ test('Config is registered in project registry', (): void => {
 
 test('Additional/Overrides devDependencies are added properly', (): void => {
   const expectedDevDependencies: string[] = [
-    'typescript@^5.7.2',
+    'typescript@^5.7.3',
     '@types/node@^22.10.5',
     'ts-node@^10.9.2',
   ];

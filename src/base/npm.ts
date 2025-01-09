@@ -1,7 +1,6 @@
 import { NpmPackageJsonSettings } from '../types';
 import { Config } from './config';
 import { TypeScriptProjectBase } from './project';
-// import { ProjenStandardScript } from '../types';
 
 /**
  * Base class for NPM implementing all relevant configuration.
@@ -16,68 +15,32 @@ export abstract class NpmConfigBase extends Config {
 
     this.addConfigToRegistry('npm');
   }
-  
-  /**
-   * @override
-   */
-  protected get deleteConfigFilePaths(): string[] {
-    return [];
-  }
 
   /**
-   * Development dependencies for the configuration module.
-   * @protected
-   */
-  protected get devDependencies(): string[] {
-    return [];
-  }
-
-  /**
-   * Peer dependencies for the configuration module.
-   * @protected
-   */
-  protected get peerDependencies(): string[] {
-    return [];
-  }
-
-  /**
-   * Dependencies for the configuration module.
-   * @protected
-   */
-  protected get dependencies(): string[] {
-    return [];
-  }
-
-  /**
-   * Installs development dependencies for the config in the project.
+   * Adds development dependencies in the `package.json` file.
+   * @param devDependencies Development dependencies to be installed.
    * @public
    */
-  public addDevDependencies(dependencies: string[]): void {
-    this.project.addDevDeps(...dependencies);
+  public addDevDependencies(devDependencies: string[]): void {
+    this.project.addDevDeps(...devDependencies);
   }
 
   /**
-   * Installs peer dependencies for the config in the project.
+   * Adds peer dependencies in the `package.json` file.
+   * @param peerDependencies Peer dependencies to be installed.
    * @public
    */
-  public addPeerDependencies(dependencies: string[]): void {
-    this.project.addPeerDeps(...dependencies);
+  public addPeerDependencies(peerDependencies: string[]): void {
+    this.project.addPeerDeps(...peerDependencies);
   }
 
   /**
-   * Installs dependencies for the config in the project.
+   * Adds dependencies in the `package.json` file.
+   * @param dependencies Dependencies to be installed.
    * @public
    */
   public addDependencies(dependencies: string[]): void {
     this.project.addDeps(...dependencies);
-  }
-
-  /**
-   * Settings for `package.json` file.
-   * @protected
-   */
-  protected get settings(): NpmPackageJsonSettings {
-    return {};
   }
 
   /**

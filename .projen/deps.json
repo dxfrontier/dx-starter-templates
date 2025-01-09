@@ -30,7 +30,7 @@
     },
     {
       "name": "jsii-docgen",
-      "version": "^10.6.1",
+      "version": "^10.6.3",
       "type": "build"
     },
     {
@@ -63,7 +63,7 @@
     },
     {
       "name": "typescript",
-      "version": "^5.7.2",
+      "version": "^5.7.3",
       "type": "build"
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "name": "projen",
-      "version": "^0.91.5",
+      "version": "^0.91.6",
       "type": "peer"
     }
   ],

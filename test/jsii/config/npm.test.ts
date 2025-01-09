@@ -18,9 +18,9 @@ test('Files property in package.json is set properly', (): void => {
 
 test('Additional/Overrides devDependencies are added properly', (): void => {
   const expectedDevDependencies: string[] = [
-    'constructs@10.4.2', 'projen@0.91.5', 'jsii@^5.7.4',
+    'constructs@10.4.2',
     'jsii-diff@^1.106.0',
-    'jsii-docgen@^10.6.1',
+    'jsii-docgen@^10.6.3',
     'jsii-pacmak@^1.106.0',
     'jsii-rosetta@^5.7.2',
   ];
@@ -28,6 +28,6 @@ test('Additional/Overrides devDependencies are added properly', (): void => {
 });
 
 test('Additional/Overrides peerDependencies are added properly', (): void => {
-  const expectedDevDependencies: string[] = ['constructs@^10.4.2', 'projen@^0.91.5'];
+  const expectedDevDependencies: string[] = ['constructs@^10.4.2', 'projen@^0.91.6'];
   npm.testPeerDependencies(snapshot, expectedDevDependencies);
 });

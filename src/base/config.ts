@@ -1,7 +1,5 @@
-import { FileBase } from 'projen';
 import { TypeScriptProjectBase } from './project';
-import type { ConfigRegistry, ProjectStartupOptions } from '../types';
-import fs from 'fs';
+import type { ConfigContent, ConfigRegistry, ProjectOptions } from '../types';
 
 /**
  * Base class for creating project configurations.
@@ -32,7 +30,7 @@ export abstract class Config {
    * These options are used in the project instantiation.
    * @returns 
    */
-  public static get projectOptions(): ProjectStartupOptions {
+  public static get projectOptions(): ProjectOptions {
     return {};
   }
 
@@ -57,75 +55,23 @@ export abstract class Config {
   }
 
   /**
-   * File paths to be removed for the specific configuration.
-   * @return File paths to Projen config files to be deleted.
+   * Provides the configuration content.
+   * Subclasses should override this to define their specific configuration.
+   *
+   * @return A unified configuration object containing all settings.
    * @protected
    * @abstract
    */
-  protected abstract get deleteConfigFilePaths(): string[];
-  
-  /**
-   * Deletes configuration files from the Projen project structure.
-   * 
-   * This method is responsible for removing the specified configuration files,
-   * which are defined by `deleteConfigFilePaths`. It handles both Projen-managed
-   * files and non-Projen files in the project.
-   * 
-   * - If the file is managed by Projen, the method tries to find it using
-   *   `tryFindFile` and, if found, removes it from the project.
-   * - For non-Projen files, the method directly checks if the file exists
-   *   on the file system, and then deletes it from the file system.
-   * 
-   * @protected
-   * @see `deleteConfigFilePaths` for the list of files to be deleted.
-   * 
-   * @throws {Error} Will log any errors encountered during the file deletion process.
-   */
-  protected deleteConfigFiles(): void {
-    for (const path of this.deleteConfigFilePaths) {
-      const fb: FileBase | undefined = this.project.tryFindFile(path);
-      if (fb) {
-        this.project.tryRemoveFile(path);
-        return;
-      }
+  protected abstract get config(): ConfigContent;
 
-      try {
-        // In case it was not a Projen controlled file
-        // then the file is deleted directly.
-        if (fs.existsSync(path)) {
-          fs.unlinkSync(path);
-        }
-      } catch (err: unknown) {
-        console.error(`Error deleting file: ${path}`);
-        console.error(err);
-      }
-    }
-  };
-
-  /**
-   * File path(s) to configuration module config file(s).
-   * @return File path(s) to config file(s).
-   * @protected
-   * @abstract
-   */
-  protected abstract get configFilePath(): string | string[];
-
-  /**
-   * Config for configuration module.
-   * @return TypeScript config file contents/settings as array lines or record entries.
-   * @protected
-   * @abstract
-   */
-  protected abstract get config(): string[] | Record<string, unknown>;
-
-  /**
-   * Creates the config file(s)/settings for the TypeScript configuration.
-   * Should use `config` to create the configuration file(s)/settings.
-   * @protected
-   * @abstract
-   * @see `config` for the TypeScript configuration settings.
-   */
-  protected abstract createConfig(): void;
+  // /**
+  //  * Adds config file(s)/settings for the configuration module.
+  //  * Should use `config` to create the configuration file(s)/settings.
+  //  * @protected
+  //  * @abstract
+  //  * @see `config` for the configuration module settings.
+  //  */
+  // protected abstract addConfig(): void;
 
   /**
    * Set up the configuration for the project.
