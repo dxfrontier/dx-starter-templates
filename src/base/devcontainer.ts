@@ -84,10 +84,10 @@ export abstract class DevContainerConfigBase extends Config {
                 "tamasfe.even-better-toml",
                 'github.copilot',
               ]
-            }
-          }
+            },
+          },
         },
-      }
+      },
     };
   }
 

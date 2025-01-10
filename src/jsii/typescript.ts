@@ -14,7 +14,7 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
       projenrcTs: true,
       disableTsconfigDev: false,
       // disableTsconfig: false, // cannot be set as Jsii forces its own Typescript file
-      ...super.projectOptions
+      ...super.projectOptions,
     };
   }
 

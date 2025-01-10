@@ -1,5 +1,5 @@
 import { cdk } from 'projen';
-import { DevContainerConfigJsii, NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
+import { DevContainerConfigJsii, NpmConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from './src/jsii';
 
 // export project for testing
 export const project = new cdk.JsiiProject({
@@ -15,6 +15,7 @@ export const project = new cdk.JsiiProject({
   ...NpmConfigJsii.projectOptions,
   ...TypeScriptConfigJsii.projectOptions,
   ...DevContainerConfigJsii.projectOptions,
+  ...VsCodeConfigJsii.projectOptions,
   
   prettier: false,
   eslint: false,
@@ -30,11 +31,13 @@ export const project = new cdk.JsiiProject({
 const npmConfig = new NpmConfigJsii(project);
 const tsConfig = new TypeScriptConfigJsii(project);
 const devContainerConfig = new DevContainerConfigJsii(project);
+const vsCodeConfig = new VsCodeConfigJsii(project);
 
 // Then setup all configurations
 npmConfig.setup();
 tsConfig.setup();
 devContainerConfig.setup();
+vsCodeConfig.setup();
 
 
 
