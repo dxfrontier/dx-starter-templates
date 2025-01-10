@@ -87,6 +87,7 @@ describe('JsiiProject Constructor Options', (): void => {
 
       prettier: false,
       eslint: false,
+      vscode: false,
 
       githubOptions: { mergify: false, pullRequestLint: false },
       buildWorkflow: false,

@@ -92,11 +92,11 @@ export abstract class DevContainerConfigBase extends Config {
   }
 
   /**
-   * Creates the config file for DevContainer.
+   * Creates the config file for DevContainer config.
    * @private
    */
   private createConfigFile(): void {
-    const path = Object.keys(this.config.configFiles!)[0];
+    const path: string = Object.keys(this.config.configFiles!)[0];
     new JsonFile(this.project, path, {
       omitEmpty: true,
       allowComments: true,
