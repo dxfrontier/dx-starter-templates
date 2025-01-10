@@ -1,13 +1,13 @@
 import { SynthOutput } from 'projen/lib/util/synth';
-import * as common from './common';
 
 /**
- * Validates that npm dev dependencies are added properly.
+ * Validates that TypeScript settings are added properly.
  * @param snapshot Synthesized project output.
- * @param expectedDevDependencies List of expected devDependencies to test for.
+ * @param expectedSettings Records of expected settings to test for.
  */
-export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: string[] = []): void {
-  const standardDevDependencies: string[] = [];
-  const devDependencies: string[] = expectedDevDependencies.length ? expectedDevDependencies : standardDevDependencies;
-  common.testDevDependencies(snapshot, devDependencies);
+export function testSettings(snapshot: SynthOutput, expectedSettings: Record<string, unknown>): void {
+  const standardSettings: Record<string, unknown> = {};
+  const settings: Record<string, unknown> = expectedSettings ? expectedSettings : standardSettings;
+
+  expect(snapshot['tsconfig.dev.json']).toStrictEqual(settings);
 }

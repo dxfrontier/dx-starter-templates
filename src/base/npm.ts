@@ -18,8 +18,8 @@ export abstract class NpmConfigBase extends Config {
   }
 
   /**
-     * @override
-     */
+   * @override
+   */
   public static get projectOptions(): ProjectOptions {
     return {
       licensed: false,
@@ -72,6 +72,9 @@ export abstract class NpmConfigBase extends Config {
    */
   public addScripts(scripts: Record<string, string>): void {
     const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
-    packageJson!.patch(JsonPatch.add('/scripts', scripts));
+
+    for (const script in scripts) {
+      packageJson!.patch(JsonPatch.add(`/scripts/${script}`, scripts[script]));
+    }
   }
 }

@@ -1,3 +1,13 @@
+/**
+ * Test files test the whole results of the Projen project creation
+ * configuration orchestration. E.g. the npm test module does test the result of the whole `package.json` file
+ * and that the devcontainer config module scripts are created. The devcontainer test module itself will not test
+ * if the related devcontainer npm scripts are created.
+ * 
+ * The `setup.ts` file includes all relevant bootstrap steps for the test files.
+ * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
+ **/
+
 import { Config } from '../../../src/base';
 import * as common from '../../shared/common';
 import * as vscode from '../../shared/vscode';

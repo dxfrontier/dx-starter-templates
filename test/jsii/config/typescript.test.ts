@@ -1,3 +1,13 @@
+/**
+ * Test files test the whole results of the Projen project creation
+ * configuration orchestration. E.g. the npm test module does test the result of the whole `package.json` file
+ * and that the devcontainer config module scripts are created. The devcontainer test module itself will not test
+ * if the related devcontainer npm scripts are created.
+ * 
+ * The `setup.ts` file includes all relevant bootstrap steps for the test files.
+ * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
+ **/
+
 import { Config } from '../../../src/base';
 import * as common from '../../shared/common';
 import * as typescript from '../../shared/typescript';
@@ -11,11 +21,44 @@ test('Config is registered in project registry', (): void => {
   common.testConfigInRegistry('typescript', Config.configRegistry);
 });
 
-test('Additional/Overrides devDependencies are added properly', (): void => {
-  const expectedDevDependencies: string[] = [
-    'typescript@^5.7.3',
-    '@types/node@^22.10.5',
-    'ts-node@^10.9.2',
-  ];
-  typescript.testDevDependencies(snapshot, expectedDevDependencies);
+test('TypeScript settings are set properly', (): void => {
+  const expectedSettings: Record<string, unknown> = {
+    "compilerOptions": {
+      "alwaysStrict": true,
+      "declaration": true,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "inlineSourceMap": true,
+      "inlineSources": true,
+      "lib": [
+        "es2019"
+      ],
+      "module": "CommonJS",
+      "noEmitOnError": false,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "resolveJsonModule": true,
+      "strict": true,
+      "strictNullChecks": true,
+      "strictPropertyInitialization": true,
+      "stripInternal": true,
+      "target": "ES2019",
+      "allowImportingTsExtensions": true
+    },
+    "include": [
+      "src/**/*.ts",
+      "test/**/*.ts",
+      ".projenrc.ts",
+      "projenrc/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  };
+  typescript.testSettings(snapshot, expectedSettings);
 });
+

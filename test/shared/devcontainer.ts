@@ -1,5 +1,4 @@
 import { SynthOutput } from 'projen/lib/util/synth';
-import * as common from './common';
 
 /**
  * Validates that container image is set properly.
@@ -14,11 +13,11 @@ export function testImage(snapshot: SynthOutput): void {
  * @param snapshot Synthesized project output.
  */
 export function testFeatures(snapshot: SynthOutput): void {
-  const expectedFeatures = {
+  const standardFeatures = {
     'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
     'ghcr.io/devcontainers/features/github-cli': 'latest',
   };
-  expect(snapshot['.devcontainer.json'].features).toStrictEqual(expectedFeatures);
+  expect(snapshot['.devcontainer.json'].features).toStrictEqual(standardFeatures);
 }
 
 /**
@@ -26,7 +25,7 @@ export function testFeatures(snapshot: SynthOutput): void {
  * @param snapshot Synthesized project output.
  */
 export function testExtensions(snapshot: SynthOutput): void {
-  const expectedExtensions: string[] = [
+  const standardExtensions: string[] = [
     'Orta.vscode-jest',
     'firsttris.vscode-jest-runner',
     'humao.rest-client',
@@ -63,7 +62,7 @@ export function testExtensions(snapshot: SynthOutput): void {
     'tamasfe.even-better-toml',
     'github.copilot',
   ];
-  expect(snapshot['.devcontainer.json'].customizations.vscode.extensions).toStrictEqual(expectedExtensions);
+  expect(snapshot['.devcontainer.json'].customizations.vscode.extensions).toStrictEqual(standardExtensions);
 }
 
 /**
@@ -71,12 +70,6 @@ export function testExtensions(snapshot: SynthOutput): void {
  * @param snapshot Synthesized project output.
  */
 export function testCommand(snapshot: SynthOutput): void {
-  const expectedCommand: string = 'npm run install-dependencies'
-  const expectedTasks: Record<string, unknown>[] = [
-    {
-      'install-dependencies': 'npm install',
-    }
-  ];
-  expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(expectedCommand);
-  common.testScripts(snapshot, expectedTasks);
+  const standardCommand: string = 'npm run install-dependencies'
+  expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(standardCommand);
 }

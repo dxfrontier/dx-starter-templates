@@ -5,7 +5,7 @@ import { SynthOutput } from 'projen/lib/util/synth';
  * @param snapshot Synthesized project output.
  */
 export function testSettings(snapshot: SynthOutput): void {
-  const expectedSettings = {
+  const standardSettings = {
     'editor.tabSize': 2,
     'editor.stickyTabStops': true,
     'typescript.inlayHints.parameterNames.enabled': 'all',
@@ -21,5 +21,5 @@ export function testSettings(snapshot: SynthOutput): void {
     'editor.formatOnSave': true,
     'editor.formatOnPaste': true,
   };
-  expect(snapshot['.vscode/settings.json']).toStrictEqual(expectedSettings);
+  expect(snapshot['.vscode/settings.json']).toStrictEqual(standardSettings);
 }
