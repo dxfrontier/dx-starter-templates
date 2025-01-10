@@ -37,8 +37,9 @@ export abstract class DevContainerConfigBase extends Config {
       scripts: {
         'install-dependencies': 'npm install',
       },
-      configFiles: {
-        '.devcontainer.json': {
+      file: {
+        path: '.devcontainer.json',
+        content: {
           "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
           "postCreateCommand": "npm run install-dependencies",
           "features": {
@@ -93,29 +94,22 @@ export abstract class DevContainerConfigBase extends Config {
 
   /**
    * Creates the config file for DevContainer config.
-   * @private
+   * @protected
    */
-  private createConfigFile(): void {
-    const path: string = Object.keys(this.config.configFiles!)[0];
+  protected createConfigFile(): void {
+    const path: string = this.config.file!.path;
     new JsonFile(this.project, path, {
       omitEmpty: true,
       allowComments: true,
-      obj: this.config.configFiles![path],
+      obj: this.config.file!.content,
     });
   }
 
   /**
    * @override
    */
-  protected addConfig(): void {
-    this.createConfigFile();
-    this.npmConfig?.addScripts(this.config.scripts!);
-  }
-
-  /**
-   * @override
-   */
   public setup(): void {
-    this.addConfig();
+    super.setup();
+    this.npmConfig?.addScripts(this.config.scripts!);
   }
 }

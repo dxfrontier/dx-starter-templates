@@ -19,7 +19,7 @@ export abstract class TypeScriptConfigBase extends Config {
 
     this.addConfigToRegistry('typescript');
   }
-  
+
   /**
    * @override
    */
@@ -32,7 +32,7 @@ export abstract class TypeScriptConfigBase extends Config {
       },
     };
   }
-  
+
   /**
    * @override
    */
@@ -44,12 +44,5 @@ export abstract class TypeScriptConfigBase extends Config {
         'ts-node@^10.9.2',
       ]
     };
-  }
-
-  /**
-   * @override
-   */
-  public setup(): void {
-    this.addConfig();
   }
 }

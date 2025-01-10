@@ -11,12 +11,6 @@ export type ConfigRegistry = Map<string, Config | null>;
 export type ProjectOptions = Record<string, string | boolean | string[] | Record<string, unknown>>;
 
 /**
- * Structure of a projen task containing multiple steps.
- * This is derived from them Scripts type but contains an array keeping the task steps.
- */
-export type TaskSteps = Record<string, string[]>;
-
-/**
  * All record related settings.
  */
 export type Settings = { [name: string]: any };
@@ -32,8 +26,10 @@ export type Settings = { [name: string]: any };
  * @property dependencies (optional) - A list of runtime dependencies to be added to `package.json`.
  * @property scripts (optional) - A record of scripts to be added or updated in the `package.json` `scripts` section.
  * @property settings (optional) - Arbitrary settings or configurations to be added or updated in the `package.json` file.
- * @property configFiles (optional) - A record where the key represents the filename and the value represents 
+ * @property file (optional) - A record where the key represents the filename and the value represents 
  * the content of a new configuration file to be created (e.g., `.prettierrc` or `.eslintrc`).
+ * @property ignore (optional) - A record where the key represents the filename and the value represents 
+ * the content of a new ignore file to be created (e.g., `.prettierignore` or `.gitignore`).
  * @property entries (optional) - A string representing content to append or modify existing configuration files 
  * (e.g., `.gitignore`, `.prettierignore`, or `.gitattributes`).
  *
@@ -71,18 +67,26 @@ export type Settings = { [name: string]: any };
  * };
  * ```
  *
- * ### Creating new configuration files
+ * ### Creating new configuration file
  * ```typescript
  * const config: ConfigContent = {
- *   configFiles: {
+ *   file: {
  *     '.eslintrc': JSON.stringify({
  *       env: { node: true },
  *       extends: 'eslint:recommended'
  *     }),
- *     '.prettierignore': `
- *     dist/
- *     node_modules/
- *     `
+ *   }
+ * };
+ * ```
+ * 
+ * ### Creating new ignore file
+ * ```typescript
+ * const config: ConfigContent = {
+ *   ignore: {
+ *     '.prettierignore': [
+ *       'dist/',
+ *       'node_modules/',
+ *     ]
  *   }
  * };
  * ```
@@ -90,7 +94,7 @@ export type Settings = { [name: string]: any };
  * ### Updating or appending to existing configuration files
  * ```typescript
  * const config: ConfigContent = {
- *   fileUpdates: `
+ *   entries: `
  *   # Add specific patterns to ignore
  *   node_modules/
  *   dist/
@@ -104,6 +108,10 @@ export type ConfigContent = {
   dependencies?: string[];
   scripts?: Record<string, string>;
   settings?: Settings;
-  configFiles?: Record<string, string | Settings>;
-  fileUpdates?: string;
+  file?: {
+    path: string;
+    content: Settings;
+  };
+  ignore?: Record<string, string[]>;
+  entries?: Settings;
 }

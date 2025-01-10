@@ -9,8 +9,6 @@ export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {
  * @abstract
  */
 export abstract class TypeScriptProjectBase extends TypeScriptProject {
-  // public builderRegistry: Builder[] = [];
-
   /**
    * Initializes the project.
    * @param options Additional project options.

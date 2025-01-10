@@ -16,7 +16,7 @@ export abstract class Config {
    * The key is the name of the configuration module, and the value is the configuration module itself.
    */
   private static registry: ConfigRegistry = new Map();
-  
+
   /**
    * Initializes the config for a specified project.
    * @param project The project to configure the manager for.
@@ -28,6 +28,7 @@ export abstract class Config {
   /**
    * Project options for the configuration module.
    * These options are used in the project instantiation.
+   * Subclasses should overwrite this to define their specific configuration.
    * @returns 
    */
   public static get projectOptions(): ProjectOptions {
@@ -56,30 +57,46 @@ export abstract class Config {
 
   /**
    * Provides the configuration content.
-   * Subclasses should override this to define their specific configuration.
-   *
-   * @return A unified configuration object containing all settings.
+   * Subclasses should overwrite this to define their specific configuration.
+   * @return A unified configuration object containing all configuration.
    * @protected
-   * @abstract
    */
-  protected abstract get config(): ConfigContent;
+  protected get config(): ConfigContent {
+    return {};
+  }
 
   /**
-   * Adds config file(s)/settings for the configuration module.
-   * Should use `config` to create the configuration file(s)/settings.
+   * Creates the config file for configuration module using `config` property.
+   * Subclasses should overwrite this to define their specific configuration.
    * @protected
-   * @abstract
-   * @see `config` for the configuration module settings.
+   * @see `config`
    */
-  protected abstract addConfig(): void;
+  protected createConfigFile(): void { }
+
+  /**
+   * Creates the ignore file for configuration module using `config` property.
+   * Subclasses should overwrite this to define their specific configuration.
+   * @protected
+   * @see `config`
+   */
+  protected createIgnoreFile(): void { }
 
   /**
    * Set up the configuration for the project.
    * This method is called from outside in project instantiation
    * to guarantee that all configuration modules are set up before
    * `setup()` is called as we could have dependencies between them.
+   * 
+   * The basic setup runs config and ignore file creation.
+   * Subclasses should overwrite the base `createConfigFile` and `createIgnoreFile`
+   * to define their specific configuration using the `config` property.
    * @public
-   * @abstract
+   * @see `createConfigFile`
+   * @see `createIgnoreFile`
+   * @see `config`
    */
-  public abstract setup(): void;
+  public setup(): void {
+    this.createConfigFile();
+    this.createIgnoreFile();
+  }
 }

@@ -21,7 +21,8 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
   /**
    * @override
    */
-  protected addConfig(): void {
+  public setup(): void {
+    super.setup();
     this.npmConfig?.addDevDependencies(this.config.devDependencies!);
   }
 }

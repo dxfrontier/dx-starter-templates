@@ -1,6 +1,5 @@
-import { javascript } from 'projen';
 import { NpmConfigBase } from '../base';
-import { ConfigContent, ProjectOptions } from '../types';
+import { ConfigContent } from '../types';
 
 /**
  * NPM implementing all relevant configuration for the Jsii project.
@@ -9,20 +8,9 @@ export class NpmConfigJsii extends NpmConfigBase {
   /**
    * @override
    */
-  public static get projectOptions(): ProjectOptions {
-    return {
-      licensed: false,
-      packageManager: javascript.NodePackageManager.NPM,
-      npmignoreEnabled: false,
-    };
-  }
-
-  /**
-   * @override
-   */
   protected get config(): ConfigContent {
     return {
-      devDependencies: [    
+      devDependencies: [
         'jsii@^5.7.4',
         'jsii-diff@^1.106.0',
         'jsii-docgen@^10.6.3',
@@ -33,16 +21,17 @@ export class NpmConfigJsii extends NpmConfigBase {
         'constructs@^10.4.2',
         'projen@^0.91.6',
       ],
-      settings: { 
+      settings: {
         files: ['lib', '.jsii', 'README.md']
       }
     };
   }
-  
+
   /**
    * @override
    */
-  protected addConfig(): void {
+  public setup(): void {
+    super.setup();
     this.addDevDependencies(this.config.devDependencies!);
     this.addPeerDependencies(this.config.peerDependencies!);
     this.addSettings(this.config.settings!);

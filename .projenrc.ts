@@ -1,5 +1,5 @@
 import { cdk } from 'projen';
-import { DevContainerConfigJsii, NpmConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from './src/jsii';
+import { DevContainerConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from './src/jsii';
 
 // export project for testing
 export const project = new cdk.JsiiProject({
@@ -16,8 +16,8 @@ export const project = new cdk.JsiiProject({
   ...TypeScriptConfigJsii.projectOptions,
   ...DevContainerConfigJsii.projectOptions,
   ...VsCodeConfigJsii.projectOptions,
-  
-  prettier: false,
+  ...PrettierConfigJsii.projectOptions,
+
   eslint: false,
 
   githubOptions: { mergify: false, pullRequestLint: false }, // mergify and workflow pull-request-lint.yml
@@ -32,12 +32,19 @@ const npmConfig = new NpmConfigJsii(project);
 const tsConfig = new TypeScriptConfigJsii(project);
 const devContainerConfig = new DevContainerConfigJsii(project);
 const vsCodeConfig = new VsCodeConfigJsii(project);
+// const githubConfig = new GitHubConfigJsii(project);
+const prettierConfig = new PrettierConfigJsii(project);
 
 // Then setup all configurations
 npmConfig.setup();
 tsConfig.setup();
 devContainerConfig.setup();
 vsCodeConfig.setup();
+// githubConfig.setup();
+prettierConfig.setup();
+
+
+
 
 
 

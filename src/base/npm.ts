@@ -1,6 +1,7 @@
-import { JsonPatch } from 'projen';
+import { javascript, JsonPatch, ObjectFile } from 'projen';
 import { Config } from './config';
 import { TypeScriptProjectBase } from './project';
+import { ProjectOptions } from '../types';
 
 /**
  * Base class for NPM implementing all relevant configuration.
@@ -14,6 +15,17 @@ export abstract class NpmConfigBase extends Config {
     super(project);
 
     this.addConfigToRegistry('npm');
+  }
+
+  /**
+     * @override
+     */
+  public static get projectOptions(): ProjectOptions {
+    return {
+      licensed: false,
+      packageManager: javascript.NodePackageManager.NPM,
+      npmignoreEnabled: false,
+    };
   }
 
   /**
@@ -54,19 +66,12 @@ export abstract class NpmConfigBase extends Config {
   /**
    * Adds scripts in the `package.json` file.
    * @public
+   * Projen public API is not used as it would 
+   * create Projen related tasks like `npx projen task` and would not be convenient
+   * for projects that need a non Projen related approach on scaffolding.
    */
   public addScripts(scripts: Record<string, string>): void {
-    // for (const [name, command] of Object.entries(scripts)) {
-    //   this.project.addTask(name, { exec: command as string, receiveArgs: true });
-    // }
-    const packageJson = this.project.tryFindObjectFile('package.json');
+    const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
     packageJson!.patch(JsonPatch.add('/scripts', scripts));
-  }
-
-  /**
-   * @override
-   */
-  public setup(): void {
-    this.addConfig();
   }
 }

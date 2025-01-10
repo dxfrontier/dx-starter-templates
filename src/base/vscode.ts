@@ -31,8 +31,9 @@ export abstract class VsCodeConfigBase extends Config {
    */
   protected get config(): ConfigContent {
     return {
-      configFiles: {
-        '.vscode/settings.json': {
+      file: {
+        path: '.vscode/settings.json',
+        content: {
           'editor.tabSize': 2,
           'editor.stickyTabStops': true,
           'typescript.inlayHints.parameterNames.enabled': 'all',
@@ -54,28 +55,14 @@ export abstract class VsCodeConfigBase extends Config {
 
   /**
    * Creates the config file for VsCode config.
-   * @private
+   * @protected
    */
-  private createConfigFile(): void {
-    const path: string = Object.keys(this.config.configFiles!)[0];
+  protected createConfigFile(): void {
+    const path: string = this.config.file!.path;
     new JsonFile(this.project, path, {
       omitEmpty: true,
       allowComments: true,
-      obj: this.config.configFiles![path],
+      obj: this.config.file!.content,
     });
-  }
-
-  /**
-   * @override
-   */
-  protected addConfig(): void {
-    this.createConfigFile();
-  }
-
-  /**
-   * @override
-   */
-  public setup(): void {
-    this.addConfig();
   }
 }

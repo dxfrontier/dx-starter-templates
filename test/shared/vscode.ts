@@ -1,5 +1,4 @@
 import { SynthOutput } from 'projen/lib/util/synth';
-import * as common from '../../test/shared/common';
 
 /**
  * Validates that VsCode settings are set properly.
@@ -23,14 +22,4 @@ export function testSettings(snapshot: SynthOutput): void {
     'editor.formatOnPaste': true,
   };
   expect(snapshot['.vscode/settings.json']).toStrictEqual(expectedSettings);
-}
-
-/**
- * Validates that project related files are added to .gitattributes and defined as linguist-generated.
- * @param snapshot Synthesized project output.
- */
-export function testGitAttributes(snapshot: SynthOutput): void {
-  const patterns: RegExp[] = [/\/\.vscode\/settings\.json linguist-generated( $|\s|$)/m];
-
-  common.testGitAttributes(snapshot, patterns);
 }
