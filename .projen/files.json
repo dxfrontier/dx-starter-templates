@@ -1,5 +1,6 @@
 {
   "files": [
+    ".devcontainer.json",
     ".gitattributes",
     ".gitignore",
     ".projen/deps.json",

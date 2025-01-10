@@ -1,4 +1,4 @@
-import { ConfigContent } from '../types';
+import { ConfigContent, ProjectOptions } from '../types';
 import { Config } from './config';
 import { NpmConfigBase } from './npm';
 import { TypeScriptProjectBase } from './project';
@@ -19,7 +19,20 @@ export abstract class TypeScriptConfigBase extends Config {
 
     this.addConfigToRegistry('typescript');
   }
-
+  
+  /**
+   * @override
+   */
+  public static get projectOptions(): ProjectOptions {
+    return {
+      tsconfig: {
+        compilerOptions: {
+          allowImportingTsExtensions: true,
+        },
+      },
+    };
+  }
+  
   /**
    * @override
    */
@@ -37,6 +50,6 @@ export abstract class TypeScriptConfigBase extends Config {
    * @override
    */
   public setup(): void {
-    this.npmConfig?.addDevDependencies(this.config.devDependencies as string[]);
+    this.addConfig();
   }
 }

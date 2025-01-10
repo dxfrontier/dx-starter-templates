@@ -1,6 +1,5 @@
 import { SynthOutput } from 'projen/lib/util/synth';
 import * as common from './common';
-import { TaskSteps } from '../../src/types';
 
 /**
  * Validates that container image is set properly.
@@ -72,11 +71,12 @@ export function testExtensions(snapshot: SynthOutput): void {
  * @param snapshot Synthesized project output.
  */
 export function testCommand(snapshot: SynthOutput): void {
-  const expectedTasks: TaskSteps = {
-    'install-dependencies': ['npm install'],
-  };
-  expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(
-    snapshot['package.json']!.scripts['install-dependencies'],
-  );
+  const expectedCommand: string = 'npm run install-dependencies'
+  const expectedTasks: Record<string, unknown>[] = [
+    {
+      'install-dependencies': 'npm install',
+    }
+  ];
+  expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(expectedCommand);
   common.testScripts(snapshot, expectedTasks);
 }

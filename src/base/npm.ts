@@ -1,4 +1,4 @@
-import { NpmPackageJsonSettings } from '../types';
+import { JsonPatch } from 'projen';
 import { Config } from './config';
 import { TypeScriptProjectBase } from './project';
 
@@ -47,7 +47,26 @@ export abstract class NpmConfigBase extends Config {
    * Adds entries in the `package.json` file.
    * @public
    */
-  public addSettings(settings: NpmPackageJsonSettings): void {
+  public addSettings(settings: Record<string, string>): void {
     this.project.addFields(settings);
+  }
+
+  /**
+   * Adds scripts in the `package.json` file.
+   * @public
+   */
+  public addScripts(scripts: Record<string, string>): void {
+    // for (const [name, command] of Object.entries(scripts)) {
+    //   this.project.addTask(name, { exec: command as string, receiveArgs: true });
+    // }
+    const packageJson = this.project.tryFindObjectFile('package.json');
+    packageJson!.patch(JsonPatch.add('/scripts', scripts));
+  }
+
+  /**
+   * @override
+   */
+  public setup(): void {
+    this.addConfig();
   }
 }

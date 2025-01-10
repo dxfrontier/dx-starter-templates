@@ -1,5 +1,5 @@
 import { SynthOutput } from 'projen/lib/util/synth';
-import { ConfigRegistry, TaskSteps } from '../../src/types';
+import { ConfigRegistry } from '../../src/types';
 
 /**
  * Validates that project related files are added to .gitattributes and defined as linguist-generated.
@@ -13,18 +13,15 @@ export function testGitAttributes(snapshot: SynthOutput, patterns: RegExp[]): vo
 }
 
 /**
- * Validates that npm scripts are added correctly by comparing the snapshot of tasks.json with expected tasks and steps.
+ * Validates that npm scripts are added correctly to `package.json` scripts area.
  * @param snapshot Synthesized project output.
  * @param expectedTasks Task names and their corresponding expected steps to compare with the snapshot.
  */
-export function testScripts(snapshot: SynthOutput, expectedTasks: TaskSteps): void {
-  const tasks: Record<string, any> = snapshot['.projen/tasks.json'].tasks;
-  for (const [name, steps] of Object.entries(expectedTasks)) {
-    expect(tasks).toHaveProperty(name);
-    steps.forEach((step: string, index: number): void => {
-      expect(tasks[name].steps[index].exec).toBe(step);
-    });
-  }
+export function testScripts(snapshot: SynthOutput, expectedTasks: Record<string, unknown>[]): void {
+  expectedTasks.forEach((task) => {
+    const [key, value] = Object.entries(task)[0];
+    expect(snapshot['package.json']!.scripts[key]).toBe(value);
+  });
 }
 
 /**

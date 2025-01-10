@@ -1,15 +1,5 @@
 import { cdk } from 'projen';
-import { NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
-// import {
-//   CommitLintJsii,
-//   DevContainerJsii,
-//   GitHubJsii,
-//   HuskyJsii,
-//   NpmPackageJsii,
-//   PrettierJsii,
-//   EslintJsii,
-//   VsCodeJsii,
-// } from './src/jsii';
+import { DevContainerConfigJsii, NpmConfigJsii, TypeScriptConfigJsii } from './src/jsii';
 
 // export project for testing
 export const project = new cdk.JsiiProject({
@@ -24,6 +14,7 @@ export const project = new cdk.JsiiProject({
   // additional options
   ...NpmConfigJsii.projectOptions,
   ...TypeScriptConfigJsii.projectOptions,
+  ...DevContainerConfigJsii.projectOptions,
   
   prettier: false,
   eslint: false,
@@ -38,10 +29,12 @@ export const project = new cdk.JsiiProject({
 // First initialize all configurations to enable config dependencies between the configuration modules
 const npmConfig = new NpmConfigJsii(project);
 const tsConfig = new TypeScriptConfigJsii(project);
+const devContainerConfig = new DevContainerConfigJsii(project);
 
 // Then setup all configurations
 npmConfig.setup();
 tsConfig.setup();
+devContainerConfig.setup();
 
 
 

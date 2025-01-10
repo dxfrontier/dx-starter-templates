@@ -64,14 +64,14 @@ export abstract class Config {
    */
   protected abstract get config(): ConfigContent;
 
-  // /**
-  //  * Adds config file(s)/settings for the configuration module.
-  //  * Should use `config` to create the configuration file(s)/settings.
-  //  * @protected
-  //  * @abstract
-  //  * @see `config` for the configuration module settings.
-  //  */
-  // protected abstract addConfig(): void;
+  /**
+   * Adds config file(s)/settings for the configuration module.
+   * Should use `config` to create the configuration file(s)/settings.
+   * @protected
+   * @abstract
+   * @see `config` for the configuration module settings.
+   */
+  protected abstract addConfig(): void;
 
   /**
    * Set up the configuration for the project.

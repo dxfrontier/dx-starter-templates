@@ -42,7 +42,7 @@ export class NpmConfigJsii extends NpmConfigBase {
   /**
    * @override
    */
-  public setup(): void {
+  protected addConfig(): void {
     this.addDevDependencies(this.config.devDependencies!);
     this.addPeerDependencies(this.config.peerDependencies!);
     this.addSettings(this.config.settings!);

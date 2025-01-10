@@ -38,4 +38,5 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+!/.devcontainer.json
 !/.projenrc.ts

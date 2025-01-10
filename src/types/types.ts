@@ -17,9 +17,9 @@ export type ProjectOptions = Record<string, string | boolean | string[] | Record
 export type TaskSteps = Record<string, string[]>;
 
 /**
- * Entries in the `package.json` file.
+ * All record related settings.
  */
-export type NpmPackageJsonSettings = { [name: string]: any };
+export type Settings = { [name: string]: any };
 
 /**
  * Represents the configuration structure for various project setup components.
@@ -103,7 +103,7 @@ export type ConfigContent = {
   peerDependencies?: string[];
   dependencies?: string[];
   scripts?: Record<string, string>;
-  settings?: NpmPackageJsonSettings;
-  configFiles?: Record<string, string>;
+  settings?: Settings;
+  configFiles?: Record<string, string | Settings>;
   fileUpdates?: string;
 }

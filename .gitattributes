@@ -2,6 +2,7 @@
 
 * text=auto eol=lf
 *.snap linguist-generated
+/.devcontainer.json linguist-generated
 /.gitattributes linguist-generated
 /.gitignore linguist-generated
 /.projen/** linguist-generated

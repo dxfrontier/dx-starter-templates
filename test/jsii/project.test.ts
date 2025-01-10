@@ -5,13 +5,15 @@
  */
 import { cdk, javascript } from 'projen';
 import { JsiiProject } from 'projen/lib/cdk/index';
-// import { Config, TypeScriptProjectBase } from '../../src/base/index.ts';
 
 jest.mock('projen', (): any => ({
   javascript: {
     NodePackageManager: {
       NPM: 'npm',
     },
+  },
+  JsonPatch: {
+    add: jest.fn(),
   },
   cdk: {
     JsiiProject: jest.fn().mockImplementation((_config: any): Record<string, any> => {
@@ -24,6 +26,11 @@ jest.mock('projen', (): any => ({
         addTask: jest.fn(),
         addDevDeps: jest.fn(),
         addPeerDeps: jest.fn(),
+        tryFindObjectFile: jest.fn().mockImplementation((_fileName: string) => {
+          return {
+            patch: jest.fn(),
+          };
+        }),
       };
     }),
   },
@@ -36,6 +43,7 @@ jest.mock('projen/lib/github/pr-template', (): any => {
     PullRequestTemplate: jest.fn(),
   };
 });
+
 
 describe('JsiiProject Constructor Options', (): void => {
   let project: JsiiProject;
@@ -71,6 +79,11 @@ describe('JsiiProject Constructor Options', (): void => {
 
       projenrcTs: true,
       disableTsconfigDev: false,
+      tsconfig: {
+        compilerOptions: {
+          allowImportingTsExtensions: true,
+        },
+      },
 
       prettier: false,
       eslint: false,
@@ -80,12 +93,8 @@ describe('JsiiProject Constructor Options', (): void => {
       release: false,
       pullRequestTemplate: false,
       depsUpgrade: false,
-      
-      tsconfig: {
-        compilerOptions: {
-          allowImportingTsExtensions: true,
-        },
-      },
+
+      devContainer: false,
     });
   });
 

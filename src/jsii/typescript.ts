@@ -13,12 +13,15 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
     return {
       projenrcTs: true,
       disableTsconfigDev: false,
-      tsconfig: {
-        compilerOptions: {
-          allowImportingTsExtensions: true,
-        },
-      },
       // disableTsconfig: false, // cannot be set as Jsii forces its own Typescript file
+      ...super.projectOptions
     };
+  }
+
+  /**
+   * @override
+   */
+  protected addConfig(): void {
+    this.npmConfig?.addDevDependencies(this.config.devDependencies!);
   }
 }
