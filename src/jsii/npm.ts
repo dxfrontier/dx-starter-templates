@@ -1,10 +1,23 @@
 import { NpmConfigBase } from '../base';
 import { ConfigContent } from '../types';
+import { PrettierConfigJsii } from './';
 
 /**
  * NPM implementing all relevant configuration for the Jsii project.
  */
 export class NpmConfigJsii extends NpmConfigBase {
+  /**
+   * @override
+   */
+  public setup(): void {
+    this.addDevDependencies(this.config.devDependencies!);
+    this.addPeerDependencies(this.config.peerDependencies!);
+    this.addSettings(this.config.settings!);
+
+    // Dependency Injected Modules in shared config registry
+    this.getConfigFromRegistry<PrettierConfigJsii>('prettier')?.addIgnoreEntries(this.config.entries as string[]);
+  }
+
   /**
    * @override
    */
@@ -23,17 +36,17 @@ export class NpmConfigJsii extends NpmConfigBase {
       ],
       settings: {
         files: ['lib', '.jsii', 'README.md']
-      }
+      },
+      entries: [
+        '*.snap',
+        '/.projen/**',
+        '/.projen/deps.json',
+        '/.projen/files.json',
+        '/.projen/tasks.json',
+        '/package-lock.json',
+        '/package.json',
+        '/API.md',
+      ],
     };
-  }
-
-  /**
-   * @override
-   */
-  public setup(): void {
-    super.setup();
-    this.addDevDependencies(this.config.devDependencies!);
-    this.addPeerDependencies(this.config.peerDependencies!);
-    this.addSettings(this.config.settings!);
   }
 }

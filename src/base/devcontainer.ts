@@ -3,14 +3,13 @@ import { ConfigContent, ProjectOptions } from '../types';
 import { Config } from './config';
 import { NpmConfigBase } from './npm';
 import { TypeScriptProjectBase } from './project';
+import { PrettierConfigBase } from './prettier';
 
 /**
  * Base class for DevContainer implementing all relevant configuration.
  * @abstract
  */
 export abstract class DevContainerConfigBase extends Config {
-  protected npmConfig: NpmConfigBase | undefined = Config.configRegistry.get('npm') as NpmConfigBase;
-
   /**
    * @override 
    */
@@ -30,8 +29,30 @@ export abstract class DevContainerConfigBase extends Config {
   }
 
   /**
-     * @override
-     */
+   * Creates the config file for DevContainer config.
+   * @protected
+   */
+  protected createConfigFile(): void {
+    const path: string = this.config.file!.path;
+    new JsonFile(this.project, path, {
+      omitEmpty: true,
+      allowComments: true,
+      obj: this.config.file!.content,
+    });
+  }
+
+  /**
+   * @override
+   */
+  public setup(): void {
+    // Dependency Injected Modules in shared config registry
+    this.getConfigFromRegistry<NpmConfigBase>('npm')?.addScripts(this.config.scripts!);
+    this.getConfigFromRegistry<PrettierConfigBase>('prettier')?.addIgnoreEntries(this.config.entries as string[]);
+  }
+
+  /**
+   * @override
+   */
   protected get config(): ConfigContent {
     return {
       scripts: {
@@ -89,27 +110,9 @@ export abstract class DevContainerConfigBase extends Config {
           },
         },
       },
+      entries: [
+        '/.devcontainer.json',
+      ],
     };
-  }
-
-  /**
-   * Creates the config file for DevContainer config.
-   * @protected
-   */
-  protected createConfigFile(): void {
-    const path: string = this.config.file!.path;
-    new JsonFile(this.project, path, {
-      omitEmpty: true,
-      allowComments: true,
-      obj: this.config.file!.content,
-    });
-  }
-
-  /**
-   * @override
-   */
-  public setup(): void {
-    super.setup();
-    this.npmConfig?.addScripts(this.config.scripts!);
   }
 }

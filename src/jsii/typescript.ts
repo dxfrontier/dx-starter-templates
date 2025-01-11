@@ -1,3 +1,4 @@
+import { NpmConfigJsii, PrettierConfigJsii } from '.';
 import { TypeScriptConfigBase } from '../base';
 import { ProjectOptions } from '../types';
 
@@ -22,7 +23,8 @@ export class TypeScriptConfigJsii extends TypeScriptConfigBase {
    * @override
    */
   public setup(): void {
-    super.setup();
-    this.npmConfig?.addDevDependencies(this.config.devDependencies!);
+    // Dependency Injected Modules in shared config registry
+    this.getConfigFromRegistry<NpmConfigJsii>('npm')?.addDevDependencies(this.config.devDependencies!);
+    this.getConfigFromRegistry<PrettierConfigJsii>('prettier')?.addIgnoreEntries(this.config.entries as string[]);
   }
 }

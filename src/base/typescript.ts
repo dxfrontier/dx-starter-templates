@@ -1,6 +1,5 @@
 import { ConfigContent, ProjectOptions } from '../types';
 import { Config } from './config';
-import { NpmConfigBase } from './npm';
 import { TypeScriptProjectBase } from './project';
 
 /**
@@ -9,8 +8,6 @@ import { TypeScriptProjectBase } from './project';
  * @extends Config
  */
 export abstract class TypeScriptConfigBase extends Config {
-  protected npmConfig: NpmConfigBase | undefined = Config.configRegistry.get('npm') as NpmConfigBase;
-
   /**
    * @override 
    */
@@ -42,7 +39,10 @@ export abstract class TypeScriptConfigBase extends Config {
         'typescript@^5.7.3',
         '@types/node@^22.10.5',
         'ts-node@^10.9.2',
-      ]
+      ],
+      entries: [
+        '/tsconfig.dev.json',
+      ],
     };
   }
 }

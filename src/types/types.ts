@@ -6,6 +6,12 @@ import { Config } from "../base";
 export type ConfigRegistry = Map<string, Config | null>;
 
 /**
+ * Configuration module registry key for retrieving the according module.
+ * Extend this key in case new modules are implemented.
+ */
+export type ConfigKey = 'npm' | 'typescript' | 'devcontainer' | 'vscode' | 'github' | 'prettier' | 'eslint' | 'husky' | 'commitlint';
+
+/**
  * Project instance options used on startup.
  */
 export type ProjectOptions = Record<string, string | boolean | string[] | Record<string, unknown>>;
@@ -40,7 +46,7 @@ export type Settings = { [name: string]: any };
  * const config: ConfigContent = {
  *   devDependencies: ['typescript@^5.7.2', 'jest@^29.6.4'],
  *   dependencies: ['axios@^1.5.0'],
- *   peerDependencies: ['react@^18.0.0']
+ *   peerDependencies: ['react@^18.0.0'],
  * };
  * ```
  *
@@ -49,8 +55,8 @@ export type Settings = { [name: string]: any };
  * const config: ConfigContent = {
  *   scripts: {
  *     build: 'tsc',
- *     test: 'jest'
- *   }
+ *     test: 'jest',
+ *   },
  * };
  * ```
  *
@@ -62,43 +68,63 @@ export type Settings = { [name: string]: any };
  *     version: '1.0.0',
  *     engines: {
  *       node: '>=14.0.0'
- *     }
- *   }
+ *     },
+ *   },
  * };
  * ```
  *
  * ### Creating new configuration file
  * ```typescript
+ * // Example using Record
  * const config: ConfigContent = {
  *   file: {
- *     '.eslintrc': JSON.stringify({
+ *     path: '.eslintrc',
+ *     content: {
  *       env: { node: true },
- *       extends: 'eslint:recommended'
- *     }),
- *   }
+ *       extends: 'eslint:recommended',
+ *     },
+ *   },
  * };
+ * 
+ * // Example using string[]
+ * Array needs to be used for convenience and needs to be
+ * combined to one string using `.join('\n')`
+ * const config: ConfigContent = {
+ *   file: {
+ *     path: '.eslintrc',
+ *     content: [
+ *       '"env": { "node": "true" },',
+ *       '"extends": "eslint:recommended",',
+ *     ],
+ *   },
+ * };
+ * 
+ * new SampleFile(project, path, {
+ *   contents: config.file.join('\n');
+ * });
  * ```
  * 
  * ### Creating new ignore file
  * ```typescript
  * const config: ConfigContent = {
  *   ignore: {
- *     '.prettierignore': [
+ *     path: '.prettierignore',
+ *     content: [
  *       'dist/',
  *       'node_modules/',
- *     ]
- *   }
+ *     ],
+ *   },
  * };
  * ```
  *
  * ### Updating or appending to existing configuration files
  * ```typescript
  * const config: ConfigContent = {
- *   entries: `
- *   # Add specific patterns to ignore
- *   node_modules/
- *   dist/
- *   `
+ *   entries: [
+ *     '# Add specific patterns to ignore'
+ *     'node_modules/',
+ *     'dist/',
+ *   ]
  * };
  * ```
 */
@@ -110,8 +136,11 @@ export type ConfigContent = {
   settings?: Settings;
   file?: {
     path: string;
-    content: Settings;
+    content: Settings | string[];
   };
-  ignore?: Record<string, string[]>;
-  entries?: Settings;
+  ignore?: {
+    path: string;
+    content: string[];
+  };
+  entries?: Settings | string[];
 }

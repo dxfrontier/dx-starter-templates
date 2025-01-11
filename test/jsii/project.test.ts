@@ -31,6 +31,12 @@ jest.mock('projen', (): any => ({
             patch: jest.fn(),
           };
         }),
+        files: {
+          find: jest.fn().mockReturnValue({
+            toString: jest.fn().mockReturnValue('some/path/to/ignore'),
+            addLine: jest.fn()
+          })
+        },
       };
     }),
   },

@@ -2,6 +2,7 @@ import { JsonFile } from 'projen';
 import { ConfigContent, ProjectOptions } from '../types';
 import { Config } from './config';
 import { TypeScriptProjectBase } from './project';
+import { PrettierConfigBase } from './prettier';
 
 /**
  * Base class for VsCode implementing all relevant configuration.
@@ -24,6 +25,27 @@ export abstract class VsCodeConfigBase extends Config {
     return {
       vscode: false,
     };
+  }
+
+  /**
+   * Creates the config file for VsCode config.
+   * @protected
+   */
+  protected createConfigFile(): void {
+    const path: string = this.config.file!.path;
+    new JsonFile(this.project, path, {
+      omitEmpty: true,
+      allowComments: true,
+      obj: this.config.file!.content,
+    });
+  }
+
+  /**
+   * @override
+   */
+  public setup(): void {
+    // Dependency Injected Modules in shared config registry
+    this.getConfigFromRegistry<PrettierConfigBase>('prettier')?.addIgnoreEntries(this.config.entries as string[]);
   }
 
   /**
@@ -50,19 +72,9 @@ export abstract class VsCodeConfigBase extends Config {
           'editor.formatOnPaste': true,
         },
       },
+      entries: [
+        '/.vscode/settings.json',
+      ],
     };
-  }
-
-  /**
-   * Creates the config file for VsCode config.
-   * @protected
-   */
-  protected createConfigFile(): void {
-    const path: string = this.config.file!.path;
-    new JsonFile(this.project, path, {
-      omitEmpty: true,
-      allowComments: true,
-      obj: this.config.file!.content,
-    });
   }
 }

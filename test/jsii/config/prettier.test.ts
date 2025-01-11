@@ -26,5 +26,34 @@ test('Prettier settings are set properly', (): void => {
 });
 
 test('Ignore patterns matches expected content', (): void => {
-  prettier.testIgnore(snapshot);
+  const expectedEntries: string[] = [
+    '*.snap',
+    '/.commitlintrc.ts',
+    '/.devcontainer.json',
+    '/.eslintrc.json',
+    '/.gitattributes',
+    '/.github/ISSUE_TEMPLATE/bug.yml',
+    '/.github/ISSUE_TEMPLATE/feature.yml',
+    '/.github/ISSUE_TEMPLATE/housekeeping.yml',
+    '/.github/ISSUE_TEMPLATE/question.yml',
+    '/.github/pull_request_template.md',
+    '/.github/workflows/release.yml',
+    '/.github/workflows/stale.yml',
+    '/.gitignore',
+    '/.husky/commit-msg',
+    '/.husky/pre-commit',
+    '/.prettierignore',
+    '/.prettierrc.json',
+    '/.projen/**',
+    '/.projen/deps.json',
+    '/.projen/files.json',
+    '/.projen/tasks.json',
+    '/.vscode/settings.json',
+    '/cliff.toml',
+    '/package-lock.json',
+    '/package.json',
+    '/tsconfig.dev.json',
+    '/API.md',
+  ];
+  prettier.testIgnore(snapshot, expectedEntries);
 });
