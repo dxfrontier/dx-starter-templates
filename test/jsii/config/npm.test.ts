@@ -57,7 +57,7 @@ test('DevDependencies are added properly', (): void => {
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "constructs": "10.4.2",
-    "eslint": "^9",
+    "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.31.0",

@@ -40,8 +40,13 @@ export abstract class EsLintConfigBase extends Config {
   protected get _config(): ConfigContent {
     return {
       devDependencies: [
+        '@typescript-eslint/eslint-plugin@^8',
+        '@typescript-eslint/parser@^8',
         'eslint@^9.17.0',
-        'typescript-eslint@^8.18.1',
+        'eslint-config-prettier@^9.1.0',
+        'eslint-import-resolver-typescript@^3.6.3',
+        'eslint-plugin-import@^2.31.0',
+        'eslint-plugin-prettier@^5.2.1',
       ],
       scripts: {
         'eslint': 'eslint .',

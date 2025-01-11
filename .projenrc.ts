@@ -1,5 +1,5 @@
 import { cdk } from 'projen';
-import { DevContainerConfigJsii, EsLintConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from './src/jsii';
+import { DevContainerConfigJsii, EsLintConfigJsii, HuskyConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from './src/jsii';
 import { Config } from './src/base';
 
 // export project for testing
@@ -19,6 +19,7 @@ export const project = new cdk.JsiiProject({
   ...VsCodeConfigJsii.projectOptions,
   ...PrettierConfigJsii.projectOptions,
   ...EsLintConfigJsii.projectOptions,
+  ...HuskyConfigJsii.projectOptions,
 
   githubOptions: { mergify: false, pullRequestLint: false }, // mergify and workflow pull-request-lint.yml
   buildWorkflow: false, // workflow build.yml
@@ -35,6 +36,7 @@ const vsCodeConfig = new VsCodeConfigJsii(project);
 // const githubConfig = new GitHubConfigJsii(project);
 const prettierConfig = new PrettierConfigJsii(project);
 const esLintConfig = new EsLintConfigJsii(project);
+const huskyConfig = new HuskyConfigJsii(project);
 
 // Then setup all configurations
 npmConfig.setup();
@@ -44,9 +46,9 @@ vsCodeConfig.setup();
 // githubConfig.setup();
 prettierConfig.setup();
 esLintConfig.setup();
+huskyConfig.setup();
 
 // new GitHubJsii(project as unknown as TypeScriptProjectBase);
-// new HuskyJsii(project as unknown as TypeScriptProjectBase);
 // new CommitLintJsii(project as unknown as TypeScriptProjectBase);
 
 /**
