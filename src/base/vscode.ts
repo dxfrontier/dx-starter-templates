@@ -1,5 +1,5 @@
 import { JsonFile } from 'projen';
-import { ConfigContent, ProjectOptions } from '../types';
+import { ConfigContent, ConfigFile, ProjectOptions } from '../types';
 import { Config } from './config';
 import { TypeScriptProjectBase } from './project';
 import { PrettierConfigBase } from './prettier';
@@ -31,12 +31,13 @@ export abstract class VsCodeConfigBase extends Config {
    * Creates the config file for VsCode config.
    * @protected
    */
-  protected createConfigFile(): void {
-    const path: string = this.config.file!.path;
+  protected createConfigFiles(): void {
+    const configFile: ConfigFile = this.config.configFiles! as ConfigFile;
+    const path: string = configFile!.path;
     new JsonFile(this.project, path, {
       omitEmpty: true,
       allowComments: true,
-      obj: this.config.file!.content,
+      obj: configFile!.content,
     });
   }
 
@@ -45,15 +46,15 @@ export abstract class VsCodeConfigBase extends Config {
    */
   public setup(): void {
     // Dependency Injected Modules in shared config registry
-    this.getConfigFromRegistry<PrettierConfigBase>('prettier')?.addIgnoreEntries(this.config.entries as string[]);
+    Config.getConfigFromRegistry<PrettierConfigBase>('prettier')?.addIgnoreEntries(this.config.update as string[]);
   }
 
   /**
    * @override
    */
-  protected get config(): ConfigContent {
+  protected get _config(): ConfigContent {
     return {
-      file: {
+      configFiles: {
         path: '.vscode/settings.json',
         content: {
           'editor.tabSize': 2,
@@ -72,7 +73,7 @@ export abstract class VsCodeConfigBase extends Config {
           'editor.formatOnPaste': true,
         },
       },
-      entries: [
+      update: [
         '/.vscode/settings.json',
       ],
     };

@@ -33,14 +33,14 @@ export abstract class TypeScriptConfigBase extends Config {
   /**
    * @override
    */
-  protected get config(): ConfigContent {
+  protected get _config(): ConfigContent {
     return {
       devDependencies: [
         'typescript@^5.7.3',
         '@types/node@^22.10.5',
         'ts-node@^10.9.2',
       ],
-      entries: [
+      update: [
         '/tsconfig.dev.json',
       ],
     };

@@ -1,4 +1,4 @@
-import { NpmConfigBase } from '../base';
+import { Config, NpmConfigBase } from '../base';
 import { ConfigContent } from '../types';
 import { PrettierConfigJsii } from './';
 
@@ -15,13 +15,13 @@ export class NpmConfigJsii extends NpmConfigBase {
     this.addSettings(this.config.settings!);
 
     // Dependency Injected Modules in shared config registry
-    this.getConfigFromRegistry<PrettierConfigJsii>('prettier')?.addIgnoreEntries(this.config.entries as string[]);
+    Config.getConfigFromRegistry<PrettierConfigJsii>('prettier')?.addIgnoreEntries(this.config.update as string[]);
   }
 
   /**
    * @override
    */
-  protected get config(): ConfigContent {
+  protected get _config(): ConfigContent {
     return {
       devDependencies: [
         'jsii@^5.7.4',
@@ -37,7 +37,7 @@ export class NpmConfigJsii extends NpmConfigBase {
       settings: {
         files: ['lib', '.jsii', 'README.md']
       },
-      entries: [
+      update: [
         '*.snap',
         '/.projen/**',
         '/.projen/deps.json',

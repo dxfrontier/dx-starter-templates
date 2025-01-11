@@ -120,7 +120,7 @@ export type Settings = { [name: string]: any };
  * ### Updating or appending to existing configuration files
  * ```typescript
  * const config: ConfigContent = {
- *   entries: [
+ *   update: [
  *     '# Add specific patterns to ignore'
  *     'node_modules/',
  *     'dist/',
@@ -134,13 +134,15 @@ export type ConfigContent = {
   dependencies?: string[];
   scripts?: Record<string, string>;
   settings?: Settings;
-  file?: {
-    path: string;
-    content: Settings | string[];
-  };
-  ignore?: {
-    path: string;
-    content: string[];
-  };
-  entries?: Settings | string[];
+  configFiles?: ConfigFile | ConfigFile[];
+  ignoreFile?: ConfigFile;
+  update?: Settings | string[];
 }
+
+/**
+ * Config file consisting of path and content
+ */
+export type ConfigFile = {
+  path: string;
+  content: Settings | string[];
+};

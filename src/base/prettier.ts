@@ -1,5 +1,5 @@
 import { JsonFile, TextFile } from 'projen';
-import { ConfigContent, ProjectOptions } from '../types';
+import { ConfigContent, ConfigFile, ProjectOptions } from '../types';
 import { Config } from './config';
 import { TypeScriptProjectBase } from './project';
 import { TrailingComma } from 'projen/lib/javascript';
@@ -32,24 +32,27 @@ export abstract class PrettierConfigBase extends Config {
    * Creates the config file for Prettier config.
    * @protected
    */
-  protected createConfigFile(): void {
-    const path: string = this.config.file!.path;
+  protected createConfigFiles(): void {
+    const configFile: ConfigFile = this.config.configFiles! as ConfigFile;
+    const path: string = configFile.path;
     new JsonFile(this.project, path, {
       omitEmpty: true,
       allowComments: true,
-      obj: this.config.file!.content,
+      obj: configFile.content,
     });
   }
 
   /**
    * Creates the ignore file for Prettier config.
+   * No IgnoreFile is used as this has additional information overhead.
    * @protected
    */
   protected createIgnoreFile(): void {
-    const path: string = this.config.ignore!.path;
+    const ignoreFile: ConfigFile = this.config.ignoreFile!;
+    const path: string = ignoreFile.path;
     new TextFile(this.project, path, {
       marker: true,
-      lines: this.config.ignore!.content,
+      lines: ignoreFile.content as string[],
     });
   }
 
@@ -69,14 +72,14 @@ export abstract class PrettierConfigBase extends Config {
    */
   public setup(): void {
     // Dependency Injected Modules in shared config registry
-    this.getConfigFromRegistry<NpmConfigBase>('npm')?.addDevDependencies(this.config.devDependencies!);
-    this.getConfigFromRegistry<NpmConfigBase>('npm')?.addScripts(this.config.scripts!);
+    Config.getConfigFromRegistry<NpmConfigBase>('npm')?.addDevDependencies(this.config.devDependencies!);
+    Config.getConfigFromRegistry<NpmConfigBase>('npm')?.addScripts(this.config.scripts!);
   }
 
   /**
    * @override
    */
-  protected get config(): ConfigContent {
+  protected get _config(): ConfigContent {
     return {
       devDependencies: [
         'prettier@^3.4.2',
@@ -84,7 +87,7 @@ export abstract class PrettierConfigBase extends Config {
       scripts: {
         'prettier': 'prettier . --write',
       },
-      file: {
+      configFiles: {
         path: '.prettierrc.json',
         content: {
           overrides: [
@@ -101,7 +104,7 @@ export abstract class PrettierConfigBase extends Config {
           ],
         },
       },
-      ignore: {
+      ignoreFile: {
         path: '.prettierignore',
         content: [
           '/.prettierignore',

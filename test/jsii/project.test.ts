@@ -34,7 +34,8 @@ jest.mock('projen', (): any => ({
         files: {
           find: jest.fn().mockReturnValue({
             toString: jest.fn().mockReturnValue('some/path/to/ignore'),
-            addLine: jest.fn()
+            addLine: jest.fn(),
+            addPatterns: jest.fn(),
           })
         },
       };
@@ -42,6 +43,7 @@ jest.mock('projen', (): any => ({
   },
   JsonFile: jest.fn(),
   TextFile: jest.fn(),
+  IgnoreFile: jest.fn(),
 }));
 
 jest.mock('projen/lib/github/pr-template', (): any => {

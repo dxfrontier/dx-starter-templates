@@ -108,14 +108,14 @@ export abstract class EslintBase extends Builder {
    * Creates the template file for the Eslint commit-msg hook.
    * @private
    */
-  private createConfigFile(): void {
+  private createConfigFiles(): void {
     new TextFile(this.project, this.configFilePath, {
       lines: this.configTemplate,
     });
   }
 
   protected addTemplates(): void {
-    this.createConfigFile();
+    this.createConfigFiles();
   }
 
   protected addScripts(): void {
