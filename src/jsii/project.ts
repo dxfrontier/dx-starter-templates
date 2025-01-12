@@ -34,7 +34,6 @@ export class JsiiProject extends cdk.JsiiProject {
 
     // new JsiiConfigJsii(this);
     if (options.jestEnabled) {
-      // if (options.projenEnabled)
       this.jestConfig = new JestConfigJsii(this, options.projenEnabled!, options.jest!);
     }
   }

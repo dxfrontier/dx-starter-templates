@@ -6,16 +6,16 @@ import { ConfigStrategy, JestBaseConfig } from '../base';
  * @extends JestBaseConfig
  */
 export class JestConfigJsii extends JestBaseConfig {
-  private strategy: ConfigStrategy;
+  private strategy: ConfigStrategy<JsiiProject>;
 
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
     super(project);
     // Select strategy based on the condition
     this.strategy = useProjen && useProjenApi
-      ? new ProjenJestConfigStrategy()
+      ? new ProjenStandardJestConfigStrategy()
       : useProjen && !useProjenApi
-      ? new JsonFileJestConfigStrategy()
-      : new SampleFileJestConfigStrategy();
+      ? new ProjenTrackedJestConfigStrategy()
+      : new NonProjenJestConfigStrategy();
 
     // Apply the selected strategy
     this.strategy.applyConfig(project);
@@ -23,7 +23,7 @@ export class JestConfigJsii extends JestBaseConfig {
   
 }
 
-export class ProjenJestConfigStrategy implements ConfigStrategy {
+class ProjenStandardJestConfigStrategy implements ConfigStrategy<JsiiProject> {
   applyConfig(_project: JsiiProject): void {
     console.log('jest - use projen jest')
     // project.addTask('test', {
@@ -41,7 +41,7 @@ export class ProjenJestConfigStrategy implements ConfigStrategy {
   }
 }
 
-export class JsonFileJestConfigStrategy implements ConfigStrategy {
+class ProjenTrackedJestConfigStrategy implements ConfigStrategy<JsiiProject> {
   applyConfig(_project: JsiiProject): void {
     console.log('jest - JsonFile')
     // new SampleFile(project, 'jest.config.json', {
@@ -57,7 +57,7 @@ export class JsonFileJestConfigStrategy implements ConfigStrategy {
   }
 }
 
-export class SampleFileJestConfigStrategy implements ConfigStrategy {
+class NonProjenJestConfigStrategy implements ConfigStrategy<JsiiProject> {
   applyConfig(_project: JsiiProject): void {
     console.log('jest - SampleFile')
     // new SampleFile(project, 'jest.config.json', {

@@ -13,13 +13,13 @@ export const project = new JsiiProject({
   eslintEnabled: true,
   githubEnabled: true,
   huskyEnabled: true,
-  jestEnabled: false,
+  jestEnabled: true,
   npmEnabled: true,
   prettierEnabled: true,
   typescriptEnabled: true,
   vscodeEnabled: true,
   sampleCodeEnabled: true,
-  jest: true, // use projen standard jest
+  jest: false, // use projen standard jest
 });
 
 project.synth();

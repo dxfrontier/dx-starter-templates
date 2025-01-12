@@ -1,14 +1,14 @@
 import { Component } from 'projen';
 import { BaseProject } from './project';
 
-export interface ConfigStrategy {
-  applyConfig(project: any): void;
+export interface ConfigStrategy<T> {
+  applyConfig(project: T): void;
 }
 
 /**
  * Base class for creating and managing project configurations.
  */
-export class Config extends Component implements ConfigStrategy {
+export class Config extends Component {
   public project: BaseProject;
 
   /**
@@ -27,10 +27,4 @@ export class Config extends Component implements ConfigStrategy {
   public override postSynthesize(): void {
     super.postSynthesize();
   }
-
-  /**
-   * Apply all relevant config for the configuration module.
-   * SubClasses should overwrite this to apply module specific configuration.
-   */
-  public applyConfig(): void { };
 }
