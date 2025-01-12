@@ -1,3 +1,4 @@
+export * from './project';
 export * from './devcontainer';
 export * from './eslint';
 export * from './husky';

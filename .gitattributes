@@ -2,14 +2,12 @@
 
 * text=auto eol=lf
 *.snap linguist-generated
-/.devcontainer.json linguist-generated
 /.gitattributes linguist-generated
 /.gitignore linguist-generated
 /.projen/** linguist-generated
 /.projen/deps.json linguist-generated
 /.projen/files.json linguist-generated
 /.projen/tasks.json linguist-generated
-/.vscode/settings.json linguist-generated
 /API.md linguist-generated
 /package-lock.json linguist-generated
 /package.json linguist-generated

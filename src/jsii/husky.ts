@@ -1,8 +1,7 @@
-
-import { HuskyConfigBase } from '../base';
+import { HuskyBaseConfig } from '../base';
 
 /**
  * Husky implementing all relevant configuration for the Jsii project.
- * @extends TypeScriptConfigBase
+ * @extends TypeScriptBaseConfig
  */
-export class HuskyConfigJsii extends HuskyConfigBase { }
+export class HuskyConfigJsii extends HuskyBaseConfig { }

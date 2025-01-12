@@ -1,7 +1,7 @@
-import { DevContainerConfigBase } from '../base';
+import { DevContainerBaseConfig } from '../base';
 
 /**
  * DevContainer implementing all relevant configuration for the Jsii project.
- * @extends TypeScriptConfigBase
+ * @extends TypeScriptBaseConfig
  */
-export class DevContainerConfigJsii extends DevContainerConfigBase { }
+export class DevContainerConfigJsii extends DevContainerBaseConfig { }

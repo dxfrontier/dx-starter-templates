@@ -38,6 +38,4 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
-!/.devcontainer.json
-!/.vscode/settings.json
 !/.projenrc.ts

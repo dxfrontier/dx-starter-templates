@@ -1,14 +1,7 @@
-import { PrettierConfigBase } from '../base';
+import { PrettierBaseConfig } from '../base';
 
 /**
- * DevContainer implementing all relevant configuration for the Jsii project.
- * @extends TypeScriptConfigBase
+ * Prettier implementing all relevant configuration for the Jsii project.
+ * @extends TypeScriptBaseConfig
  */
-export class PrettierConfigJsii extends PrettierConfigBase {
-  /**
-   * @override
-   */
-  public addIgnoreEntries(entries: string[]): void {
-    this.config.ignoreFile!.content.push(...entries);
-  }
-}
+export class PrettierConfigJsii extends PrettierBaseConfig { }
