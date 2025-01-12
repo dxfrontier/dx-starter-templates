@@ -169,22 +169,7 @@
     },
     "test": {
       "name": "test",
-      "description": "Run tests",
-      "steps": [
-        {
-          "exec": "jest --passWithNoTests --updateSnapshot",
-          "receiveArgs": true
-        }
-      ]
-    },
-    "test:watch": {
-      "name": "test:watch",
-      "description": "Run jest in watch mode",
-      "steps": [
-        {
-          "exec": "jest --watch"
-        }
-      ]
+      "description": "Run tests"
     },
     "watch": {
       "name": "watch",

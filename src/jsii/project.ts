@@ -1,6 +1,6 @@
 import { cdk } from 'projen';
-import { JsiiConfigJsii } from './jsii';
 import { BaseOptions } from '../base';
+import { JestConfigJsii } from '.';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   readonly projenEnabled?: boolean;
@@ -20,6 +20,7 @@ export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
  * Base class for managing project Jsii configuration.
  */
 export class JsiiProject extends cdk.JsiiProject {
+  protected readonly jestConfig?: JestConfigJsii;
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -31,7 +32,11 @@ export class JsiiProject extends cdk.JsiiProject {
       disableTsconfig: options.disableTsconfig ?? true, // cannot be set as Jsii forces its own Typescript file
     });
 
-    new JsiiConfigJsii(this);
+    // new JsiiConfigJsii(this);
+    if (options.jestEnabled) {
+      // if (options.projenEnabled)
+      this.jestConfig = new JestConfigJsii(this, options.projenEnabled!, options.jest!);
+    }
   }
 
   public override preSynthesize(): void {

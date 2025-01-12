@@ -13,7 +13,7 @@ export const project = new JsiiProject({
   eslintEnabled: true,
   githubEnabled: true,
   huskyEnabled: true,
-  jestEnabled: true,
+  jestEnabled: false,
   npmEnabled: true,
   prettierEnabled: true,
   typescriptEnabled: true,
