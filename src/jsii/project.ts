@@ -1,11 +1,23 @@
 import { cdk } from 'projen';
-import { NpmConfigJsii } from './npm';
-import { ProjectBaseOptions } from '../base';
+import { JsiiConfigJsii } from './jsii';
+import { BaseOptions } from '../base';
 
-export interface JsiiProjectOptions extends cdk.JsiiProjectOptions { }
+export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
+  readonly projenEnabled?: boolean;
+  readonly devContainerEnabled?: boolean;
+  readonly eslintEnabled?: boolean;
+  readonly githubEnabled?: boolean;
+  readonly huskyEnabled?: boolean;
+  readonly jestEnabled?: boolean;
+  readonly npmEnabled?: boolean;
+  readonly prettierEnabled?: boolean;
+  readonly typescriptEnabled?: boolean;
+  readonly vscodeEnabled?: boolean;
+  readonly sampleCodeEnabled?: boolean;
+}
 
 /**
- * Base class for managing project configuration.
+ * Base class for managing project Jsii configuration.
  */
 export class JsiiProject extends cdk.JsiiProject {
   /**
@@ -14,27 +26,19 @@ export class JsiiProject extends cdk.JsiiProject {
    */
   constructor(options: JsiiProjectOptions) {
     super({
-      ...ProjectBaseOptions.sharedOptions(options),
-      
+      ...BaseOptions.sharedOptions(options),
       disableTsconfigDev: options.disableTsconfigDev ?? false,
-      // disableTsconfig: false, // cannot be set as Jsii forces its own Typescript file
-      tsconfig: {
-        compilerOptions: {
-          allowImportingTsExtensions: true,
-        },
-      },
+      disableTsconfig: options.disableTsconfig ?? true, // cannot be set as Jsii forces its own Typescript file
     });
 
-    new NpmConfigJsii(this);
+    new JsiiConfigJsii(this);
   }
 
   public override preSynthesize(): void {
     super.preSynthesize();
-    console.log('JsiiProject preSynthesize')
   }
 
   public override postSynthesize(): void {
     super.postSynthesize();
-    console.log('JsiiProject postSynthesize')
   }
 }

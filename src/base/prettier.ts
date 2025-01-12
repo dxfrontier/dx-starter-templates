@@ -2,7 +2,7 @@ import { Config } from './config';
 import { BaseProject } from './project';
 
 /**
- * Base class for Prettier implementing all relevant configuration.
+ * Base class for implementing all relevant Prettier configuration.
  * @extends Config
  */
 export class PrettierBaseConfig extends Config {

@@ -2,10 +2,10 @@ import { Config } from './config';
 import { BaseProject } from './project';
 
 /**
- * Base class for implementing all relevant NPM configuration.
+ * Base class for implementing all relevant Jest configuration.
  * @extends Config
  */
-export class NpmBaseConfig extends Config {
+export class JestBaseConfig extends Config {
   constructor(project: BaseProject) {
     super(project);
   }

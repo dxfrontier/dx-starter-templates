@@ -1,7 +1,7 @@
 import { EsLintBaseConfig } from '../base';
 
 /**
- * EsLint implementing all relevant configuration for the Jsii project.
- * @extends TypeScriptBaseConfig
+ * Implementing all relevant eslint configuration for the Jsii project.
+ * @extends EsLintBaseConfig
  */
 export class EsLintConfigJsii extends EsLintBaseConfig { }

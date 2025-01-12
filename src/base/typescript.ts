@@ -2,7 +2,7 @@ import { Config } from './config';
 import { BaseProject } from './project';
 
 /**
- * Base class for TypeScript implementing all relevant configuration.
+ * Base class for implementing all relevant TypeScript configuration.
  * @extends Config
  */
 export class TypeScriptBaseConfig extends Config {
@@ -10,3 +10,11 @@ export class TypeScriptBaseConfig extends Config {
     super(project);
   }
 }
+
+
+// disableTsconfig: false,
+//       tsconfig: {
+//         compilerOptions: {
+//           allowImportingTsExtensions: true,
+//         },
+      // },

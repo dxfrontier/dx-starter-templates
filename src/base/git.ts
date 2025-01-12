@@ -2,10 +2,10 @@ import { Config } from './config';
 import { BaseProject } from './project';
 
 /**
- * Base class for implementing all relevant VS Code configuration.
+ * Base class for implementing all GIT relevant configuration.
  * @extends Config
  */
-export class VsCodeBaseConfig extends Config {
+export class GitBaseConfig extends Config {
   constructor(project: BaseProject) {
     super(project);
   }

@@ -4,7 +4,6 @@ export * from './git';
 export * from './github';
 export * from './husky';
 export * from './jest';
-export * from './jsii';
 export * from './npm';
 export * from './project';
 export * from './prettier';

@@ -2,7 +2,7 @@ import { Config } from './config';
 import { BaseProject } from './project';
 
 /**
- * Base class for EsLint implementing all relevant configuration.
+ * Base class for  implementing all relevant eslint configuration.
  * @extends Config
  */
 export class EsLintBaseConfig extends Config {

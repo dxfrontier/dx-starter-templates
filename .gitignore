@@ -3,6 +3,7 @@
 !/.projen/tasks.json
 !/.projen/deps.json
 !/.projen/files.json
+!/.devcontainer.json
 !/package.json
 logs
 *.log
@@ -30,6 +31,7 @@ jspm_packages/
 /test-reports/
 junit.xml
 /coverage/
+!/.github/pull_request_template.md
 !/test/
 !/tsconfig.dev.json
 !/src/

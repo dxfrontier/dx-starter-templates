@@ -6,7 +6,20 @@ export const project = new JsiiProject({
   author: 'DXFrontier Dev Team',
   authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
   copyrightOwner: 'ABS GmbH',
-  defaultReleaseBranch: 'main',
+  defaultReleaseBranch: 'dev',
+
+  projenEnabled: true,
+  devContainerEnabled: true,
+  eslintEnabled: true,
+  githubEnabled: true,
+  huskyEnabled: true,
+  jestEnabled: true,
+  npmEnabled: true,
+  prettierEnabled: true,
+  typescriptEnabled: true,
+  vscodeEnabled: true,
+  sampleCodeEnabled: true,
+  jest: true, // use projen standard jest
 });
 
 project.synth();

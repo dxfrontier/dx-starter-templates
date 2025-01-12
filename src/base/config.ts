@@ -4,7 +4,7 @@ import { BaseProject } from './project';
 /**
  * Base class for creating and managing project configurations.
  */
-export abstract class Config extends Component {
+export class Config extends Component {
   public project: BaseProject;
 
   /**
@@ -18,11 +18,9 @@ export abstract class Config extends Component {
 
   public override preSynthesize(): void {
     super.preSynthesize();
-    console.log('Config preSynthesize')
   }
 
   public override postSynthesize(): void {
     super.postSynthesize();
-    console.log('Config postSynthesize')
   }
 }

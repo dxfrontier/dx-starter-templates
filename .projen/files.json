@@ -1,6 +1,8 @@
 {
   "files": [
+    ".devcontainer.json",
     ".gitattributes",
+    ".github/pull_request_template.md",
     ".gitignore",
     ".projen/deps.json",
     ".projen/files.json",

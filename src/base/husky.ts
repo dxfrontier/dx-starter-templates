@@ -2,7 +2,7 @@ import { Config } from './config';
 import { BaseProject } from './project';
 
 /**
- * Base class for Husky implementing all relevant configuration.
+ * Base class for implementing all relevant Husky configuration.
  * @extends Config
  */
 export class HuskyBaseConfig extends Config {

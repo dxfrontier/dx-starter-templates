@@ -1,7 +1,7 @@
 import { VsCodeBaseConfig } from '../base';
 
 /**
- * VsCode implementing all relevant configuration for the Jsii project.
- * @extends TypeScriptBaseConfig
+ * Implementing all relevant VS Code configuration for the Jsii project.
+ * @extends VsCodeBaseConfig
  */
 export class VsCodeConfigJsii extends VsCodeBaseConfig { }

@@ -1,7 +1,19 @@
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { ProjectBaseOptions } from './options';
+import { BaseOptions } from './options';
 
-export interface BaseProjectOptions extends TypeScriptProjectOptions { }
+export interface BaseProjectOptions extends TypeScriptProjectOptions {
+  readonly projenEnabled?: boolean;
+  readonly devContainerEnabled?: boolean;
+  readonly eslintEnabled?: boolean;
+  readonly githubEnabled?: boolean;
+  readonly huskyEnabled?: boolean;
+  readonly jestEnabled?: boolean;
+  readonly npmEnabled?: boolean;
+  readonly prettierEnabled?: boolean;
+  readonly typescriptEnabled?: boolean;
+  readonly vscodeEnabled?: boolean;
+  readonly sampleCodeEnabled?: boolean;
+}
 
 /**
  * Base class for managing project configuration.
@@ -13,26 +25,17 @@ export class BaseProject extends TypeScriptProject {
    */
   constructor(options: BaseProjectOptions) {
     super({
-      ...ProjectBaseOptions.sharedOptions(options),
-      defaultReleaseBranch: options.defaultReleaseBranch ?? 'dev',
-      
-      disableTsconfigDev: options.disableTsconfigDev ?? true,
-      disableTsconfig: false,
-      tsconfig: {
-        compilerOptions: {
-          allowImportingTsExtensions: true,
-        },
-      },
+      ...BaseOptions.sharedOptions(options),
     });
+
+
   }
 
   public override preSynthesize(): void {
     super.preSynthesize();
-    console.log('BaseProject preSynthesize')
   }
 
   public override postSynthesize(): void {
     super.postSynthesize();
-    console.log('JsiiProject postSynthesize')
   }
 }

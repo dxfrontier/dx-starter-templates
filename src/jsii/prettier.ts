@@ -1,7 +1,7 @@
 import { PrettierBaseConfig } from '../base';
 
 /**
- * Prettier implementing all relevant configuration for the Jsii project.
- * @extends TypeScriptBaseConfig
+ * Implementing all relevant Prettier configuration for the Jsii project.
+ * @extends PrettierBaseConfig
  */
 export class PrettierConfigJsii extends PrettierBaseConfig { }
