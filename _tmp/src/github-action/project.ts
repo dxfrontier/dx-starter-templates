@@ -20,8 +20,6 @@ export class GitHubActionProject extends TypeScriptProjectBase {
     super({
       ...options,
       disableTsconfig: true,
-      // projenrcTs: false,
-      // projenrcJs: false,
       eslint: false,
       jest: false,
     });
