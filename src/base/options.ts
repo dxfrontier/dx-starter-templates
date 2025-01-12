@@ -22,8 +22,6 @@ export class ProjectBaseOptions {
       packageManager: options.packageManager ?? javascript.NodePackageManager.NPM,
       npmignoreEnabled: options.npmignoreEnabled ?? false,
       projenrcTs: options.projenrcTs ?? true,
-      typescriptVersion: options.typescriptVersion ?? '^5.7.3',
-      tsconfig: options.tsconfig ?? {},
       prettier: options.prettier ?? false,
       eslint: options.eslint ?? false,
       devContainer: options.devContainer ?? false,

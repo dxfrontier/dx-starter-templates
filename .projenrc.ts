@@ -1,4 +1,4 @@
-import { JsiiProject } from "./src/jsii/project";
+import { JsiiProject } from './src/jsii/project';
 
 export const project = new JsiiProject({
   name: '@dxfrontier/projen-template-projects',
