@@ -6,10 +6,13 @@ export interface ConfigStrategy<T extends BaseProject | JsiiProject> {
   applyConfig(project: T): void;
 }
 
+// Marker interface for all configurations
+export interface BaseConfig {}
+
 /**
  * Base class for creating and managing project configurations.
  */
-export class Config<T extends BaseProject | JsiiProject> extends Component {
+export class Config<T extends BaseProject | JsiiProject> extends Component implements BaseConfig {
   public project: T;
 
   /**

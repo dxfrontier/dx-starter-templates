@@ -1,4 +1,5 @@
 import { BaseOptions, BaseProject, BaseProjectOptions } from '../base';
+import { GitConfigGitHubAction } from './git';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions { }
 
@@ -14,6 +15,8 @@ export class GitHubActionProject extends BaseProject {
     super({
       ...BaseOptions.sharedOptions(options),
     });
+
+    this.setGitConfig(new GitConfigGitHubAction(this));
   }
 
   public override preSynthesize(): void {

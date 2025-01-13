@@ -56,21 +56,12 @@
       ],
       "condition": "git diff --exit-code > /dev/null"
     },
-    "compat": {
-      "name": "compat",
-      "description": "Perform API compatibility check against latest version",
-      "steps": [
-        {
-          "exec": "jsii-diff npm:$(node -p \"require('./package.json').name\") -k --ignore-file .compatignore || (echo \"\nUNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .compatignore to skip.\n\" && exit 1)"
-        }
-      ]
-    },
     "compile": {
       "name": "compile",
       "description": "Only compile",
       "steps": [
         {
-          "exec": "jsii --silence-warnings=reserved-word"
+          "exec": "tsc --build"
         }
       ]
     },
@@ -79,16 +70,7 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "ts-node --project tsconfig.dev.json .projenrc.ts"
-        }
-      ]
-    },
-    "docgen": {
-      "name": "docgen",
-      "description": "Generate API.md from .jsii manifest",
-      "steps": [
-        {
-          "exec": "jsii-docgen -o API.md"
+          "exec": "ts-node --project tsconfig.json .projenrc.ts"
         }
       ]
     },
@@ -127,41 +109,16 @@
       "description": "Creates the distribution package",
       "steps": [
         {
-          "spawn": "package:js",
-          "condition": "node -e \"if (!process.env.CI) process.exit(1)\""
+          "exec": "mkdir -p dist/js"
         },
         {
-          "spawn": "package-all",
-          "condition": "node -e \"if (process.env.CI) process.exit(1)\""
-        }
-      ]
-    },
-    "package-all": {
-      "name": "package-all",
-      "description": "Packages artifacts for all target languages",
-      "steps": [
-        {
-          "spawn": "package:js"
-        }
-      ]
-    },
-    "package:js": {
-      "name": "package:js",
-      "description": "Create js language bindings",
-      "steps": [
-        {
-          "exec": "jsii-pacmak -v --target js"
+          "exec": "npm pack --pack-destination dist/js"
         }
       ]
     },
     "post-compile": {
       "name": "post-compile",
-      "description": "Runs after successful compilation",
-      "steps": [
-        {
-          "spawn": "docgen"
-        }
-      ]
+      "description": "Runs after successful compilation"
     },
     "pre-compile": {
       "name": "pre-compile",
@@ -191,7 +148,7 @@
       "description": "Watch & compile in the background",
       "steps": [
         {
-          "exec": "jsii -w --silence-warnings=reserved-word"
+          "exec": "tsc --build -w"
         }
       ]
     }

@@ -1,3 +1,4 @@
+import { GitConfigTerraformModule } from '.';
 import { BaseOptions, BaseProject, BaseProjectOptions } from '../base';
 
 export interface TerraformModuleProjectOptions extends BaseProjectOptions { }
@@ -14,6 +15,8 @@ export class TerraformModuleProject extends BaseProject {
     super({
       ...BaseOptions.sharedOptions(options),
     });
+
+    this.setGitConfig(new GitConfigTerraformModule(this));
   }
 
   public override preSynthesize(): void {
