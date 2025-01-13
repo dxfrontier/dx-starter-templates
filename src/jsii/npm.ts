@@ -9,11 +9,13 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
     super(project, useProjen, useProjenApi);
 
-    this.strategy = useProjen && useProjenApi
+    const strategy = useProjen && useProjenApi
       ? new ProjenStandardConfigStrategy()
       : useProjen && !useProjenApi
         ? new ProjenTrackedConfigStrategy()
         : new NonProjenConfigStrategy();
+    this.setStrategy(strategy);
+    this.applyConfig();
   }
 }
 

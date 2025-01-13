@@ -1,5 +1,5 @@
 import { JsiiProject } from '../jsii';
-import { BaseConfigStrategy, Config, ConfigStrategy } from './config';
+import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
 
 /**
@@ -16,16 +16,17 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   constructor(project: T, useProjen: boolean, useProjenApi: boolean) {
     super(project);
 
-    this.strategy = useProjen && useProjenApi
+    const strategy = useProjen && useProjenApi
       ? new ProjenStandardNpmBaseConfigStrategy<T>()
       : useProjen && !useProjenApi
         ? new ProjenTrackedNpmBaseConfigStrategy<T>()
         : new NonProjenNpmBaseConfigStrategy<T>();
+
+    this.setStrategy(strategy);
   }
 
   public override preSynthesize(): void {
     super.preSynthesize();
-    this.strategy.applyConfig(this.project);
   }
 
   public override postSynthesize(): void {
@@ -33,9 +34,13 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   }
 }
 
-export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> extends BaseConfigStrategy<T> {
-  applyConfig(project: T): void {
-    super.applyConfig(project);
+/**
+ * Configuration strategy for Projen standard API NPM base configuration.
+ * @param project - The project instance.
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ */
+export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
+  applyConfig(_project: T): void {
     console.log('npm - use projen npm')
   }
 }

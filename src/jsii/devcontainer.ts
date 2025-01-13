@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { ConfigStrategy, DevContainerBaseConfig } from '../base';
+import { NonProjenDevContainerBaseConfigStrategy, DevContainerBaseConfig, ProjenStandardDevContainerBaseConfigStrategy, ProjenTrackedDevContainerBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant DevContainer configuration for the Jsii project.
@@ -7,32 +7,35 @@ import { ConfigStrategy, DevContainerBaseConfig } from '../base';
  */
 export class DevContainerConfigJsii extends DevContainerBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
-    super(project);
+    super(project, useProjen, useProjenApi);
 
-    this.strategy = useProjen && useProjenApi
+    const strategy = useProjen && useProjenApi
       ? new ProjenStandardConfigStrategy()
       : useProjen && !useProjenApi
         ? new ProjenTrackedConfigStrategy()
         : new NonProjenConfigStrategy();
-
-    this.strategy.applyConfig(project);
+    this.setStrategy(strategy);
+    this.applyConfig();
   }
 }
 
-class ProjenStandardConfigStrategy implements ConfigStrategy<JsiiProject> {
-  applyConfig(_project: JsiiProject): void {
-    console.log('devContainer - use projen devContainer')
+class ProjenStandardConfigStrategy extends ProjenStandardDevContainerBaseConfigStrategy<JsiiProject> {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
+    console.log('devContainer - use projen devContainer - Jsii')
   }
 }
 
-class ProjenTrackedConfigStrategy implements ConfigStrategy<JsiiProject> {
-  applyConfig(_project: JsiiProject): void {
-    console.log('devContainer - JsonFile')
+class ProjenTrackedConfigStrategy extends ProjenTrackedDevContainerBaseConfigStrategy<JsiiProject> {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
+    console.log('devContainer - JsonFile - Jsii')
   }
 }
 
-class NonProjenConfigStrategy implements ConfigStrategy<JsiiProject> {
-  applyConfig(_project: JsiiProject): void {
-    console.log('devContainer - SampleFile')
+class NonProjenConfigStrategy extends NonProjenDevContainerBaseConfigStrategy<JsiiProject> {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
+    console.log('devContainer - SampleFile - Jsii')
   }
 }
