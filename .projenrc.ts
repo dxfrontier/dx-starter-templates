@@ -19,7 +19,12 @@ export const project = new JsiiProject({
   typescriptEnabled: true,
   vscodeEnabled: true,
   sampleCodeEnabled: true,
-  jest: false, // use projen standard jest
+  
+  // use projen standard jest
+  // the others like vscode, devContainer, ... 
+  // we use own configuration which are set to false as defaults
+  // in the JsiiProject itself
+  jest: true,
 });
 
 project.synth();

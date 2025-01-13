@@ -27,8 +27,6 @@ export class BaseProject extends TypeScriptProject {
     super({
       ...BaseOptions.sharedOptions(options),
     });
-
-
   }
 
   public override preSynthesize(): void {

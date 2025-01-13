@@ -1,3 +1,4 @@
+import { JsiiProject } from '../jsii';
 import { Config } from './config';
 import { BaseProject } from './project';
 
@@ -5,8 +6,8 @@ import { BaseProject } from './project';
  * Base class for implementing all relevant Jest configuration.
  * @extends Config
  */
-export class JestBaseConfig extends Config {
-  constructor(project: BaseProject) {
+export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+  constructor(project: T) {
     super(project);
   }
 

@@ -1,21 +1,22 @@
 import { Component } from 'projen';
 import { BaseProject } from './project';
+import { JsiiProject } from '../jsii';
 
-export interface ConfigStrategy<T> {
+export interface ConfigStrategy<T extends BaseProject | JsiiProject> {
   applyConfig(project: T): void;
 }
 
 /**
  * Base class for creating and managing project configurations.
  */
-export class Config extends Component {
-  public project: BaseProject;
+export class Config<T extends BaseProject | JsiiProject> extends Component {
+  public project: T;
 
   /**
    * Initializes the config for a specified project.
    * @param project The project to configure the configuration module for.
    */
-  constructor(project: BaseProject) {
+  constructor(project: T) {
     super(project);
     this.project = project;
   }

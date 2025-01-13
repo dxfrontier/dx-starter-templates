@@ -1,3 +1,4 @@
+import { JsiiProject } from ".";
 import { Config } from "../base";
 
 
@@ -5,7 +6,7 @@ import { Config } from "../base";
  * Implementing all relevant Jsii configuration for the Jsii project.
  * @extends Config
  */
-export class JsiiConfigJsii extends Config {
+export class JsiiConfigJsii extends Config<JsiiProject> {
   public override preSynthesize(): void {
     super.preSynthesize();
     

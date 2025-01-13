@@ -1,6 +1,6 @@
 import { cdk } from 'projen';
 import { BaseOptions } from '../base';
-import { JestConfigJsii } from '.';
+import { DevContainerConfigJsii, EsLintConfigJsii, GitConfigJsii, GitHubConfigJsii, HuskyConfigJsii, JestConfigJsii, JsiiConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from '.';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   readonly projenEnabled?: boolean;
@@ -20,7 +20,18 @@ export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
  * Base class for managing project Jsii configuration.
  */
 export class JsiiProject extends cdk.JsiiProject {
+  protected readonly jsiiConfig?: JsiiConfigJsii;
+  protected readonly gitConfig?: GitConfigJsii;
+  protected readonly devContainerConfig?: DevContainerConfigJsii;
+  protected readonly eslintConfig?: EsLintConfigJsii;
+  protected readonly githubConfig?: GitHubConfigJsii;
+  protected readonly huskyConfig?: HuskyConfigJsii;
   protected readonly jestConfig?: JestConfigJsii;
+  protected readonly npmConfig?: NpmConfigJsii;
+  protected readonly prettierConfig?: PrettierConfigJsii;
+  protected readonly typescriptConfig?: TypeScriptConfigJsii;
+  protected readonly vscodeConfig?: VsCodeConfigJsii;
+  // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -28,13 +39,40 @@ export class JsiiProject extends cdk.JsiiProject {
   constructor(options: JsiiProjectOptions) {
     super({
       ...BaseOptions.sharedOptions(options),
+      // tsConfig.dev.json needs to be enabled for Jsii Projects
       disableTsconfigDev: options.disableTsconfigDev ?? false,
-      disableTsconfig: options.disableTsconfig ?? true, // cannot be set as Jsii forces its own Typescript file
+      disableTsconfig: options.disableTsconfig ?? true,
     });
 
-    // new JsiiConfigJsii(this);
+    new JsiiConfigJsii(this);
+    new GitConfigJsii(this);
+
+    if (options.devContainerEnabled) {
+      this.devContainerConfig = new DevContainerConfigJsii(this, options.projenEnabled!, options.devContainer!);
+    }
+    if (options.eslintEnabled) {
+      this.eslintConfig = new EsLintConfigJsii(this, options.projenEnabled!, options.eslint!);
+    }
     if (options.jestEnabled) {
       this.jestConfig = new JestConfigJsii(this, options.projenEnabled!, options.jest!);
+    }
+    if (options.prettierEnabled) {
+      this.prettierConfig = new PrettierConfigJsii(this, options.projenEnabled!, options.prettier!);
+    }
+    if (options.vscodeEnabled) {
+      this.vscodeConfig = new VsCodeConfigJsii(this, options.projenEnabled!, options.vscode!);
+    }
+    if (options.githubEnabled) {
+      this.githubConfig = new GitHubConfigJsii(this, options.projenEnabled!);
+    }
+    if (options.huskyEnabled) {
+      this.huskyConfig = new HuskyConfigJsii(this, options.projenEnabled!);
+    }
+    if (options.npmEnabled) {
+      this.npmConfig = new NpmConfigJsii(this, options.projenEnabled!);
+    }
+    if (options.typescriptEnabled) {
+      this.typescriptConfig = new TypeScriptConfigJsii(this, options.projenEnabled!);
     }
   }
 
