@@ -13,6 +13,7 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
   readonly typescriptEnabled?: boolean;
   readonly vscodeEnabled?: boolean;
   readonly sampleCodeEnabled?: boolean;
+  readonly npm?: boolean;
 }
 
 /**

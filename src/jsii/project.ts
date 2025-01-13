@@ -14,6 +14,7 @@ export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   readonly typescriptEnabled?: boolean;
   readonly vscodeEnabled?: boolean;
   readonly sampleCodeEnabled?: boolean;
+  readonly npm?: boolean;
 }
 
 /**
@@ -56,6 +57,9 @@ export class JsiiProject extends cdk.JsiiProject {
     if (options.jestEnabled) {
       this.jestConfig = new JestConfigJsii(this, options.projenEnabled!, options.jest!);
     }
+    if (options.npmEnabled) {
+      this.npmConfig = new NpmConfigJsii(this, options.projenEnabled!, options.npm!);
+    }
     if (options.prettierEnabled) {
       this.prettierConfig = new PrettierConfigJsii(this, options.projenEnabled!, options.prettier!);
     }
@@ -67,9 +71,6 @@ export class JsiiProject extends cdk.JsiiProject {
     }
     if (options.huskyEnabled) {
       this.huskyConfig = new HuskyConfigJsii(this, options.projenEnabled!);
-    }
-    if (options.npmEnabled) {
-      this.npmConfig = new NpmConfigJsii(this, options.projenEnabled!);
     }
     if (options.typescriptEnabled) {
       this.typescriptConfig = new TypeScriptConfigJsii(this, options.projenEnabled!);
