@@ -6,8 +6,6 @@ import { ConfigStrategy, JestBaseConfig } from '../base';
  * @extends JestBaseConfig
  */
 export class JestConfigJsii extends JestBaseConfig<JsiiProject> {
-  protected strategy: ConfigStrategy<JsiiProject>;
-
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
     super(project);
 

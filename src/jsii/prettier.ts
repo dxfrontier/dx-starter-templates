@@ -6,8 +6,6 @@ import { ConfigStrategy, PrettierBaseConfig } from '../base';
  * @extends PrettierBaseConfig
  */
 export class PrettierConfigJsii extends PrettierBaseConfig<JsiiProject> {
-	protected strategy: ConfigStrategy<JsiiProject>;
-
 	constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
 		super(project);
 

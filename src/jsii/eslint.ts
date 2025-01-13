@@ -6,8 +6,6 @@ import { ConfigStrategy, EsLintBaseConfig } from '../base';
  * @extends EsLintBaseConfig
  */
 export class EsLintConfigJsii extends EsLintBaseConfig<JsiiProject> {
-  protected strategy: ConfigStrategy<JsiiProject>;
-
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
     super(project);
 

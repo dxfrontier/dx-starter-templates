@@ -25,7 +25,7 @@ export const project = new JsiiProject({
   // we use own configuration which are set to false as defaults
   // in the JsiiProject itself
   jest: true,
-  npm: false,
+  npm: true,
 });
 
 project.synth();

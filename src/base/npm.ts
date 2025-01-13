@@ -1,5 +1,5 @@
 import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
+import { BaseConfigStrategy, Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
 
 /**
@@ -13,8 +13,6 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  protected strategy: ConfigStrategy<T>;
-
   constructor(project: T, useProjen: boolean, useProjenApi: boolean) {
     super(project);
 
@@ -35,8 +33,9 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   }
 }
 
-export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
+export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> extends BaseConfigStrategy<T> {
+  applyConfig(project: T): void {
+    super.applyConfig(project);
     console.log('npm - use projen npm')
   }
 }

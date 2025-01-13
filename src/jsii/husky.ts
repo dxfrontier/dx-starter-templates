@@ -6,8 +6,6 @@ import { ConfigStrategy, HuskyBaseConfig } from '../base';
  * @extends HuskyBaseConfig
  */
 export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
-	protected strategy: ConfigStrategy<JsiiProject>;
-
 	constructor(project: JsiiProject, useProjen: boolean) {
 		super(project);
 

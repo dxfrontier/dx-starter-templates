@@ -21,6 +21,7 @@ export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
  * Base class for managing project Jsii configuration.
  */
 export class JsiiProject extends cdk.JsiiProject {
+  protected readonly npm?: boolean;
   protected readonly jsiiConfig?: JsiiConfigJsii;
   protected readonly gitConfig?: GitConfigJsii;
   protected readonly devContainerConfig?: DevContainerConfigJsii;
@@ -33,6 +34,7 @@ export class JsiiProject extends cdk.JsiiProject {
   protected readonly typescriptConfig?: TypeScriptConfigJsii;
   protected readonly vscodeConfig?: VsCodeConfigJsii;
   // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
+
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -44,6 +46,11 @@ export class JsiiProject extends cdk.JsiiProject {
       disableTsconfigDev: options.disableTsconfigDev ?? false,
       disableTsconfig: options.disableTsconfig ?? true,
     });
+
+    // special case to align with Projen standard API handling
+    this.npm = options.npmEnabled && options.projenEnabled && options.npm
+      ? options.npm
+      : false;
 
     new JsiiConfigJsii(this);
     new GitConfigJsii(this);

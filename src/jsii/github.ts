@@ -6,27 +6,25 @@ import { ConfigStrategy, GitHubBaseConfig } from '../base';
  * @extends GitHubBaseConfig
  */
 export class GitHubConfigJsii extends GitHubBaseConfig<JsiiProject> {
-    protected strategy: ConfigStrategy<JsiiProject>;
+  constructor(project: JsiiProject, useProjen: boolean) {
+    super(project);
 
-    constructor(project: JsiiProject, useProjen: boolean) {
-        super(project);
+    this.strategy = useProjen
+      ? new ProjenTrackedConfigStrategy()
+      : new NonProjenConfigStrategy();
 
-        this.strategy = useProjen
-            ? new ProjenTrackedConfigStrategy()
-            : new NonProjenConfigStrategy();
-
-        this.strategy.applyConfig(project);
-    }
+    this.strategy.applyConfig(project);
+  }
 }
 
 class ProjenTrackedConfigStrategy implements ConfigStrategy<JsiiProject> {
-    applyConfig(_project: JsiiProject): void {
-        console.log('github - JsonFile')
-    }
+  applyConfig(_project: JsiiProject): void {
+    console.log('github - JsonFile')
+  }
 }
 
 class NonProjenConfigStrategy implements ConfigStrategy<JsiiProject> {
-    applyConfig(_project: JsiiProject): void {
-        console.log('github - SampleFile')
-    }
+  applyConfig(_project: JsiiProject): void {
+    console.log('github - SampleFile')
+  }
 }

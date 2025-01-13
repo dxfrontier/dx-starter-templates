@@ -6,8 +6,6 @@ import { ConfigStrategy, VsCodeBaseConfig } from '../base';
  * @extends VsCodeBaseConfig
  */
 export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
-  protected strategy: ConfigStrategy<JsiiProject>;
-
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
     super(project);
 

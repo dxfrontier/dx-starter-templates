@@ -18,19 +18,22 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardNpmBaseConfigStrategy<JsiiProject> {
-  applyConfig(_project: JsiiProject): void {
-    console.log('npm - use projen jest - Jsii')
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
+    console.log('npm - use projen npm - Jsii')
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedNpmBaseConfigStrategy<JsiiProject> {
-  applyConfig(_project: JsiiProject): void {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
     console.log('npm - JsonFile - Jsii')
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenNpmBaseConfigStrategy<JsiiProject> {
-  applyConfig(_project: JsiiProject): void {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
     console.log('npm - SampleFile - Jsii')
   }
 }

@@ -6,8 +6,6 @@ import { ConfigStrategy, DevContainerBaseConfig } from '../base';
  * @extends DevContainerBaseConfig
  */
 export class DevContainerConfigJsii extends DevContainerBaseConfig<JsiiProject> {
-  protected strategy: ConfigStrategy<JsiiProject>;
-
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
     super(project);
 
