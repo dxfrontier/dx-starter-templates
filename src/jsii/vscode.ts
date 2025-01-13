@@ -1,38 +1,41 @@
 import { JsiiProject } from '.';
-import { /*ConfigStrategy, */VsCodeBaseConfig } from '../base';
+import { NonProjenVsCodeBaseConfigStrategy, VsCodeBaseConfig, ProjenStandardVsCodeBaseConfigStrategy, ProjenTrackedVsCodeBaseConfigStrategy } from '../base';
 
 /**
- * Implementing all relevant VS Code configuration for the Jsii project.
+ * Implementing all relevant VsCode configuration for the Jsii project.
  * @extends VsCodeBaseConfig
  */
 export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
-  constructor(project: JsiiProject, _useProjen: boolean, _useProjenApi: boolean) {
-    super(project);
+  constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
+    super(project, useProjen, useProjenApi);
 
-    // this.strategy = useProjen && useProjenApi
-    //   ? new ProjenStandardConfigStrategy()
-    //   : useProjen && !useProjenApi
-    //     ? new ProjenTrackedConfigStrategy()
-    //     : new NonProjenConfigStrategy();
-
-    // this.strategy.applyConfig(project);
+    const strategy = useProjen && useProjenApi
+      ? new ProjenStandardConfigStrategy()
+      : useProjen && !useProjenApi
+        ? new ProjenTrackedConfigStrategy()
+        : new NonProjenConfigStrategy();
+    this.setStrategy(strategy);
+    this.applyConfig();
   }
 }
 
-// class ProjenStandardConfigStrategy implements ConfigStrategy<JsiiProject> {
-//   applyConfig(_project: JsiiProject): void {
-//     console.log('vscode - use projen vscode')
-//   }
-// }
+class ProjenStandardConfigStrategy extends ProjenStandardVsCodeBaseConfigStrategy<JsiiProject> {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
+    console.log('vsCode - use projen vsCode - Jsii')
+  }
+}
 
-// class ProjenTrackedConfigStrategy implements ConfigStrategy<JsiiProject> {
-//   applyConfig(_project: JsiiProject): void {
-//     console.log('vscode - JsonFile')
-//   }
-// }
+class ProjenTrackedConfigStrategy extends ProjenTrackedVsCodeBaseConfigStrategy<JsiiProject> {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
+    console.log('vsCode - JsonFile - Jsii')
+  }
+}
 
-// class NonProjenConfigStrategy implements ConfigStrategy<JsiiProject> {
-//   applyConfig(_project: JsiiProject): void {
-//     console.log('vscode - SampleFile')
-//   }
-// }
+class NonProjenConfigStrategy extends NonProjenVsCodeBaseConfigStrategy<JsiiProject> {
+  applyConfig(project: JsiiProject): void {
+    super.applyConfig(project);
+    console.log('vsCode - SampleFile - Jsii')
+  }
+}

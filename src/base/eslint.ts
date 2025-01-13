@@ -57,10 +57,10 @@ export class ProjenTrackedEsLintBaseConfigStrategy<T extends BaseProject | JsiiP
 }
 
 /**
-   * Applies the Projen-based EsLint configuration to the project.
-   * @param project - The project instance.
-   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-   */
+  * Applies the Projen-based EsLint configuration to the project.
+  * @param project - The project instance.
+  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+  */
 export class NonProjenEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
   applyConfig(_project: T): void {
     console.log('esLint - SampleFile')

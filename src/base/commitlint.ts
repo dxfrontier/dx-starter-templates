@@ -3,22 +3,22 @@ import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
 
 /**
- * Base class for implementing all relevant TypeScript configuration.
+ * Base class for implementing all relevant CommitLint configuration.
  * 
- * This class acts as a base for handling TypeScript configuration within projects
+ * This class acts as a base for handling CommitLint configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
  * 
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T, useProjen: boolean) {
     super(project);
 
     const strategy = useProjen
-      ? new ProjenTrackedTypeScriptBaseConfigStrategy<T>()
-      : new NonProjenTypeScriptBaseConfigStrategy<T>();
+      ? new ProjenTrackedCommitLintBaseConfigStrategy<T>()
+      : new NonProjenCommitLintBaseConfigStrategy<T>();
 
     this.setStrategy(strategy);
   }
@@ -33,23 +33,23 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
 }
 
 /**
- * Configuration strategy for Projen-tracked TypeScript base configuration.
+ * Configuration strategy for Projen-tracked CommitLint base configuration.
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
+export class ProjenTrackedCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
   applyConfig(_project: T): void {
-    console.log('typescript - JsonFile')
+    console.log('commitlint - JsonFile')
   }
 }
 
 /**
-  * Applies the Projen-based TypeScript configuration to the project.
+  * Applies the Projen-based CommitLint configuration to the project.
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
+export class NonProjenCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
   applyConfig(_project: T): void {
-    console.log('typescript - SampleFile')
+    console.log('commitlint - SampleFile')
   }
 }

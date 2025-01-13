@@ -1,9 +1,11 @@
 import { cdk } from 'projen';
 import { BaseOptions } from '../base';
 import { DevContainerConfigJsii, EsLintConfigJsii, GitConfigJsii, GitHubConfigJsii, HuskyConfigJsii, JestConfigJsii, JsiiConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from '.';
+import { CommitLintConfigJsii } from './commitlint';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   readonly projenEnabled?: boolean;
+  readonly commitLintEnabled?: boolean;
   readonly devContainerEnabled?: boolean;
   readonly eslintEnabled?: boolean;
   readonly githubEnabled?: boolean;
@@ -24,6 +26,7 @@ export class JsiiProject extends cdk.JsiiProject {
   protected readonly npm?: boolean;
   protected readonly jsiiConfig?: JsiiConfigJsii;
   protected readonly gitConfig?: GitConfigJsii;
+  protected readonly commitLintConfig?: CommitLintConfigJsii;
   protected readonly devContainerConfig?: DevContainerConfigJsii;
   protected readonly eslintConfig?: EsLintConfigJsii;
   protected readonly githubConfig?: GitHubConfigJsii;
@@ -74,7 +77,10 @@ export class JsiiProject extends cdk.JsiiProject {
       this.vscodeConfig = new VsCodeConfigJsii(this, options.projenEnabled!, options.vscode!);
     }
     if (options.githubEnabled) {
-      this.githubConfig = new GitHubConfigJsii(this, options.projenEnabled!);
+      this.githubConfig = new GitHubConfigJsii(this, options.projenEnabled!, options.github!);
+    }
+    if (options.commitLintEnabled) {
+      this.commitLintConfig = new CommitLintConfigJsii(this, options.projenEnabled!);
     }
     if (options.huskyEnabled) {
       this.huskyConfig = new HuskyConfigJsii(this, options.projenEnabled!);

@@ -57,10 +57,10 @@ export class ProjenTrackedDevContainerBaseConfigStrategy<T extends BaseProject |
 }
 
 /**
-   * Applies the Projen-based DevContainer configuration to the project.
-   * @param project - The project instance.
-   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-   */
+  * Applies the Projen-based DevContainer configuration to the project.
+  * @param project - The project instance.
+  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+  */
 export class NonProjenDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
   applyConfig(_project: T): void {
     console.log('devContainer - SampleFile')

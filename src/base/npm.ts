@@ -57,10 +57,10 @@ export class ProjenTrackedNpmBaseConfigStrategy<T extends BaseProject | JsiiProj
 }
 
 /**
-   * Applies the Projen-based NPM configuration to the project.
-   * @param project - The project instance.
-   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-   */
+  * Applies the Projen-based NPM configuration to the project.
+  * @param project - The project instance.
+  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+  */
 export class NonProjenNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
   applyConfig(_project: T): void {
     console.log('npm - SampleFile')

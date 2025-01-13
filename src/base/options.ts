@@ -31,6 +31,7 @@ export class BaseOptions {
       devContainer: options.devContainerEnabled && options.projenEnabled && options.devContainer ? options.devContainer : false,
       vscode: options.vscodeEnabled && options.projenEnabled && options.vscode ? options.vscode : false,
       jest: options.jestEnabled && options.projenEnabled && options.jest ? options.jest : false,
+      github: options.githubEnabled && options.projenEnabled && options.github ? options.github : false,
       githubOptions: options.githubEnabled && options.projenEnabled && options.githubOptions ? options.githubOptions : { mergify: false, pullRequestLint: false } ,
       buildWorkflow: options.githubEnabled && options.projenEnabled && options.buildWorkflow ? options.buildWorkflow : false,
       release: options.githubEnabled && options.projenEnabled && options.release ? options.release : false,

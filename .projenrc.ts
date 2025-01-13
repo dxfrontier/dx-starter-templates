@@ -9,6 +9,7 @@ export const project = new JsiiProject({
   defaultReleaseBranch: 'dev',
 
   projenEnabled: true,
+  commitLintEnabled: true,
   devContainerEnabled: true,
   eslintEnabled: true,
   githubEnabled: true,
@@ -26,6 +27,7 @@ export const project = new JsiiProject({
   // in the JsiiProject itself
   jest: true,
   npm: true,
+  github: true,
 });
 
 project.synth();
