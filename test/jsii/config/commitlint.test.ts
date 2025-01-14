@@ -8,25 +8,32 @@
  * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
  **/
 
-import * as devcontainer from '../../shared/devcontainer';
+import * as commitlint from '../../shared/commitlint';
 import { snapshot } from './setup';
 
 /**
  * We use not a describe block here because the jest test runner `Test Results` pane will show the test names.
  * The `Testing` pane shows a hierarchy but for this hierarchy we already have the test file names available. 
  */
-test('Container image is set properly', (): void => {
-  devcontainer.testImage(snapshot);
+test('Commitlintrc template matches expected template', (): void => {
+  commitlint.testRcTemplate(snapshot);
 });
 
-test('Container features are set properly', (): void => {
-  devcontainer.testFeatures(snapshot);
+test('CommitLint npm scrips are added properly', (): void => {
+  commitlint.testScripts(snapshot);
 });
 
-test('Container VsCode extensions are set properly', (): void => {
-  devcontainer.testExtensions(snapshot);
+test('CommitLint configuration in package.json is set properly', (): void => {
+  const expectedConfiguration: LintStagedConfig = {
+    '**/*.ts': ['npm run eslint', 'npm run prettier'],
+  };
+  expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
 });
 
-test('Container postCreateCommand is set properly', (): void => {
-  devcontainer.testCommand(snapshot);
+test('CommitLint npm devDependencies are added properly', (): void => {
+  commitlint.testDevDependencies(snapshot);
+});
+
+test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
+  commitlint.testGitAttributes(snapshot);
 });

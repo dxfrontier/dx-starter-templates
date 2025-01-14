@@ -10,7 +10,7 @@ export const project = new JsiiProject({
   copyrightOwner: 'ABS GmbH',
   defaultReleaseBranch: 'dev',
 
-  commitLintEnabled: true,
+  commitlintEnabled: true,
   devContainerEnabled: true,
   eslintEnabled: true,
   githubEnabled: true,
@@ -36,14 +36,12 @@ export const project = new JsiiProject({
 //   copyrightOwner: 'ABS GmbH',
 //   defaultReleaseBranch: 'dev',
 
-//   projenEnabled: true,
 //   commitLintEnabled: true,
 //   devContainerEnabled: true,
 //   eslintEnabled: true,
 //   githubEnabled: true,
 //   huskyEnabled: true,
 //   jestEnabled: true,
-//   npmEnabled: true,
 //   prettierEnabled: true,
 //   typescriptEnabled: true,
 //   vscodeEnabled: true,
@@ -54,8 +52,6 @@ export const project = new JsiiProject({
 //   // we use own configuration which are set to false as defaults
 //   // in the JsiiProject itself
 //   jest: true,
-//   npm: true,
-//   github: true,
 // });
 
 // export const project = new GitHubActionProject({
@@ -66,14 +62,12 @@ export const project = new JsiiProject({
 //   copyrightOwner: 'ABS GmbH',
 //   defaultReleaseBranch: 'dev',
 
-//   projenEnabled: true,
 //   commitLintEnabled: true,
 //   devContainerEnabled: true,
 //   eslintEnabled: true,
 //   githubEnabled: true,
 //   huskyEnabled: true,
 //   jestEnabled: true,
-//   npmEnabled: true,
 //   prettierEnabled: true,
 //   typescriptEnabled: true,
 //   vscodeEnabled: true,
@@ -84,8 +78,6 @@ export const project = new JsiiProject({
 //   // we use own configuration which are set to false as defaults
 //   // in the JsiiProject itself
 //   jest: true,
-//   npm: true,
-//   github: true,
 // });
 
 project.synth();

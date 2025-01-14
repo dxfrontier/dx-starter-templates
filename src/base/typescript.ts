@@ -13,35 +13,25 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjenApi: boolean) {
+  constructor(project: T) {
     super(project);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardTypeScriptBaseConfigStrategy()
-      : new NonApiTypeScriptBaseConfigStrategy();
-
+    const strategy = new NonApiTypeScriptBaseConfigStrategy();
     this.setStrategy(strategy);
   }
 
-  public override preSynthesize(): void {
-    super.preSynthesize();
+  protected get additionalDevDependencies(): string[] {
+    return [
+      'typescript@^5.7.3',
+      '@types/node@^22.10.6',
+      'ts-node@^10.9.2',
+    ];
   }
 
-  public override postSynthesize(): void {
-    super.postSynthesize();
+  public override registerConfig(): void {
+    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
   }
 }
-
-
-/**
- * Applies the Projen-based TypeScript configuration to the project.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenStandardTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
-}
-
 /**
  * Configuration strategy for Projen-tracked TypeScript base configuration.
  * @param project - The project instance.

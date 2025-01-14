@@ -3,7 +3,7 @@ import { BaseOptions, Config } from '../base';
 import { CommitLintConfigJsii, DevContainerConfigJsii, EsLintConfigJsii, GitConfigJsii, GitHubConfigJsii, HuskyConfigJsii, JestConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from '.';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
-  readonly commitLintEnabled?: boolean;
+  readonly commitlintEnabled?: boolean;
   readonly devContainerEnabled?: boolean;
   readonly eslintEnabled?: boolean;
   readonly githubEnabled?: boolean;
@@ -13,7 +13,6 @@ export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   readonly typescriptEnabled?: boolean;
   readonly vscodeEnabled?: boolean;
   readonly sampleCodeEnabled?: boolean;
-  readonly typescript?: boolean;
 }
 
 /**
@@ -21,7 +20,7 @@ export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
  */
 export class JsiiProject extends cdk.JsiiProject {
   public readonly gitConfig?: GitConfigJsii;
-  public readonly commitLintConfig?: CommitLintConfigJsii;
+  public readonly commitlintConfig?: CommitLintConfigJsii;
   public readonly devContainerConfig?: DevContainerConfigJsii;
   public readonly eslintConfig?: EsLintConfigJsii;
   public readonly githubConfig?: GitHubConfigJsii;
@@ -32,7 +31,6 @@ export class JsiiProject extends cdk.JsiiProject {
   public readonly typescriptConfig?: TypeScriptConfigJsii;
   public readonly vscodeConfig?: VsCodeConfigJsii;
   // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
-  public readonly typescript?: boolean;
 
   /**
    * Initializes the project.
@@ -44,13 +42,13 @@ export class JsiiProject extends cdk.JsiiProject {
       // tsConfig.dev.json needs to be enabled for Jsii Projects
       disableTsconfigDev: options.disableTsconfigDev ?? false,
       disableTsconfig: options.disableTsconfig ?? true,
+      tsconfig: {
+        compilerOptions: {
+          allowImportingTsExtensions: true,
+        },
+      },
     });
     
-    // special case to align with Projen standard API handling
-    this.typescript = options.typescriptEnabled && options.typescript
-      ? options.typescript
-      : false;
-
     new GitConfigJsii(this);
     this.npmConfig = new NpmConfigJsii(this);
 
@@ -72,14 +70,14 @@ export class JsiiProject extends cdk.JsiiProject {
     if (options.githubEnabled) {
       this.githubConfig = new GitHubConfigJsii(this, options.github!);
     }
-    if (options.commitLintEnabled) {
-      this.commitLintConfig = new CommitLintConfigJsii(this);
+    if (options.commitlintEnabled) {
+      this.commitlintConfig = new CommitLintConfigJsii(this);
     }
     if (options.huskyEnabled) {
       this.huskyConfig = new HuskyConfigJsii(this);
     }
     if (options.typescriptEnabled) {
-      this.typescriptConfig = new TypeScriptConfigJsii(this, this.typescript!);
+      this.typescriptConfig = new TypeScriptConfigJsii(this);
     }
     // if (options.sampleCodeEnabled) {
     //   this.typescriptConfig = new SampleCodeConfigJsii(this);

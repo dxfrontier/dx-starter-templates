@@ -4,9 +4,11 @@
  * is not working properly.
  */
 import { cdk, javascript } from 'projen';
-import { JsiiProject } from 'projen/lib/cdk/index';
+// import { JsiiProject } from 'projen/lib/cdk/index';
+import { JsiiProject } from '../../src/jsii';
 
 jest.mock('projen', (): any => ({
+  Component: jest.fn(),
   javascript: {
     NodePackageManager: {
       NPM: 'npm',
@@ -76,17 +78,18 @@ describe('JsiiProject Constructor Options', (): void => {
     expect(cdk.JsiiProject).toHaveBeenCalledWith({
       name: '@dxfrontier/projen-template-projects',
       repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
-      author: 'Mathias von Kaiz',
+      author: 'DXFrontier Dev Team',
       authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
       copyrightOwner: 'ABS GmbH',
       licensed: false,
-      defaultReleaseBranch: 'main',
+      defaultReleaseBranch: 'dev',
 
       packageManager: javascript.NodePackageManager.NPM,
       npmignoreEnabled: false,
 
       projenrcTs: true,
       disableTsconfigDev: false,
+      disableTsconfig: true,
       tsconfig: {
         compilerOptions: {
           allowImportingTsExtensions: true,
@@ -96,6 +99,20 @@ describe('JsiiProject Constructor Options', (): void => {
       prettier: false,
       eslint: false,
       vscode: false,
+      github: false,
+      sampleCode: false,
+      jest: true,
+
+      commitlintEnabled: true,
+      devContainerEnabled: true,
+      eslintEnabled: true,
+      githubEnabled: true,
+      huskyEnabled: true,
+      jestEnabled: true,
+      prettierEnabled: true,
+      typescriptEnabled: true,
+      vscodeEnabled: true,
+      sampleCodeEnabled: true,
 
       githubOptions: { mergify: false, pullRequestLint: false },
       buildWorkflow: false,

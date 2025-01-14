@@ -134,11 +134,8 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  registerConfig(_config: Config<T>): void {
-    console.log('npm Base - apply - Projen API')
-  }
+  // registerConfig(_config: Config<T>): void {}
   applyConfig(config: Config<T>): void {
-    console.log('npm Base - write - Projen API')
     if (config instanceof NpmBaseConfig) {
       config.project.addDeps(...config.getDependencies());
       config.project.addDevDeps(...config.getDevDependencies());

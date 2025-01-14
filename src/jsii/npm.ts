@@ -32,7 +32,7 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
   private get additionalSettings(): Settings {
     return {
       'files': ['lib', '.jsii', 'README.md'],
-      'jsii': {
+      'test': {
         'outdir': 'dist',
         'targets': {},
         'tsc': {
@@ -44,7 +44,6 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
   }
 
   public override registerConfig(): void {
-    console.log('jsii Jsii - register - Projen API')
     this.addDevDependencies(this.additionalDevDependencies);
     this.addPeerDependencies(this.additionalPeerDependencies);
     this.addSettings(this.additionalSettings);
