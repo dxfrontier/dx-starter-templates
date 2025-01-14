@@ -1,5 +1,10 @@
 import { GitHubActionProject } from '.';
-import { EsLintBaseConfig, ProjenStandardEsLintBaseConfigStrategy, NonApiEsLintBaseConfigStrategy, Config } from '../base';
+import {
+  EsLintBaseConfig,
+  ProjenStandardEsLintBaseConfigStrategy,
+  NonApiEsLintBaseConfigStrategy,
+  Config,
+} from '../base';
 
 /**
  * Implementing all relevant EsLint configuration for the GitHubAction project.
@@ -9,9 +14,7 @@ export class EsLintConfigGitHubAction extends EsLintBaseConfig<GitHubActionProje
   constructor(project: GitHubActionProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

@@ -4,7 +4,7 @@ import { Builder } from './builder';
 
 // Have to disable the prettier rule here for the { }
 // otherwise we have a conflict between prettier and linter.
-export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions { }
+export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {}
 
 /**
  * Base class for managing project configuration.
@@ -41,13 +41,15 @@ export abstract class TypeScriptProjectBase extends TypeScriptProject {
 
       sampleCode: options.sampleCode ?? false,
 
-      devDeps: options.devDeps ?? [
-        // '@types/node@^22.10.2',
-        // 'ts-node@^10.9.2', // !!! move in typescript builder
-        // 'projen',
-        // 'construct',
-        // '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
-      ],
+      devDeps:
+        options.devDeps ??
+        [
+          // '@types/node@^22.10.2',
+          // 'ts-node@^10.9.2', // !!! move in typescript builder
+          // 'projen',
+          // 'construct',
+          // '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
+        ],
     });
   }
 

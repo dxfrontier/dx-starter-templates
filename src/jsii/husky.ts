@@ -6,12 +6,12 @@ import { Config, HuskyBaseConfig, NonApiHuskyBaseConfigStrategy } from '../base'
  * @extends HuskyBaseConfig
  */
 export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
-	constructor(project: JsiiProject) {
-		super(project);
+  constructor(project: JsiiProject) {
+    super(project);
 
-		const strategy = new NonApiConfigStrategy();
-      this.setStrategy(strategy);
-	}
+    const strategy = new NonApiConfigStrategy();
+    this.setStrategy(strategy);
+  }
 }
 
 class NonApiConfigStrategy extends NonApiHuskyBaseConfigStrategy<JsiiProject> {

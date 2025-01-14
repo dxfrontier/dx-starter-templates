@@ -6,12 +6,12 @@ import { Config, HuskyBaseConfig, NonApiHuskyBaseConfigStrategy } from '../base'
  * @extends HuskyBaseConfig
  */
 export class HuskyConfigGitHubAction extends HuskyBaseConfig<GitHubActionProject> {
-	constructor(project: GitHubActionProject) {
-		super(project);
+  constructor(project: GitHubActionProject) {
+    super(project);
 
-		const strategy = new NonApiConfigStrategy();
-      this.setStrategy(strategy);
-	}
+    const strategy = new NonApiConfigStrategy();
+    this.setStrategy(strategy);
+  }
 }
 
 class NonApiConfigStrategy extends NonApiHuskyBaseConfigStrategy<GitHubActionProject> {

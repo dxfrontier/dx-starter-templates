@@ -1,5 +1,10 @@
 import { GitHubActionProject } from '.';
-import { GitHubBaseConfig, ProjenStandardGitHubBaseConfigStrategy, NonApiGitHubBaseConfigStrategy, Config } from '../base';
+import {
+  GitHubBaseConfig,
+  ProjenStandardGitHubBaseConfigStrategy,
+  NonApiGitHubBaseConfigStrategy,
+  Config,
+} from '../base';
 
 /**
  * Implementing all relevant GitHub configuration for the GitHubAction project.
@@ -9,9 +14,7 @@ export class GitHubConfigGitHubAction extends GitHubBaseConfig<GitHubActionProje
   constructor(project: GitHubActionProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

@@ -11,13 +11,12 @@ export class GitConfigGitHubAction extends GitBaseConfig<GitHubActionProject> {
 
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 
 class ConfigStrategy extends GitBaseConfigStrategy<GitHubActionProject> {
   registerConfig(project: GitHubActionProject): void {
     super.registerConfig(project);
-    console.log('git - GitHubAction')
+    console.log('git - GitHubAction');
   }
 }

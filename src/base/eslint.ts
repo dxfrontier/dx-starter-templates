@@ -5,11 +5,11 @@ import { BaseProject } from './project';
 
 /**
  * Base class for implementing all relevant EsLint configuration.
- * 
+ *
  * This class acts as a base for handling EsLint configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
- * 
+ *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
@@ -20,9 +20,7 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardEsLintBaseConfigStrategy()
-      : new NonApiEsLintBaseConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardEsLintBaseConfigStrategy() : new NonApiEsLintBaseConfigStrategy();
     this.setStrategy(strategy);
 
     this.rules = this.standardRules;
@@ -40,6 +38,8 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/class-literal-property-style': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
     };
   }
 
@@ -49,20 +49,21 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
 
   protected get additionalDevDependencies(): string[] {
     return [
-      '@typescript-eslint/eslint-plugin@^8',
-      '@typescript-eslint/parser@^8',
-      'eslint@^9.17.0',
-      'eslint-config-prettier@^9.1.0',
-      'eslint-import-resolver-typescript@^3.6.3',
+      '@typescript-eslint/eslint-plugin@^8.20.0',
+      '@typescript-eslint/parser@^8.20.0',
+      'eslint@^9.18.0',
+      'eslint-config-prettier@^10.0.1',
+      'eslint-import-resolver-typescript@^3.7.0',
       'eslint-plugin-import@^2.31.0',
       'eslint-plugin-prettier@^5.2.1',
+      'typescript-eslint@^8.20.0',
     ];
   }
 
   protected get additionalScripts(): Record<string, string> {
     return {
-      eslint: 'eslint',
-    }
+      eslint: 'eslint .',
+    };
   }
 
   protected get configFile(): Record<string, string[]> {
@@ -84,7 +85,7 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
         `    ignores: [${this.ignorePatterns.map((path: string): string => `'${path}'`).join(', ')}],`,
         '  },',
         ');',
-      ]
+      ],
     };
   }
 
@@ -123,7 +124,7 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void {}
 }
 
 /**

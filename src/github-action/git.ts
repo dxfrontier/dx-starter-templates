@@ -11,7 +11,6 @@ export class GitConfigGitHubAction extends GitBaseConfig<GitHubActionProject> {
 
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 

@@ -37,7 +37,9 @@ export function testPackageJsonFiles(snapshot: SynthOutput, additionalPatterns: 
  */
 export function testDevDependencies(snapshot: SynthOutput, expectedDevDependencies: Record<string, string>): void {
   const standardDevDependencies: Record<string, string> = {};
-  const devDependencies: Record<string, string> = expectedDevDependencies ? expectedDevDependencies : standardDevDependencies;
+  const devDependencies: Record<string, string> = expectedDevDependencies
+    ? expectedDevDependencies
+    : standardDevDependencies;
 
   expect(snapshot['package.json']!.devDependencies).toStrictEqual(devDependencies);
 }
@@ -49,7 +51,9 @@ export function testDevDependencies(snapshot: SynthOutput, expectedDevDependenci
  */
 export function testPeerDependencies(snapshot: SynthOutput, expectedPeerDependencies: Record<string, string>): void {
   const standardPeerDependencies: Record<string, string> = {};
-  const peerDependencies: Record<string, string> = expectedPeerDependencies ? expectedPeerDependencies : standardPeerDependencies;
+  const peerDependencies: Record<string, string> = expectedPeerDependencies
+    ? expectedPeerDependencies
+    : standardPeerDependencies;
 
   expect(snapshot['package.json']!.peerDependencies).toStrictEqual(peerDependencies);
 }
@@ -74,9 +78,9 @@ export function testPackageJsonSettings(snapshot: SynthOutput, expectedSettings:
     'lint-staged': {
       ...packageJson!['lint-staged'],
     },
-    'jsii': {
+    jsii: {
       ...packageJson!['jsii'],
-    }
+    },
   };
   expect(relevantSettings).toStrictEqual(expectedSettings);
 }

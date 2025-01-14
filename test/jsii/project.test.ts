@@ -38,7 +38,7 @@ jest.mock('projen', (): any => ({
             toString: jest.fn().mockReturnValue('some/path/to/ignore'),
             addLine: jest.fn(),
             addPatterns: jest.fn(),
-          })
+          }),
         },
       };
     }),
@@ -53,7 +53,6 @@ jest.mock('projen/lib/github/pr-template', (): any => {
     PullRequestTemplate: jest.fn(),
   };
 });
-
 
 describe('JsiiProject Constructor Options', (): void => {
   let project: JsiiProject;

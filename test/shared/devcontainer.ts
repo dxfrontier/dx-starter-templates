@@ -70,6 +70,6 @@ export function testExtensions(snapshot: SynthOutput): void {
  * @param snapshot Synthesized project output.
  */
 export function testCommand(snapshot: SynthOutput): void {
-  const standardCommand: string = 'npm run install-dependencies'
+  const standardCommand: string = 'npm run install-dependencies';
   expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(standardCommand);
 }

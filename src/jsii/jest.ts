@@ -9,9 +9,7 @@ export class JestConfigJsii extends JestBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

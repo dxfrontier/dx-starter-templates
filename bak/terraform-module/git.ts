@@ -11,13 +11,12 @@ export class GitConfigTerraformModule extends GitBaseConfig<TerraformModuleProje
 
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 
 class ConfigStrategy extends GitBaseConfigStrategy<TerraformModuleProject> {
   registerConfig(project: TerraformModuleProject): void {
     super.registerConfig(project);
-    console.log('git - TerraformModule')
+    console.log('git - TerraformModule');
   }
 }

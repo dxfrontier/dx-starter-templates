@@ -3,15 +3,15 @@ import { JsiiProject } from '../jsii';
 import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
 
-export type Settings = { [key: string]: any }  // to be compliant with projen api
+export type Settings = Record<string, any>; // to be compliant with projen api
 
 /**
  * Base class for implementing all relevant NPM configuration.
- * 
+ *
  * This class acts as a base for handling NPM configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
- * 
+ *
  * @template T Type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
@@ -34,7 +34,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     this.settings = this.standardSettings;
     this.scripts = this.standardScripts;
   }
-  
+
   protected get standardDependencies(): string[] {
     return [];
   }
@@ -60,7 +60,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
    * @param dependencies List of dependencies to add.
    */
   public addDependencies(dependencies: string[]): void {
-    dependencies.forEach(dep => this.dependencies.add(dep));
+    dependencies.forEach((dep) => this.dependencies.add(dep));
   }
 
   /**
@@ -68,7 +68,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
    * @param dependencies List of devDependencies to add.
    */
   public addDevDependencies(dependencies: string[]): void {
-    dependencies.forEach(dep => this.devDependencies.add(dep));
+    dependencies.forEach((dep) => this.devDependencies.add(dep));
   }
 
   /**
@@ -76,7 +76,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
    * @param dependencies List of peerDependencies to add.
    */
   public addPeerDependencies(dependencies: string[]): void {
-    dependencies.forEach(dep => this.peerDependencies.add(dep));
+    dependencies.forEach((dep) => this.peerDependencies.add(dep));
   }
 
   /**
@@ -104,7 +104,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   public getDevDependencies(): string[] {
     return Array.from(this.devDependencies);
   }
-  
+
   /**
    * Returns all peerDependencies, including standard and custom ones.
    */
@@ -126,7 +126,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   /**
    * Patches scripts in the `package.json` file.
    * @public
-   * Projen public API is not used as it would 
+   * Projen public API is not used as it would
    * create Projen related tasks like `npx projen task` and would not be convenient
    * for projects that need a non Projen related approach on scaffolding.
    */

@@ -41,5 +41,16 @@ tsconfig.json
 !/.projenrc.ts
 !/.devcontainer.json
 !/eslint.config.mjs
+!/.prettierrc.json
+!/.prettierignore
 !/.vscode/settings.json
+!/.github/pull_request_template.md
+!/.github/ISSUE_TEMPLATE/bug.yml
+!/.github/ISSUE_TEMPLATE/feature.yml
+!/.github/ISSUE_TEMPLATE/housekeeping.yml
+!/.github/ISSUE_TEMPLATE/question.yml
+!/cliff.toml
+!/.github/workflows/release.yml
 !/.commitlintrc.ts
+!/.husky/commit-msg
+!/.husky/pre-commit

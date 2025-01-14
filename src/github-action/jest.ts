@@ -9,9 +9,7 @@ export class JestConfigGitHubAction extends JestBaseConfig<GitHubActionProject> 
   constructor(project: GitHubActionProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

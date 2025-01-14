@@ -1,7 +1,7 @@
 import { GitConfigTerraformModule } from '.';
 import { BaseOptions, BaseProject, BaseProjectOptions } from '../base';
 
-export interface TerraformModuleProjectOptions extends BaseProjectOptions { }
+export interface TerraformModuleProjectOptions extends BaseProjectOptions {}
 
 /**
  * Base class for managing GitHub Action project configuration.

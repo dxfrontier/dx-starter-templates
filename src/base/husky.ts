@@ -5,11 +5,11 @@ import { BaseProject } from './project';
 
 /**
  * Base class for implementing all relevant Husky configuration.
- * 
+ *
  * This class acts as a base for handling Husky configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
- * 
+ *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
@@ -22,25 +22,19 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
   }
 
   protected get additionalDevDependencies(): string[] {
-    return [
-      'husky@^9.1.7',
-    ];
+    return ['husky@^9.1.7'];
   }
 
   protected get additionalScripts(): Record<string, string> {
     return {
       prepare: 'husky || true',
-    }
+    };
   }
 
   protected get configFile(): Record<string, string[]> {
     return {
-      '.husky/commit-msg': [
-        'npx --no-install commitlint --edit "$1"',
-      ],
-      '.husky/pre-commit': [
-        'npx lint-staged',
-      ]
+      '.husky/commit-msg': ['npx --no-install commitlint --edit "$1"'],
+      '.husky/pre-commit': ['npx lint-staged'],
     };
   }
 

@@ -20,9 +20,9 @@ export const project = new JsiiProject({
   typescriptEnabled: true,
   vscodeEnabled: true,
   sampleCodeEnabled: true,
-  
+
   // Use projen standard API for jest.
-  // For the other modules like vscode, devContainer, etc. 
+  // For the other modules like vscode, devContainer, etc.
   // we use own configuration which are set to false as defaults
   // in the JsiiProject itself
   jest: true,
@@ -46,9 +46,9 @@ export const project = new JsiiProject({
 //   typescriptEnabled: true,
 //   vscodeEnabled: true,
 //   sampleCodeEnabled: true,
-  
+
 //   // use projen standard jest and npm
-//   // the others like vscode, devContainer, ... 
+//   // the others like vscode, devContainer, ...
 //   // we use own configuration which are set to false as defaults
 //   // in the JsiiProject itself
 //   jest: true,
@@ -72,9 +72,9 @@ export const project = new JsiiProject({
 //   typescriptEnabled: true,
 //   vscodeEnabled: true,
 //   sampleCodeEnabled: true,
-  
+
 //   // use projen standard jest and npm
-//   // the others like vscode, devContainer, ... 
+//   // the others like vscode, devContainer, ...
 //   // we use own configuration which are set to false as defaults
 //   // in the JsiiProject itself
 //   jest: true,

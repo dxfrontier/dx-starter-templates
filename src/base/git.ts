@@ -4,11 +4,11 @@ import { BaseProject } from './project';
 
 /**
  * Base class for implementing all relevant Git configuration.
- * 
+ *
  * This class acts as a base for handling Git configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
- * 
+ *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */

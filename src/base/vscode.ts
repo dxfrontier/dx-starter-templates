@@ -6,11 +6,11 @@ import { BaseProject } from './project';
 
 /**
  * Base class for implementing all relevant VsCode configuration.
- * 
+ *
  * This class acts as a base for handling VsCode configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
- * 
+ *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
@@ -18,9 +18,7 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardVsCodeBaseConfigStrategy()
-      : new NonApiVsCodeBaseConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardVsCodeBaseConfigStrategy() : new NonApiVsCodeBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -42,7 +40,7 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
         'editor.inlayHints.padding': true,
         'editor.formatOnSave': true,
         'editor.formatOnPaste': true,
-      }
+      },
     };
   }
 
@@ -60,7 +58,7 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void {}
 }
 
 /**

@@ -11,7 +11,6 @@ export class GitConfigJsii extends GitBaseConfig<JsiiProject> {
 
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 

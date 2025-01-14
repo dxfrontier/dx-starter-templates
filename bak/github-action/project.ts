@@ -1,7 +1,7 @@
 import { BaseOptions, BaseProject, BaseProjectOptions } from '../base';
 import { GitConfigGitHubAction } from './git';
 
-export interface GitHubActionProjectOptions extends BaseProjectOptions { }
+export interface GitHubActionProjectOptions extends BaseProjectOptions {}
 
 /**
  * Base class for managing GitHub Action project configuration.

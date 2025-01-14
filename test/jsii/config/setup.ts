@@ -1,7 +1,6 @@
 import { JsiiProject } from 'projen/lib/cdk/index';
 import { SynthOutput, synthSnapshot } from 'projen/lib/util/synth';
 
-
 export let project: JsiiProject;
 export let snapshot: SynthOutput;
 

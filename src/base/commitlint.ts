@@ -6,11 +6,11 @@ import { BaseProject } from './project';
 
 /**
  * Base class for implementing all relevant CommitLint configuration.
- * 
+ *
  * This class acts as a base for handling CommitLint configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
- * 
+ *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
@@ -37,13 +37,13 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
       'lint-staged': {
         '**/*.ts': ['npm run eslint', 'npm run prettier'],
       },
-    }
+    };
   }
 
   protected get additionalScripts(): Record<string, string> {
     return {
       commit: 'commit',
-    }
+    };
   }
 
   protected get configFile(): Record<string, string[]> {
@@ -67,7 +67,7 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
         '};',
         '',
         'export default Configuration;',
-      ]
+      ],
     };
   }
 

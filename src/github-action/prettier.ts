@@ -1,5 +1,10 @@
 import { GitHubActionProject } from '.';
-import { Config, PrettierBaseConfig, ProjenStandardPrettierBaseConfigStrategy, NonApiPrettierBaseConfigStrategy } from '../base';
+import {
+  Config,
+  PrettierBaseConfig,
+  ProjenStandardPrettierBaseConfigStrategy,
+  NonApiPrettierBaseConfigStrategy,
+} from '../base';
 
 /**
  * Implementing all relevant Prettier configuration for the GitHubAction project.
@@ -9,9 +14,7 @@ export class PrettierConfigGitHubAction extends PrettierBaseConfig<GitHubActionP
   constructor(project: GitHubActionProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

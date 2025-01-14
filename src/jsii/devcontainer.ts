@@ -1,5 +1,10 @@
 import { JsiiProject } from '.';
-import { DevContainerBaseConfig, ProjenStandardDevContainerBaseConfigStrategy, NonApiDevContainerBaseConfigStrategy, Config } from '../base';
+import {
+  DevContainerBaseConfig,
+  ProjenStandardDevContainerBaseConfigStrategy,
+  NonApiDevContainerBaseConfigStrategy,
+  Config,
+} from '../base';
 
 /**
  * Implementing all relevant DevContainer configuration for the Jsii project.
@@ -9,9 +14,7 @@ export class DevContainerConfigJsii extends DevContainerBaseConfig<JsiiProject> 
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

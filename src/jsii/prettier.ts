@@ -1,5 +1,10 @@
 import { JsiiProject } from '.';
-import { Config, PrettierBaseConfig, ProjenStandardPrettierBaseConfigStrategy, NonApiPrettierBaseConfigStrategy } from '../base';
+import {
+  Config,
+  PrettierBaseConfig,
+  ProjenStandardPrettierBaseConfigStrategy,
+  NonApiPrettierBaseConfigStrategy,
+} from '../base';
 
 /**
  * Implementing all relevant Prettier configuration for the Jsii project.
@@ -9,9 +14,7 @@ export class PrettierConfigJsii extends PrettierBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

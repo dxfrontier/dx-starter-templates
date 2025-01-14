@@ -1,5 +1,10 @@
 import { GitHubActionProject } from '.';
-import { DevContainerBaseConfig, ProjenStandardDevContainerBaseConfigStrategy, NonApiDevContainerBaseConfigStrategy, Config } from '../base';
+import {
+  DevContainerBaseConfig,
+  ProjenStandardDevContainerBaseConfigStrategy,
+  NonApiDevContainerBaseConfigStrategy,
+  Config,
+} from '../base';
 
 /**
  * Implementing all relevant DevContainer configuration for the GitHubAction project.
@@ -9,9 +14,7 @@ export class DevContainerConfigGitHubAction extends DevContainerBaseConfig<GitHu
   constructor(project: GitHubActionProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

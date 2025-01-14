@@ -1,5 +1,10 @@
 import { JsiiProject } from '.';
-import { VsCodeBaseConfig, ProjenStandardVsCodeBaseConfigStrategy, NonApiVsCodeBaseConfigStrategy, Config } from '../base';
+import {
+  VsCodeBaseConfig,
+  ProjenStandardVsCodeBaseConfigStrategy,
+  NonApiVsCodeBaseConfigStrategy,
+  Config,
+} from '../base';
 
 /**
  * Implementing all relevant VsCode configuration for the Jsii project.
@@ -9,9 +14,7 @@ export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : new NonApiConfigStrategy();
+    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

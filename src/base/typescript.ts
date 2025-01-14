@@ -4,11 +4,11 @@ import { BaseProject } from './project';
 
 /**
  * Base class for implementing all relevant TypeScript configuration.
- * 
+ *
  * This class acts as a base for handling TypeScript configuration within projects
  * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
  * strategy to use based on whether Projen is being used.
- * 
+ *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
@@ -21,11 +21,7 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
   }
 
   protected get additionalDevDependencies(): string[] {
-    return [
-      'typescript@^5.7.3',
-      '@types/node@^22.10.6',
-      'ts-node@^10.9.2',
-    ];
+    return ['typescript@^5.7.3', '@types/node@^22.10.6', 'ts-node@^10.9.2'];
   }
 
   public override registerConfig(): void {
@@ -38,5 +34,5 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class NonApiTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void {}
 }

@@ -1,6 +1,6 @@
 import { BaseOptions, BaseProject, BaseProjectOptions } from '../base';
 
-export interface CapServiceProjectOptions extends BaseProjectOptions { }
+export interface CapServiceProjectOptions extends BaseProjectOptions {}
 
 /**
  * Base class for managing SAP Capire service project configuration.

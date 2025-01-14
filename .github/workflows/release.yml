@@ -1,0 +1,19 @@
+name: Release
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Create release
+        uses: dxfrontier/gh-action-release@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: main

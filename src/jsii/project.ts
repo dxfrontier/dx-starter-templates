@@ -1,6 +1,18 @@
 import { cdk } from 'projen';
 import { BaseOptions, Config } from '../base';
-import { CommitLintConfigJsii, DevContainerConfigJsii, EsLintConfigJsii, GitConfigJsii, GitHubConfigJsii, HuskyConfigJsii, JestConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from '.';
+import {
+  CommitLintConfigJsii,
+  DevContainerConfigJsii,
+  EsLintConfigJsii,
+  GitConfigJsii,
+  GitHubConfigJsii,
+  HuskyConfigJsii,
+  JestConfigJsii,
+  NpmConfigJsii,
+  PrettierConfigJsii,
+  TypeScriptConfigJsii,
+  VsCodeConfigJsii,
+} from '.';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   readonly commitlintEnabled?: boolean;
@@ -48,7 +60,7 @@ export class JsiiProject extends cdk.JsiiProject {
         },
       },
     });
-    
+
     new GitConfigJsii(this);
     this.npmConfig = new NpmConfigJsii(this);
 
@@ -85,7 +97,6 @@ export class JsiiProject extends cdk.JsiiProject {
   }
 
   public override preSynthesize(): void {
-    console.log('JsiiProject preSynth')
     for (const comp of this.components) {
       if (comp instanceof Config) {
         comp.registerConfig();

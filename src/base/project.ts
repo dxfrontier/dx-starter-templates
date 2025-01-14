@@ -1,6 +1,19 @@
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { BaseOptions } from './options';
-import { CommitLintBaseConfig, Config, DevContainerBaseConfig, EsLintBaseConfig, GitBaseConfig, GitHubBaseConfig, HuskyBaseConfig, JestBaseConfig, NpmBaseConfig, PrettierBaseConfig, TypeScriptBaseConfig, VsCodeBaseConfig } from '.';
+import {
+  CommitLintBaseConfig,
+  Config,
+  DevContainerBaseConfig,
+  EsLintBaseConfig,
+  GitBaseConfig,
+  GitHubBaseConfig,
+  HuskyBaseConfig,
+  JestBaseConfig,
+  NpmBaseConfig,
+  PrettierBaseConfig,
+  TypeScriptBaseConfig,
+  VsCodeBaseConfig,
+} from '.';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
   readonly commitlintEnabled?: boolean;
@@ -30,7 +43,7 @@ export class BaseProject extends TypeScriptProject {
   public prettierConfig?: PrettierBaseConfig<BaseProject>;
   public typescriptConfig?: TypeScriptBaseConfig<BaseProject>;
   public vscodeConfig?: VsCodeBaseConfig<BaseProject>;
-    // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
+  // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
 
   /**
    * Initializes the project.
@@ -88,5 +101,4 @@ export class BaseProject extends TypeScriptProject {
   public override postSynthesize(): void {
     super.postSynthesize();
   }
-
 }

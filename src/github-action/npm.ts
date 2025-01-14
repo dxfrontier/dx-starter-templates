@@ -1,7 +1,6 @@
 import { GitHubActionProject } from '.';
 // import { Config, NonProjenNpmBaseConfigStrategy, NpmBaseConfig, ProjenStandardNpmBaseConfigStrategy, NonApiNpmBaseConfigStrategy } from '../base';
-import { NpmBaseConfig, Settings } from '../base';
-
+import { NpmBaseConfig } from '../base';
 
 /**
  * Implementing all relevant NPM configuration for the GitHubAction project.

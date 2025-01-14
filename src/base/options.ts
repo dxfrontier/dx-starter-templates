@@ -2,7 +2,6 @@ import { BaseProjectOptions } from './project';
 import { JsiiProjectOptions } from '../jsii';
 import { NodePackageManager } from 'projen/lib/javascript';
 
-
 /**
  * Utility for shared options.
  */
@@ -14,16 +13,18 @@ export class BaseOptions {
    * @public
    * @static
    */
-  public static sharedOptions<T extends BaseProjectOptions | JsiiProjectOptions>(
-    options: T
-  ): T {
+  public static sharedOptions<T extends BaseProjectOptions | JsiiProjectOptions>(options: T): T {
     return {
       ...options,
       defaultReleaseBranch: options.defaultReleaseBranch ?? 'dev',
       licensed: options.licensed ?? false,
       packageManager: options.packageManager ?? NodePackageManager.NPM,
       npmignoreEnabled: options.npmignoreEnabled ?? false,
-      projenrcTs: !options.typescriptEnabled ? false : options.typescriptEnabled && options.projenrcTs ? options.projenrcTs : true,
+      projenrcTs: !options.typescriptEnabled
+        ? false
+        : options.typescriptEnabled && options.projenrcTs
+          ? options.projenrcTs
+          : true,
       disableTsconfigDev: options.typescriptEnabled && options.disableTsconfigDev ? options.disableTsconfigDev : true,
       disableTsconfig: options.typescriptEnabled && options.disableTsconfig ? options.disableTsconfig : false,
       prettier: options.prettierEnabled && options.prettier ? options.prettier : false,
@@ -32,7 +33,10 @@ export class BaseOptions {
       vscode: options.vscodeEnabled && options.vscode ? options.vscode : false,
       jest: options.jestEnabled && options.jest ? options.jest : false,
       github: options.githubEnabled && options.github ? options.github : false,
-      githubOptions: options.githubEnabled && options.githubOptions ? options.githubOptions : { mergify: false, pullRequestLint: false } ,
+      githubOptions:
+        options.githubEnabled && options.githubOptions
+          ? options.githubOptions
+          : { mergify: false, pullRequestLint: false },
       buildWorkflow: options.githubEnabled && options.buildWorkflow ? options.buildWorkflow : false,
       release: options.githubEnabled && options.release ? options.release : false,
       pullRequestTemplate: options.githubEnabled && options.pullRequestTemplate ? options.pullRequestTemplate : false,
@@ -59,7 +63,7 @@ export class BaseOptions {
  *         -> these are all non Projen tracked
  * 3) Project activated
  *      -> does the project want to have (e.g. jest)
- * 
+ *
  * ### Config Hierarchy
  * Config
  *   BaseConfig  --> decides between Projen tracked or SampleFiles

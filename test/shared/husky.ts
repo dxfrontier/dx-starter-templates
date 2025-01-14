@@ -5,9 +5,7 @@ import { SynthOutput } from 'projen/lib/util/synth';
  * @param snapshot Synthesized project output.
  */
 export function testCommitMsgHook(snapshot: SynthOutput): void {
-  const expectedTemplateLines: string = [
-    'npx --no-install commitlint --edit "$1"',
-  ].join('\n');
+  const expectedTemplateLines: string = ['npx --no-install commitlint --edit "$1"'].join('\n');
   expect(snapshot['.husky/commit-msg']).toStrictEqual(expectedTemplateLines);
 }
 
@@ -16,8 +14,6 @@ export function testCommitMsgHook(snapshot: SynthOutput): void {
  * @param snapshot Synthesized project output.
  */
 export function testPreCommitHook(snapshot: SynthOutput): void {
-  const expectedTemplateLines: string = [
-    'npx lint-staged',
-  ].join('\n');
+  const expectedTemplateLines: string = ['npx lint-staged'].join('\n');
   expect(snapshot['.husky/pre-commit']).toStrictEqual(expectedTemplateLines);
 }

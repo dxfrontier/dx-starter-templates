@@ -15,13 +15,13 @@ export class GitHubActionProject extends BaseProject {
     super({
       ...BaseOptions.sharedOptions(options),
     });
-    
+
     // new GitConfigGitHubAction(this);
     this.npmConfig = new NpmConfigGitHubAction(this);
   }
 
   public override preSynthesize(): void {
-    console.log('GitHubActionProject preSynth')
+    console.log('GitHubActionProject preSynth');
     for (const comp of this.components) {
       if (comp instanceof Config) {
         comp.registerConfig();
