@@ -30,8 +30,43 @@
       "type": "build"
     },
     {
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "^8",
+      "type": "build"
+    },
+    {
+      "name": "@typescript-eslint/parser",
+      "version": "^8",
+      "type": "build"
+    },
+    {
       "name": "constructs",
       "version": "^10.0.0",
+      "type": "build"
+    },
+    {
+      "name": "eslint-config-prettier",
+      "version": "^9.1.0",
+      "type": "build"
+    },
+    {
+      "name": "eslint-import-resolver-typescript",
+      "version": "^3.6.3",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-import",
+      "version": "^2.31.0",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
+      "version": "^5.2.1",
+      "type": "build"
+    },
+    {
+      "name": "eslint",
+      "version": "^9.17.0",
       "type": "build"
     },
     {

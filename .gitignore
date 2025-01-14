@@ -40,4 +40,6 @@ tsconfig.json
 !/API.md
 !/.projenrc.ts
 !/.devcontainer.json
+!/eslint.config.mjs
+!/.vscode/settings.json
 !/.commitlintrc.ts

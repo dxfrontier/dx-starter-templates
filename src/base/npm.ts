@@ -26,8 +26,8 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     super(project);
 
     const strategy = new ProjenStandardNpmBaseConfigStrategy();
-
     this.setStrategy(strategy);
+
     this.dependencies = new Set(this.standardDependencies);
     this.devDependencies = new Set(this.standardDevDependencies);
     this.peerDependencies = new Set(this.standardPeerDependencies);
@@ -121,11 +121,6 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
 
   public getScripts(): Record<string, string> {
     return this.scripts;
-  }
-
-  public override preSynthesize(): void {
-    console.log('npm preSynth')
-    super.preSynthesize();
   }
 
   /**

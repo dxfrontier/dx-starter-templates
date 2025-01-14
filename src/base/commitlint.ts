@@ -19,7 +19,6 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
     super(project);
 
     const strategy = new NonApiCommitLintBaseConfigStrategy();
-
     this.setStrategy(strategy);
   }
 

@@ -47,7 +47,7 @@ test('DevDependencies are added properly', (): void => {
     "@commitlint/prompt-cli": "^19.7.0",
     "@commitlint/types": "^19.5.0",
     "@types/jest": "*",
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.10.6",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "constructs": "10.4.2",

@@ -35,9 +35,19 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
     }
   }
 
+  private get additionalIgnorePatterns(): string[] {
+    return [
+      'docs/',
+      'test/',
+      'lib/',
+      '.jsii',
+    ];
+  }
+
   public override registerConfig(): void {
     this.addDevDependencies(this.additionalDevDependencies);
     this.addPeerDependencies(this.additionalPeerDependencies);
     this.addSettings(this.additionalSettings);
+    this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
   }
 }
