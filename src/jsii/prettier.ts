@@ -1,21 +1,18 @@
 import { JsiiProject } from '.';
-import { Config, NonProjenPrettierBaseConfigStrategy, PrettierBaseConfig, ProjenStandardPrettierBaseConfigStrategy, ProjenTrackedPrettierBaseConfigStrategy } from '../base';
+import { Config, PrettierBaseConfig, ProjenStandardPrettierBaseConfigStrategy, NonApiPrettierBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant Prettier configuration for the Jsii project.
  * @extends PrettierBaseConfig
  */
 export class PrettierConfigJsii extends PrettierBaseConfig<JsiiProject> {
-  constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
-    super(project, useProjen, useProjenApi);
+  constructor(project: JsiiProject, useProjenApi: boolean) {
+    super(project, useProjenApi);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedConfigStrategy()
-        : new NonProjenConfigStrategy();
+      : new NonApiConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 
@@ -25,13 +22,7 @@ class ProjenStandardConfigStrategy extends ProjenStandardPrettierBaseConfigStrat
   }
 }
 
-class ProjenTrackedConfigStrategy extends ProjenTrackedPrettierBaseConfigStrategy<JsiiProject> {
-  applyConfig(config: Config<JsiiProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonProjenConfigStrategy extends NonProjenPrettierBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiPrettierBaseConfigStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

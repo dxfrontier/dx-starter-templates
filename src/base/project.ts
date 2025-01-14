@@ -3,19 +3,17 @@ import { BaseOptions } from './options';
 import { BaseConfig, Config } from '.';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
-  readonly projenEnabled?: boolean;
   readonly commitLintEnabled?: boolean;
   readonly devContainerEnabled?: boolean;
   readonly eslintEnabled?: boolean;
   readonly githubEnabled?: boolean;
   readonly huskyEnabled?: boolean;
   readonly jestEnabled?: boolean;
-  readonly npmEnabled?: boolean;
   readonly prettierEnabled?: boolean;
   readonly typescriptEnabled?: boolean;
   readonly vscodeEnabled?: boolean;
   readonly sampleCodeEnabled?: boolean;
-  readonly npm?: boolean;
+  readonly typescript?: boolean;
 }
 
 /**
@@ -30,7 +28,6 @@ export class BaseProject<TConfig extends BaseConfig = BaseConfig> extends TypeSc
   // public readonly githubConfig?: GitHubConfigJsii;
   // public readonly huskyConfig?: HuskyConfigJsii;
   // public readonly jestConfig?: JestConfigJsii;
-  // public readonly npmConfig?: NpmConfigJsii;
   // public readonly prettierConfig?: PrettierConfigJsii;
   // public readonly typescriptConfig?: TypeScriptConfigJsii;
   // public readonly vscodeConfig?: VsCodeConfigJsii;
@@ -44,11 +41,6 @@ export class BaseProject<TConfig extends BaseConfig = BaseConfig> extends TypeSc
     super({
       ...BaseOptions.sharedOptions(options),
     });
-
-    // special case to align with Projen standard API handling
-    this.npm = options.npmEnabled && options.projenEnabled && options.npm
-      ? options.npm
-      : false;
   }
 
   public override preSynthesize(): void {

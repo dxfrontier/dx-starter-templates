@@ -43,15 +43,6 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
     super(project);
     this.project = project;
   }
-
-  public override preSynthesize(): void {
-    this.applyConfig();
-    super.preSynthesize();
-  }
-
-  public override postSynthesize(): void {
-    super.postSynthesize();
-  }
   
   /**
    * Sets the configuration strategy to be used for the project.
@@ -92,13 +83,21 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
    * of each subclass, and `applyConfig` should be called in `preSynthesize` phase of
    * the configuration module and not from project itself.
    * 
-   * @throws Will throw an error if the strategy has not been set using `setStrategy`.
    */
   public applyConfig() {
     if (!this.strategy) {
-      throw new Error("Strategy not set");
+      console.debug(`Strategy not set for ${this.constructor.name}`);
     }
 
-    this.strategy.applyConfig(this);
+    this.strategy?.applyConfig(this);
+  }
+
+  public override preSynthesize(): void {
+    this.applyConfig();
+    super.preSynthesize();
+  }
+
+  public override postSynthesize(): void {
+    super.postSynthesize();
   }
 }

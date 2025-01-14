@@ -1,21 +1,18 @@
 import { JsiiProject } from '.';
-import { NonProjenEsLintBaseConfigStrategy, EsLintBaseConfig, ProjenStandardEsLintBaseConfigStrategy, ProjenTrackedEsLintBaseConfigStrategy, Config } from '../base';
+import { EsLintBaseConfig, ProjenStandardEsLintBaseConfigStrategy, NonApiEsLintBaseConfigStrategy, Config } from '../base';
 
 /**
  * Implementing all relevant EsLint configuration for the Jsii project.
  * @extends EsLintBaseConfig
  */
 export class EsLintConfigJsii extends EsLintBaseConfig<JsiiProject> {
-  constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
-    super(project, useProjen, useProjenApi);
+  constructor(project: JsiiProject, useProjenApi: boolean) {
+    super(project, useProjenApi);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedConfigStrategy()
-        : new NonProjenConfigStrategy();
+      : new NonApiConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 
@@ -25,13 +22,7 @@ class ProjenStandardConfigStrategy extends ProjenStandardEsLintBaseConfigStrateg
   }
 }
 
-class ProjenTrackedConfigStrategy extends ProjenTrackedEsLintBaseConfigStrategy<JsiiProject> {
-  applyConfig(config: Config<JsiiProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonProjenConfigStrategy extends NonProjenEsLintBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiEsLintBaseConfigStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

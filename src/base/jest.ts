@@ -13,14 +13,12 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjen: boolean, useProjenApi: boolean) {
+  constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardJestBaseConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedJestBaseConfigStrategy()
-        : new NonProjenJestBaseConfigStrategy();
+      : new NonApiJestBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -48,15 +46,6 @@ export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiPr
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
-}
-
-/**
- * Applies the Projen-based Jest configuration to the project.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonProjenJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void { }
 }

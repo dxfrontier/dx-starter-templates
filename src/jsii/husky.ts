@@ -1,29 +1,20 @@
 import { JsiiProject } from '.';
-import { Config, HuskyBaseConfig, NonProjenHuskyBaseConfigStrategy, ProjenTrackedHuskyBaseConfigStrategy } from '../base';
+import { Config, HuskyBaseConfig, NonApiHuskyBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant Husky configuration for the Jsii project.
  * @extends HuskyBaseConfig
  */
 export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
-	constructor(project: JsiiProject, useProjen: boolean) {
-		super(project, useProjen);
+	constructor(project: JsiiProject) {
+		super(project);
 
-		const strategy = useProjen
-			? new ProjenTrackedConfigStrategy()
-			: new NonProjenConfigStrategy();
+		const strategy = new NonApiConfigStrategy();
       this.setStrategy(strategy);
-      
 	}
 }
 
-class ProjenTrackedConfigStrategy extends ProjenTrackedHuskyBaseConfigStrategy<JsiiProject> {
-  applyConfig(config: Config<JsiiProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonProjenConfigStrategy extends NonProjenHuskyBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiHuskyBaseConfigStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

@@ -1,3 +1,5 @@
+// import { JsonFile } from 'projen';
+// import { SampleFile } from 'projen';
 import { JsiiProject } from '../jsii';
 import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
@@ -18,16 +20,12 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   protected dependencies: Set<string>;
   protected devDependencies: Set<string>;
   protected peerDependencies: Set<string>;
-  protected settings: Settings; // to be compliant with projen api
+  protected settings: Settings;
 
-  constructor(project: T, useProjen: boolean, useProjenApi: boolean) {
+  constructor(project: T) {
     super(project);
 
-    const strategy = useProjen && useProjenApi
-      ? new ProjenStandardNpmBaseConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedNpmBaseConfigStrategy()
-        : new NonProjenNpmBaseConfigStrategy();
+    const strategy = new ProjenStandardNpmBaseConfigStrategy();
 
     this.setStrategy(strategy);
     this.dependencies = new Set(this.standardDependencies);
@@ -89,7 +87,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
    * @param settings Record of settings to add.
    */
   public addSettings(settings: Settings): void {
-    this.settings = { ...this.settings, settings };
+    this.settings = { ...this.settings, ...settings };
   }
 
   /**
@@ -126,7 +124,6 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
 
   public override preSynthesize(): void {
     console.log('npm preSynth')
-    // call api calls here
     super.preSynthesize();
   }
 }
@@ -148,33 +145,5 @@ export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiPro
       config.project.addPeerDeps(...config.getPeerDependencies());
       config.project.addFields(config.getSettings());
     }
-  }
-}
-
-/**
- * Configuration strategy for Projen-tracked NPM base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenTrackedNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    console.log('npm Base - apply - Projen tracked')
-    if (config instanceof NpmBaseConfig) {
-      config.project.addDeps(...config.getDependencies());
-      config.project.addDevDeps(...config.getDevDependencies());
-      config.project.addPeerDeps(...config.getPeerDependencies());
-      config.project.addFields(config.getSettings());
-    }
-  }
-}
-
-/**
- * Applies the Projen-based NPM configuration to the project.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonProjenNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void {
-    console.log('npm Base - apply - non Projen')
   }
 }

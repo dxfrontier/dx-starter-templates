@@ -1,6 +1,6 @@
 import { JsiiProject } from '.';
-// import { Config, NonProjenNpmBaseConfigStrategy, NpmBaseConfig, ProjenStandardNpmBaseConfigStrategy, ProjenTrackedNpmBaseConfigStrategy } from '../base';
-import { NpmBaseConfig } from '../base';
+// import { Config, NonProjenNpmBaseConfigStrategy, NpmBaseConfig, ProjenStandardNpmBaseConfigStrategy, NonApiNpmBaseConfigStrategy } from '../base';
+import { NpmBaseConfig, Settings } from '../base';
 
 
 /**
@@ -8,35 +8,45 @@ import { NpmBaseConfig } from '../base';
  * @extends NpmBaseConfig
  */
 export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
-  constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
-    super(project, useProjen, useProjenApi);
+  constructor(project: JsiiProject) {
+    super(project);
+  }
 
-    // const strategy = useProjen && useProjenApi
-    //   ? new ProjenStandardConfigStrategy()
-    //   : useProjen && !useProjenApi
-    //     ? new ProjenTrackedConfigStrategy()
-    //     : new NonProjenConfigStrategy();
-    // this.setStrategy(strategy);
+  private get additionalDevDependencies(): string[] {
+    return [
+      'jsii@^5.7.4',
+      'jsii-diff@^1.106.0',
+      'jsii-docgen@^10.6.3',
+      'jsii-pacmak@^1.106.0',
+      'jsii-rosetta@^5.7.2',
+    ];
+  }
+
+  private get additionalPeerDependencies(): string[] {
+    return [
+      'constructs@^10.4.2',
+      'projen@^0.91.6',
+    ];
+  }
+
+  private get additionalSettings(): Settings {
+    return {
+      'files': ['lib', '.jsii', 'README.md'],
+      'jsii': {
+        'outdir': 'dist',
+        'targets': {},
+        'tsc': {
+          'outDir': 'lib',
+          'rootDir': 'src'
+        }
+      },
+    }
+  }
+
+  public override registerConfig(): void {
+    console.log('jsii Jsii - register - Projen API')
+    this.addDevDependencies(this.additionalDevDependencies);
+    this.addPeerDependencies(this.additionalPeerDependencies);
+    this.addSettings(this.additionalSettings);
   }
 }
-
-// class ProjenStandardConfigStrategy extends ProjenStandardNpmBaseConfigStrategy<JsiiProject> {
-//   applyConfig(config: Config<JsiiProject>): void {
-//     super.applyConfig(config);
-//     console.log('npm Jsii- Projen API')
-//   }
-// }
-
-// class ProjenTrackedConfigStrategy extends ProjenTrackedNpmBaseConfigStrategy<JsiiProject> {
-//   applyConfig(config: Config<JsiiProject>): void {
-//     super.applyConfig(config);
-//     console.log('npm Jsii - JsonFile')
-//   }
-// }
-
-// class NonProjenConfigStrategy extends NonProjenNpmBaseConfigStrategy<JsiiProject> {
-//   applyConfig(config: Config<JsiiProject>): void {
-//     super.applyConfig(config);
-//     console.log('npm Jsii - SampleFile')
-//   }
-// }

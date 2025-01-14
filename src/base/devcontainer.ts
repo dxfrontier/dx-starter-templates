@@ -13,14 +13,12 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjen: boolean, useProjenApi: boolean) {
+  constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardDevContainerBaseConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedDevContainerBaseConfigStrategy()
-        : new NonProjenDevContainerBaseConfigStrategy();
+      : new NonApiDevContainerBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -48,7 +46,7 @@ export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject 
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void { }
 }
 

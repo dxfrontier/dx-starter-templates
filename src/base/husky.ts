@@ -13,12 +13,10 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjen: boolean) {
+  constructor(project: T) {
     super(project);
 
-    const strategy = useProjen
-      ? new ProjenTrackedHuskyBaseConfigStrategy()
-      : new NonProjenHuskyBaseConfigStrategy();
+    const strategy = new NonApiHuskyBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -37,15 +35,6 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
-}
-
-/**
-  * Applies the Projen-based Husky configuration to the project.
-  * @param project - The project instance.
-  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-  */
-export class NonProjenHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void { }
 }

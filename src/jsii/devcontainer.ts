@@ -1,21 +1,18 @@
 import { JsiiProject } from '.';
-import { NonProjenDevContainerBaseConfigStrategy, DevContainerBaseConfig, ProjenStandardDevContainerBaseConfigStrategy, ProjenTrackedDevContainerBaseConfigStrategy, Config } from '../base';
+import { DevContainerBaseConfig, ProjenStandardDevContainerBaseConfigStrategy, NonApiDevContainerBaseConfigStrategy, Config } from '../base';
 
 /**
  * Implementing all relevant DevContainer configuration for the Jsii project.
  * @extends DevContainerBaseConfig
  */
 export class DevContainerConfigJsii extends DevContainerBaseConfig<JsiiProject> {
-  constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
-    super(project, useProjen, useProjenApi);
+  constructor(project: JsiiProject, useProjenApi: boolean) {
+    super(project, useProjenApi);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedConfigStrategy()
-        : new NonProjenConfigStrategy();
+      : new NonApiConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 
@@ -25,13 +22,7 @@ class ProjenStandardConfigStrategy extends ProjenStandardDevContainerBaseConfigS
   }
 }
 
-class ProjenTrackedConfigStrategy extends ProjenTrackedDevContainerBaseConfigStrategy<JsiiProject> {
-  applyConfig(config: Config<JsiiProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonProjenConfigStrategy extends NonProjenDevContainerBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiDevContainerBaseConfigStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

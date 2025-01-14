@@ -13,14 +13,12 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjen: boolean, useProjenApi: boolean) {
+  constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardEsLintBaseConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedEsLintBaseConfigStrategy()
-        : new NonProjenEsLintBaseConfigStrategy();
+      : new NonApiEsLintBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -48,15 +46,6 @@ export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | Jsii
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void { }
-}
-
-/**
-  * Applies the Projen-based EsLint configuration to the project.
-  * @param project - The project instance.
-  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-  */
-export class NonProjenEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void {}
 }

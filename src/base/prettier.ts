@@ -13,14 +13,12 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjen: boolean, useProjenApi: boolean) {
+  constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardPrettierBaseConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedPrettierBaseConfigStrategy()
-        : new NonProjenPrettierBaseConfigStrategy();
+      : new NonApiPrettierBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -48,15 +46,6 @@ export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | Js
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
-}
-
-/**
-  * Applies the Projen-based Prettier configuration to the project.
-  * @param project - The project instance.
-  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-  */
-export class NonProjenPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void { }
 }

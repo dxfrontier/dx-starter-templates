@@ -1,21 +1,18 @@
 import { JsiiProject } from '.';
-import { NonProjenGitHubBaseConfigStrategy, GitHubBaseConfig, ProjenStandardGitHubBaseConfigStrategy, ProjenTrackedGitHubBaseConfigStrategy, Config } from '../base';
+import { GitHubBaseConfig, ProjenStandardGitHubBaseConfigStrategy, NonApiGitHubBaseConfigStrategy, Config } from '../base';
 
 /**
  * Implementing all relevant GitHub configuration for the Jsii project.
  * @extends GitHubBaseConfig
  */
 export class GitHubConfigJsii extends GitHubBaseConfig<JsiiProject> {
-  constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
-    super(project, useProjen, useProjenApi);
+  constructor(project: JsiiProject, useProjenApi: boolean) {
+    super(project, useProjenApi);
 
-    const strategy = useProjen && useProjenApi
+    const strategy = useProjenApi
       ? new ProjenStandardConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedConfigStrategy()
-        : new NonProjenConfigStrategy();
+      : new NonApiConfigStrategy();
     this.setStrategy(strategy);
-    
   }
 }
 
@@ -25,13 +22,7 @@ class ProjenStandardConfigStrategy extends ProjenStandardGitHubBaseConfigStrateg
   }
 }
 
-class ProjenTrackedConfigStrategy extends ProjenTrackedGitHubBaseConfigStrategy<JsiiProject> {
-  applyConfig(config: Config<JsiiProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonProjenConfigStrategy extends NonProjenGitHubBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiGitHubBaseConfigStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

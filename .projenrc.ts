@@ -10,26 +10,22 @@ export const project = new JsiiProject({
   copyrightOwner: 'ABS GmbH',
   defaultReleaseBranch: 'dev',
 
-  projenEnabled: true,
   commitLintEnabled: true,
   devContainerEnabled: true,
   eslintEnabled: true,
   githubEnabled: true,
   huskyEnabled: true,
   jestEnabled: true,
-  npmEnabled: true,
   prettierEnabled: true,
   typescriptEnabled: true,
   vscodeEnabled: true,
   sampleCodeEnabled: true,
   
-  // Use projen standard API for jest and npm.
+  // Use projen standard API for jest.
   // For the other modules like vscode, devContainer, etc. 
   // we use own configuration which are set to false as defaults
   // in the JsiiProject itself
   jest: true,
-  npm: true,
-  github: true,
 });
 
 // export const project = new TerraformModuleProject({

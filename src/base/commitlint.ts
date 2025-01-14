@@ -13,12 +13,10 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjen: boolean) {
+  constructor(project: T) {
     super(project);
 
-    const strategy = useProjen
-      ? new ProjenTrackedCommitLintBaseConfigStrategy()
-      : new NonProjenCommitLintBaseConfigStrategy();
+    const strategy = new NonApiCommitLintBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -37,15 +35,6 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void {}
-}
-
-/**
-  * Applies the Projen-based CommitLint configuration to the project.
-  * @param project - The project instance.
-  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-  */
-export class NonProjenCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void {}
 }

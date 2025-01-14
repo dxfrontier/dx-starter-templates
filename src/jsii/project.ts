@@ -1,30 +1,25 @@
 import { cdk } from 'projen';
 import { BaseOptions, Config } from '../base';
-import { DevContainerConfigJsii, EsLintConfigJsii, GitConfigJsii, GitHubConfigJsii, HuskyConfigJsii, JestConfigJsii, JsiiConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from '.';
-import { CommitLintConfigJsii } from './commitlint';
+import { CommitLintConfigJsii, DevContainerConfigJsii, EsLintConfigJsii, GitConfigJsii, GitHubConfigJsii, HuskyConfigJsii, JestConfigJsii, NpmConfigJsii, PrettierConfigJsii, TypeScriptConfigJsii, VsCodeConfigJsii } from '.';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
-  readonly projenEnabled?: boolean;
   readonly commitLintEnabled?: boolean;
   readonly devContainerEnabled?: boolean;
   readonly eslintEnabled?: boolean;
   readonly githubEnabled?: boolean;
   readonly huskyEnabled?: boolean;
   readonly jestEnabled?: boolean;
-  readonly npmEnabled?: boolean;
   readonly prettierEnabled?: boolean;
   readonly typescriptEnabled?: boolean;
   readonly vscodeEnabled?: boolean;
   readonly sampleCodeEnabled?: boolean;
-  readonly npm?: boolean;
+  readonly typescript?: boolean;
 }
 
 /**
  * Base class for managing project Jsii configuration.
  */
 export class JsiiProject extends cdk.JsiiProject {
-  protected readonly npm?: boolean;
-  public readonly jsiiConfig?: JsiiConfigJsii;
   public readonly gitConfig?: GitConfigJsii;
   public readonly commitLintConfig?: CommitLintConfigJsii;
   public readonly devContainerConfig?: DevContainerConfigJsii;
@@ -37,6 +32,7 @@ export class JsiiProject extends cdk.JsiiProject {
   public readonly typescriptConfig?: TypeScriptConfigJsii;
   public readonly vscodeConfig?: VsCodeConfigJsii;
   // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
+  public readonly typescript?: boolean;
 
   /**
    * Initializes the project.
@@ -49,45 +45,45 @@ export class JsiiProject extends cdk.JsiiProject {
       disableTsconfigDev: options.disableTsconfigDev ?? false,
       disableTsconfig: options.disableTsconfig ?? true,
     });
-
+    
     // special case to align with Projen standard API handling
-    this.npm = options.npmEnabled && options.projenEnabled && options.npm
-      ? options.npm
+    this.typescript = options.typescriptEnabled && options.typescript
+      ? options.typescript
       : false;
 
-    new JsiiConfigJsii(this);
     new GitConfigJsii(this);
+    this.npmConfig = new NpmConfigJsii(this);
 
     if (options.devContainerEnabled) {
-      this.devContainerConfig = new DevContainerConfigJsii(this, options.projenEnabled!, options.devContainer!);
+      this.devContainerConfig = new DevContainerConfigJsii(this, options.devContainer!);
     }
     if (options.eslintEnabled) {
-      this.eslintConfig = new EsLintConfigJsii(this, options.projenEnabled!, options.eslint!);
+      this.eslintConfig = new EsLintConfigJsii(this, options.eslint!);
     }
     if (options.jestEnabled) {
-      this.jestConfig = new JestConfigJsii(this, options.projenEnabled!, options.jest!);
-    }
-    if (options.npmEnabled) {
-      this.npmConfig = new NpmConfigJsii(this, options.projenEnabled!, options.npm!);
+      this.jestConfig = new JestConfigJsii(this, options.jest!);
     }
     if (options.prettierEnabled) {
-      this.prettierConfig = new PrettierConfigJsii(this, options.projenEnabled!, options.prettier!);
+      this.prettierConfig = new PrettierConfigJsii(this, options.prettier!);
     }
     if (options.vscodeEnabled) {
-      this.vscodeConfig = new VsCodeConfigJsii(this, options.projenEnabled!, options.vscode!);
+      this.vscodeConfig = new VsCodeConfigJsii(this, options.vscode!);
     }
     if (options.githubEnabled) {
-      this.githubConfig = new GitHubConfigJsii(this, options.projenEnabled!, options.github!);
+      this.githubConfig = new GitHubConfigJsii(this, options.github!);
     }
     if (options.commitLintEnabled) {
-      this.commitLintConfig = new CommitLintConfigJsii(this, options.projenEnabled!);
+      this.commitLintConfig = new CommitLintConfigJsii(this);
     }
     if (options.huskyEnabled) {
-      this.huskyConfig = new HuskyConfigJsii(this, options.projenEnabled!);
+      this.huskyConfig = new HuskyConfigJsii(this);
     }
     if (options.typescriptEnabled) {
-      this.typescriptConfig = new TypeScriptConfigJsii(this, options.projenEnabled!);
+      this.typescriptConfig = new TypeScriptConfigJsii(this, this.typescript!);
     }
+    // if (options.sampleCodeEnabled) {
+    //   this.typescriptConfig = new SampleCodeConfigJsii(this);
+    // }
   }
 
   public override preSynthesize(): void {

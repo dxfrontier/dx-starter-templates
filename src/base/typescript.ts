@@ -13,12 +13,12 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjen: boolean) {
+  constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjen
-      ? new ProjenTrackedTypeScriptBaseConfigStrategy()
-      : new NonProjenTypeScriptBaseConfigStrategy();
+    const strategy = useProjenApi
+      ? new ProjenStandardTypeScriptBaseConfigStrategy()
+      : new NonApiTypeScriptBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -32,20 +32,21 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
   }
 }
 
+
+/**
+ * Applies the Projen-based TypeScript configuration to the project.
+ * @param project - The project instance.
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ */
+export class ProjenStandardTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  applyConfig(_config: Config<T>): void { }
+}
+
 /**
  * Configuration strategy for Projen-tracked TypeScript base configuration.
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
-}
-
-/**
-  * Applies the Projen-based TypeScript configuration to the project.
-  * @param project - The project instance.
-  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
-  */
-export class NonProjenTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void { }
 }
