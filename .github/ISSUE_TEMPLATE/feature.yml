@@ -1,7 +1,7 @@
 name: 💡 Feature
 description: Request for a new feature
-title: '[FEATURE] <title>'
-labels: ['type: feature']
+title: "[FEATURE] <title>"
+labels: ["type: feature"]
 body:
   - type: textarea
     attributes:

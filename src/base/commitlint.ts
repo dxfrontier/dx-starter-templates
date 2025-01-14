@@ -78,10 +78,15 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
     });
   }
 
+  protected get additionalIgnorePatterns(): string[] {
+    return ['/.commitlintrc.ts'];
+  }
+
   public override registerConfig(): void {
     this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
     this.project.npmConfig?.addSettings(this.additionalSettings);
     this.project.npmConfig?.addScripts(this.additionalScripts);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
   }
 }
 

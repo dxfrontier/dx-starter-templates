@@ -311,6 +311,24 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
       lines: this.configFileReleaseWorkflow[filePath],
     });
   }
+
+  protected get additionalIgnorePatterns(): string[] {
+    return [
+      '/.gitattributes',
+      '/.github/ISSUE_TEMPLATE/bug.yml',
+      '/.github/ISSUE_TEMPLATE/feature.yml',
+      '/.github/ISSUE_TEMPLATE/housekeeping.yml',
+      '/.github/ISSUE_TEMPLATE/question.yml',
+      '/.github/pull_request_template.md',
+      '/.github/workflows/release.yml',
+      '/.gitignore',
+      '/cliff.toml',
+    ];
+  }
+
+  public override registerConfig(): void {
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+  }
 }
 
 /**

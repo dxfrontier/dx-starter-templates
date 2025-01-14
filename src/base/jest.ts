@@ -17,16 +17,7 @@ export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<
     super(project);
 
     const strategy = useProjenApi ? new ProjenStandardJestBaseConfigStrategy() : new NonApiJestBaseConfigStrategy();
-
     this.setStrategy(strategy);
-  }
-
-  public override preSynthesize(): void {
-    super.preSynthesize();
-  }
-
-  public override postSynthesize(): void {
-    super.postSynthesize();
   }
 }
 

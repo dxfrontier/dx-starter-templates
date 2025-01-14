@@ -46,9 +46,14 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
     }
   }
 
+  protected get additionalIgnorePatterns(): string[] {
+    return ['/.husky/commit-msg', '/.husky/pre-commit'];
+  }
+
   public override registerConfig(): void {
     this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
     this.project.npmConfig?.addScripts(this.additionalScripts);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
   }
 }
 

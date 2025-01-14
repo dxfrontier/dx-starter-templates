@@ -24,8 +24,13 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
     return ['typescript@^5.7.3', '@types/node@^22.10.6', 'ts-node@^10.9.2'];
   }
 
+  protected get additionalIgnorePatterns(): string[] {
+    return ['/tsconfig.dev.json'];
+  }
+
   public override registerConfig(): void {
     this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
   }
 }
 /**

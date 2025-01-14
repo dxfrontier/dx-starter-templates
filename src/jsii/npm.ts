@@ -1,5 +1,4 @@
 import { JsiiProject } from '.';
-// import { Config, NonProjenNpmBaseConfigStrategy, NpmBaseConfig, ProjenStandardNpmBaseConfigStrategy, NonApiNpmBaseConfigStrategy } from '../base';
 import { NpmBaseConfig, Settings } from '../base';
 
 /**
@@ -29,10 +28,24 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
     return ['docs/', 'test/', 'lib/', '.jsii'];
   }
 
+  private get additionalIgnorePrettierPatterns(): string[] {
+    return [
+      '*.snap',
+      '/.projen/**',
+      '/.projen/deps.json',
+      '/.projen/files.json',
+      '/.projen/tasks.json',
+      '/package-lock.json',
+      '/package.json',
+      '/API.md',
+    ];
+  }
+
   public override registerConfig(): void {
     this.addDevDependencies(this.additionalDevDependencies);
     this.addPeerDependencies(this.additionalPeerDependencies);
     this.addSettings(this.additionalSettings);
     this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
   }
 }

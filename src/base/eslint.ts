@@ -112,9 +112,14 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  protected get additionalIgnorePatterns(): string[] {
+    return ['/eslint.config.mjs'];
+  }
+
   public override registerConfig(): void {
     this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
     this.project.npmConfig?.addScripts(this.additionalScripts);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
   }
 }
 

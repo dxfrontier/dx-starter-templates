@@ -50,6 +50,14 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
       obj: this.configFile[filePath],
     });
   }
+
+  protected get additionalIgnorePatterns(): string[] {
+    return ['/.vscode/settings.json'];
+  }
+
+  public override registerConfig(): void {
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+  }
 }
 
 /**

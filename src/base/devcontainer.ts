@@ -21,7 +21,6 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
     const strategy = useProjenApi
       ? new ProjenStandardDevContainerBaseConfigStrategy()
       : new NonApiDevContainerBaseConfigStrategy();
-
     this.setStrategy(strategy);
   }
 
@@ -92,8 +91,13 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
     });
   }
 
+  protected get additionalIgnorePatterns(): string[] {
+    return ['/.devcontainer.json'];
+  }
+
   public override registerConfig(): void {
     this.project.npmConfig?.addScripts(this.additionalScripts);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
   }
 }
 

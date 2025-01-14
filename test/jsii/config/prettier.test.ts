@@ -31,7 +31,6 @@ test('Ignore patterns matches expected content', (): void => {
     '/.github/ISSUE_TEMPLATE/question.yml',
     '/.github/pull_request_template.md',
     '/.github/workflows/release.yml',
-    '/.github/workflows/stale.yml',
     '/.gitignore',
     '/.husky/commit-msg',
     '/.husky/pre-commit',
