@@ -38,7 +38,7 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -47,5 +47,5 @@ export class ProjenTrackedTypeScriptBaseConfigStrategy<T extends BaseProject | J
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
 export class NonProjenTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }

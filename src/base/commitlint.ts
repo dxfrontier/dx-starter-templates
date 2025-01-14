@@ -38,7 +38,7 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void {}
+  applyConfig(_config: Config<T>): void {}
 }
 
 /**
@@ -47,5 +47,5 @@ export class ProjenTrackedCommitLintBaseConfigStrategy<T extends BaseProject | J
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
 export class NonProjenCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void {}
+  applyConfig(_config: Config<T>): void {}
 }

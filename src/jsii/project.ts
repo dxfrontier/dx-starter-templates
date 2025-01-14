@@ -94,7 +94,7 @@ export class JsiiProject extends cdk.JsiiProject {
     console.log('JsiiProject preSynth')
     for (const comp of this.components) {
       if (comp instanceof Config) {
-        comp.applyConfig();
+        comp.registerConfig();
       }
     }
     super.preSynthesize();

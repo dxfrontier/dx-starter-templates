@@ -16,8 +16,8 @@ export class GitConfigTerraformModule extends GitBaseConfig<TerraformModuleProje
 }
 
 class ConfigStrategy extends GitBaseConfigStrategy<TerraformModuleProject> {
-  applyConfig(project: TerraformModuleProject): void {
-    super.applyConfig(project);
+  registerConfig(project: TerraformModuleProject): void {
+    super.registerConfig(project);
     console.log('git - TerraformModule')
   }
 }

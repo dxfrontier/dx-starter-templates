@@ -20,19 +20,19 @@ export class GitHubConfigJsii extends GitHubBaseConfig<JsiiProject> {
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardGitHubBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedGitHubBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenGitHubBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

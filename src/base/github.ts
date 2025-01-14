@@ -40,7 +40,7 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -49,7 +49,7 @@ export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | Jsii
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -58,5 +58,5 @@ export class ProjenTrackedGitHubBaseConfigStrategy<T extends BaseProject | JsiiP
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
 export class NonProjenGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }

@@ -137,10 +137,10 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void {
+  registerConfig(_config: Config<T>): void {
     console.log('npm Base - apply - Projen API')
   }
-  writeConfig(config: Config<T>): void {
+  applyConfig(config: Config<T>): void {
     console.log('npm Base - write - Projen API')
     if (config instanceof NpmBaseConfig) {
       config.project.addDeps(...config.getDependencies());
@@ -157,11 +157,8 @@ export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiPro
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void {
+  applyConfig(config: Config<T>): void {
     console.log('npm Base - apply - Projen tracked')
-  }
-  writeConfig(config: Config<T>): void {
-    console.log('npm Base - write - Projen tracked')
     if (config instanceof NpmBaseConfig) {
       config.project.addDeps(...config.getDependencies());
       config.project.addDevDeps(...config.getDevDependencies());
@@ -179,8 +176,5 @@ export class ProjenTrackedNpmBaseConfigStrategy<T extends BaseProject | JsiiProj
 export class NonProjenNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(_config: Config<T>): void {
     console.log('npm Base - apply - non Projen')
-  }
-  writeConfig(_config: Config<T>): void {
-    console.log('npm Base - write - non Projen')
   }
 }

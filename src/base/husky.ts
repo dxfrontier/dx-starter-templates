@@ -38,7 +38,7 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -47,5 +47,5 @@ export class ProjenTrackedHuskyBaseConfigStrategy<T extends BaseProject | JsiiPr
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
 export class NonProjenHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }

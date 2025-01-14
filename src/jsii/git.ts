@@ -16,7 +16,7 @@ export class GitConfigJsii extends GitBaseConfig<JsiiProject> {
 }
 
 class ConfigStrategy extends GitBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

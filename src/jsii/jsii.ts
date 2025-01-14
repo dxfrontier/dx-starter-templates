@@ -12,12 +12,10 @@ export class JsiiConfigJsii extends Config<JsiiProject> {
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
   }
-}
 
-class ConfigStrategy implements ConfigStrategy {
-  applyConfig(config: Config<JsiiProject>): void {
-    console.log('jsii Jsii - apply - non Projen')
-    config.project.npmConfig?.addDevDependencies([
+  override registerConfig(): void {
+    console.log('jsii Jsii - register - Projen API')
+    this.project.npmConfig?.addDevDependencies([
       'jsii@^5.7.4',
       'jsii-diff@^1.106.0',
       'jsii-docgen@^10.6.3',
@@ -25,5 +23,8 @@ class ConfigStrategy implements ConfigStrategy {
       'jsii-rosetta@^5.7.2',
     ]);
   }
-  writeConfig(_config: Config<JsiiProject>): void { }
+}
+
+class ConfigStrategy implements ConfigStrategy {
+  applyConfig(_config: Config<JsiiProject>): void { }
 }

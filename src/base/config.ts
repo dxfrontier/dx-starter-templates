@@ -16,8 +16,7 @@ export interface BaseConfig {}
  * is applied to the project.
  */
 export interface ConfigStrategy {
-  applyConfig?(config: BaseConfig): void;
-  writeConfig(config: BaseConfig): void;
+  applyConfig(config: BaseConfig): void;
 }
 
 /**
@@ -46,7 +45,7 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
   }
 
   public override preSynthesize(): void {
-    this.writeConfig();
+    this.applyConfig();
     super.preSynthesize();
   }
 
@@ -70,53 +69,36 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
   }
 
   /**
-   * Applies the current configuration strategy to the project.
-   * This method is responsible for applying the strategy set using `setStrategy`
-   * and responsible for altering local settings and perform public API calls to 
-   * other configuration modules. The configuration creation is done n `createConfig`.
+   * Registers config to other configuration modules.
+   * Public API call addressing other modules should be performed here,
+   * to guarantee proper configuration handling.
    * 
-   * It is important that the strategy is set using `setStrategy` in each subclass 
-   * that defines a custom configuration strategy. However, the `applyConfig` method 
-   * should only be invoked in the project itself and is implemented in `BaseProject`.
-   * If `applyConfig` is called in any preceding class in the chain and not in the projects `preSynthesize` phase,
-   * then it is not guaranteed that the related configuration modules are already properly initialized.
-   * This is important for calling public `Config` API calls.
-   * 
-   * To ensure proper configuration handling, the strategy should be set in the constructor 
-   * of each subclass, and `applyConfig` should remain in projects `preSynthesize` and
-   * not being called in `Config` subclasses.
-   * 
-   * @throws Will throw an error if the strategy has not been set using `setStrategy`.
-   * 
+   * This methods should be called only in the projects `preSynthesize` phase
+   * and not on the configuration modules `preSynthesize` function otherwise
+   * it is not guaranteed that all needed modules are setup properly.
    */
-  public applyConfig() {
-    if (!this.strategy) {
-      throw new Error("Strategy not set");
-    }
-
-    if (this.strategy.applyConfig) {
-      this.strategy.applyConfig(this);
-    }
+  public registerConfig() {
+    // do api calls to other configuration modules here.
   }
 
   /**
-   * Writes the current configuration based on the strategy to the project.
+   * Applies the current configuration based on the strategy to the project.
    * This method uses the strategy set using `setStrategy`.
    * 
    * It is important that the strategy is set using `setStrategy` in each subclass 
    * that defines a custom configuration strategy.
    * 
    * To ensure proper configuration handling, the strategy should be set in the constructor 
-   * of each subclass, and `writeConfig` should be called in `preSynthesize` phase of
+   * of each subclass, and `applyConfig` should be called in `preSynthesize` phase of
    * the configuration module and not from project itself.
    * 
    * @throws Will throw an error if the strategy has not been set using `setStrategy`.
    */
-  public writeConfig() {
+  public applyConfig() {
     if (!this.strategy) {
       throw new Error("Strategy not set");
     }
 
-    this.strategy.writeConfig(this);
+    this.strategy.applyConfig(this);
   }
 }

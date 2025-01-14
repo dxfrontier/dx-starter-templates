@@ -54,7 +54,7 @@ export class BaseProject<TConfig extends BaseConfig = BaseConfig> extends TypeSc
   public override preSynthesize(): void {
     for (const comp of this.components) {
       if (comp instanceof Config) {
-        comp.applyConfig();
+        comp.registerConfig();
       }
     }
     super.preSynthesize();

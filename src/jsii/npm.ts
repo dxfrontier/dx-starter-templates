@@ -21,22 +21,22 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
 }
 
 // class ProjenStandardConfigStrategy extends ProjenStandardNpmBaseConfigStrategy<JsiiProject> {
-//   writeConfig(config: Config<JsiiProject>): void {
-//     super.writeConfig(config);
+//   applyConfig(config: Config<JsiiProject>): void {
+//     super.applyConfig(config);
 //     console.log('npm Jsii- Projen API')
 //   }
 // }
 
 // class ProjenTrackedConfigStrategy extends ProjenTrackedNpmBaseConfigStrategy<JsiiProject> {
-//   writeConfig(config: Config<JsiiProject>): void {
-//     super.writeConfig(config);
+//   applyConfig(config: Config<JsiiProject>): void {
+//     super.applyConfig(config);
 //     console.log('npm Jsii - JsonFile')
 //   }
 // }
 
 // class NonProjenConfigStrategy extends NonProjenNpmBaseConfigStrategy<JsiiProject> {
-//   writeConfig(config: Config<JsiiProject>): void {
-//     super.writeConfig(config);
+//   applyConfig(config: Config<JsiiProject>): void {
+//     super.applyConfig(config);
 //     console.log('npm Jsii - SampleFile')
 //   }
 // }

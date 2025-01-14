@@ -40,7 +40,7 @@ export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -49,7 +49,7 @@ export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiPr
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -58,5 +58,5 @@ export class ProjenTrackedJestBaseConfigStrategy<T extends BaseProject | JsiiPro
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class NonProjenJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }

@@ -16,8 +16,8 @@ export class GitConfigGitHubAction extends GitBaseConfig<GitHubActionProject> {
 }
 
 class ConfigStrategy extends GitBaseConfigStrategy<GitHubActionProject> {
-  applyConfig(project: GitHubActionProject): void {
-    super.applyConfig(project);
+  registerConfig(project: GitHubActionProject): void {
+    super.registerConfig(project);
     console.log('git - GitHubAction')
   }
 }

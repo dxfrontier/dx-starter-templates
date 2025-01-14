@@ -20,19 +20,19 @@ export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardVsCodeBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedVsCodeBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenVsCodeBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

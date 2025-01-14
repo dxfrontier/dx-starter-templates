@@ -20,19 +20,19 @@ export class JestConfigJsii extends JestBaseConfig<JsiiProject> {
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardJestBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedJestBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenJestBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

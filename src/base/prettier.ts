@@ -40,7 +40,7 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -49,7 +49,7 @@ export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | Js
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -58,5 +58,5 @@ export class ProjenTrackedPrettierBaseConfigStrategy<T extends BaseProject | Jsi
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
 export class NonProjenPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }

@@ -40,7 +40,7 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -49,7 +49,7 @@ export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject 
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenTrackedDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void { }
+  applyConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -58,5 +58,5 @@ export class ProjenTrackedDevContainerBaseConfigStrategy<T extends BaseProject |
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
 export class NonProjenDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  writeConfig(_config: Config<T>): void {}
+  applyConfig(_config: Config<T>): void {}
 }

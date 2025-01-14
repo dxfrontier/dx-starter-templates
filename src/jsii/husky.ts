@@ -18,13 +18,13 @@ export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedHuskyBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenHuskyBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

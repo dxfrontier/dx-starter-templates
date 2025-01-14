@@ -18,13 +18,13 @@ export class TypeScriptConfigJsii extends TypeScriptBaseConfig<JsiiProject> {
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedTypeScriptBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenTypeScriptBaseConfigStrategy<JsiiProject> {
-  writeConfig(config: Config<JsiiProject>): void {
-    super.writeConfig(config);
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }
