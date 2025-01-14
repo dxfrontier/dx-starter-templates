@@ -1,3 +1,4 @@
+import { TextFile } from 'projen';
 import { JsiiProject } from '../jsii';
 import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
@@ -17,16 +18,43 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
     super(project);
 
     const strategy = new NonApiHuskyBaseConfigStrategy();
-
     this.setStrategy(strategy);
   }
 
-  public override preSynthesize(): void {
-    super.preSynthesize();
+  protected get additionalDevDependencies(): string[] {
+    return [
+      'husky@^9.1.7',
+    ];
   }
 
-  public override postSynthesize(): void {
-    super.postSynthesize();
+  protected get additionalScripts(): Record<string, string> {
+    return {
+      prepare: 'husky || true',
+    }
+  }
+
+  protected get configFile(): Record<string, string[]> {
+    return {
+      '.husky/commit-msg': [
+        'npx --no-install commitlint --edit "$1"',
+      ],
+      '.husky/pre-commit': [
+        'npx lint-staged',
+      ]
+    };
+  }
+
+  public createConfig(): void {
+    for (const filePath in this.configFile) {
+      new TextFile(this.project, filePath, {
+        lines: this.configFile[filePath],
+      });
+    }
+  }
+
+  public override registerConfig(): void {
+    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
+    this.project.npmConfig?.addScripts(this.additionalScripts);
   }
 }
 
@@ -36,5 +64,9 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class NonApiHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void { }
+  applyConfig(config: Config<T>): void {
+    if (config instanceof HuskyBaseConfig) {
+      config.createConfig();
+    }
+  }
 }
