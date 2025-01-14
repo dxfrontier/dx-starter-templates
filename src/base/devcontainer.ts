@@ -17,10 +17,10 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
     super(project);
 
     const strategy = useProjen && useProjenApi
-      ? new ProjenStandardDevContainerBaseConfigStrategy<T>()
+      ? new ProjenStandardDevContainerBaseConfigStrategy()
       : useProjen && !useProjenApi
-        ? new ProjenTrackedDevContainerBaseConfigStrategy<T>()
-        : new NonProjenDevContainerBaseConfigStrategy<T>();
+        ? new ProjenTrackedDevContainerBaseConfigStrategy()
+        : new NonProjenDevContainerBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -39,10 +39,8 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('devContainer - use projen devContainer')
-  }
+export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -50,10 +48,8 @@ export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject 
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('devContainer - JsonFile')
-  }
+export class ProjenTrackedDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -61,8 +57,6 @@ export class ProjenTrackedDevContainerBaseConfigStrategy<T extends BaseProject |
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('devContainer - SampleFile')
-  }
+export class NonProjenDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void {}
 }

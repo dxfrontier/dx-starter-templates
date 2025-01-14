@@ -17,8 +17,8 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
     super(project);
 
     const strategy = useProjen
-      ? new ProjenTrackedTypeScriptBaseConfigStrategy<T>()
-      : new NonProjenTypeScriptBaseConfigStrategy<T>();
+      ? new ProjenTrackedTypeScriptBaseConfigStrategy()
+      : new NonProjenTypeScriptBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -37,10 +37,8 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('typescript - JsonFile')
-  }
+export class ProjenTrackedTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -48,8 +46,6 @@ export class ProjenTrackedTypeScriptBaseConfigStrategy<T extends BaseProject | J
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('typescript - SampleFile')
-  }
+export class NonProjenTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }

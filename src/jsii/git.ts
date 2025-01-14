@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { GitBaseConfig, GitBaseConfigStrategy } from '../base';
+import { Config, GitBaseConfig, GitBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant Git configuration for the Jsii project.
@@ -11,13 +11,12 @@ export class GitConfigJsii extends GitBaseConfig<JsiiProject> {
 
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
+    
   }
 }
 
 class ConfigStrategy extends GitBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('git - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

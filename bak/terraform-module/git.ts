@@ -11,7 +11,7 @@ export class GitConfigTerraformModule extends GitBaseConfig<TerraformModuleProje
 
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
+    
   }
 }
 

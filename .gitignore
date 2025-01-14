@@ -31,8 +31,11 @@ jspm_packages/
 junit.xml
 /coverage/
 !/test/
-!/tsconfig.json
+!/tsconfig.dev.json
 !/src/
 /lib
 /dist/
+.jsii
+tsconfig.json
+!/API.md
 !/.projenrc.ts

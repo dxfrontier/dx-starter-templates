@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { NonProjenEsLintBaseConfigStrategy, EsLintBaseConfig, ProjenStandardEsLintBaseConfigStrategy, ProjenTrackedEsLintBaseConfigStrategy } from '../base';
+import { NonProjenEsLintBaseConfigStrategy, EsLintBaseConfig, ProjenStandardEsLintBaseConfigStrategy, ProjenTrackedEsLintBaseConfigStrategy, Config } from '../base';
 
 /**
  * Implementing all relevant EsLint configuration for the Jsii project.
@@ -15,27 +15,24 @@ export class EsLintConfigJsii extends EsLintBaseConfig<JsiiProject> {
         ? new ProjenTrackedConfigStrategy()
         : new NonProjenConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
+    
   }
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardEsLintBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('esLint - use projen esLint - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedEsLintBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('esLint - JsonFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenEsLintBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('esLint - SampleFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

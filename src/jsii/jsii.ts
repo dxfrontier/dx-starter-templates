@@ -11,12 +11,19 @@ export class JsiiConfigJsii extends Config<JsiiProject> {
 
     const strategy = new ConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
   }
 }
 
 class ConfigStrategy implements ConfigStrategy {
-  applyConfig(_project: JsiiProject): void {
-    console.log('jsii - Jsii')
+  applyConfig(config: Config<JsiiProject>): void {
+    console.log('jsii Jsii - apply - non Projen')
+    config.project.npmConfig?.addDevDependencies([
+      'jsii@^5.7.4',
+      'jsii-diff@^1.106.0',
+      'jsii-docgen@^10.6.3',
+      'jsii-pacmak@^1.106.0',
+      'jsii-rosetta@^5.7.2',
+    ]);
   }
+  writeConfig(_config: Config<JsiiProject>): void { }
 }

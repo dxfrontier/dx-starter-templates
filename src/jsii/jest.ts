@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { NonProjenJestBaseConfigStrategy, JestBaseConfig, ProjenStandardJestBaseConfigStrategy, ProjenTrackedJestBaseConfigStrategy } from '../base';
+import { NonProjenJestBaseConfigStrategy, JestBaseConfig, ProjenStandardJestBaseConfigStrategy, ProjenTrackedJestBaseConfigStrategy, Config } from '../base';
 
 /**
  * Implementing all relevant Jest configuration for the Jsii project.
@@ -15,27 +15,24 @@ export class JestConfigJsii extends JestBaseConfig<JsiiProject> {
         ? new ProjenTrackedConfigStrategy()
         : new NonProjenConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
+    
   }
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardJestBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('jest - use projen jest - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedJestBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('jest - JsonFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenJestBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('jest - SampleFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

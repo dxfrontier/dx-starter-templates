@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { NonProjenPrettierBaseConfigStrategy, PrettierBaseConfig, ProjenStandardPrettierBaseConfigStrategy, ProjenTrackedPrettierBaseConfigStrategy } from '../base';
+import { Config, NonProjenPrettierBaseConfigStrategy, PrettierBaseConfig, ProjenStandardPrettierBaseConfigStrategy, ProjenTrackedPrettierBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant Prettier configuration for the Jsii project.
@@ -15,27 +15,24 @@ export class PrettierConfigJsii extends PrettierBaseConfig<JsiiProject> {
         ? new ProjenTrackedConfigStrategy()
         : new NonProjenConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
+    
   }
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardPrettierBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('prettier - use projen prettier - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedPrettierBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('prettier - JsonFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenPrettierBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('prettier - SampleFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

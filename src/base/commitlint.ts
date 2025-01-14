@@ -17,8 +17,8 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
     super(project);
 
     const strategy = useProjen
-      ? new ProjenTrackedCommitLintBaseConfigStrategy<T>()
-      : new NonProjenCommitLintBaseConfigStrategy<T>();
+      ? new ProjenTrackedCommitLintBaseConfigStrategy()
+      : new NonProjenCommitLintBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -37,10 +37,8 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('commitlint - JsonFile')
-  }
+export class ProjenTrackedCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void {}
 }
 
 /**
@@ -48,8 +46,6 @@ export class ProjenTrackedCommitLintBaseConfigStrategy<T extends BaseProject | J
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('commitlint - SampleFile')
-  }
+export class NonProjenCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void {}
 }

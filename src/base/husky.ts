@@ -17,8 +17,8 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
     super(project);
 
     const strategy = useProjen
-      ? new ProjenTrackedHuskyBaseConfigStrategy<T>()
-      : new NonProjenHuskyBaseConfigStrategy<T>();
+      ? new ProjenTrackedHuskyBaseConfigStrategy()
+      : new NonProjenHuskyBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -37,10 +37,8 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('husky - JsonFile')
-  }
+export class ProjenTrackedHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -48,8 +46,6 @@ export class ProjenTrackedHuskyBaseConfigStrategy<T extends BaseProject | JsiiPr
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('husky - SampleFile')
-  }
+export class NonProjenHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }

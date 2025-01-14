@@ -1,6 +1,6 @@
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { BaseOptions } from './options';
-import { BaseConfig } from '.';
+import { BaseConfig, Config } from '.';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
   readonly projenEnabled?: boolean;
@@ -23,18 +23,18 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
  */
 export class BaseProject<TConfig extends BaseConfig = BaseConfig> extends TypeScriptProject {
   protected readonly npm?: boolean;
-  protected gitConfig?: TConfig;
-  // protected readonly commitLintConfig?: CommitLintConfigJsii;
-  // protected readonly devContainerConfig?: DevContainerConfigJsii;
-  // protected readonly eslintConfig?: EsLintConfigJsii;
-  // protected readonly githubConfig?: GitHubConfigJsii;
-  // protected readonly huskyConfig?: HuskyConfigJsii;
-  // protected readonly jestConfig?: JestConfigJsii;
-  // protected readonly npmConfig?: NpmConfigJsii;
-  // protected readonly prettierConfig?: PrettierConfigJsii;
-  // protected readonly typescriptConfig?: TypeScriptConfigJsii;
-  // protected readonly vscodeConfig?: VsCodeConfigJsii;
-  // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
+  public gitConfig?: TConfig;
+  // public readonly commitLintConfig?: CommitLintConfigJsii;
+  // public readonly devContainerConfig?: DevContainerConfigJsii;
+  // public readonly eslintConfig?: EsLintConfigJsii;
+  // public readonly githubConfig?: GitHubConfigJsii;
+  // public readonly huskyConfig?: HuskyConfigJsii;
+  // public readonly jestConfig?: JestConfigJsii;
+  // public readonly npmConfig?: NpmConfigJsii;
+  // public readonly prettierConfig?: PrettierConfigJsii;
+  // public readonly typescriptConfig?: TypeScriptConfigJsii;
+  // public readonly vscodeConfig?: VsCodeConfigJsii;
+  // public readonly sampleCodeConfig?: SampleCodeConfigJsii;
 
   /**
    * Initializes the project.
@@ -52,6 +52,11 @@ export class BaseProject<TConfig extends BaseConfig = BaseConfig> extends TypeSc
   }
 
   public override preSynthesize(): void {
+    for (const comp of this.components) {
+      if (comp instanceof Config) {
+        comp.applyConfig();
+      }
+    }
     super.preSynthesize();
   }
 

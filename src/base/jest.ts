@@ -17,10 +17,10 @@ export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<
     super(project);
 
     const strategy = useProjen && useProjenApi
-      ? new ProjenStandardJestBaseConfigStrategy<T>()
+      ? new ProjenStandardJestBaseConfigStrategy()
       : useProjen && !useProjenApi
-        ? new ProjenTrackedJestBaseConfigStrategy<T>()
-        : new NonProjenJestBaseConfigStrategy<T>();
+        ? new ProjenTrackedJestBaseConfigStrategy()
+        : new NonProjenJestBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -39,10 +39,8 @@ export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('jest - use projen jest')
-  }
+export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -50,10 +48,8 @@ export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiPr
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('jest - JsonFile')
-  }
+export class ProjenTrackedJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -61,8 +57,6 @@ export class ProjenTrackedJestBaseConfigStrategy<T extends BaseProject | JsiiPro
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonProjenJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('jest - SampleFile')
-  }
+export class NonProjenJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }

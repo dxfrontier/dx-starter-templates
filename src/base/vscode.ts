@@ -17,10 +17,10 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     super(project);
 
     const strategy = useProjen && useProjenApi
-      ? new ProjenStandardVsCodeBaseConfigStrategy<T>()
+      ? new ProjenStandardVsCodeBaseConfigStrategy()
       : useProjen && !useProjenApi
-        ? new ProjenTrackedVsCodeBaseConfigStrategy<T>()
-        : new NonProjenVsCodeBaseConfigStrategy<T>();
+        ? new ProjenTrackedVsCodeBaseConfigStrategy()
+        : new NonProjenVsCodeBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -39,10 +39,8 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('vsCode - use projen vsCode')
-  }
+export class ProjenStandardVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -50,10 +48,8 @@ export class ProjenStandardVsCodeBaseConfigStrategy<T extends BaseProject | Jsii
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('vsCode - JsonFile')
-  }
+export class ProjenTrackedVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void {  }
 }
 
 /**
@@ -61,8 +57,6 @@ export class ProjenTrackedVsCodeBaseConfigStrategy<T extends BaseProject | JsiiP
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('vsCode - SampleFile')
-  }
+export class NonProjenVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }

@@ -16,7 +16,7 @@ export class GitBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   constructor(project: T) {
     super(project);
 
-    const strategy = new GitBaseConfigStrategy<T>();
+    const strategy = new GitBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -35,8 +35,6 @@ export class GitBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class GitBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('git')
-  }
+export class GitBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void {}
 }

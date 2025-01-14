@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { HuskyBaseConfig, NonProjenHuskyBaseConfigStrategy, ProjenTrackedHuskyBaseConfigStrategy } from '../base';
+import { Config, HuskyBaseConfig, NonProjenHuskyBaseConfigStrategy, ProjenTrackedHuskyBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant Husky configuration for the Jsii project.
@@ -13,20 +13,18 @@ export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
 			? new ProjenTrackedConfigStrategy()
 			: new NonProjenConfigStrategy();
       this.setStrategy(strategy);
-      this.applyConfig();
+      
 	}
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedHuskyBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('husky - JsonFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenHuskyBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('husky - SampleFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

@@ -17,10 +17,10 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     super(project);
 
     const strategy = useProjen && useProjenApi
-      ? new ProjenStandardGitHubBaseConfigStrategy<T>()
+      ? new ProjenStandardGitHubBaseConfigStrategy()
       : useProjen && !useProjenApi
-        ? new ProjenTrackedGitHubBaseConfigStrategy<T>()
-        : new NonProjenGitHubBaseConfigStrategy<T>();
+        ? new ProjenTrackedGitHubBaseConfigStrategy()
+        : new NonProjenGitHubBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -39,10 +39,8 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('github - use projen github')
-  }
+export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -50,10 +48,8 @@ export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | Jsii
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('github - JsonFile')
-  }
+export class ProjenTrackedGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -61,8 +57,6 @@ export class ProjenTrackedGitHubBaseConfigStrategy<T extends BaseProject | JsiiP
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('github - SampleFile')
-  }
+export class NonProjenGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }

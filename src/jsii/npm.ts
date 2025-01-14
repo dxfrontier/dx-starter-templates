@@ -1,5 +1,7 @@
 import { JsiiProject } from '.';
-import { NonProjenNpmBaseConfigStrategy, NpmBaseConfig, ProjenStandardNpmBaseConfigStrategy, ProjenTrackedNpmBaseConfigStrategy } from '../base';
+// import { Config, NonProjenNpmBaseConfigStrategy, NpmBaseConfig, ProjenStandardNpmBaseConfigStrategy, ProjenTrackedNpmBaseConfigStrategy } from '../base';
+import { NpmBaseConfig } from '../base';
+
 
 /**
  * Implementing all relevant NPM configuration for the Jsii project.
@@ -9,33 +11,32 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjen: boolean, useProjenApi: boolean) {
     super(project, useProjen, useProjenApi);
 
-    const strategy = useProjen && useProjenApi
-      ? new ProjenStandardConfigStrategy()
-      : useProjen && !useProjenApi
-        ? new ProjenTrackedConfigStrategy()
-        : new NonProjenConfigStrategy();
-    this.setStrategy(strategy);
-    this.applyConfig();
+    // const strategy = useProjen && useProjenApi
+    //   ? new ProjenStandardConfigStrategy()
+    //   : useProjen && !useProjenApi
+    //     ? new ProjenTrackedConfigStrategy()
+    //     : new NonProjenConfigStrategy();
+    // this.setStrategy(strategy);
   }
 }
 
-class ProjenStandardConfigStrategy extends ProjenStandardNpmBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('npm - use projen npm - Jsii')
-  }
-}
+// class ProjenStandardConfigStrategy extends ProjenStandardNpmBaseConfigStrategy<JsiiProject> {
+//   writeConfig(config: Config<JsiiProject>): void {
+//     super.writeConfig(config);
+//     console.log('npm Jsii- Projen API')
+//   }
+// }
 
-class ProjenTrackedConfigStrategy extends ProjenTrackedNpmBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('npm - JsonFile - Jsii')
-  }
-}
+// class ProjenTrackedConfigStrategy extends ProjenTrackedNpmBaseConfigStrategy<JsiiProject> {
+//   writeConfig(config: Config<JsiiProject>): void {
+//     super.writeConfig(config);
+//     console.log('npm Jsii - JsonFile')
+//   }
+// }
 
-class NonProjenConfigStrategy extends NonProjenNpmBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('npm - SampleFile - Jsii')
-  }
-}
+// class NonProjenConfigStrategy extends NonProjenNpmBaseConfigStrategy<JsiiProject> {
+//   writeConfig(config: Config<JsiiProject>): void {
+//     super.writeConfig(config);
+//     console.log('npm Jsii - SampleFile')
+//   }
+// }

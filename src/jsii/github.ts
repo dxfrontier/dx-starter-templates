@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { NonProjenGitHubBaseConfigStrategy, GitHubBaseConfig, ProjenStandardGitHubBaseConfigStrategy, ProjenTrackedGitHubBaseConfigStrategy } from '../base';
+import { NonProjenGitHubBaseConfigStrategy, GitHubBaseConfig, ProjenStandardGitHubBaseConfigStrategy, ProjenTrackedGitHubBaseConfigStrategy, Config } from '../base';
 
 /**
  * Implementing all relevant GitHub configuration for the Jsii project.
@@ -15,27 +15,24 @@ export class GitHubConfigJsii extends GitHubBaseConfig<JsiiProject> {
         ? new ProjenTrackedConfigStrategy()
         : new NonProjenConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
+    
   }
 }
 
 class ProjenStandardConfigStrategy extends ProjenStandardGitHubBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('github - use projen github - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedGitHubBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('github - JsonFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenGitHubBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('github - SampleFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

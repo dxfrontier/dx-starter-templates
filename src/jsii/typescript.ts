@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { TypeScriptBaseConfig, NonProjenTypeScriptBaseConfigStrategy, ProjenTrackedTypeScriptBaseConfigStrategy } from '../base';
+import { TypeScriptBaseConfig, NonProjenTypeScriptBaseConfigStrategy, ProjenTrackedTypeScriptBaseConfigStrategy, Config } from '../base';
 
 /**
  * Implementing all relevant TypeScript configuration for the Jsii project.
@@ -13,20 +13,18 @@ export class TypeScriptConfigJsii extends TypeScriptBaseConfig<JsiiProject> {
 			? new ProjenTrackedConfigStrategy()
 			: new NonProjenConfigStrategy();
       this.setStrategy(strategy);
-      this.applyConfig();
+      
 	}
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedTypeScriptBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('typescript - JsonFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenTypeScriptBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('typescript - SampleFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

@@ -17,10 +17,10 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
     super(project);
 
     const strategy = useProjen && useProjenApi
-      ? new ProjenStandardPrettierBaseConfigStrategy<T>()
+      ? new ProjenStandardPrettierBaseConfigStrategy()
       : useProjen && !useProjenApi
-        ? new ProjenTrackedPrettierBaseConfigStrategy<T>()
-        : new NonProjenPrettierBaseConfigStrategy<T>();
+        ? new ProjenTrackedPrettierBaseConfigStrategy()
+        : new NonProjenPrettierBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -39,10 +39,8 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('prettier - use projen prettier')
-  }
+export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -50,10 +48,8 @@ export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | Js
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('prettier - JsonFile')
-  }
+export class ProjenTrackedPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -61,8 +57,6 @@ export class ProjenTrackedPrettierBaseConfigStrategy<T extends BaseProject | Jsi
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('prettier - SampleFile')
-  }
+export class NonProjenPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }

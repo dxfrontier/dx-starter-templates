@@ -23,6 +23,31 @@
       "type": "build"
     },
     {
+      "name": "jsii-diff",
+      "version": "^1.106.0",
+      "type": "build"
+    },
+    {
+      "name": "jsii-docgen",
+      "version": "^10.6.3",
+      "type": "build"
+    },
+    {
+      "name": "jsii-pacmak",
+      "version": "^1.106.0",
+      "type": "build"
+    },
+    {
+      "name": "jsii-rosetta",
+      "version": "^5.7.2",
+      "type": "build"
+    },
+    {
+      "name": "jsii",
+      "version": "^5.7.4",
+      "type": "build"
+    },
+    {
       "name": "projen",
       "type": "build"
     },

@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { CommitLintBaseConfig, NonProjenCommitLintBaseConfigStrategy, ProjenTrackedCommitLintBaseConfigStrategy } from '../base';
+import { CommitLintBaseConfig, Config, NonProjenCommitLintBaseConfigStrategy, ProjenTrackedCommitLintBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant CommitLint configuration for the Jsii project.
@@ -13,20 +13,18 @@ export class CommitLintConfigJsii extends CommitLintBaseConfig<JsiiProject> {
       ? new ProjenTrackedConfigStrategy()
       : new NonProjenConfigStrategy();
     this.setStrategy(strategy);
-    this.applyConfig();
+    
   }
 }
 
 class ProjenTrackedConfigStrategy extends ProjenTrackedCommitLintBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('commitlint - JsonFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }
 
 class NonProjenConfigStrategy extends NonProjenCommitLintBaseConfigStrategy<JsiiProject> {
-  applyConfig(project: JsiiProject): void {
-    super.applyConfig(project);
-    console.log('commitlint - SampleFile - Jsii')
+  writeConfig(config: Config<JsiiProject>): void {
+    super.writeConfig(config);
   }
 }

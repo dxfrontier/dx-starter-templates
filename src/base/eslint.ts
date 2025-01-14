@@ -17,10 +17,10 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     super(project);
 
     const strategy = useProjen && useProjenApi
-      ? new ProjenStandardEsLintBaseConfigStrategy<T>()
+      ? new ProjenStandardEsLintBaseConfigStrategy()
       : useProjen && !useProjenApi
-        ? new ProjenTrackedEsLintBaseConfigStrategy<T>()
-        : new NonProjenEsLintBaseConfigStrategy<T>();
+        ? new ProjenTrackedEsLintBaseConfigStrategy()
+        : new NonProjenEsLintBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -39,10 +39,8 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('esLint - use projen EsLint')
-  }
+export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -50,10 +48,8 @@ export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | Jsii
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenTrackedEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('esLint - JsonFile')
-  }
+export class ProjenTrackedEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void { }
 }
 
 /**
@@ -61,8 +57,6 @@ export class ProjenTrackedEsLintBaseConfigStrategy<T extends BaseProject | JsiiP
   * @param project - The project instance.
   * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
   */
-export class NonProjenEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy<T> {
-  applyConfig(_project: T): void {
-    console.log('esLint - SampleFile')
-  }
+export class NonProjenEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  writeConfig(_config: Config<T>): void {}
 }
