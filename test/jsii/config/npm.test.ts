@@ -42,9 +42,9 @@ test('Files property in package.json is set properly', (): void => {
 
 test('DevDependencies are added properly', (): void => {
   const expectedDevDependencies: Record<string, string> = {
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@commitlint/prompt-cli": "^19.6.0",
+    "@commitlint/prompt-cli": "^19.7.0",
     "@commitlint/types": "^19.5.0",
     "@types/jest": "*",
     "@types/node": "^22.10.5",
@@ -64,7 +64,7 @@ test('DevDependencies are added properly', (): void => {
     "jsii-docgen": "^10.6.3",
     "jsii-pacmak": "^1.106.0",
     "jsii-rosetta": "^5.7.2",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "^15.3.0",
     "prettier": "^3.4.2",
     "projen": "0.91.6",
     "ts-jest": "*",
@@ -116,6 +116,14 @@ test('Other configuration modules specific settings in package.json are set prop
         "npm run eslint",
         "npm run prettier"
       ]
+    },
+    "jsii": {
+      "outdir": "dist",
+      "targets": {},
+      "tsc": {
+        "outDir": "lib",
+        "rootDir": "src"
+      }
     },
   };
   npm.testPackageJsonSettings(snapshot, expectedSettings);

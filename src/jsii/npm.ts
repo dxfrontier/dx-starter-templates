@@ -32,14 +32,6 @@ export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
   private get additionalSettings(): Settings {
     return {
       'files': ['lib', '.jsii', 'README.md'],
-      'test': {
-        'outdir': 'dist',
-        'targets': {},
-        'tsc': {
-          'outDir': 'lib',
-          'rootDir': 'src'
-        }
-      },
     }
   }
 

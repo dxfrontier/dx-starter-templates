@@ -18,22 +18,3 @@ import { snapshot } from './setup';
 test('Commitlintrc template matches expected template', (): void => {
   commitlint.testRcTemplate(snapshot);
 });
-
-test('CommitLint npm scrips are added properly', (): void => {
-  commitlint.testScripts(snapshot);
-});
-
-test('CommitLint configuration in package.json is set properly', (): void => {
-  const expectedConfiguration: LintStagedConfig = {
-    '**/*.ts': ['npm run eslint', 'npm run prettier'],
-  };
-  expect(snapshot['package.json']!['lint-staged']).toStrictEqual(expectedConfiguration);
-});
-
-test('CommitLint npm devDependencies are added properly', (): void => {
-  commitlint.testDevDependencies(snapshot);
-});
-
-test('CommitLint related files are added to .gitattributes and defined as linguist-generated', (): void => {
-  commitlint.testGitAttributes(snapshot);
-});

@@ -1,5 +1,4 @@
-// import { JsonFile } from 'projen';
-// import { SampleFile } from 'projen';
+import { JsonPatch, ObjectFile } from 'projen';
 import { JsiiProject } from '../jsii';
 import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
@@ -21,6 +20,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   protected devDependencies: Set<string>;
   protected peerDependencies: Set<string>;
   protected settings: Settings;
+  protected scripts: Record<string, string>;
 
   constructor(project: T) {
     super(project);
@@ -32,11 +32,8 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     this.devDependencies = new Set(this.standardDevDependencies);
     this.peerDependencies = new Set(this.standardPeerDependencies);
     this.settings = this.standardSettings;
+    this.scripts = this.standardScripts;
   }
-
-  //////////////////////////////////////////////////
-  // Config
-  //////////////////////////////////////////////////
   
   protected get standardDependencies(): string[] {
     return [];
@@ -54,9 +51,9 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     return {};
   }
 
-  //////////////////////////////////////////////////
-  // Public API
-  //////////////////////////////////////////////////
+  protected get standardScripts(): Record<string, string> {
+    return {};
+  }
 
   /**
    * Adds custom devDependencies to the project.
@@ -90,6 +87,10 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     this.settings = { ...this.settings, ...settings };
   }
 
+  public addScripts(scripts: Record<string, string>): void {
+    this.scripts = { ...this.scripts, ...scripts };
+  }
+
   /**
    * Returns all dependencies, including standard and custom ones.
    */
@@ -118,13 +119,28 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     return this.settings;
   }
 
-  //////////////////////////////////////////////////
-  // Overrides
-  //////////////////////////////////////////////////
+  public getScripts(): Record<string, string> {
+    return this.scripts;
+  }
 
   public override preSynthesize(): void {
     console.log('npm preSynth')
     super.preSynthesize();
+  }
+
+  /**
+   * Patches scripts in the `package.json` file.
+   * @public
+   * Projen public API is not used as it would 
+   * create Projen related tasks like `npx projen task` and would not be convenient
+   * for projects that need a non Projen related approach on scaffolding.
+   */
+  public patchScripts(scripts: Record<string, string>): void {
+    const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
+
+    for (const script in scripts) {
+      packageJson!.patch(JsonPatch.add(`/scripts/${script}`, scripts[script]));
+    }
   }
 }
 
@@ -141,6 +157,7 @@ export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiPro
       config.project.addDevDeps(...config.getDevDependencies());
       config.project.addPeerDeps(...config.getPeerDependencies());
       config.project.addFields(config.getSettings());
+      config.patchScripts(config.getScripts());
     }
   }
 }
