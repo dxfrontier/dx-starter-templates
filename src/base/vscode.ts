@@ -1,3 +1,5 @@
+import { JsonFile } from 'projen';
+import { Settings } from '.';
 import { JsiiProject } from '../jsii';
 import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
@@ -23,12 +25,32 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     this.setStrategy(strategy);
   }
 
-  public override preSynthesize(): void {
-    super.preSynthesize();
+  protected get configFile(): Settings {
+    return {
+      '.vscode/settings.json': {
+        'editor.tabSize': 2,
+        'editor.stickyTabStops': true,
+        'typescript.inlayHints.parameterNames.enabled': 'all',
+        'typescript.inlayHints.enumMemberValues.enabled': true,
+        'typescript.inlayHints.variableTypes.enabled': true,
+        'typescript.inlayHints.propertyDeclarationTypes.enabled': true,
+        'javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName': false,
+        'javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName': false,
+        'typescript.inlayHints.functionLikeReturnTypes.enabled': true,
+        'typescript.inlayHints.parameterTypes.enabled': true,
+        'editor.inlayHints.fontSize': 10,
+        'editor.inlayHints.padding': true,
+        'editor.formatOnSave': true,
+        'editor.formatOnPaste': true,
+      }
+    };
   }
 
-  public override postSynthesize(): void {
-    super.postSynthesize();
+  public createConfig(): void {
+    const filePath: string = Object.keys(this.configFile)[0];
+    new JsonFile(this.project, filePath, {
+      obj: this.configFile[filePath],
+    });
   }
 }
 
@@ -47,5 +69,9 @@ export class ProjenStandardVsCodeBaseConfigStrategy<T extends BaseProject | Jsii
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class NonApiVsCodeBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void {  }
+  applyConfig(config: Config<T>): void {
+    if (config instanceof VsCodeBaseConfig) {
+      config.createConfig();
+    }
+  }
 }
