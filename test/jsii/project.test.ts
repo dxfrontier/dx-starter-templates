@@ -101,6 +101,7 @@ describe('JsiiProject Constructor Options', (): void => {
       vscode: false,
       github: false,
       sampleCode: false,
+      devContainer: false,
       jest: true,
 
       commitlintEnabled: true,
@@ -119,8 +120,6 @@ describe('JsiiProject Constructor Options', (): void => {
       release: false,
       pullRequestTemplate: false,
       depsUpgrade: false,
-
-      devContainer: false,
     });
   });
 

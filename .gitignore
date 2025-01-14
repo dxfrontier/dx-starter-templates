@@ -39,4 +39,5 @@ junit.xml
 tsconfig.json
 !/API.md
 !/.projenrc.ts
+!/.devcontainer.json
 !/.commitlintrc.ts

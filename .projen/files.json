@@ -1,6 +1,7 @@
 {
   "files": [
     ".commitlintrc.ts",
+    ".devcontainer.json",
     ".gitattributes",
     ".gitignore",
     ".projen/deps.json",
