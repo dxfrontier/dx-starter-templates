@@ -70,7 +70,11 @@ export class HuskyConfigBase<T extends BaseProject | JsiiProject> extends Config
    * @returns A list of ignore patterns.
    */
   protected get additionalIgnorePatterns(): string[] {
-    return ['/.husky/commit-msg', '/.husky/pre-commit'];
+    const patterns: string[] = [];
+    for (const filePath in this.configFile) {
+      patterns.push(`/${filePath}`);
+    }
+    return patterns;
   }
 
   public override registerConfig(): void {

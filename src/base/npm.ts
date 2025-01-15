@@ -204,11 +204,24 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
    *
    * @param scripts - A record of script names and their commands to patch.
    */
-  public patchScripts(scripts: Record<string, string>): void {
+  public patchScriptsAdd(scripts: Record<string, string>): void {
     const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
 
     for (const script in scripts) {
       packageJson!.patch(JsonPatch.add(`/scripts/${script}`, scripts[script]));
+    }
+  }
+
+  /**
+   * Patches devDependencies in the `package.json` file.
+   *
+   * @param scripts - A record of script names and their commands to patch.
+   */
+  public patchDevDependencyRemove(devDependencies: string[]): void {
+    const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
+
+    for (const dep of devDependencies) {
+      packageJson!.patch(JsonPatch.remove(`/devDependencies/${dep}`));
     }
   }
 
@@ -236,7 +249,7 @@ export class ProjenStandardNpmConfigBaseStrategy<T extends BaseProject | JsiiPro
       config.project.addDevDeps(...config.getDevDependencies());
       config.project.addPeerDeps(...config.getPeerDependencies());
       config.project.addFields(config.getSettings());
-      config.patchScripts(config.getScripts());
+      config.patchScriptsAdd(config.getScripts());
     }
   }
 }

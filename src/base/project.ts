@@ -92,7 +92,7 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
 /**
  * Base class for managing project configuration.
  */
-export abstract class BaseProject extends TypeScriptProject {
+export class BaseProject extends TypeScriptProject {
   /**
    * Configuration for commitlint settings in the project.
    * This property is initialized if `commitlintEnabled` option is provided during project creation.
@@ -155,6 +155,15 @@ export abstract class BaseProject extends TypeScriptProject {
   // protected sampleCodeConfig?: SampleCodeConfigBase<BaseProject>;
 
   /**
+   * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....
+   * for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled`
+   * If set to `true`, TypeScript-specific settings will be configured for the project.
+   * If set to `false` TypeScript will be completely removed from the project as
+   * Projen projects used in this context are always relying on TypeScript.
+   */
+  public typescript?: boolean;
+
+  /**
    * Initializes the project.
    * @param options Additional project options.
    */
@@ -198,7 +207,9 @@ export abstract class BaseProject extends TypeScriptProject {
    * - The initialization of configurations is conditional based on the `options` flags, ensuring that only
    *   necessary configurations are applied to the project.
    */
-  protected abstract initializeBaseConfigs(options: BaseProjectOptions): void;
+  protected initializeBaseConfigs(options: BaseProjectOptions): void {
+    this.typescript = options.typescriptEnabled ?? false;
+  }
 
   public override preSynthesize(): void {
     for (const comp of this.components) {

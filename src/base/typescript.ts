@@ -35,7 +35,19 @@ export class TypeScriptConfigBase<T extends BaseProject | JsiiProject> extends C
    * @returns A list of ignore patterns.
    */
   protected get additionalIgnorePatterns(): string[] {
-    return ['/tsconfig.json'];
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
+  }
+
+  /**
+   * Gets the configuration file content.
+   *
+   * @returns An object where the key is the filename and the value is an array of file lines.
+   */
+  protected get configFile(): Record<string, string[]> {
+    return {
+      'tsconfig.json': [],
+    };
   }
 
   public override registerConfig(): void {

@@ -5,10 +5,14 @@ import {
   DevContainerConfigBase,
   GitHubConfigBase,
   HuskyConfigBase,
-  TypeScriptConfigBase,
   VsCodeConfigBase,
 } from '../base';
-import { CommitLintConfigGitHubAction, NpmConfigGitHubAction, PrettierConfigGitHubAction } from '.';
+import {
+  CommitLintConfigGitHubAction,
+  NpmConfigGitHubAction,
+  PrettierConfigGitHubAction,
+  TypeScriptConfigGitHubAction,
+} from '.';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {
   readonly commitlintEnabled?: boolean;
@@ -50,7 +54,9 @@ export class GitHubActionProject extends BaseProject {
   }
 
   protected override initializeBaseConfigs(options: GitHubActionProjectOptions): void {
-    this.typescriptConfig = new TypeScriptConfigBase(this);
+    super.initializeBaseConfigs(options);
+
+    this.typescriptConfig = new TypeScriptConfigGitHubAction(this);
 
     if (options.devContainerEnabled) {
       this.devContainerConfig = new DevContainerConfigBase(this, options.devContainer!);

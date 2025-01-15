@@ -30,7 +30,6 @@ export class BaseOptions {
       devContainer: options.devContainerEnabled && options.devContainer ? options.devContainer : false,
       vscode: options.vscodeEnabled && options.vscode ? options.vscode : false,
       jest: options.jestEnabled && options.jest ? options.jest : false,
-      typescript: options.typescriptEnabled, // to keep it consistent with the other properties like jext, github and so on...
       github: options.githubEnabled && options.github ? options.github : false,
       githubOptions:
         options.githubEnabled && options.githubOptions
