@@ -1,17 +1,20 @@
-import { HuskyBase, TypeScriptProjectBase } from '../base';
+import { JsiiProject } from '.';
+import { Config, ConfigStrategy, HuskyBaseConfig, NonApiHuskyBaseConfigStrategy } from '../base';
 
 /**
- * Husky builder implementing all relevant configuration for the Jsii project.
+ * Implementing all relevant Husky configuration for the Jsii project.
  */
-export class HuskyJsii extends HuskyBase {
-  /**
-   * Initializes the Husky builder.
-   * It calls the `initialize()` method immediately after invoking `super(project)`
-   * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure Husky for.
-   */
-  constructor(project: TypeScriptProjectBase) {
+export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
+  constructor(project: JsiiProject) {
     super(project);
-    this.initialize();
+
+    const strategy: ConfigStrategy = new NonApiConfigStrategy();
+    this.setStrategy(strategy);
+  }
+}
+
+class NonApiConfigStrategy extends NonApiHuskyBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

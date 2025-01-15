@@ -1,38 +1,32 @@
-import { EslintBase, TypeScriptProjectBase } from '../base';
+import { JsiiProject } from '.';
+import {
+  EsLintBaseConfig,
+  ProjenStandardEsLintBaseConfigStrategy,
+  NonApiEsLintBaseConfigStrategy,
+  Config,
+  ConfigStrategy,
+} from '../base';
 
 /**
- * Eslint builder implementing all relevant configuration for the Jsii project.
+ * Implementing all relevant EsLint configuration for the Jsii project.
  */
-export class EslintJsii extends EslintBase {
-  /**
-   * Initializes the Eslint builder.
-   * It calls the `initialize()` method immediately after invoking `super(project)`
-   * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure Eslint for.
-   */
-  constructor(project: TypeScriptProjectBase) {
-    super(project);
-    this.initialize();
-  }
+export class EsLintConfigJsii extends EsLintBaseConfig<JsiiProject> {
+  constructor(project: JsiiProject, useProjenApi: boolean) {
+    super(project, useProjenApi);
 
-  /**
-   * @override
-   */
-  protected get ignoreFilePaths(): string[] {
-    const baseEntries: string[] = super.ignoreFilePaths;
-    return [...baseEntries, 'lib/', '.jsii'];
+    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
+    this.setStrategy(strategy);
   }
+}
 
-  /**
-   * @override
-   */
-  protected get rules(): Record<string, string> {
-    const baseRules: Record<string, string> = super.rules;
-    return {
-      ...baseRules,
-      '@typescript-eslint/no-empty-function': 'off',
-      '@typescript-eslint/class-literal-property-style': 'off',
-      '@typescript-eslint/no-empty-object-type': 'off',
-    };
+class ProjenStandardConfigStrategy extends ProjenStandardEsLintBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
+  }
+}
+
+class NonApiConfigStrategy extends NonApiEsLintBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

@@ -1,17 +1,32 @@
-import { DevContainerBase, TypeScriptProjectBase } from '../base';
+import { JsiiProject } from '.';
+import {
+  DevContainerBaseConfig,
+  ProjenStandardDevContainerBaseConfigStrategy,
+  NonApiDevContainerBaseConfigStrategy,
+  Config,
+  ConfigStrategy,
+} from '../base';
 
 /**
- * DevContainer builder implementing all relevant configuration for the Jsii project.
+ * Implementing all relevant DevContainer configuration for the Jsii project.
  */
-export class DevContainerJsii extends DevContainerBase {
-  /**
-   * Initializes the DevContainer builder.
-   * It calls the `initialize()` method immediately after invoking `super(project)`
-   * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure CommitLint for.
-   */
-  constructor(project: TypeScriptProjectBase) {
-    super(project);
-    this.initialize();
+export class DevContainerConfigJsii extends DevContainerBaseConfig<JsiiProject> {
+  constructor(project: JsiiProject, useProjenApi: boolean) {
+    super(project, useProjenApi);
+
+    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
+    this.setStrategy(strategy);
+  }
+}
+
+class ProjenStandardConfigStrategy extends ProjenStandardDevContainerBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
+  }
+}
+
+class NonApiConfigStrategy extends NonApiDevContainerBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

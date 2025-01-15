@@ -1,109 +1,202 @@
-import { Builder } from './builder';
-import { ProjenStandardScript } from '../types';
-import { TypeScriptProjectBase } from './project';
+import { JsonPatch, ObjectFile } from 'projen';
+import { JsiiProject } from '../jsii';
+import { Config, ConfigStrategy } from './config';
+import { BaseProject } from './project';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Settings = Record<string, any>; // to be compliant with projen api
 
 /**
- * Base class for NPM Package builder implementing all relevant configuration.
- * @abstract
+ * Base class for implementing all relevant NPM configuration.
+ *
+ * This class acts as a base for handling NPM configuration within projects
+ * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
+ * strategy to use based on whether Projen is being used.
+ *
+ * @template T Type of project, which extends `BaseProject` or `JsiiProject`.
+ * @extends Config
  */
-export abstract class NpmPackageBase extends Builder {
-  /**
-   * Initializes the base NPM Package builder.
-   * @param project The project to configure NPM for.
-   */
-  constructor(project: TypeScriptProjectBase) {
+export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+  protected dependencies: Set<string>;
+  protected devDependencies: Set<string>;
+  protected peerDependencies: Set<string>;
+  protected settings: Settings;
+  protected scripts: Record<string, string>;
+
+  constructor(project: T) {
     super(project);
+
+    const strategy: ConfigStrategy = new ProjenStandardNpmBaseConfigStrategy();
+    this.setStrategy(strategy);
+
+    this.dependencies = new Set(this.standardDependencies);
+    this.devDependencies = new Set(this.standardDevDependencies);
+    this.peerDependencies = new Set(this.standardPeerDependencies);
+    this.settings = this.standardSettings;
+    this.scripts = this.standardScripts;
   }
 
   /**
-   * File paths for the .gitattributes file entries.
-   * These entries are not added automatically by projen
-   * and we have not extra builder for these. So we handle them here.
-   * @return File paths for .gitattributes entries.
-   * @protected
+   * Gets the standard dependencies for the project.
+   *
+   * @returns A list of standard dependencies.
    */
-  protected get gitAttributesFilePaths(): string[] {
+  protected get standardDependencies(): string[] {
     return [];
   }
 
   /**
-   * NPM file paths to be packaged for the NPM Package.
-   * @return File paths for package.json file entry.
-   * @protected
-   * @abstract
+   * Gets the standard devDependencies for the project.
+   *
+   * @returns A list of standard devDependencies.
    */
-  protected abstract get npmFilePaths(): string[];
-
-  /**
-   * @override
-   */
-  protected get devDependencies(): string[] {
+  protected get standardDevDependencies(): string[] {
     return [];
   }
 
   /**
-   * Getter retrieving the npm scripts to be removed from NPM Package.
-   * These scripts are added by Projen on project initialization
-   * and are not needed for our projects.
-   * Overwrite this method if you want to keep the projen standard scripts.
-   * @return Projen standard script entries.
-   * @protected
+   * Gets the standard peerDependencies for the project.
+   *
+   * @returns A list of standard peerDependencies.
    */
-  protected get projenScripts(): ProjenStandardScript[] {
-    return [
-      'bump',
-      'clobber',
-      'compile',
-      'default',
-      'eject',
-      'eslint',
-      'package',
-      'post-compile',
-      'post-upgrade',
-      'pre-compile',
-      'release',
-      'test',
-      'test:watch',
-      'unbump',
-      'upgrade',
-      'watch',
-      'projen',
-    ];
+  protected get standardPeerDependencies(): string[] {
+    return [];
   }
 
   /**
-   * Configures settings specific to the builder within the project.
-   * @protected
+   * Gets the standard settings for the project.
+   *
+   * @returns A settings object.
    */
-  protected addSettings(): void {
-    this.project.addFields({
-      files: this.npmFilePaths,
-    });
+  protected get standardSettings(): Settings {
+    return {};
   }
 
   /**
-   * Removes the NPM Package scripts associated with Projen NPM Package initialization.
-   * Overwrite this method if you want to keep the projen standard scripts.
-   * @protected
+   * Gets the standard npm scripts for the project.
+   *
+   * @returns A record of script names and their commands.
    */
-  protected removeScripts(): void {
-    for (const script of this.projenScripts) {
-      this.project.removeScript(script);
+  protected get standardScripts(): Record<string, string> {
+    return {};
+  }
+
+  /**
+   * Adds custom devDependencies to the project.
+   * @param dependencies List of dependencies to add.
+   */
+  public addDependencies(dependencies: string[]): void {
+    dependencies.forEach((dep) => this.dependencies.add(dep));
+  }
+
+  /**
+   * Adds custom devDependencies to the project.
+   * @param dependencies List of devDependencies to add.
+   */
+  public addDevDependencies(dependencies: string[]): void {
+    dependencies.forEach((dep) => this.devDependencies.add(dep));
+  }
+
+  /**
+   * Adds custom devDependencies to the project.
+   * @param dependencies List of peerDependencies to add.
+   */
+  public addPeerDependencies(dependencies: string[]): void {
+    dependencies.forEach((dep) => this.peerDependencies.add(dep));
+  }
+
+  /**
+   * Adds custom settings to the project.
+   * @param settings Record of settings to add.
+   */
+  public addSettings(settings: Settings): void {
+    this.settings = { ...this.settings, ...settings };
+  }
+
+  /**
+   * Adds custom npm scripts to the project.
+   *
+   * @param scripts - A record of script names and their commands.
+   */
+  public addScripts(scripts: Record<string, string>): void {
+    this.scripts = { ...this.scripts, ...scripts };
+  }
+
+  /**
+   * Returns all dependencies, including standard and custom ones.
+   *
+   * @returns An array of dependencies.
+   */
+  public getDependencies(): string[] {
+    return Array.from(this.dependencies);
+  }
+
+  /**
+   * Returns all devDependencies, including standard and custom ones.
+   *
+   * @returns An array of devDependencies.
+   */
+  public getDevDependencies(): string[] {
+    return Array.from(this.devDependencies);
+  }
+
+  /**
+   * Returns all peerDependencies, including standard and custom ones.
+   *
+   * @returns An array of peerDependencies.
+   */
+  public getPeerDependencies(): string[] {
+    return Array.from(this.peerDependencies);
+  }
+
+  /**
+   * Returns all settings, including standard and custom ones.
+   *
+   * @returns A settings object.
+   */
+  public getSettings(): Settings {
+    return this.settings;
+  }
+
+  /**
+   * Returns all npm scripts, including standard and custom ones.
+   *
+   * @returns A record of script names and their commands.
+   */
+  public getScripts(): Record<string, string> {
+    return this.scripts;
+  }
+
+  /**
+   * Patches scripts in the `package.json` file.
+   * Projen public API is not used as it would
+   * create Projen related tasks like `npx projen task` and would not be convenient
+   * for projects that need a non Projen related approach on scaffolding.
+   *
+   * @param scripts - A record of script names and their commands to patch.
+   */
+  public patchScripts(scripts: Record<string, string>): void {
+    const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
+
+    for (const script in scripts) {
+      packageJson!.patch(JsonPatch.add(`/scripts/${script}`, scripts[script]));
     }
   }
+}
 
-  protected addGitAttributes(): void {
-    // as the following files are not added automatically (compared to calling `projen` directly, there it works)
-    // we add these files manually
-    for (const value of this.gitAttributesFilePaths) {
-      this.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
+/**
+ * Configuration strategy for Projen standard API NPM base configuration.
+ *
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ */
+export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  applyConfig(config: Config<T>): void {
+    if (config instanceof NpmBaseConfig) {
+      config.project.addDeps(...config.getDependencies());
+      config.project.addDevDeps(...config.getDevDependencies());
+      config.project.addPeerDeps(...config.getPeerDependencies());
+      config.project.addFields(config.getSettings());
+      config.patchScripts(config.getScripts());
     }
-  }
-
-  /**
-   * @override
-   */
-  protected addDevDependencies(): void {
-    this.project.addDevDeps(...this.devDependencies);
   }
 }

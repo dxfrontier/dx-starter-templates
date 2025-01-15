@@ -1,27 +1,20 @@
-import { CommitLintBase, TypeScriptProjectBase } from '../base';
-import { LintStagedConfig } from '../types';
+import { JsiiProject } from '.';
+import { CommitLintBaseConfig, Config, ConfigStrategy, NonApiCommitLintBaseConfigStrategy } from '../base';
 
 /**
- * CommitLint builder implementing all relevant configuration for the Jsii project.
+ * Implementing all relevant CommitLint configuration for the Jsii project.
  */
-export class CommitLintJsii extends CommitLintBase {
-  /**
-   * Initializes the CommitLint builder.
-   * It calls the `initialize()` method immediately after invoking `super(project)`
-   * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure CommitLint for.
-   */
-  constructor(project: TypeScriptProjectBase) {
+export class CommitLintConfigJsii extends CommitLintBaseConfig<JsiiProject> {
+  constructor(project: JsiiProject) {
     super(project);
-    this.initialize();
-  }
 
-  /**
-   * @override
-   */
-  protected get npmSettings(): LintStagedConfig {
-    return {
-      '**/*.ts': ['npm run eslint', 'npm run prettier'],
-    };
+    const strategy: ConfigStrategy = new NonApiConfigStrategy();
+    this.setStrategy(strategy);
+  }
+}
+
+class NonApiConfigStrategy extends NonApiCommitLintBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

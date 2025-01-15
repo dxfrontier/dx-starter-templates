@@ -1,17 +1,32 @@
-import { VsCodeBase, TypeScriptProjectBase } from '../base';
+import { JsiiProject } from '.';
+import {
+  VsCodeBaseConfig,
+  ProjenStandardVsCodeBaseConfigStrategy,
+  NonApiVsCodeBaseConfigStrategy,
+  Config,
+  ConfigStrategy,
+} from '../base';
 
 /**
- * VsCode builder implementing all relevant configuration for the Jsii project.
+ * Implementing all relevant VsCode configuration for the Jsii project.
  */
-export class VsCodeJsii extends VsCodeBase {
-  /**
-   * Initializes the VsCode builder.
-   * It calls the `initialize()` method immediately after invoking `super(project)`
-   * to ensure that all necessary configuration steps are applied.
-   * @param project The project to configure VsCode Package for.
-   */
-  constructor(project: TypeScriptProjectBase) {
-    super(project);
-    this.initialize();
+export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
+  constructor(project: JsiiProject, useProjenApi: boolean) {
+    super(project, useProjenApi);
+
+    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
+    this.setStrategy(strategy);
+  }
+}
+
+class ProjenStandardConfigStrategy extends ProjenStandardVsCodeBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
+  }
+}
+
+class NonApiConfigStrategy extends NonApiVsCodeBaseConfigStrategy<JsiiProject> {
+  applyConfig(config: Config<JsiiProject>): void {
+    super.applyConfig(config);
   }
 }

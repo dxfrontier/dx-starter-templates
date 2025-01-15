@@ -1,136 +1,93 @@
-import { JsonFile, JsonFileOptions } from 'projen';
-import { Builder } from './builder';
-import { Scripts } from '../types';
-import { TypeScriptProjectBase } from './project';
+import { JsonFile } from 'projen';
+import { JsiiProject } from '../jsii';
+import { Config, ConfigStrategy } from './config';
+import { Settings } from './npm';
+import { BaseProject } from './project';
 
 /**
- * Base class for DevContainer builder implementing all relevant configuration.
- * @abstract
+ * Base class for implementing all relevant DevContainer configuration.
+ *
+ * This class acts as a base for handling DevContainer configuration within projects
+ * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
+ * strategy to use based on whether Projen is being used.
+ *
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ * @extends Config
  */
-export abstract class DevContainerBase extends Builder {
-  /**
-   * Initializes the base DevContainer builder.
-   * @param project The project to configure DevContainer for.
-   */
-  constructor(project: TypeScriptProjectBase) {
+export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+  constructor(project: T, useProjenApi: boolean) {
     super(project);
+
+    const strategy: ConfigStrategy = useProjenApi
+      ? new ProjenStandardDevContainerBaseConfigStrategy()
+      : new NonApiDevContainerBaseConfigStrategy();
+    this.setStrategy(strategy);
   }
 
   /**
-   * File path to the CommitLint configuration.
-   * @return File path to config file.
-   * @protected
+   * Gets the additional npm scripts to be added to the project's configuration.
+   *
+   * @returns A record of script names and their corresponding commands.
    */
-  protected get filePath(): string {
-    return '.devcontainer.json';
-  }
-
-  /**
-   * Docker image used for the DevContainer.
-   * @return Docker image to be used for container.
-   * @protected
-   */
-  protected get dockerImage(): string {
-    return 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye';
-  }
-
-  /**
-   * Features to be installed in the DevContainer.
-   * @return Additional features used in container.
-   * @protected
-   */
-  protected get features(): Record<string, string> {
+  protected get additionalScripts(): Record<string, string> {
     return {
-      'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
-      'ghcr.io/devcontainers/features/github-cli': 'latest',
+      'install-dependencies': 'npm install',
     };
   }
 
   /**
-   * VsCode extensions to be installed in the DevContainer.
-   * @return Extensions used in container.
-   * @protected
+   * Gets the config file to be added to the project's configuration.
+   *
+   * @returns A record of the having the path to the file as key and the content as value.
    */
-  protected get extensions(): string[] {
-    return [
-      // Jest
-      'Orta.vscode-jest',
-      'firsttris.vscode-jest-runner',
-
-      // Rest
-      'humao.rest-client',
-
-      // VsCode
-      'aaron-bond.better-comments',
-      'alefragnani.Bookmarks',
-      'alefragnani.project-manager',
-
-      // NPM
-      'christian-kohler.npm-intellisense',
-      'mskelton.npm-outdated',
-
-      // Theme
-      'PKief.material-icon-theme',
-      'zhuangtongfa.material-theme',
-      'GitHub.github-vscode-theme',
-
-      // Docker
-      'ms-vscode-remote.remote-containers',
-
-      // .env
-      'mikestead.dotenv',
-
-      // TypeScript
-      'usernamehw.errorlens',
-      'dbaeumer.vscode-eslint',
-      'oderwat.indent-rainbow',
-      'esbenp.prettier-vscode',
-      'YoavBls.pretty-ts-errors',
-      'streetsidesoftware.code-spell-checker',
-      'wayou.vscode-todo-highlight',
-      'mike-co.import-sorter',
-      'VisualStudioExptTeam.vscodeintellicode',
-
-      // XML & YAML'
-      'redhat.vscode-yaml',
-      'DotJoshJohnson.xml',
-
-      // Git
-      'waderyan.gitblame',
-      'donjayamanne.githistory',
-      'GitHub.vscode-pull-request-github',
-
-      // README
-      'yzhang.markdown-all-in-one',
-      'DavidAnson.vscode-markdownlint',
-      'bierner.jsdoc-markdown-highlighting',
-
-      // Others
-      'VisualStudioExptTeam.vscodeintellicode',
-      'christian-kohler.path-intellisense',
-      'AykutSarac.jsoncrack-vscode',
-      'tamasfe.even-better-toml',
-      'github.copilot',
-    ];
-  }
-
-  /**
-   * Template file for DevContainer creation.
-   * The first script in `scripts` is used as the postCreateCommand to install dependencies upon creation.
-   * @return Template for the config file.
-   * @protected
-   */
-  protected get template(): JsonFileOptions {
+  protected get configFile(): Settings {
     return {
-      omitEmpty: true,
-      allowComments: true,
-      obj: {
-        image: this.dockerImage,
-        postCreateCommand: `npx projen ${Object.keys(this.scripts)[0]}`,
-        features: this.features,
+      '.devcontainer.json': {
+        image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
+        postCreateCommand: 'npm run install-dependencies',
+        features: {
+          'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
+          'ghcr.io/devcontainers/features/github-cli': 'latest',
+        },
         customizations: {
           vscode: {
-            extensions: this.extensions,
+            extensions: [
+              'Orta.vscode-jest',
+              'firsttris.vscode-jest-runner',
+              'humao.rest-client',
+              'aaron-bond.better-comments',
+              'alefragnani.Bookmarks',
+              'alefragnani.project-manager',
+              'christian-kohler.npm-intellisense',
+              'mskelton.npm-outdated',
+              'PKief.material-icon-theme',
+              'zhuangtongfa.material-theme',
+              'GitHub.github-vscode-theme',
+              'ms-vscode-remote.remote-containers',
+              'mikestead.dotenv',
+              'usernamehw.errorlens',
+              'dbaeumer.vscode-eslint',
+              'oderwat.indent-rainbow',
+              'esbenp.prettier-vscode',
+              'YoavBls.pretty-ts-errors',
+              'streetsidesoftware.code-spell-checker',
+              'wayou.vscode-todo-highlight',
+              'mike-co.import-sorter',
+              'VisualStudioExptTeam.vscodeintellicode',
+              'redhat.vscode-yaml',
+              'DotJoshJohnson.xml',
+              'waderyan.gitblame',
+              'donjayamanne.githistory',
+              'GitHub.vscode-pull-request-github',
+              'yzhang.markdown-all-in-one',
+              'DavidAnson.vscode-markdownlint',
+              'bierner.jsdoc-markdown-highlighting',
+              'VisualStudioExptTeam.vscodeintellicode',
+              'christian-kohler.path-intellisense',
+              'AykutSarac.jsoncrack-vscode',
+              'tamasfe.even-better-toml',
+              'github.copilot',
+            ],
           },
         },
       },
@@ -138,23 +95,52 @@ export abstract class DevContainerBase extends Builder {
   }
 
   /**
-   * NPM scripts used within the DevContainer environment.
-   * @return Npm script entries.
-   * @protected
+   * Creates the configuration file in the project directory.
    */
-  protected get scripts(): Scripts {
-    return {
-      'install-dependencies': 'npm install',
-    };
+  public createConfig(): void {
+    const filePath: string = Object.keys(this.configFile)[0];
+    new JsonFile(this.project, filePath, {
+      obj: this.configFile[filePath],
+    });
   }
 
-  protected addTemplates(): void {
-    new JsonFile(this.project, this.filePath, this.template);
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
+  protected get additionalIgnorePatterns(): string[] {
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
   }
 
-  protected addScripts(): void {
-    for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command });
+  public override registerConfig(): void {
+    this.project.npmConfig?.addScripts(this.additionalScripts);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+  }
+}
+
+/**
+ * Configuration strategy for Projen standard API DevContainer base configuration.
+ * @param project - The project instance.
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ */
+export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject>
+  implements ConfigStrategy
+{
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  applyConfig(_config: Config<T>): void {}
+}
+
+/**
+ * Configuration strategy for Projen-tracked DevContainer base configuration.
+ * @param project - The project instance.
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ */
+export class NonApiDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  applyConfig(config: Config<T>): void {
+    if (config instanceof DevContainerBaseConfig) {
+      config.createConfig();
     }
   }
 }

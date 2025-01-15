@@ -1,93 +1,104 @@
-import { javascript } from 'projen';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { Builder } from './builder';
+import { BaseOptions } from './options';
+import {
+  CommitLintBaseConfig,
+  Config,
+  DevContainerBaseConfig,
+  EsLintBaseConfig,
+  GitBaseConfig,
+  GitHubBaseConfig,
+  HuskyBaseConfig,
+  JestBaseConfig,
+  NpmBaseConfig,
+  PrettierBaseConfig,
+  TypeScriptBaseConfig,
+  VsCodeBaseConfig,
+} from '.';
 
-// Have to disable the prettier rule here for the { }
-// otherwise we have a conflict between prettier and linter.
-export interface TypeScriptProjectBaseOptions extends TypeScriptProjectOptions {}
+export interface BaseProjectOptions extends TypeScriptProjectOptions {
+  readonly commitlintEnabled?: boolean;
+  readonly devContainerEnabled?: boolean;
+  readonly eslintEnabled?: boolean;
+  readonly githubEnabled?: boolean;
+  readonly huskyEnabled?: boolean;
+  readonly jestEnabled?: boolean;
+  readonly prettierEnabled?: boolean;
+  readonly typescriptEnabled?: boolean;
+  readonly vscodeEnabled?: boolean;
+  readonly sampleCodeEnabled?: boolean;
+}
 
 /**
  * Base class for managing project configuration.
- * @abstract
  */
-export abstract class TypeScriptProjectBase extends TypeScriptProject {
-  public builderRegistry: Builder[] = [];
+export class BaseProject extends TypeScriptProject {
+  public gitConfig?: GitBaseConfig<BaseProject>;
+  public commitlintConfig?: CommitLintBaseConfig<BaseProject>;
+  public devContainerConfig?: DevContainerBaseConfig<BaseProject>;
+  public eslintConfig?: EsLintBaseConfig<BaseProject>;
+  public githubConfig?: GitHubBaseConfig<BaseProject>;
+  public huskyConfig?: HuskyBaseConfig<BaseProject>;
+  public jestConfig?: JestBaseConfig<BaseProject>;
+  public npmConfig?: NpmBaseConfig<BaseProject>;
+  public prettierConfig?: PrettierBaseConfig<BaseProject>;
+  public typescriptConfig?: TypeScriptBaseConfig<BaseProject>;
+  public vscodeConfig?: VsCodeBaseConfig<BaseProject>;
+  // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
 
   /**
    * Initializes the project.
    * @param options Additional project options.
    */
-  constructor(options: TypeScriptProjectBaseOptions) {
+  constructor(options: BaseProjectOptions) {
     super({
-      ...options,
-      licensed: options.licensed ?? false,
-
-      packageManager: options.packageManager ?? javascript.NodePackageManager.NPM,
-      npmignoreEnabled: options.npmignoreEnabled ?? false,
-
-      projenrcTs: options.projenrcTs ?? true,
-      typescriptVersion: options.typescriptVersion ?? '^5.7.2',
-      // disableTsconfigDev: options.disableTsconfigDev ?? true,
-
-      prettier: options.prettier ?? false,
-      eslint: options.eslint ?? false,
-
-      defaultReleaseBranch: options.defaultReleaseBranch ?? 'dev',
-      githubOptions: options.githubOptions ?? { mergify: false, pullRequestLint: false }, // mergify and workflow pull-request-lint.yml
-      buildWorkflow: options.buildWorkflow ?? false, // workflow build.yml
-      release: options.release ?? false, // workflow release.yml
-      pullRequestTemplate: options.pullRequestTemplate ?? false, // pull_request_template.yml
-      depsUpgrade: options.depsUpgrade ?? false, // workflow upgrade-main.yml
-
-      sampleCode: options.sampleCode ?? false,
-
-      devDeps: options.devDeps ?? [
-        '@types/node@^22.10.2',
-        'ts-node@^10.9.2', // !!! move in typescript builder
-        // 'projen',
-        // 'construct',
-        // '@dxfrontier/projen-template-projects@git+https://github.com/dxfrontier/projen-template-projects.git',
-      ],
+      ...BaseOptions.sharedOptions(options),
     });
+
+    new GitBaseConfig(this);
+    this.npmConfig = new NpmBaseConfig(this);
+
+    if (options.devContainerEnabled) {
+      this.devContainerConfig = new DevContainerBaseConfig(this, options.devContainer!);
+    }
+    if (options.eslintEnabled) {
+      this.eslintConfig = new EsLintBaseConfig(this, options.eslint!);
+    }
+    if (options.jestEnabled) {
+      this.jestConfig = new JestBaseConfig(this, options.jest!);
+    }
+    if (options.prettierEnabled) {
+      this.prettierConfig = new PrettierBaseConfig(this, options.prettier!);
+    }
+    if (options.vscodeEnabled) {
+      this.vscodeConfig = new VsCodeBaseConfig(this, options.vscode!);
+    }
+    if (options.githubEnabled) {
+      this.githubConfig = new GitHubBaseConfig(this, options.github!);
+    }
+    if (options.commitlintEnabled) {
+      this.commitlintConfig = new CommitLintBaseConfig(this);
+    }
+    if (options.huskyEnabled) {
+      this.huskyConfig = new HuskyBaseConfig(this);
+    }
+    if (options.typescriptEnabled) {
+      this.typescriptConfig = new TypeScriptBaseConfig(this);
+    }
+    // if (options.sampleCodeEnabled) {
+    //   this.typescriptConfig = new SampleCodeConfigGitHubAction(this);
+    // }
   }
 
-  /**
-   * Register a builder to be managed by this project.
-   * @param builder The builder to register (must extend BaseBuilder).
-   * @public
-   */
-  public registerBuilder(builder: Builder): void {
-    this.builderRegistry?.push(builder);
-  }
-
-  /**
-   * Finds a builder in the registry by its constructor name.
-   * @param name The name of the builder to search for.
-   * @returns The builder if found, otherwise undefined.
-   */
-  public findBuilderByName(name: string): Builder | undefined {
-    return this.builderRegistry.find((builder: Builder): boolean => builder.constructor.name === name);
-  }
-
-  /**
-   * @public
-   * @override
-   */
-  public preSynthesize(): void {
+  public override preSynthesize(): void {
+    for (const comp of this.components) {
+      if (comp instanceof Config) {
+        comp.registerConfig();
+      }
+    }
     super.preSynthesize();
-    for (const builder of this.builderRegistry) {
-      builder.preSynthesize();
-    }
   }
 
-  /**
-   * @public
-   * @override
-   */
-  public postSynthesize(): void {
+  public override postSynthesize(): void {
     super.postSynthesize();
-    for (const builder of this.builderRegistry) {
-      builder.postSynthesize();
-    }
   }
 }

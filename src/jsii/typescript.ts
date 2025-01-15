@@ -1,0 +1,15 @@
+import { JsiiProject } from '.';
+import { TypeScriptBaseConfig } from '../base';
+
+/**
+ * Implementing all relevant TypeScript configuration for the Jsii project.
+ */
+export class TypeScriptConfigJsii extends TypeScriptBaseConfig<JsiiProject> {
+  constructor(project: JsiiProject) {
+    super(project);
+  }
+
+  protected override get additionalIgnorePatterns(): string[] {
+    return ['/tsconfig.dev.json'];
+  }
+}

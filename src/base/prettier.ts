@@ -1,138 +1,157 @@
-import { PrettierOverride, PrettierSettings, TrailingComma } from 'projen/lib/javascript';
-import { Builder } from './builder';
-import { Scripts } from '../types';
-import { TypeScriptProjectBase } from './project';
+import { JsonFile, TextFile } from 'projen';
+import { JsiiProject } from '../jsii';
+import { Config, ConfigStrategy } from './config';
+import { Settings } from './npm';
+import { BaseProject } from './project';
+import { TrailingComma } from 'projen/lib/javascript';
 
 /**
- * Base class for Prettier builder implementing all relevant configuration.
- * @abstract
+ * Base class for implementing all relevant Prettier configuration.
+ *
+ * This class acts as a base for handling Prettier configuration within projects
+ * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
+ * strategy to use based on whether Projen is being used.
+ *
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ * @extends Config
  */
-export abstract class PrettierBase extends Builder {
-  /**
-   * Initializes the base Prettier builder.
-   * @param project The project to configure Prettier for.
-   */
-  constructor(project: TypeScriptProjectBase) {
+export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+  protected ignorePatterns: string[];
+
+  constructor(project: T, useProjenApi: boolean) {
     super(project);
+
+    const strategy: ConfigStrategy = useProjenApi
+      ? new ProjenStandardPrettierBaseConfigStrategy()
+      : new NonApiPrettierBaseConfigStrategy();
+    this.setStrategy(strategy);
+
+    this.ignorePatterns = this.standardIgnorePatterns;
+  }
+
+  protected get standardIgnorePatterns(): string[] {
+    return ['/.prettierignore', '/.prettierrc.json'];
   }
 
   /**
-   * File path to the Prettier ignore configuration.
-   * @return File path to ignore file.
-   * @protected
+   * Gets the additional development dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
    */
-  protected get ignoreFilePath(): string {
-    return '.prettierignore';
+  protected get additionalDevDependencies(): string[] {
+    return ['prettier@^3.4.2'];
   }
 
   /**
-   * File path to the Prettier settings configuration.
-   * @return File path to setting file.
-   * @protected
+   * Gets the additional npm scripts to be added to the project's configuration.
+   *
+   * @returns A record of script names and their corresponding commands.
    */
-  protected get settingsFilePath(): string {
-    return '.prettierrc.json';
-  }
-
-  /**
-   * File paths to the Prettier ignore entries.
-   * @return File paths for ignore file entries.
-   * @protected
-   */
-  protected get ignoreFilePaths(): string[] {
-    return [
-      '*.snap',
-      '/.commitlintrc.ts',
-      '/.devcontainer.json',
-      '/.gitattributes',
-      '/.github/ISSUE_TEMPLATE/bug.yml',
-      '/.github/ISSUE_TEMPLATE/feature.yml',
-      '/.github/ISSUE_TEMPLATE/housekeeping.yml',
-      '/.github/ISSUE_TEMPLATE/question.yml',
-      '/.github/pull_request_template.md',
-      '/.github/workflows/release.yml',
-      '/.gitignore',
-      '/.husky/commit-msg',
-      '/.husky/pre-commit',
-      '/.prettierignore',
-      '/.prettierrc.json',
-      '/.projen/**',
-      '/.projen/deps.json',
-      '/.projen/files.json',
-      '/.projen/tasks.json',
-      '/.vscode/settings.json',
-      '/eslint.config.mjs',
-      '/cliff.toml',
-      '/package-lock.json',
-      '/package.json',
-      '/tsconfig.dev.json',
-    ];
-  }
-
-  /**
-   * Settings for the Prettier configuration.
-   * @return Entries for the settings file.
-   * @protected
-   */
-  protected get settings(): PrettierOverride {
-    return {
-      files: '*.*',
-      options: {
-        semi: true,
-        trailingComma: TrailingComma.ALL,
-        singleQuote: true,
-        printWidth: 120,
-        tabWidth: 2,
-      } as PrettierSettings,
-    };
-  }
-
-  /**
-   * NPM scripts used by Prettier.
-   * @return Npm script entries.
-   * @protected
-   */
-  protected get scripts(): Scripts {
+  protected get additionalScripts(): Record<string, string> {
     return {
       prettier: 'prettier . --write',
     };
   }
 
-  protected addSettings(): void {
-    this.project.prettier?.addOverride(this.settings);
-  }
-
-  protected addScripts(): void {
-    for (const [name, command] of Object.entries(this.scripts)) {
-      this.project.addTask(name, { exec: command, receiveArgs: true });
-    }
+  /**
+   * Gets the config file to be added to the project's configuration.
+   *
+   * @returns A record of the having the path to the file as key and the content as value.
+   */
+  protected get configFile(): Settings {
+    return {
+      '.prettierrc.json': {
+        overrides: [
+          {
+            files: '*.*',
+            options: {
+              semi: true,
+              trailingComma: TrailingComma.ALL,
+              singleQuote: true,
+              printWidth: 120,
+              tabWidth: 2,
+            },
+          },
+        ],
+      },
+    };
   }
 
   /**
-   * Executes post-synthesis tasks, focusing on updating the `.prettierignore` file with paths from `.gitattributes`.
+   * Gets the ignore file to be added to the project's configuration.
    *
-   * Tried scenarios:
-   *   - Accessing attributes directly from `.gitattributes` file (but `.gitattributes` is private and inaccessible).
-   *     This would be the most efficient and elegant solution as it allows us to add the entries using API.
-   *   - Retrieving all files from the project (misses some files like `tsconfig.json`).
-   *   - Letting each component add its paths individually (leaves out many standard files).
-   *   - Manually adding paths (prone to errors).
-   *   - Modifying `.prettierignore` after post-synthesis (but `.prettierignore` is readonly) and leads to test issues
-   *     as these changes are not reflected in `syntesize()`.
-   *
-   * We will update it manually and cover it by tests cases checking if changes on the files are reflected here.
+   * @returns A record of the having the path to the file as key and the content as value.
    */
-  public preSynthesize(): void {
-    this.addPrettierIgnoreEntries();
+  protected get ignoreFile(): Record<string, string[]> {
+    return {
+      '.prettierignore': [...this.ignorePatterns],
+    };
   }
 
   /**
-   * Adds entries to the `.prettierignore` file.
-   * @private
+   * Adds custom ignore patterns to the project's configuration.
+   *
+   * @param patterns - An array of file or directory patterns to be ignored.
    */
-  protected addPrettierIgnoreEntries(): void {
-    for (const entry of this.ignoreFilePaths) {
-      this.project.prettier?.addIgnorePattern(entry);
+  public addIgnorePatterns(patterns: string[]): void {
+    this.ignorePatterns = [...this.ignorePatterns, ...patterns];
+  }
+
+  /**
+   * Retrieves all ignore patterns, including standard and custom ones.
+   *
+   * @returns An array of file or directory patterns that are ignored by the project.
+   */
+  public getIgnorePatterns(): Settings {
+    return this.ignorePatterns;
+  }
+
+  /**
+   * Creates the configuration file in the project directory.
+   */
+  public createConfig(): void {
+    const filePath: string = Object.keys(this.configFile)[0];
+    new JsonFile(this.project, filePath, {
+      obj: this.configFile[filePath],
+    });
+  }
+
+  /**
+   * Creates the ignore file in the project directory.
+   */
+  public createIgnore(): void {
+    const filePath: string = Object.keys(this.ignoreFile)[0];
+    new TextFile(this.project, filePath, {
+      lines: this.ignoreFile[filePath],
+    });
+  }
+
+  public override registerConfig(): void {
+    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
+    this.project.npmConfig?.addScripts(this.additionalScripts);
+  }
+}
+
+/**
+ * Configuration strategy for Projen standard API Prettier base configuration.
+ * @param project - The project instance.
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ */
+export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  applyConfig(_config: Config<T>): void {}
+}
+
+/**
+ * Configuration strategy for Projen-tracked Prettier base configuration.
+ * @param project - The project instance.
+ * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
+ */
+export class NonApiPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  applyConfig(config: Config<T>): void {
+    if (config instanceof PrettierBaseConfig) {
+      config.createConfig();
+      config.createIgnore();
     }
   }
 }

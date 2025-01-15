@@ -12,7 +12,7 @@
     },
     {
       "name": "@commitlint/prompt-cli",
-      "version": "^19.6.1",
+      "version": "^19.7.0",
       "type": "build"
     },
     {
@@ -26,17 +26,47 @@
     },
     {
       "name": "@types/node",
-      "version": "^22.10.2",
+      "version": "^22.10.6",
+      "type": "build"
+    },
+    {
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "^8.20.0",
+      "type": "build"
+    },
+    {
+      "name": "@typescript-eslint/parser",
+      "version": "^8.20.0",
       "type": "build"
     },
     {
       "name": "constructs",
-      "version": "^10.4.2",
+      "version": "^10.0.0",
+      "type": "build"
+    },
+    {
+      "name": "eslint-config-prettier",
+      "version": "^10.0.1",
+      "type": "build"
+    },
+    {
+      "name": "eslint-import-resolver-typescript",
+      "version": "^3.7.0",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-import",
+      "version": "^2.31.0",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
+      "version": "^5.2.1",
       "type": "build"
     },
     {
       "name": "eslint",
-      "version": "^9.17.0",
+      "version": "^9.18.0",
       "type": "build"
     },
     {
@@ -50,39 +80,42 @@
     },
     {
       "name": "jest-junit",
-      "version": "^15",
+      "version": "^16",
       "type": "build"
     },
     {
       "name": "jsii-diff",
+      "version": "^1.106.0",
       "type": "build"
     },
     {
       "name": "jsii-docgen",
-      "version": "^10.6.1",
+      "version": "^10.6.3",
       "type": "build"
     },
     {
       "name": "jsii-pacmak",
+      "version": "^1.106.0",
       "type": "build"
     },
     {
       "name": "jsii-rosetta",
-      "version": "^5.7.1",
+      "version": "^5.7.2",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "^5.7.1",
+      "version": "^5.7.4",
       "type": "build"
     },
     {
       "name": "lint-staged",
-      "version": "^15.2.11",
+      "version": "^15.3.0",
       "type": "build"
     },
     {
       "name": "prettier",
+      "version": "^3.4.2",
       "type": "build"
     },
     {
@@ -95,24 +128,27 @@
     },
     {
       "name": "ts-node",
+      "version": "^10.9.2",
       "type": "build"
     },
     {
       "name": "typescript-eslint",
-      "version": "^8.18.1",
+      "version": "^8.20.0",
       "type": "build"
     },
     {
       "name": "typescript",
-      "version": "^5.7.2",
+      "version": "^5.7.3",
       "type": "build"
     },
     {
       "name": "constructs",
+      "version": "^10.4.2",
       "type": "peer"
     },
     {
       "name": "projen",
+      "version": "^0.91.6",
       "type": "peer"
     }
   ],
