@@ -110,9 +110,7 @@ describe('JsiiProject Constructor Options', (): void => {
       huskyEnabled: true,
       jestEnabled: true,
       prettierEnabled: true,
-      typescriptEnabled: true,
       vscodeEnabled: true,
-      sampleCodeEnabled: true,
 
       githubOptions: { mergify: false, pullRequestLint: false },
       buildWorkflow: false,
