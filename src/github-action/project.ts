@@ -12,6 +12,7 @@ import {
   NpmConfigGitHubAction,
   PrettierConfigGitHubAction,
   TypeScriptConfigGitHubAction,
+  SampleCodeConfigGitHubAction,
 } from '.';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {
@@ -50,6 +51,9 @@ export class GitHubActionProject extends BaseProject {
     }
     if (updatedOptions.commitlintEnabled) {
       this.commitlintConfig = new CommitLintConfigGitHubAction(this);
+    }
+    if (updatedOptions.sampleCodeEnabled) {
+      this.sampleCodeConfig = new SampleCodeConfigGitHubAction(this);
     }
   }
 

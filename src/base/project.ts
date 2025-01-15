@@ -11,6 +11,7 @@ import {
   JestConfigBase,
   NpmConfigBase,
   PrettierConfigBase,
+  SampleCodeConfigBase,
   TypeScriptConfigBase,
   VsCodeConfigBase,
 } from '.';
@@ -152,7 +153,12 @@ export class BaseProject extends TypeScriptProject {
    * This property is initialized if `vscodeEnabled` option is provided during project creation.
    */
   public vscodeConfig?: VsCodeConfigBase<BaseProject>;
-  // protected sampleCodeConfig?: SampleCodeConfigBase<BaseProject>;
+
+  /**
+   * Configuration for Sample Code in the project.
+   * This property is initialized if `sampleCodeEnabled` option is provided during project creation.
+   */
+  public sampleCodeConfig?: SampleCodeConfigBase<BaseProject>;
 
   /**
    * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....
