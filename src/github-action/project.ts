@@ -12,8 +12,8 @@ import {
   NpmConfigGitHubAction,
   PrettierConfigGitHubAction,
   TypeScriptConfigGitHubAction,
+  SampleCodeConfigGitHubAction,
 } from '.';
-import { SampleCodeConfigGitHubAction } from './samplecode';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {
   readonly commitlintEnabled?: boolean;
