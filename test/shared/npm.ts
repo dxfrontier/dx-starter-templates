@@ -8,13 +8,13 @@ import { SynthOutput } from 'projen/lib/util/synth';
 export function testPackageJsonGeneral(snapshot: SynthOutput, expectedInfo: Record<string, unknown>): void {
   const packageJson: any = snapshot['package.json'];
   const relevantInformation: Record<string, unknown> = {
-    name: packageJson!.name,
-    version: packageJson!.version,
-    repository: packageJson!.repository,
-    author: packageJson!.author,
-    license: packageJson!.license,
-    main: packageJson!.main,
-    types: packageJson!.types,
+    ...(packageJson?.['name'] ? { name: packageJson['name'] } : undefined),
+    ...(packageJson?.['version'] ? { version: packageJson['version'] } : undefined),
+    ...(packageJson?.['repository'] ? { repository: { ...packageJson['repository'] } } : undefined),
+    ...(packageJson?.['author'] ? { author: { ...packageJson['author'] } } : undefined),
+    ...(packageJson?.['license'] ? { license: packageJson['license'] } : undefined),
+    ...(packageJson?.['main'] ? { main: packageJson['main'] } : undefined),
+    ...(packageJson?.['types'] ? { types: packageJson['types'] } : undefined),
   };
   expect(relevantInformation).toStrictEqual(expectedInfo);
 }
@@ -49,9 +49,12 @@ export function testDevDependencies(snapshot: SynthOutput, expectedDevDependenci
  * @param snapshot Synthesized project output.
  * @param expectedDevDependencies Records of expected peerDependencies to test for.
  */
-export function testPeerDependencies(snapshot: SynthOutput, expectedPeerDependencies: Record<string, string>): void {
+export function testPeerDependencies(
+  snapshot: SynthOutput,
+  expectedPeerDependencies: Record<string, string> = {},
+): void {
   const standardPeerDependencies: Record<string, string> = {};
-  const peerDependencies: Record<string, string> = expectedPeerDependencies
+  const peerDependencies: Record<string, string> = Object.keys(expectedPeerDependencies).length
     ? expectedPeerDependencies
     : standardPeerDependencies;
 
@@ -75,12 +78,8 @@ export function testScripts(snapshot: SynthOutput, expectedTasks: Record<string,
 export function testPackageJsonSettings(snapshot: SynthOutput, expectedSettings: Record<string, unknown>): void {
   const packageJson: any = snapshot['package.json'];
   const relevantSettings: Record<string, unknown> = {
-    'lint-staged': {
-      ...packageJson!['lint-staged'],
-    },
-    jsii: {
-      ...packageJson!['jsii'],
-    },
+    ...(packageJson?.['lint-staged'] ? { 'lint-staged': { ...packageJson['lint-staged'] } } : {}),
+    ...(packageJson?.['jsii'] ? { jsii: { ...packageJson['jsii'] } } : {}),
   };
   expect(relevantSettings).toStrictEqual(expectedSettings);
 }
