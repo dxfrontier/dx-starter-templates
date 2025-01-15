@@ -92,7 +92,7 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
 /**
  * Base class for managing project configuration.
  */
-export class BaseProject extends TypeScriptProject {
+export abstract class BaseProject extends TypeScriptProject {
   /**
    * Configuration for commitlint settings in the project.
    * This property is initialized if `commitlintEnabled` option is provided during project creation.
@@ -164,37 +164,41 @@ export class BaseProject extends TypeScriptProject {
     });
 
     new GitConfigBase(this);
-    this.npmConfig = new NpmConfigBase(this);
-    this.typescriptConfig = new TypeScriptConfigBase(this);
-
-    if (options.devContainerEnabled) {
-      this.devContainerConfig = new DevContainerConfigBase(this, options.devContainer!);
-    }
-    if (options.eslintEnabled) {
-      this.eslintConfig = new EsLintConfigBase(this, options.eslint!);
-    }
-    if (options.jestEnabled) {
-      this.jestConfig = new JestConfigBase(this, options.jest!);
-    }
-    if (options.prettierEnabled) {
-      this.prettierConfig = new PrettierConfigBase(this, options.prettier!);
-    }
-    if (options.vscodeEnabled) {
-      this.vscodeConfig = new VsCodeConfigBase(this, options.vscode!);
-    }
-    if (options.githubEnabled) {
-      this.githubConfig = new GitHubConfigBase(this, options.github!);
-    }
-    if (options.commitlintEnabled) {
-      this.commitlintConfig = new CommitLintConfigBase(this);
-    }
-    if (options.huskyEnabled) {
-      this.huskyConfig = new HuskyConfigBase(this);
-    }
-    // if (options.sampleCodeEnabled) {
-    //   this.typescriptConfig = new SampleCodeConfigGitHubAction(this);
-    // }
+    this.initializeBaseConfigs(options);
   }
+
+  /**
+   * Initializes the base configurations for the project.
+   *
+   * This method is responsible for initializing the core configurations related to TypeScript,
+   * ESLint, and Jest, based on the provided options. The configuration objects are created and
+   * initialized according to the flags passed in the `options` parameter. This allows the project
+   * to be configured with specific tools only when needed, without unnecessary overhead.
+   *
+   * The method is overridden from the base class to provide a customized initialization process
+   * for a project that is specifically tailored for GitHub Actions-based configurations.
+   *
+   * @param options - The configuration options used to initialize the various project settings.
+   * The `options` object is expected to be of type `GitHubActionProjectOptions` and contains flags
+   * that enable or disable specific configurations like `eslintEnabled`, `jestEnabled`, etc. The method
+   * reads these flags and initializes the respective configuration objects (e.g., `typescriptConfig`,
+   * `eslintConfig`, `jestConfig`) based on their values.
+   *
+   * @example
+   * const options: GitHubActionProjectOptions = {
+   *   eslintEnabled: true,
+   *   jestEnabled: false,
+   *   // other options...
+   * };
+   * this.initializeBaseConfigs(options);
+   *
+   * @remarks
+   * - This method is overwritten by the child class to initialize the base configurations before
+   *   proceeding with the setup of more specific configurations like GitHub, Husky, etc.
+   * - The initialization of configurations is conditional based on the `options` flags, ensuring that only
+   *   necessary configurations are applied to the project.
+   */
+  protected abstract initializeBaseConfigs(options: BaseProjectOptions): void;
 
   public override preSynthesize(): void {
     for (const comp of this.components) {
