@@ -21,7 +21,7 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi
+    const strategy: ConfigStrategy = useProjenApi
       ? new ProjenStandardPrettierBaseConfigStrategy()
       : new NonApiPrettierBaseConfigStrategy();
     this.setStrategy(strategy);

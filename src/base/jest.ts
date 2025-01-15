@@ -16,7 +16,9 @@ export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi ? new ProjenStandardJestBaseConfigStrategy() : new NonApiJestBaseConfigStrategy();
+    const strategy: ConfigStrategy = useProjenApi
+      ? new ProjenStandardJestBaseConfigStrategy()
+      : new NonApiJestBaseConfigStrategy();
     this.setStrategy(strategy);
   }
 }

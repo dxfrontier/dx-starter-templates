@@ -17,7 +17,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi ? new ProjenStandardGitHubBaseConfigStrategy() : new NonApiGitHubBaseConfigStrategy();
+    const strategy: ConfigStrategy = useProjenApi
+      ? new ProjenStandardGitHubBaseConfigStrategy()
+      : new NonApiGitHubBaseConfigStrategy();
     this.setStrategy(strategy);
   }
 
@@ -312,18 +314,26 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
-  protected get additionalIgnorePatterns(): string[] {
-    return [
-      '/.gitattributes',
-      '/.github/ISSUE_TEMPLATE/bug.yml',
-      '/.github/ISSUE_TEMPLATE/feature.yml',
-      '/.github/ISSUE_TEMPLATE/housekeeping.yml',
-      '/.github/ISSUE_TEMPLATE/question.yml',
-      '/.github/pull_request_template.md',
-      '/.github/workflows/release.yml',
-      '/.gitignore',
-      '/cliff.toml',
+  private get filePaths(): string[] {
+    const configs: Record<string, string[]>[] = [
+      this.configFilePullRequest,
+      this.configFileBugIssue,
+      this.configFileFeatureIssue,
+      this.configFileHousekeepingIssue,
+      this.configFileQuestionIssue,
+      this.configFileCliff,
+      this.configFileReleaseWorkflow,
     ];
+    const dynamicFilePaths: string[] = configs
+      .map((config: Record<string, string[]>): string => `/${Object.keys(config)[0]}`)
+      .filter((filePath: string): string => filePath);
+    const staticFilePaths: string[] = ['/.gitattributes', '/.gitignore'];
+
+    return [...dynamicFilePaths, ...staticFilePaths];
+  }
+
+  protected get additionalIgnorePatterns(): string[] {
+    return this.filePaths;
   }
 
   public override registerConfig(): void {

@@ -16,8 +16,7 @@ export class GitBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   constructor(project: T) {
     super(project);
 
-    const strategy = new GitBaseConfigStrategy();
-
+    const strategy: ConfigStrategy = new GitBaseConfigStrategy();
     this.setStrategy(strategy);
   }
 

@@ -18,7 +18,7 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi
+    const strategy: ConfigStrategy = useProjenApi
       ? new ProjenStandardDevContainerBaseConfigStrategy()
       : new NonApiDevContainerBaseConfigStrategy();
     this.setStrategy(strategy);
@@ -92,7 +92,8 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
   }
 
   protected get additionalIgnorePatterns(): string[] {
-    return ['/.devcontainer.json'];
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
   }
 
   public override registerConfig(): void {

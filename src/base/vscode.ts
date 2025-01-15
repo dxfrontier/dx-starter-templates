@@ -18,7 +18,9 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi ? new ProjenStandardVsCodeBaseConfigStrategy() : new NonApiVsCodeBaseConfigStrategy();
+    const strategy: ConfigStrategy = useProjenApi
+      ? new ProjenStandardVsCodeBaseConfigStrategy()
+      : new NonApiVsCodeBaseConfigStrategy();
 
     this.setStrategy(strategy);
   }
@@ -52,7 +54,8 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
   }
 
   protected get additionalIgnorePatterns(): string[] {
-    return ['/.vscode/settings.json'];
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
   }
 
   public override registerConfig(): void {

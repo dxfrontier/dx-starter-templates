@@ -9,4 +9,8 @@ export class TypeScriptConfigJsii extends TypeScriptBaseConfig<JsiiProject> {
   constructor(project: JsiiProject) {
     super(project);
   }
+
+  protected override get additionalIgnorePatterns(): string[] {
+    return ['/tsconfig.dev.json'];
+  }
 }

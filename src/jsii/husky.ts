@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { Config, HuskyBaseConfig, NonApiHuskyBaseConfigStrategy } from '../base';
+import { Config, ConfigStrategy, HuskyBaseConfig, NonApiHuskyBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant Husky configuration for the Jsii project.
@@ -9,7 +9,7 @@ export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
   constructor(project: JsiiProject) {
     super(project);
 
-    const strategy = new NonApiConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

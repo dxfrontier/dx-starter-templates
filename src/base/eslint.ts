@@ -20,7 +20,9 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
-    const strategy = useProjenApi ? new ProjenStandardEsLintBaseConfigStrategy() : new NonApiEsLintBaseConfigStrategy();
+    const strategy: ConfigStrategy = useProjenApi
+      ? new ProjenStandardEsLintBaseConfigStrategy()
+      : new NonApiEsLintBaseConfigStrategy();
     this.setStrategy(strategy);
 
     this.rules = this.standardRules;
@@ -113,7 +115,8 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
   }
 
   protected get additionalIgnorePatterns(): string[] {
-    return ['/eslint.config.mjs'];
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
   }
 
   public override registerConfig(): void {

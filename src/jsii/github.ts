@@ -4,6 +4,7 @@ import {
   ProjenStandardGitHubBaseConfigStrategy,
   NonApiGitHubBaseConfigStrategy,
   Config,
+  ConfigStrategy,
 } from '../base';
 
 /**
@@ -14,7 +15,7 @@ export class GitHubConfigJsii extends GitHubBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
-    const strategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
+    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }

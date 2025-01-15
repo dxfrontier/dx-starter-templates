@@ -55,7 +55,7 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
    * const config = new Config(myProject);
    * config.setStrategy(new MyCustomConfigStrategy());
    */
-  protected setStrategy(strategy: ConfigStrategy) {
+  protected setStrategy(strategy: ConfigStrategy): void {
     this.strategy = strategy;
   }
 
@@ -68,7 +68,7 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
    * and not on the configuration modules `preSynthesize` function otherwise
    * it is not guaranteed that all needed modules are setup properly.
    */
-  public registerConfig() {
+  public registerConfig(): void {
     // do api calls to other configuration modules here.
   }
 
@@ -84,7 +84,7 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
    * the configuration module and not from project itself.
    *
    */
-  public applyConfig() {
+  public applyConfig(): void {
     if (!this.strategy) {
       console.debug(`Strategy not set for ${this.constructor.name}`);
     }

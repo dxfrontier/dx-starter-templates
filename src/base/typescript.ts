@@ -16,7 +16,7 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
   constructor(project: T) {
     super(project);
 
-    const strategy = new NonApiTypeScriptBaseConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiTypeScriptBaseConfigStrategy();
     this.setStrategy(strategy);
   }
 
@@ -25,7 +25,7 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
   }
 
   protected get additionalIgnorePatterns(): string[] {
-    return ['/tsconfig.dev.json'];
+    return ['/tsconfig.json'];
   }
 
   public override registerConfig(): void {

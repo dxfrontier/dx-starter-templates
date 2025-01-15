@@ -18,7 +18,7 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
   constructor(project: T) {
     super(project);
 
-    const strategy = new NonApiCommitLintBaseConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiCommitLintBaseConfigStrategy();
     this.setStrategy(strategy);
   }
 
@@ -79,7 +79,8 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
   }
 
   protected get additionalIgnorePatterns(): string[] {
-    return ['/.commitlintrc.ts'];
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
   }
 
   public override registerConfig(): void {

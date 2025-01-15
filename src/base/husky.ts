@@ -17,7 +17,7 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
   constructor(project: T) {
     super(project);
 
-    const strategy = new NonApiHuskyBaseConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiHuskyBaseConfigStrategy();
     this.setStrategy(strategy);
   }
 

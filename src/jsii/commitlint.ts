@@ -1,5 +1,5 @@
 import { JsiiProject } from '.';
-import { CommitLintBaseConfig, Config, NonApiCommitLintBaseConfigStrategy } from '../base';
+import { CommitLintBaseConfig, Config, ConfigStrategy, NonApiCommitLintBaseConfigStrategy } from '../base';
 
 /**
  * Implementing all relevant CommitLint configuration for the Jsii project.
@@ -9,7 +9,7 @@ export class CommitLintConfigJsii extends CommitLintBaseConfig<JsiiProject> {
   constructor(project: JsiiProject) {
     super(project);
 
-    const strategy = new NonApiConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiConfigStrategy();
     this.setStrategy(strategy);
   }
 }
