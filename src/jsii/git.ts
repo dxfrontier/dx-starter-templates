@@ -1,10 +1,10 @@
 import { JsiiProject } from '.';
-import { Config, ConfigStrategy, GitBaseConfig, GitBaseConfigStrategy } from '../base';
+import { Config, ConfigStrategy, GitConfigBase, GitConfigBaseStrategy } from '../base';
 
 /**
  * Implementing all relevant Git configuration for the Jsii project.
  */
-export class GitConfigJsii extends GitBaseConfig<JsiiProject> {
+export class GitConfigJsii extends GitConfigBase<JsiiProject> {
   constructor(project: JsiiProject) {
     super(project);
 
@@ -13,7 +13,7 @@ export class GitConfigJsii extends GitBaseConfig<JsiiProject> {
   }
 }
 
-class StandardConfigStrategy extends GitBaseConfigStrategy<JsiiProject> {
+class StandardConfigStrategy extends GitConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

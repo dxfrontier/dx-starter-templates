@@ -12,11 +12,11 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class GitBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class GitConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T) {
     super(project);
 
-    const strategy: ConfigStrategy = new GitBaseConfigStrategy();
+    const strategy: ConfigStrategy = new GitConfigBaseStrategy();
     this.setStrategy(strategy);
   }
 }
@@ -26,7 +26,7 @@ export class GitBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class GitBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class GitConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }

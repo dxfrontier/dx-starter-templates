@@ -13,7 +13,7 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class EsLintConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   protected rules: Record<string, string>;
   protected ignorePatterns: string[];
 
@@ -21,8 +21,8 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     super(project);
 
     const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardEsLintBaseConfigStrategy()
-      : new NonApiEsLintBaseConfigStrategy();
+      ? new ProjenStandardEsLintConfigBaseStrategy()
+      : new NonApiEsLintConfigBaseStrategy();
     this.setStrategy(strategy);
 
     this.rules = this.standardRules;
@@ -182,7 +182,7 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class ProjenStandardEsLintConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
@@ -192,9 +192,9 @@ export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | Jsii
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiEsLintConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof EsLintBaseConfig) {
+    if (config instanceof EsLintConfigBase) {
       config.createConfig();
     }
   }

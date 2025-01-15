@@ -1,8 +1,8 @@
 import { JsiiProject } from '.';
 import {
-  VsCodeBaseConfig,
-  ProjenStandardVsCodeBaseConfigStrategy,
-  NonApiVsCodeBaseConfigStrategy,
+  VsCodeConfigBase,
+  ProjenStandardVsCodeConfigBaseStrategy,
+  NonApiVsCodeConfigBaseStrategy,
   Config,
   ConfigStrategy,
 } from '../base';
@@ -10,7 +10,7 @@ import {
 /**
  * Implementing all relevant VsCode configuration for the Jsii project.
  */
-export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
+export class VsCodeConfigJsii extends VsCodeConfigBase<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
@@ -19,13 +19,13 @@ export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
   }
 }
 
-class ProjenStandardConfigStrategy extends ProjenStandardVsCodeBaseConfigStrategy<JsiiProject> {
+class ProjenStandardConfigStrategy extends ProjenStandardVsCodeConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }
 }
 
-class NonApiConfigStrategy extends NonApiVsCodeBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiVsCodeConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

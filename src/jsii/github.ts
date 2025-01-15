@@ -1,8 +1,8 @@
 import { JsiiProject } from '.';
 import {
-  GitHubBaseConfig,
-  ProjenStandardGitHubBaseConfigStrategy,
-  NonApiGitHubBaseConfigStrategy,
+  GitHubConfigBase,
+  ProjenStandardGitHubConfigBaseStrategy,
+  NonApiGitHubConfigBaseStrategy,
   Config,
   ConfigStrategy,
 } from '../base';
@@ -10,7 +10,7 @@ import {
 /**
  * Implementing all relevant GitHub configuration for the Jsii project.
  */
-export class GitHubConfigJsii extends GitHubBaseConfig<JsiiProject> {
+export class GitHubConfigJsii extends GitHubConfigBase<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
@@ -19,13 +19,13 @@ export class GitHubConfigJsii extends GitHubBaseConfig<JsiiProject> {
   }
 }
 
-class ProjenStandardConfigStrategy extends ProjenStandardGitHubBaseConfigStrategy<JsiiProject> {
+class ProjenStandardConfigStrategy extends ProjenStandardGitHubConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }
 }
 
-class NonApiConfigStrategy extends NonApiGitHubBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiGitHubConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

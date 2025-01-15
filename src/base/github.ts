@@ -13,13 +13,13 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
     const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardGitHubBaseConfigStrategy()
-      : new NonApiGitHubBaseConfigStrategy();
+      ? new ProjenStandardGitHubConfigBaseStrategy()
+      : new NonApiGitHubConfigBaseStrategy();
     this.setStrategy(strategy);
   }
 
@@ -419,7 +419,7 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class ProjenStandardGitHubConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
@@ -429,9 +429,9 @@ export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | Jsii
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiGitHubConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof GitHubBaseConfig) {
+    if (config instanceof GitHubConfigBase) {
       config.createPullRequest();
       config.createBugIssue();
       config.createFeatureIssue();

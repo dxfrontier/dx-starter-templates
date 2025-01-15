@@ -1,8 +1,8 @@
 import { JsiiProject } from '.';
 import {
-  JestBaseConfig,
-  ProjenStandardJestBaseConfigStrategy,
-  NonApiJestBaseConfigStrategy,
+  JestConfigBase,
+  ProjenStandardJestConfigBaseStrategy,
+  NonApiJestConfigBaseStrategy,
   Config,
   ConfigStrategy,
 } from '../base';
@@ -10,7 +10,7 @@ import {
 /**
  * Implementing all relevant Jest configuration for the Jsii project.
  */
-export class JestConfigJsii extends JestBaseConfig<JsiiProject> {
+export class JestConfigJsii extends JestConfigBase<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
@@ -19,13 +19,13 @@ export class JestConfigJsii extends JestBaseConfig<JsiiProject> {
   }
 }
 
-class ProjenStandardConfigStrategy extends ProjenStandardJestBaseConfigStrategy<JsiiProject> {
+class ProjenStandardConfigStrategy extends ProjenStandardJestConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }
 }
 
-class NonApiConfigStrategy extends NonApiJestBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiJestConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

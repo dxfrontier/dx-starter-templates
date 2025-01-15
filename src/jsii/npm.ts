@@ -1,10 +1,10 @@
 import { JsiiProject } from '.';
-import { NpmBaseConfig, Settings } from '../base';
+import { NpmConfigBase, Settings } from '../base';
 
 /**
  * Implementing all relevant NPM configuration for the Jsii project.
  */
-export class NpmConfigJsii extends NpmBaseConfig<JsiiProject> {
+export class NpmConfigJsii extends NpmConfigBase<JsiiProject> {
   constructor(project: JsiiProject) {
     super(project);
   }

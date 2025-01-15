@@ -1,10 +1,10 @@
 import { JsiiProject } from '.';
-import { TypeScriptBaseConfig } from '../base';
+import { TypeScriptConfigBase } from '../base';
 
 /**
  * Implementing all relevant TypeScript configuration for the Jsii project.
  */
-export class TypeScriptConfigJsii extends TypeScriptBaseConfig<JsiiProject> {
+export class TypeScriptConfigJsii extends TypeScriptConfigBase<JsiiProject> {
   constructor(project: JsiiProject) {
     super(project);
   }

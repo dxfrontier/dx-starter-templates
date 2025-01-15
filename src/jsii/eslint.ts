@@ -1,8 +1,8 @@
 import { JsiiProject } from '.';
 import {
-  EsLintBaseConfig,
-  ProjenStandardEsLintBaseConfigStrategy,
-  NonApiEsLintBaseConfigStrategy,
+  EsLintConfigBase,
+  ProjenStandardEsLintConfigBaseStrategy,
+  NonApiEsLintConfigBaseStrategy,
   Config,
   ConfigStrategy,
 } from '../base';
@@ -10,7 +10,7 @@ import {
 /**
  * Implementing all relevant EsLint configuration for the Jsii project.
  */
-export class EsLintConfigJsii extends EsLintBaseConfig<JsiiProject> {
+export class EsLintConfigJsii extends EsLintConfigBase<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {
     super(project, useProjenApi);
 
@@ -19,13 +19,13 @@ export class EsLintConfigJsii extends EsLintBaseConfig<JsiiProject> {
   }
 }
 
-class ProjenStandardConfigStrategy extends ProjenStandardEsLintBaseConfigStrategy<JsiiProject> {
+class ProjenStandardConfigStrategy extends ProjenStandardEsLintConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }
 }
 
-class NonApiConfigStrategy extends NonApiEsLintBaseConfigStrategy<JsiiProject> {
+class NonApiConfigStrategy extends NonApiEsLintConfigBaseStrategy<JsiiProject> {
   applyConfig(config: Config<JsiiProject>): void {
     super.applyConfig(config);
   }

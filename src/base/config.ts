@@ -8,7 +8,7 @@ import { JsiiProject } from '../jsii';
  * that can be applied to projects. It doesn't impose any structure
  * but signals that a class is related to a project configuration.
  */
-export interface BaseConfig {}
+export interface ConfigBase {}
 
 /**
  * Interface defining the strategy for applying configurations to projects.
@@ -16,7 +16,7 @@ export interface BaseConfig {}
  * is applied to the project.
  */
 export interface ConfigStrategy {
-  applyConfig(config: BaseConfig): void;
+  applyConfig(config: ConfigBase): void;
 }
 
 /**
@@ -24,7 +24,7 @@ export interface ConfigStrategy {
  * This class allows configuring a project using different strategies.
  * It requires the project to be either a `BaseProject` or `JsiiProject`.
  */
-export class Config<T extends BaseProject | JsiiProject> extends Component implements BaseConfig {
+export class Config<T extends BaseProject | JsiiProject> extends Component implements ConfigBase {
   public project: T;
 
   /**

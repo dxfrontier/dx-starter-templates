@@ -1,18 +1,18 @@
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { BaseOptions } from './options';
 import {
-  CommitLintBaseConfig,
+  CommitLintConfigBase,
   Config,
-  DevContainerBaseConfig,
-  EsLintBaseConfig,
-  GitBaseConfig,
-  GitHubBaseConfig,
-  HuskyBaseConfig,
-  JestBaseConfig,
-  NpmBaseConfig,
-  PrettierBaseConfig,
-  TypeScriptBaseConfig,
-  VsCodeBaseConfig,
+  DevContainerConfigBase,
+  EsLintConfigBase,
+  GitConfigBase,
+  GitHubConfigBase,
+  HuskyConfigBase,
+  JestConfigBase,
+  NpmConfigBase,
+  PrettierConfigBase,
+  TypeScriptConfigBase,
+  VsCodeConfigBase,
 } from '.';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
@@ -32,17 +32,17 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
  * Base class for managing project configuration.
  */
 export class BaseProject extends TypeScriptProject {
-  public gitConfig?: GitBaseConfig<BaseProject>;
-  public commitlintConfig?: CommitLintBaseConfig<BaseProject>;
-  public devContainerConfig?: DevContainerBaseConfig<BaseProject>;
-  public eslintConfig?: EsLintBaseConfig<BaseProject>;
-  public githubConfig?: GitHubBaseConfig<BaseProject>;
-  public huskyConfig?: HuskyBaseConfig<BaseProject>;
-  public jestConfig?: JestBaseConfig<BaseProject>;
-  public npmConfig?: NpmBaseConfig<BaseProject>;
-  public prettierConfig?: PrettierBaseConfig<BaseProject>;
-  public typescriptConfig?: TypeScriptBaseConfig<BaseProject>;
-  public vscodeConfig?: VsCodeBaseConfig<BaseProject>;
+  public gitConfig?: GitConfigBase<BaseProject>;
+  public commitlintConfig?: CommitLintConfigBase<BaseProject>;
+  public devContainerConfig?: DevContainerConfigBase<BaseProject>;
+  public eslintConfig?: EsLintConfigBase<BaseProject>;
+  public githubConfig?: GitHubConfigBase<BaseProject>;
+  public huskyConfig?: HuskyConfigBase<BaseProject>;
+  public jestConfig?: JestConfigBase<BaseProject>;
+  public npmConfig?: NpmConfigBase<BaseProject>;
+  public prettierConfig?: PrettierConfigBase<BaseProject>;
+  public typescriptConfig?: TypeScriptConfigBase<BaseProject>;
+  public vscodeConfig?: VsCodeConfigBase<BaseProject>;
   // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
 
   /**
@@ -54,35 +54,35 @@ export class BaseProject extends TypeScriptProject {
       ...BaseOptions.sharedOptions(options),
     });
 
-    new GitBaseConfig(this);
-    this.npmConfig = new NpmBaseConfig(this);
+    new GitConfigBase(this);
+    this.npmConfig = new NpmConfigBase(this);
 
     if (options.devContainerEnabled) {
-      this.devContainerConfig = new DevContainerBaseConfig(this, options.devContainer!);
+      this.devContainerConfig = new DevContainerConfigBase(this, options.devContainer!);
     }
     if (options.eslintEnabled) {
-      this.eslintConfig = new EsLintBaseConfig(this, options.eslint!);
+      this.eslintConfig = new EsLintConfigBase(this, options.eslint!);
     }
     if (options.jestEnabled) {
-      this.jestConfig = new JestBaseConfig(this, options.jest!);
+      this.jestConfig = new JestConfigBase(this, options.jest!);
     }
     if (options.prettierEnabled) {
-      this.prettierConfig = new PrettierBaseConfig(this, options.prettier!);
+      this.prettierConfig = new PrettierConfigBase(this, options.prettier!);
     }
     if (options.vscodeEnabled) {
-      this.vscodeConfig = new VsCodeBaseConfig(this, options.vscode!);
+      this.vscodeConfig = new VsCodeConfigBase(this, options.vscode!);
     }
     if (options.githubEnabled) {
-      this.githubConfig = new GitHubBaseConfig(this, options.github!);
+      this.githubConfig = new GitHubConfigBase(this, options.github!);
     }
     if (options.commitlintEnabled) {
-      this.commitlintConfig = new CommitLintBaseConfig(this);
+      this.commitlintConfig = new CommitLintConfigBase(this);
     }
     if (options.huskyEnabled) {
-      this.huskyConfig = new HuskyBaseConfig(this);
+      this.huskyConfig = new HuskyConfigBase(this);
     }
     if (options.typescriptEnabled) {
-      this.typescriptConfig = new TypeScriptBaseConfig(this);
+      this.typescriptConfig = new TypeScriptConfigBase(this);
     }
     // if (options.sampleCodeEnabled) {
     //   this.typescriptConfig = new SampleCodeConfigGitHubAction(this);

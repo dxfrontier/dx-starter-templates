@@ -16,7 +16,7 @@ export type Settings = Record<string, any>; // to be compliant with projen api
  * @template T Type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   protected dependencies: Set<string>;
   protected devDependencies: Set<string>;
   protected peerDependencies: Set<string>;
@@ -26,7 +26,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   constructor(project: T) {
     super(project);
 
-    const strategy: ConfigStrategy = new ProjenStandardNpmBaseConfigStrategy();
+    const strategy: ConfigStrategy = new ProjenStandardNpmConfigBaseStrategy();
     this.setStrategy(strategy);
 
     this.dependencies = new Set(this.standardDependencies);
@@ -189,9 +189,9 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
  *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class ProjenStandardNpmConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof NpmBaseConfig) {
+    if (config instanceof NpmConfigBase) {
       config.project.addDeps(...config.getDependencies());
       config.project.addDevDeps(...config.getDevDependencies());
       config.project.addPeerDeps(...config.getPeerDependencies());

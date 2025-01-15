@@ -15,15 +15,15 @@ import { TrailingComma } from 'projen/lib/javascript';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class PrettierConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   protected ignorePatterns: string[];
 
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
     const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardPrettierBaseConfigStrategy()
-      : new NonApiPrettierBaseConfigStrategy();
+      ? new ProjenStandardPrettierConfigBaseStrategy()
+      : new NonApiPrettierConfigBaseStrategy();
     this.setStrategy(strategy);
 
     this.ignorePatterns = this.standardIgnorePatterns;
@@ -137,7 +137,7 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class ProjenStandardPrettierConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
@@ -147,9 +147,9 @@ export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | Js
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiPrettierConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof PrettierBaseConfig) {
+    if (config instanceof PrettierConfigBase) {
       config.createConfig();
       config.createIgnore();
     }
