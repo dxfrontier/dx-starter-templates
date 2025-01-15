@@ -4,7 +4,6 @@
  * is not working properly.
  */
 import { cdk, javascript } from 'projen';
-// import { JsiiProject } from 'projen/lib/cdk/index';
 import { JsiiProject } from '../../src/jsii';
 
 jest.mock('projen', (): any => ({
