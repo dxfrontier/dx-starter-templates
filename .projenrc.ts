@@ -17,9 +17,7 @@ export const project = new JsiiProject({
   huskyEnabled: true,
   jestEnabled: true,
   prettierEnabled: true,
-  typescriptEnabled: true,
   vscodeEnabled: true,
-  sampleCodeEnabled: true,
 
   // Use projen standard API for jest.
   // For the other modules like vscode, devContainer, etc.

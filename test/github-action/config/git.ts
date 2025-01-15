@@ -8,17 +8,13 @@
  * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
  **/
 
-import * as prettier from '../../shared/prettier';
+import * as git from '../../shared/git';
 import { snapshot } from './setup';
 
 /**
  * We use not a describe block here because the jest test runner `Test Results` pane will show the test names.
  * The `Testing` pane shows a hierarchy but for this hierarchy we already have the test file names available.
  */
-test('Prettier settings are set properly', (): void => {
-  prettier.testSettings(snapshot);
-});
-
 test('Ignore patterns matches expected content', (): void => {
   const expectedEntries: string[] = [
     '*.snap',
@@ -31,6 +27,7 @@ test('Ignore patterns matches expected content', (): void => {
     '/.github/ISSUE_TEMPLATE/question.yml',
     '/.github/pull_request_template.md',
     '/.github/workflows/release.yml',
+    '/.github/workflows/stale.yml',
     '/.gitignore',
     '/.husky/commit-msg',
     '/.husky/pre-commit',
@@ -41,7 +38,6 @@ test('Ignore patterns matches expected content', (): void => {
     '/.projen/files.json',
     '/.projen/tasks.json',
     '/.vscode/settings.json',
-    '/CHANGELOG.md',
     '/cliff.toml',
     '/eslint.config.mjs',
     '/package-lock.json',
@@ -49,5 +45,5 @@ test('Ignore patterns matches expected content', (): void => {
     '/tsconfig.dev.json',
     '/API.md',
   ];
-  prettier.testIgnore(snapshot, expectedEntries);
+  git.testIgnore(snapshot, expectedEntries);
 });

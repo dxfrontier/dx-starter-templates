@@ -12,11 +12,11 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class TypeScriptConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T) {
     super(project);
 
-    const strategy: ConfigStrategy = new NonApiTypeScriptBaseConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiTypeScriptConfigBaseStrategy();
     this.setStrategy(strategy);
   }
 
@@ -35,7 +35,19 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
    * @returns A list of ignore patterns.
    */
   protected get additionalIgnorePatterns(): string[] {
-    return ['/tsconfig.json'];
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
+  }
+
+  /**
+   * Gets the configuration file content.
+   *
+   * @returns An object where the key is the filename and the value is an array of file lines.
+   */
+  protected get configFile(): Record<string, string[]> {
+    return {
+      'tsconfig.json': [],
+    };
   }
 
   public override registerConfig(): void {
@@ -48,7 +60,7 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiTypeScriptConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }

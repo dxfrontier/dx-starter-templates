@@ -1,20 +1,27 @@
 import { GitHubActionProject } from '.';
-import { CommitLintBaseConfig, Config, NonApiCommitLintBaseConfigStrategy } from '../base';
+import { CommitLintConfigBase, Config, ConfigStrategy, NonApiCommitLintConfigBaseStrategy, Settings } from '../base';
 
 /**
  * Implementing all relevant CommitLint configuration for the GitHubAction project.
- * @extends CommitLintBaseConfig
  */
-export class CommitLintConfigGitHubAction extends CommitLintBaseConfig<GitHubActionProject> {
+export class CommitLintConfigGitHubAction extends CommitLintConfigBase<GitHubActionProject> {
   constructor(project: GitHubActionProject) {
     super(project);
 
-    const strategy = new NonApiConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiConfigStrategy();
     this.setStrategy(strategy);
+  }
+
+  protected get additionalSettings(): Settings {
+    return {
+      'lint-staged': {
+        '**/*.{yml,yaml}': ['npm run prettier'],
+      },
+    };
   }
 }
 
-class NonApiConfigStrategy extends NonApiCommitLintBaseConfigStrategy<GitHubActionProject> {
+class NonApiConfigStrategy extends NonApiCommitLintConfigBaseStrategy<GitHubActionProject> {
   applyConfig(config: Config<GitHubActionProject>): void {
     super.applyConfig(config);
   }

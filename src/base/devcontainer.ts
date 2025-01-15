@@ -14,13 +14,13 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class DevContainerConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
     const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardDevContainerBaseConfigStrategy()
-      : new NonApiDevContainerBaseConfigStrategy();
+      ? new ProjenStandardDevContainerConfigBaseStrategy()
+      : new NonApiDevContainerConfigBaseStrategy();
     this.setStrategy(strategy);
   }
 
@@ -125,7 +125,7 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject>
+export class ProjenStandardDevContainerConfigBaseStrategy<T extends BaseProject | JsiiProject>
   implements ConfigStrategy
 {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -137,9 +137,9 @@ export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject 
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiDevContainerConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof DevContainerBaseConfig) {
+    if (config instanceof DevContainerConfigBase) {
       config.createConfig();
     }
   }

@@ -16,7 +16,7 @@ export type Settings = Record<string, any>; // to be compliant with projen api
  * @template T Type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   protected dependencies: Set<string>;
   protected devDependencies: Set<string>;
   protected peerDependencies: Set<string>;
@@ -26,7 +26,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   constructor(project: T) {
     super(project);
 
-    const strategy: ConfigStrategy = new ProjenStandardNpmBaseConfigStrategy();
+    const strategy: ConfigStrategy = new ProjenStandardNpmConfigBaseStrategy();
     this.setStrategy(strategy);
 
     this.dependencies = new Set(this.standardDependencies);
@@ -79,6 +79,35 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
    */
   protected get standardScripts(): Record<string, string> {
     return {};
+  }
+
+  /**
+   * Getter retrieving the npm scripts to be removed from NPM Package.
+   * These scripts are added by Projen on project initialization
+   * and are not needed for our projects.
+   * Overwrite this method if you want to keep the projen standard scripts.
+   * @return Projen standard script entries.
+   * @protected
+   */
+  protected get removeScripts(): string[] {
+    return [
+      'clobber',
+      'compile',
+      'default',
+      'eject',
+      'package',
+      'post-compile',
+      'post-upgrade',
+      'pre-compile',
+      'release',
+      'test',
+      'test:watch',
+      'unbump',
+      'upgrade',
+      'watch',
+      'projen',
+      'build',
+    ];
   }
 
   /**
@@ -175,11 +204,35 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
    *
    * @param scripts - A record of script names and their commands to patch.
    */
-  public patchScripts(scripts: Record<string, string>): void {
+  public patchScriptsAdd(scripts: Record<string, string>): void {
     const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
 
     for (const script in scripts) {
       packageJson!.patch(JsonPatch.add(`/scripts/${script}`, scripts[script]));
+    }
+  }
+
+  /**
+   * Patches devDependencies in the `package.json` file.
+   *
+   * @param scripts - A record of script names and their commands to patch.
+   */
+  public patchDevDependencyRemove(devDependencies: string[]): void {
+    const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
+
+    for (const dep of devDependencies) {
+      packageJson!.patch(JsonPatch.remove(`/devDependencies/${dep}`));
+    }
+  }
+
+  /**
+   * Removes the NPM Package scripts associated with Projen NPM Package initialization.
+   * Overwrite this method if you want to keep the projen standard scripts.
+   * @protected
+   */
+  public removeScriptsOnInit(scripts: string[]): void {
+    for (const script of scripts) {
+      this.project.removeScript(script);
     }
   }
 }
@@ -189,14 +242,14 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
  *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class ProjenStandardNpmConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof NpmBaseConfig) {
+    if (config instanceof NpmConfigBase) {
       config.project.addDeps(...config.getDependencies());
       config.project.addDevDeps(...config.getDevDependencies());
       config.project.addPeerDeps(...config.getPeerDependencies());
       config.project.addFields(config.getSettings());
-      config.patchScripts(config.getScripts());
+      config.patchScriptsAdd(config.getScripts());
     }
   }
 }

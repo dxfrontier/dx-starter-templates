@@ -14,11 +14,11 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class CommitLintConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T) {
     super(project);
 
-    const strategy: ConfigStrategy = new NonApiCommitLintBaseConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiCommitLintConfigBaseStrategy();
     this.setStrategy(strategy);
   }
 
@@ -124,9 +124,9 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiCommitLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiCommitLintConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof CommitLintBaseConfig) {
+    if (config instanceof CommitLintConfigBase) {
       config.createConfig();
     }
   }

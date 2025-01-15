@@ -1,5 +1,6 @@
 /.prettierignore
 /.prettierrc.json
+/tsconfig.dev.json
 *.snap
 /.projen/**
 /.projen/deps.json
@@ -20,7 +21,7 @@
 /.github/workflows/release.yml
 /.gitattributes
 /.gitignore
+/CHANGELOG.md
 /.commitlintrc.ts
 /.husky/commit-msg
 /.husky/pre-commit
-/tsconfig.dev.json

@@ -1,5 +1,5 @@
 import { BaseProjectOptions } from './project';
-import { JsiiProjectOptions } from '../jsii';
+// import { JsiiProjectOptions } from '../jsii';
 import { NodePackageManager } from 'projen/lib/javascript';
 
 /**
@@ -11,7 +11,7 @@ export class BaseOptions {
    * @param options Specific project options to merge.
    * @returns Merged options.
    */
-  public static sharedOptions<T extends BaseProjectOptions | JsiiProjectOptions>(options: T): T {
+  public static sharedOptions<T extends BaseProjectOptions>(options: T): T {
     return {
       ...options,
       defaultReleaseBranch: options.defaultReleaseBranch ?? 'dev',

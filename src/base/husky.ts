@@ -13,11 +13,11 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class HuskyConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T) {
     super(project);
 
-    const strategy: ConfigStrategy = new NonApiHuskyBaseConfigStrategy();
+    const strategy: ConfigStrategy = new NonApiHuskyConfigBaseStrategy();
     this.setStrategy(strategy);
   }
 
@@ -70,7 +70,11 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
    * @returns A list of ignore patterns.
    */
   protected get additionalIgnorePatterns(): string[] {
-    return ['/.husky/commit-msg', '/.husky/pre-commit'];
+    const patterns: string[] = [];
+    for (const filePath in this.configFile) {
+      patterns.push(`/${filePath}`);
+    }
+    return patterns;
   }
 
   public override registerConfig(): void {
@@ -85,9 +89,9 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiHuskyBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiHuskyConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   applyConfig(config: Config<T>): void {
-    if (config instanceof HuskyBaseConfig) {
+    if (config instanceof HuskyConfigBase) {
       config.createConfig();
     }
   }

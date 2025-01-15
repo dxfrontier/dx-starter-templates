@@ -12,13 +12,13 @@ import { BaseProject } from './project';
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  * @extends Config
  */
-export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<T> {
+export class JestConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
     const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardJestBaseConfigStrategy()
-      : new NonApiJestBaseConfigStrategy();
+      ? new ProjenStandardJestConfigBaseStrategy()
+      : new NonApiJestConfigBaseStrategy();
     this.setStrategy(strategy);
   }
 }
@@ -28,7 +28,7 @@ export class JestBaseConfig<T extends BaseProject | JsiiProject> extends Config<
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class ProjenStandardJestConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
@@ -38,7 +38,7 @@ export class ProjenStandardJestBaseConfigStrategy<T extends BaseProject | JsiiPr
  * @param project - The project instance.
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
-export class NonApiJestBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+export class NonApiJestConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
