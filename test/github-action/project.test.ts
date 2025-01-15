@@ -64,7 +64,6 @@ describe('GitHubActionsProject Constructor Options', (): void => {
       githubEnabled: true,
       huskyEnabled: true,
       prettierEnabled: true,
-      typescriptEnabled: true,
       vscodeEnabled: true,
       sampleCodeEnabled: true,
     };
