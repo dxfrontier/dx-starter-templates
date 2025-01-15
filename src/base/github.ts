@@ -380,9 +380,9 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
   /**
    * Retrieves the file paths for all dynamic and static configuration files.
    *
-   * @returns A list of file paths, including dynamic configurations and static files like `.gitattributes` and `.gitignore`.
+   * @returns A list of file path patterns, including dynamic configurations and static files like `.gitattributes` and `.gitignore`.
    */
-  private get filePaths(): string[] {
+  private get filePatterns(): string[] {
     const configs: Record<string, string[]>[] = [
       this.configFilePullRequest,
       this.configFileBugIssue,
@@ -406,7 +406,9 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
    * @returns A list of ignore patterns.
    */
   protected get additionalIgnorePatterns(): string[] {
-    return this.filePaths;
+    const patterns: string[] = [...this.filePatterns, '/CHANGELOG.md'];
+
+    return patterns;
   }
 
   public override registerConfig(): void {

@@ -41,6 +41,7 @@ test('Ignore patterns matches expected content', (): void => {
     '/.projen/files.json',
     '/.projen/tasks.json',
     '/.vscode/settings.json',
+    '/CHANGELOG.md',
     '/cliff.toml',
     '/eslint.config.mjs',
     '/package-lock.json',
