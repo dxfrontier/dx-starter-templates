@@ -17,7 +17,7 @@ import { snapshot } from './setup';
  */
 test('General info in package.json is set properly', (): void => {
   const expectedInfo: Record<string, unknown> = {
-    name: 'my-github-action',
+    name: 'my-cap-service',
     version: '0.0.0',
     license: 'UNLICENSED',
     main: 'lib/index.js',
@@ -27,7 +27,7 @@ test('General info in package.json is set properly', (): void => {
 });
 
 test('Files property in package.json is set properly', (): void => {
-  const additionalPatterns: string[] = ['action.yml'];
+  const additionalPatterns: string[] = ['gen'];
   npm.testPackageJsonFiles(snapshot, additionalPatterns);
 });
 
@@ -37,12 +37,26 @@ test('DevDependencies are added properly', (): void => {
     '@commitlint/config-conventional': '^19.6.0',
     '@commitlint/prompt-cli': '^19.7.0',
     '@commitlint/types': '^19.5.0',
-    '@types/node': '*',
+    '@types/jest': '*',
+    '@types/node': '^22.10.6',
+    '@typescript-eslint/eslint-plugin': '^8.20.0',
+    '@typescript-eslint/parser': '^8.20.0',
     constructs: '^10.0.0',
+    eslint: '^9.18.0',
+    'eslint-config-prettier': '^10.0.1',
+    'eslint-import-resolver-typescript': '^3.7.0',
+    'eslint-plugin-import': '^2.31.0',
+    'eslint-plugin-prettier': '^5.2.1',
     husky: '^9.1.7',
+    jest: '*',
+    'jest-junit': '^16',
     'lint-staged': '^15.3.0',
     prettier: '^3.4.2',
     projen: '*',
+    'ts-jest': '*',
+    'ts-node': '^10.9.2',
+    typescript: '^5.7.3',
+    'typescript-eslint': '^8.20.0',
   };
   npm.testDevDependencies(snapshot, expectedDevDependencies);
 });
@@ -50,9 +64,10 @@ test('DevDependencies are added properly', (): void => {
 test('Scripts are added properly', (): void => {
   const expectedTasks: Record<string, unknown> = {
     commit: 'commit',
-    'install-dependencies': 'npm install',
+    eslint: 'eslint .',
     prepare: 'husky || true',
     prettier: 'prettier . --write',
+    'prettier:cds': 'format-cds',
   };
   npm.testScripts(snapshot, expectedTasks);
 });
@@ -60,7 +75,7 @@ test('Scripts are added properly', (): void => {
 test('Other configuration modules specific settings in package.json are set properly', (): void => {
   const expectedSettings: Record<string, unknown> = {
     'lint-staged': {
-      '**/*.{yml,yaml}': ['npm run prettier'],
+      '**/*.{ts,tsx}': ['npm run eslint', 'npm run prettier', 'npm run prettier:cds'],
     },
   };
   npm.testPackageJsonSettings(snapshot, expectedSettings);
@@ -74,7 +89,6 @@ test('Projen standard npm scripts are removed from package.json', (): void => {
     'compile',
     'default',
     'eject',
-    'eslint',
     'package',
     'post-compile',
     'post-upgrade',

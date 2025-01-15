@@ -113,6 +113,12 @@ export class BaseProject extends TypeScriptProject {
   public eslintConfig?: EsLintConfigBase<BaseProject>;
 
   /**
+   * Configuration for Git settings in the project.
+   * This property is always initialized as `gitConfig` when the project is created.
+   */
+  public gitConfig?: GitConfigBase<BaseProject>;
+
+  /**
    * Configuration for GitHub settings in the project.
    * This property is initialized if `githubEnabled` option is provided during project creation.
    */

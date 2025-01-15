@@ -13,11 +13,42 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class GitConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
+  protected ignorePatterns: string[];
+
   constructor(project: T) {
     super(project);
 
     const strategy: ConfigStrategy = new GitConfigBaseStrategy();
     this.setStrategy(strategy);
+
+    this.ignorePatterns = this.standardIgnorePatterns;
+  }
+
+  /**
+   * Gets the standard ignore patterns required for configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
+  protected get standardIgnorePatterns(): string[] {
+    return [];
+  }
+
+  /**
+   * Adds custom ignore patterns to the project's configuration.
+   *
+   * @param patterns - An array of file or directory patterns to be ignored.
+   */
+  public addIgnorePatterns(patterns: string[]): void {
+    this.ignorePatterns = [...this.ignorePatterns, ...patterns];
+  }
+
+  /**
+   * Retrieves all ignore patterns, including standard and custom ones.
+   *
+   * @returns An array of file or directory patterns that are ignored by the project.
+   */
+  public getIgnorePatterns(): string[] {
+    return this.ignorePatterns;
   }
 }
 
@@ -27,6 +58,11 @@ export class GitConfigBase<T extends BaseProject | JsiiProject> extends Config<T
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class GitConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyConfig(_config: Config<T>): void {}
+  applyConfig(config: Config<T>): void {
+    if (config instanceof GitConfigBase) {
+      for (const pattern of config.getIgnorePatterns()) {
+        config.project.addGitIgnore(pattern);
+      }
+    }
+  }
 }

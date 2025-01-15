@@ -1,11 +1,11 @@
-import { GitHubActionProject } from '.';
+import { CapServiceProject } from '.';
 import { NpmConfigBase, Settings } from '../base';
 
 /**
- * Implementing all relevant NPM configuration for the GitHubAction project.
+ * Implementing all relevant NPM configuration for the CapService project.
  */
-export class NpmConfigGitHubAction extends NpmConfigBase<GitHubActionProject> {
-  constructor(project: GitHubActionProject) {
+export class NpmConfigCapService extends NpmConfigBase<CapServiceProject> {
+  constructor(project: CapServiceProject) {
     super(project);
   }
 
@@ -34,7 +34,7 @@ export class NpmConfigGitHubAction extends NpmConfigBase<GitHubActionProject> {
    */
   private get additionalSettings(): Settings {
     return {
-      files: ['action.yml', 'README.md'],
+      files: ['gen', 'README.md'],
     };
   }
 
@@ -53,7 +53,23 @@ export class NpmConfigGitHubAction extends NpmConfigBase<GitHubActionProject> {
    * @returns A list of ignore patterns.
    */
   private get additionalIgnorePrettierPatterns(): string[] {
-    return ['/package-lock.json', '/package.json', '/API.md'];
+    return [
+      '/package-lock.json',
+      '/package.json',
+      '/API.md',
+      ...this.additionalAttributesPatterns.map((pattern: string): string => {
+        return `/${pattern}`;
+      }),
+    ];
+  }
+
+  /**
+   * Gets additional attributes patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
+  private get additionalAttributesPatterns(): string[] {
+    return ['@cds-models', 'dist', 'gen'];
   }
 
   public override registerConfig(): void {
@@ -63,5 +79,6 @@ export class NpmConfigGitHubAction extends NpmConfigBase<GitHubActionProject> {
     this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
     this.removeScriptsOnInit(this.removeScripts);
+    this.project.githubConfig?.addAttributePatterns(this.additionalAttributesPatterns);
   }
 }

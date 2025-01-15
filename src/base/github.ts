@@ -14,6 +14,8 @@ import { BaseProject } from './project';
  * @extends Config
  */
 export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
+  protected attributePatterns: string[];
+
   constructor(project: T, useProjenApi: boolean) {
     super(project);
 
@@ -21,6 +23,17 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
       ? new ProjenStandardGitHubConfigBaseStrategy()
       : new NonApiGitHubConfigBaseStrategy();
     this.setStrategy(strategy);
+
+    this.attributePatterns = this.standardAttributesPatterns;
+  }
+
+  /**
+   * Gets the standard attributes patterns required for configuration.
+   *
+   * @returns A list of attributes patterns.
+   */
+  protected get standardAttributesPatterns(): string[] {
+    return [];
   }
 
   /**
@@ -378,12 +391,29 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
   }
 
   /**
-   * Retrieves the file paths for all dynamic and static configuration files.
+   * Adds custom attributes patterns to the project's configuration.
    *
-   * @returns A list of file path patterns, including dynamic configurations and static files like `.gitattributes` and `.gitignore`.
+   * @param patterns - An array of file or directory patterns to be added as attributes.
    */
-  private get filePatterns(): string[] {
-    const configs: Record<string, string[]>[] = [
+  public addAttributePatterns(patterns: string[]): void {
+    this.attributePatterns = [...this.attributePatterns, ...patterns];
+  }
+
+  /**
+   * Retrieves all attribute patterns, including standard and custom ones.
+   *
+   * @returns An array of file or directory patterns that are ignored by the project.
+   */
+  public getAttributePatterns(): string[] {
+    return this.attributePatterns;
+  }
+
+  /**
+   * Gets a list of all relevant config files.
+   * @returns List of configs
+   */
+  protected get configs(): Record<string, string[]>[] {
+    return [
       this.configFilePullRequest,
       this.configFileBugIssue,
       this.configFileFeatureIssue,
@@ -392,7 +422,15 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
       this.configFileCliff,
       this.configFileReleaseWorkflow,
     ];
-    const dynamicFilePaths: string[] = configs
+  }
+
+  /**
+   * Retrieves the file paths for all dynamic and static configuration files.
+   *
+   * @returns A list of file path patterns, including dynamic configurations and static files like `.gitattributes` and `.gitignore`.
+   */
+  protected get filePatterns(): string[] {
+    const dynamicFilePaths: string[] = this.configs
       .map((config: Record<string, string[]>): string => `/${Object.keys(config)[0]}`)
       .filter((filePath: string): string => filePath);
     const staticFilePaths: string[] = ['/.gitattributes', '/.gitignore'];
@@ -411,8 +449,18 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
     return patterns;
   }
 
+  /**
+   * Gets additional attributes patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
+  protected get additionalAttributesPatterns(): string[] {
+    return ['CHANGELOG.md'];
+  }
+
   public override registerConfig(): void {
     this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    this.addAttributePatterns(this.additionalAttributesPatterns);
   }
 }
 
@@ -441,6 +489,10 @@ export class NonApiGitHubConfigBaseStrategy<T extends BaseProject | JsiiProject>
       config.createQuestionIssue();
       config.createCliff();
       config.createReleaseWorkflow();
+
+      for (const value of config.getAttributePatterns()) {
+        config.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
+      }
     }
   }
 }

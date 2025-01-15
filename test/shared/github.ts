@@ -4,8 +4,8 @@ import { SynthOutput } from 'projen/lib/util/synth';
  * Validates that pull request template matches expected template.
  * @param snapshot Synthesized project output.
  */
-export function testPrTemplate(snapshot: SynthOutput): void {
-  const expectedTemplateLines: string = [
+export function testPrTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
+  const standardTemplateLines: string[] = [
     '## Reviewers Checklist',
     '',
     'for complete review list refer to ABS Loop - Review Aspects',
@@ -29,8 +29,10 @@ export function testPrTemplate(snapshot: SynthOutput): void {
     '',
     '- [ ] Code is locally tested by developer (if applicable)',
     '- [ ] Automated tests pass successfully',
-  ].join('\n');
-  expect(snapshot['.github/pull_request_template.md']).toBe(expectedTemplateLines);
+  ];
+
+  const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
+  expect(snapshot['.github/pull_request_template.md']).toBe(lines.join('\n'));
 }
 
 /**
@@ -65,8 +67,8 @@ export function testBugTemplate(snapshot: SynthOutput): void {
  * Validates that feature issue template matches expected template.
  * @param snapshot Synthesized project output.
  */
-export function testFeatureTemplate(snapshot: SynthOutput): void {
-  const expectedTemplateLines: string = [
+export function testFeatureTemplate(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
+  const standardTemplateLines: string[] = [
     'name: 💡 Feature',
     'description: Request for a new feature',
     'title: "[FEATURE] <title>"',
@@ -87,8 +89,10 @@ export function testFeatureTemplate(snapshot: SynthOutput): void {
     '        - [ ] My First Task',
     '    validations:',
     '      required: true',
-  ].join('\n');
-  expect(snapshot['.github/ISSUE_TEMPLATE/feature.yml']).toBe(expectedTemplateLines);
+  ];
+
+  const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
+  expect(snapshot['.github/ISSUE_TEMPLATE/feature.yml']).toBe(lines.join('\n'));
 }
 
 /**
@@ -143,20 +147,43 @@ export function testQuestionTemplate(snapshot: SynthOutput): void {
 }
 
 /**
+ * Validates that story issue template matches expected template.
+ * @param snapshot Synthesized project output.
+ */
+export function testStoryTemplate(snapshot: SynthOutput): void {
+  const expectedTemplateLines: string = [
+    'name: 💡 Story',
+    'description: As a [role], I [want to], [so that]',
+    'title: "[STORY] <title>"',
+    'labels: ["type: story"]',
+    'body:',
+    '  - type: textarea',
+    '    attributes:',
+    '      label: Description',
+    "      description: Provide a brief overview of the story, focusing who want's to do what and why.",
+    '    validations:',
+    '      required: true',
+  ].join('\n');
+  expect(snapshot['.github/ISSUE_TEMPLATE/story.yml']).toBe(expectedTemplateLines);
+}
+
+/**
  * Validates that projen standard workflows are removed.
  * @param snapshot Synthesized project output.
  */
-export function testProjenWorkflows(snapshot: SynthOutput): void {
+export function testProjenWorkflows(snapshot: SynthOutput, expectedCount: number): void {
+  const standardCount: number = 1;
+  const count: number = expectedCount === undefined ? standardCount : expectedCount;
   const keys: string[] = Object.keys(snapshot).filter((key: string): boolean => key.includes('.github/workflows'));
-  expect(keys.length).toEqual(1); // release is custom created
+  expect(keys.length).toEqual(count);
 }
 
 /**
  * Validates that release workflow template matches expected template.
  * @param snapshot Synthesized project output.
  */
-export function testReleaseWorkflow(snapshot: SynthOutput): void {
-  const expectedTemplateLines: string = [
+export function testReleaseWorkflow(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
+  const standardTemplateLines: string[] = [
     'name: Release',
     'on:',
     '  pull_request:',
@@ -176,8 +203,51 @@ export function testReleaseWorkflow(snapshot: SynthOutput): void {
     '        with:',
     '          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}',
     '          BRANCH: main',
-  ].join('\n');
-  expect(snapshot['.github/workflows/release.yml']).toBe(expectedTemplateLines);
+  ];
+
+  const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
+  expect(snapshot['.github/workflows/release.yml']).toBe(lines.join('\n'));
+}
+
+/**
+ * Validates that deployment workflow template matches expected template.
+ * @param snapshot Synthesized project output.
+ */
+export function testDeploymentWorkflow(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
+  const standardTemplateLines: string[] = [
+    'name: Deployment',
+    'on:',
+    '  pull_request:',
+    '    branches:',
+    '      - dev',
+    '    types:',
+    '      - closed',
+    'jobs:',
+    '  release:',
+    '    runs-on: ubuntu-latest',
+    '    permissions:',
+    '      contents: write',
+    '      pull-requests: write',
+    '    steps:',
+    '      - name: Deploy to Cloud Foundry',
+    '        uses: dxfrontier/gh-action-deploy-cf@main',
+    '        with:',
+    '          CF_IAS_ORIGIN: ${{ secrets.IAS_ORIGIN }}',
+    '          CF_API_DEV: ${{ secrets.CF_API_DEV }}',
+    '          CF_ORG_DEV: ${{ secrets.CF_ORG_DEV }}',
+    '          CF_SPACE_DEV: ${{ secrets.CF_SPACE_DEV }}',
+    '          CF_USERNAME_DEV: ${{ secrets.CF_USERNAME_DEV }}',
+    '          CF_PASSWORD_DEV: ${{ secrets.CF_PASSWORD_DEV }}',
+    '          CF_API_PROD: ${{ secrets.CF_API_PROD }}',
+    '          CF_ORG_PROD: ${{ secrets.CF_ORG_PROD }}',
+    '          CF_SPACE_PROD: ${{ secrets.CF_SPACE_PROD }}',
+    '          CF_USERNAME_PROD: ${{ secrets.CF_USERNAME_PROD }}',
+    '          CF_PASSWORD_PROD: ${{ secrets.CF_PASSWORD_PROD }}',
+    '          BRANCH: dev',
+  ];
+
+  const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
+  expect(snapshot['.github/workflows/deployment.yml']).toBe(lines.join('\n'));
 }
 
 /**
@@ -302,6 +372,7 @@ export function testGitAttributes(snapshot: SynthOutput, expectedTemplateLines: 
     '/.projen/tasks.json linguist-generated',
     '/.vscode/settings.json linguist-generated',
     '/API.md linguist-generated',
+    '/CHANGELOG.md linguist-generated',
     '/cliff.toml linguist-generated',
     '/eslint.config.mjs linguist-generated',
     '/package-lock.json linguist-generated',

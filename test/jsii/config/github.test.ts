@@ -39,7 +39,7 @@ describe('GitHub Templates', (): void => {
 
 describe('GitHub Workflows', (): void => {
   test('Projen standard workflows are removed', (): void => {
-    github.testProjenWorkflows(snapshot);
+    github.testProjenWorkflows(snapshot, 1);
   });
 
   test('Release workflow template matches expected template', (): void => {

@@ -24,7 +24,7 @@ export function testFeatures(snapshot: SynthOutput): void {
  * Validates that container VsCode extensions are set properly.
  * @param snapshot Synthesized project output.
  */
-export function testExtensions(snapshot: SynthOutput): void {
+export function testExtensions(snapshot: SynthOutput, expectedExtensions: string[] = []): void {
   const standardExtensions: string[] = [
     'Orta.vscode-jest',
     'firsttris.vscode-jest-runner',
@@ -61,15 +61,17 @@ export function testExtensions(snapshot: SynthOutput): void {
     'AykutSarac.jsoncrack-vscode',
     'tamasfe.even-better-toml',
     'github.copilot',
-  ];
-  expect(snapshot['.devcontainer.json'].customizations.vscode.extensions).toStrictEqual(standardExtensions);
+  ].sort();
+  const extensions: string[] = expectedExtensions.length ? expectedExtensions : standardExtensions;
+  expect(snapshot['.devcontainer.json'].customizations.vscode.extensions.sort()).toStrictEqual(extensions.sort());
 }
 
 /**
  * Validates that container postCreateCommand is set properly.
  * @param snapshot Synthesized project output.
  */
-export function testCommand(snapshot: SynthOutput): void {
-  const standardCommand: string = 'npm run install-dependencies';
-  expect(snapshot['.devcontainer.json'].postCreateCommand).toBe(standardCommand);
+export function testCommand(snapshot: SynthOutput, expectedCommand: string[] = []): void {
+  const standardCommand: string[] = ['npm run install-dependencies'];
+  const command: string[] = Object.keys(expectedCommand).length ? expectedCommand : standardCommand;
+  expect(snapshot['.devcontainer.json'].postCreateCommand).toStrictEqual(command);
 }

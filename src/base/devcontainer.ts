@@ -44,7 +44,7 @@ export class DevContainerConfigBase<T extends BaseProject | JsiiProject> extends
     return {
       '.devcontainer.json': {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
-        postCreateCommand: 'npm run install-dependencies',
+        postCreateCommand: ['npm run install-dependencies'],
         features: {
           'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
           'ghcr.io/devcontainers/features/github-cli': 'latest',

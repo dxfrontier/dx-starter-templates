@@ -21,6 +21,14 @@ test('Config file matches expected template', (): void => {
     '@typescript-eslint/class-literal-property-style': 'off',
     '@typescript-eslint/no-empty-object-type': 'off',
   };
-  const additionalIgnores: string[] = ['docs/', 'test/', 'lib/', '.jsii'];
+  const additionalIgnores: string[] = [
+    'test/',
+    'dist/',
+    'gen/',
+    '@cds-models',
+    'default-env.js',
+    '@dispatcher',
+    'docs/',
+  ];
   eslint.testConfigFile(snapshot, additionalRules, additionalIgnores);
 });
