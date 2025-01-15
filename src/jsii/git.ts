@@ -3,7 +3,6 @@ import { Config, ConfigStrategy, GitBaseConfig, GitBaseConfigStrategy } from '..
 
 /**
  * Implementing all relevant Git configuration for the Jsii project.
- * @extends GitBaseConfig
  */
 export class GitConfigJsii extends GitBaseConfig<JsiiProject> {
   constructor(project: JsiiProject) {

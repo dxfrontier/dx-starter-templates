@@ -3,7 +3,6 @@ import { Config, ConfigStrategy, HuskyBaseConfig, NonApiHuskyBaseConfigStrategy 
 
 /**
  * Implementing all relevant Husky configuration for the Jsii project.
- * @extends HuskyBaseConfig
  */
 export class HuskyConfigJsii extends HuskyBaseConfig<JsiiProject> {
   constructor(project: JsiiProject) {

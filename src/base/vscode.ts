@@ -25,6 +25,11 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     this.setStrategy(strategy);
   }
 
+  /**
+   * Gets the config file to be added to the project's configuration.
+   *
+   * @returns A record of the having the path to the file as key and the content as value.
+   */
   protected get configFile(): Settings {
     return {
       '.vscode/settings.json': {
@@ -46,6 +51,9 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Creates the configuration file in the project directory.
+   */
   public createConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new JsonFile(this.project, filePath, {
@@ -53,6 +61,11 @@ export class VsCodeBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
   protected get additionalIgnorePatterns(): string[] {
     const filePath: string = Object.keys(this.configFile)[0];
     return [`/${filePath}`];

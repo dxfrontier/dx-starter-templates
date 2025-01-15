@@ -20,10 +20,20 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
     this.setStrategy(strategy);
   }
 
+  /**
+   * Gets the additional development dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
+   */
   protected get additionalDevDependencies(): string[] {
     return ['typescript@^5.7.3', '@types/node@^22.10.6', 'ts-node@^10.9.2'];
   }
 
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
   protected get additionalIgnorePatterns(): string[] {
     return ['/tsconfig.json'];
   }

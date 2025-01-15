@@ -33,16 +33,31 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
     return ['/.prettierignore', '/.prettierrc.json'];
   }
 
+  /**
+   * Gets the additional development dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
+   */
   protected get additionalDevDependencies(): string[] {
     return ['prettier@^3.4.2'];
   }
 
+  /**
+   * Gets the additional npm scripts to be added to the project's configuration.
+   *
+   * @returns A record of script names and their corresponding commands.
+   */
   protected get additionalScripts(): Record<string, string> {
     return {
       prettier: 'prettier . --write',
     };
   }
 
+  /**
+   * Gets the config file to be added to the project's configuration.
+   *
+   * @returns A record of the having the path to the file as key and the content as value.
+   */
   protected get configFile(): Settings {
     return {
       '.prettierrc.json': {
@@ -62,20 +77,38 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
     };
   }
 
+  /**
+   * Gets the ignore file to be added to the project's configuration.
+   *
+   * @returns A record of the having the path to the file as key and the content as value.
+   */
   protected get ignoreFile(): Record<string, string[]> {
     return {
       '.prettierignore': [...this.ignorePatterns],
     };
   }
 
+  /**
+   * Adds custom ignore patterns to the project's configuration.
+   *
+   * @param patterns - An array of file or directory patterns to be ignored.
+   */
   public addIgnorePatterns(patterns: string[]): void {
     this.ignorePatterns = [...this.ignorePatterns, ...patterns];
   }
 
+  /**
+   * Retrieves all ignore patterns, including standard and custom ones.
+   *
+   * @returns An array of file or directory patterns that are ignored by the project.
+   */
   public getIgnorePatterns(): Settings {
     return this.ignorePatterns;
   }
 
+  /**
+   * Creates the configuration file in the project directory.
+   */
   public createConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new JsonFile(this.project, filePath, {
@@ -83,6 +116,9 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
     });
   }
 
+  /**
+   * Creates the ignore file in the project directory.
+   */
   public createIgnore(): void {
     const filePath: string = Object.keys(this.ignoreFile)[0];
     new TextFile(this.project, filePath, {

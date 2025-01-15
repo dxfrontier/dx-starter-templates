@@ -30,7 +30,6 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
   /**
    * The strategy for applying the configuration to the project.
    * This is set privately to allow customization in subclasses.
-   * @private
    * @see `setStrategy` for setting the strategy.
    */
   private strategy?: ConfigStrategy;
@@ -82,7 +81,6 @@ export class Config<T extends BaseProject | JsiiProject> extends Component imple
    * To ensure proper configuration handling, the strategy should be set in the constructor
    * of each subclass, and `applyConfig` should be called in `preSynthesize` phase of
    * the configuration module and not from project itself.
-   *
    */
   public applyConfig(): void {
     if (!this.strategy) {

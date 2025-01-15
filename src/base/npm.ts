@@ -36,22 +36,47 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     this.scripts = this.standardScripts;
   }
 
+  /**
+   * Gets the standard dependencies for the project.
+   *
+   * @returns A list of standard dependencies.
+   */
   protected get standardDependencies(): string[] {
     return [];
   }
 
+  /**
+   * Gets the standard devDependencies for the project.
+   *
+   * @returns A list of standard devDependencies.
+   */
   protected get standardDevDependencies(): string[] {
     return [];
   }
 
+  /**
+   * Gets the standard peerDependencies for the project.
+   *
+   * @returns A list of standard peerDependencies.
+   */
   protected get standardPeerDependencies(): string[] {
     return [];
   }
 
+  /**
+   * Gets the standard settings for the project.
+   *
+   * @returns A settings object.
+   */
   protected get standardSettings(): Settings {
     return {};
   }
 
+  /**
+   * Gets the standard npm scripts for the project.
+   *
+   * @returns A record of script names and their commands.
+   */
   protected get standardScripts(): Record<string, string> {
     return {};
   }
@@ -88,12 +113,19 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     this.settings = { ...this.settings, ...settings };
   }
 
+  /**
+   * Adds custom npm scripts to the project.
+   *
+   * @param scripts - A record of script names and their commands.
+   */
   public addScripts(scripts: Record<string, string>): void {
     this.scripts = { ...this.scripts, ...scripts };
   }
 
   /**
    * Returns all dependencies, including standard and custom ones.
+   *
+   * @returns An array of dependencies.
    */
   public getDependencies(): string[] {
     return Array.from(this.dependencies);
@@ -101,6 +133,8 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
 
   /**
    * Returns all devDependencies, including standard and custom ones.
+   *
+   * @returns An array of devDependencies.
    */
   public getDevDependencies(): string[] {
     return Array.from(this.devDependencies);
@@ -108,6 +142,8 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
 
   /**
    * Returns all peerDependencies, including standard and custom ones.
+   *
+   * @returns An array of peerDependencies.
    */
   public getPeerDependencies(): string[] {
     return Array.from(this.peerDependencies);
@@ -115,21 +151,29 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
 
   /**
    * Returns all settings, including standard and custom ones.
+   *
+   * @returns A settings object.
    */
   public getSettings(): Settings {
     return this.settings;
   }
 
+  /**
+   * Returns all npm scripts, including standard and custom ones.
+   *
+   * @returns A record of script names and their commands.
+   */
   public getScripts(): Record<string, string> {
     return this.scripts;
   }
 
   /**
    * Patches scripts in the `package.json` file.
-   * @public
    * Projen public API is not used as it would
    * create Projen related tasks like `npx projen task` and would not be convenient
    * for projects that need a non Projen related approach on scaffolding.
+   *
+   * @param scripts - A record of script names and their commands to patch.
    */
   public patchScripts(scripts: Record<string, string>): void {
     const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
@@ -142,11 +186,10 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
 
 /**
  * Configuration strategy for Projen standard API NPM base configuration.
- * @param project - The project instance.
+ *
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardNpmBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  // registerConfig(_config: Config<T>): void {}
   applyConfig(config: Config<T>): void {
     if (config instanceof NpmBaseConfig) {
       config.project.addDeps(...config.getDependencies());

@@ -29,6 +29,11 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     this.ignorePatterns = this.standardIgnorePatterns;
   }
 
+  /**
+   * Gets the standard linting rules for the project.
+   *
+   * @returns A record of rule names and their corresponding configurations.
+   */
   protected get standardRules(): Record<string, string> {
     return {
       'no-console': 'off',
@@ -43,10 +48,20 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Gets the standard ignore patterns for the project.
+   *
+   * @returns An array of file or directory patterns to be ignored by the linter.
+   */
   protected get standardIgnorePatterns(): string[] {
     return [];
   }
 
+  /**
+   * Gets the additional development dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
+   */
   protected get additionalDevDependencies(): string[] {
     return [
       '@typescript-eslint/eslint-plugin@^8.20.0',
@@ -60,12 +75,22 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     ];
   }
 
+  /**
+   * Gets the additional npm scripts to be added to the project's configuration.
+   *
+   * @returns A record of script names and their corresponding commands.
+   */
   protected get additionalScripts(): Record<string, string> {
     return {
       eslint: 'eslint .',
     };
   }
 
+  /**
+   * Gets the configuration file content.
+   *
+   * @returns An object where the key is the filename and the value is an array of file lines.
+   */
   protected get configFile(): Record<string, string[]> {
     return {
       'eslint.config.mjs': [
@@ -89,22 +114,45 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Adds custom linting rules to the project's configuration.
+   *
+   * @param rules - A record of rule names and their corresponding configurations.
+   */
   public addRules(rules: Record<string, string>): void {
     this.rules = { ...this.rules, ...rules };
   }
 
+  /**
+   * Adds custom ignore patterns to the project's configuration.
+   *
+   * @param patterns - An array of file or directory patterns to be ignored.
+   */
   public addIgnorePatterns(patterns: string[]): void {
     this.ignorePatterns = [...this.ignorePatterns, ...patterns];
   }
 
+  /**
+   * Retrieves all linting rules, including standard and custom ones.
+   *
+   * @returns A record of rule names and their corresponding configurations.
+   */
   public getRules(): Record<string, string> {
     return this.rules;
   }
 
+  /**
+   * Retrieves all ignore patterns, including standard and custom ones.
+   *
+   * @returns An array of file or directory patterns that are ignored by the project.
+   */
   public getIgnorePatterns(): string[] {
     return this.ignorePatterns;
   }
 
+  /**
+   * Creates the configuration file in the project directory.
+   */
   public createConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new TextFile(this.project, filePath, {
@@ -112,6 +160,11 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
   protected get additionalIgnorePatterns(): string[] {
     const filePath: string = Object.keys(this.configFile)[0];
     return [`/${filePath}`];

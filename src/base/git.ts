@@ -19,14 +19,6 @@ export class GitBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
     const strategy: ConfigStrategy = new GitBaseConfigStrategy();
     this.setStrategy(strategy);
   }
-
-  public override preSynthesize(): void {
-    super.preSynthesize();
-  }
-
-  public override postSynthesize(): void {
-    super.postSynthesize();
-  }
 }
 
 /**

@@ -21,16 +21,31 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
     this.setStrategy(strategy);
   }
 
+  /**
+   * Gets the additional development dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
+   */
   protected get additionalDevDependencies(): string[] {
     return ['husky@^9.1.7'];
   }
 
+  /**
+   * Gets the additional npm scripts to be added to the project's configuration.
+   *
+   * @returns A record of script names and their corresponding commands.
+   */
   protected get additionalScripts(): Record<string, string> {
     return {
       prepare: 'husky || true',
     };
   }
 
+  /**
+   * Gets the configuration file content.
+   *
+   * @returns An object where the key is the filename and the value is an array of file lines.
+   */
   protected get configFile(): Record<string, string[]> {
     return {
       '.husky/commit-msg': ['npx --no-install commitlint --edit "$1"'],
@@ -38,6 +53,9 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
     };
   }
 
+  /**
+   * Creates the configuration file in the project directory.
+   */
   public createConfig(): void {
     for (const filePath in this.configFile) {
       new TextFile(this.project, filePath, {
@@ -46,6 +64,11 @@ export class HuskyBaseConfig<T extends BaseProject | JsiiProject> extends Config
     }
   }
 
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
   protected get additionalIgnorePatterns(): string[] {
     return ['/.husky/commit-msg', '/.husky/pre-commit'];
   }

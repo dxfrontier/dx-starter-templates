@@ -9,7 +9,6 @@ import {
 
 /**
  * Implementing all relevant EsLint configuration for the Jsii project.
- * @extends EsLintBaseConfig
  */
 export class EsLintConfigJsii extends EsLintBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {

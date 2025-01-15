@@ -10,8 +10,6 @@ export class BaseOptions {
    * Merges shared defaults with provided options.
    * @param options Specific project options to merge.
    * @returns Merged options.
-   * @public
-   * @static
    */
   public static sharedOptions<T extends BaseProjectOptions | JsiiProjectOptions>(options: T): T {
     return {
@@ -45,27 +43,3 @@ export class BaseOptions {
     };
   }
 }
-
-/**
- * ### Three levels for config (e.g. eslint):
- * 1) Projen standard config
- *     -> like eslint - we say no, because too old version that projen uses
- *     -> we take our own eslint config created
- * 2) Projen tracked
- *     -> projen tracks all yes/no
- *       yes
- *         -> beside the above not used (e.g. eslint, prettier, ...) some public API is used (e.g. addDeps)
- *         -> for the not used ones (e.g. eslint, prettier, ...) JsonFiles, TextFiles, IgnoreFiles are created
- *         -> these are all Projen tracked
- *       no
- *         -> SampleFiles are used for all config
- *         -> Deny standard config or delete files (like package.json) and create new
- *         -> these are all non Projen tracked
- * 3) Project activated
- *      -> does the project want to have (e.g. jest)
- *
- * ### Config Hierarchy
- * Config
- *   BaseConfig  --> decides between Projen tracked or SampleFiles
- *     ProjectTypeConfig
- */

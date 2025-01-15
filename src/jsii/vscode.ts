@@ -9,7 +9,6 @@ import {
 
 /**
  * Implementing all relevant VsCode configuration for the Jsii project.
- * @extends VsCodeBaseConfig
  */
 export class VsCodeConfigJsii extends VsCodeBaseConfig<JsiiProject> {
   constructor(project: JsiiProject, useProjenApi: boolean) {

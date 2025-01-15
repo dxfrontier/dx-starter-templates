@@ -3,7 +3,6 @@ import { CommitLintBaseConfig, Config, ConfigStrategy, NonApiCommitLintBaseConfi
 
 /**
  * Implementing all relevant CommitLint configuration for the Jsii project.
- * @extends CommitLintBaseConfig
  */
 export class CommitLintConfigJsii extends CommitLintBaseConfig<JsiiProject> {
   constructor(project: JsiiProject) {

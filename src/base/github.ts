@@ -23,6 +23,12 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     this.setStrategy(strategy);
   }
 
+  /**
+   * Retrieves the configuration for the pull request template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the issue template.
+   */
   protected get configFilePullRequest(): Record<string, string[]> {
     return {
       '.github/pull_request_template.md': [
@@ -53,6 +59,12 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Retrieves the configuration for the bug issue template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the issue template.
+   */
   protected get configFileBugIssue(): Record<string, string[]> {
     return {
       '.github/ISSUE_TEMPLATE/bug.yml': [
@@ -78,6 +90,12 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Retrieves the configuration for the feature request template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the issue template.
+   */
   protected get configFileFeatureIssue(): Record<string, string[]> {
     return {
       '.github/ISSUE_TEMPLATE/feature.yml': [
@@ -105,6 +123,12 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Retrieves the configuration for the housekeeping issue template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the issue template.
+   */
   protected get configFileHousekeepingIssue(): Record<string, string[]> {
     return {
       '.github/ISSUE_TEMPLATE/housekeeping.yml': [
@@ -132,6 +156,12 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Retrieves the configuration for the question issue template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the issue template.
+   */
   protected get configFileQuestionIssue(): Record<string, string[]> {
     return {
       '.github/ISSUE_TEMPLATE/question.yml': [
@@ -150,6 +180,12 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Retrieves the configuration for the git cliff template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the issue template.
+   */
   protected get configFileCliff(): Record<string, string[]> {
     return {
       'cliff.toml': [
@@ -239,6 +275,12 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Retrieves the configuration for the release workflow template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the issue template.
+   */
   protected get configFileReleaseWorkflow(): Record<string, string[]> {
     return {
       '.github/workflows/release.yml': [
@@ -265,6 +307,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     };
   }
 
+  /**
+   * Creates a pull request template file.
+   */
   public createPullRequest(): void {
     const filePath: string = Object.keys(this.configFilePullRequest)[0];
     new TextFile(this.project, filePath, {
@@ -272,6 +317,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Creates a bug issue template file.
+   */
   public createBugIssue(): void {
     const filePath: string = Object.keys(this.configFileBugIssue)[0];
     new TextFile(this.project, filePath, {
@@ -279,6 +327,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Creates a feature request template file.
+   */
   public createFeatureIssue(): void {
     const filePath: string = Object.keys(this.configFileFeatureIssue)[0];
     new TextFile(this.project, filePath, {
@@ -286,6 +337,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Creates a housekeeping issue template file.
+   */
   public createHousekeepingIssue(): void {
     const filePath: string = Object.keys(this.configFileHousekeepingIssue)[0];
     new TextFile(this.project, filePath, {
@@ -293,6 +347,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Creates a question issue template file.
+   */
   public createQuestionIssue(): void {
     const filePath: string = Object.keys(this.configFileQuestionIssue)[0];
     new TextFile(this.project, filePath, {
@@ -300,6 +357,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Creates a the git cliff template file.
+   */
   public createCliff(): void {
     const filePath: string = Object.keys(this.configFileCliff)[0];
     new TextFile(this.project, filePath, {
@@ -307,6 +367,9 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Creates a release workflow template file.
+   */
   public createReleaseWorkflow(): void {
     const filePath: string = Object.keys(this.configFileReleaseWorkflow)[0];
     new TextFile(this.project, filePath, {
@@ -314,6 +377,11 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     });
   }
 
+  /**
+   * Retrieves the file paths for all dynamic and static configuration files.
+   *
+   * @returns A list of file paths, including dynamic configurations and static files like `.gitattributes` and `.gitignore`.
+   */
   private get filePaths(): string[] {
     const configs: Record<string, string[]>[] = [
       this.configFilePullRequest,
@@ -332,6 +400,11 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
     return [...dynamicFilePaths, ...staticFilePaths];
   }
 
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
   protected get additionalIgnorePatterns(): string[] {
     return this.filePaths;
   }

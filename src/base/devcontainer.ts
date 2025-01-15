@@ -24,12 +24,22 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
     this.setStrategy(strategy);
   }
 
+  /**
+   * Gets the additional npm scripts to be added to the project's configuration.
+   *
+   * @returns A record of script names and their corresponding commands.
+   */
   protected get additionalScripts(): Record<string, string> {
     return {
       'install-dependencies': 'npm install',
     };
   }
 
+  /**
+   * Gets the config file to be added to the project's configuration.
+   *
+   * @returns A record of the having the path to the file as key and the content as value.
+   */
   protected get configFile(): Settings {
     return {
       '.devcontainer.json': {
@@ -84,6 +94,9 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
     };
   }
 
+  /**
+   * Creates the configuration file in the project directory.
+   */
   public createConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new JsonFile(this.project, filePath, {
@@ -91,6 +104,11 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
     });
   }
 
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
   protected get additionalIgnorePatterns(): string[] {
     const filePath: string = Object.keys(this.configFile)[0];
     return [`/${filePath}`];

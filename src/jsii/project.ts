@@ -42,7 +42,6 @@ export class JsiiProject extends cdk.JsiiProject {
   public readonly prettierConfig?: PrettierConfigJsii;
   public readonly typescriptConfig?: TypeScriptConfigJsii;
   public readonly vscodeConfig?: VsCodeConfigJsii;
-  // protected readonly sampleCodeConfig?: SampleCodeConfigJsii;
 
   /**
    * Initializes the project.
@@ -91,9 +90,6 @@ export class JsiiProject extends cdk.JsiiProject {
     if (options.typescriptEnabled) {
       this.typescriptConfig = new TypeScriptConfigJsii(this);
     }
-    // if (options.sampleCodeEnabled) {
-    //   this.typescriptConfig = new SampleCodeConfigJsii(this);
-    // }
   }
 
   public override preSynthesize(): void {

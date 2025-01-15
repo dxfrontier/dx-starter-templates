@@ -22,6 +22,11 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
     this.setStrategy(strategy);
   }
 
+  /**
+   * Gets the additional development dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
+   */
   protected get additionalDevDependencies(): string[] {
     return [
       '@commitlint/cli@^19.6.1',
@@ -32,6 +37,11 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
     ];
   }
 
+  /**
+   * Gets the additional settings to be added to the project's configuration.
+   *
+   * @returns A settings object to be merged into the project's settings.
+   */
   protected get additionalSettings(): Settings {
     return {
       'lint-staged': {
@@ -40,12 +50,32 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
     };
   }
 
+  /**
+   * Gets the additional npm scripts to be added to the project's configuration.
+   *
+   * @returns A record of script names and their corresponding commands.
+   */
   protected get additionalScripts(): Record<string, string> {
     return {
       commit: 'commit',
     };
   }
 
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
+  protected get additionalIgnorePatterns(): string[] {
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
+  }
+
+  /**
+   * Gets the configuration file content.
+   *
+   * @returns An object where the key is the filename and the value is an array of file lines.
+   */
   protected get configFile(): Record<string, string[]> {
     return {
       '.commitlintrc.ts': [
@@ -71,16 +101,14 @@ export class CommitLintBaseConfig<T extends BaseProject | JsiiProject> extends C
     };
   }
 
+  /**
+   * Creates the configuration file in the project directory.
+   */
   public createConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new TextFile(this.project, filePath, {
       lines: this.configFile[filePath],
     });
-  }
-
-  protected get additionalIgnorePatterns(): string[] {
-    const filePath: string = Object.keys(this.configFile)[0];
-    return [`/${filePath}`];
   }
 
   public override registerConfig(): void {
