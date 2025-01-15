@@ -12,3 +12,4 @@ export * from './project';
 export * from './prettier';
 export * from './typescript';
 export * from './vscode';
+export * from './samplecode';

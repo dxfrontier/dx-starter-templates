@@ -13,6 +13,7 @@ import {
   PrettierConfigGitHubAction,
   TypeScriptConfigGitHubAction,
 } from '.';
+import { SampleCodeConfigGitHubAction } from './samplecode';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {
   readonly commitlintEnabled?: boolean;
@@ -50,6 +51,9 @@ export class GitHubActionProject extends BaseProject {
     }
     if (updatedOptions.commitlintEnabled) {
       this.commitlintConfig = new CommitLintConfigGitHubAction(this);
+    }
+    if (updatedOptions.sampleCodeEnabled) {
+      this.sampleCodeConfig = new SampleCodeConfigGitHubAction(this);
     }
   }
 
