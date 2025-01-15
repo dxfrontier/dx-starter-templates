@@ -29,6 +29,11 @@ export class PrettierConfigBase<T extends BaseProject | JsiiProject> extends Con
     this.ignorePatterns = this.standardIgnorePatterns;
   }
 
+  /**
+   * Gets the standard ignore patterns required for configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
   protected get standardIgnorePatterns(): string[] {
     return ['/.prettierignore', '/.prettierrc.json'];
   }

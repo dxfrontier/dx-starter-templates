@@ -3,6 +3,7 @@ import {
   BaseProject,
   BaseProjectOptions,
   DevContainerConfigBase,
+  GitConfigBase,
   GitHubConfigBase,
   HuskyConfigBase,
   VsCodeConfigBase,
@@ -47,7 +48,7 @@ export class GitHubActionProject extends BaseProject {
     this.npmConfig = new NpmConfigGitHubAction(this);
 
     if (updatedOptions.prettierEnabled) {
-      this.prettierConfig = new PrettierConfigGitHubAction(this, options.prettier!);
+      this.prettierConfig = new PrettierConfigGitHubAction(this, updatedOptions.prettier!);
     }
     if (updatedOptions.commitlintEnabled) {
       this.commitlintConfig = new CommitLintConfigGitHubAction(this);
@@ -60,6 +61,7 @@ export class GitHubActionProject extends BaseProject {
   protected override initializeBaseConfigs(options: GitHubActionProjectOptions): void {
     super.initializeBaseConfigs(options);
 
+    this.gitConfig = new GitConfigBase(this);
     this.typescriptConfig = new TypeScriptConfigGitHubAction(this);
 
     if (options.devContainerEnabled) {
