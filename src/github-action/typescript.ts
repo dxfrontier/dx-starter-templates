@@ -1,11 +1,10 @@
 import { GitHubActionProject } from '.';
-import { TypeScriptBaseConfig } from '../base';
+import { TypeScriptConfigBase } from '../base';
 
 /**
  * Implementing all relevant TypeScript configuration for the GitHubAction project.
- * @extends TypeScriptBaseConfig
  */
-export class TypeScriptConfigGitHubAction extends TypeScriptBaseConfig<GitHubActionProject> {
+export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase<GitHubActionProject> {
   // protected settings: Settings;
 
   constructor(project: GitHubActionProject) {

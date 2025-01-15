@@ -1,13 +1,67 @@
 import { GitHubActionProject } from '.';
-// import { Config, NonProjenNpmBaseConfigStrategy, NpmBaseConfig, ProjenStandardNpmBaseConfigStrategy, NonApiNpmBaseConfigStrategy } from '../base';
-import { NpmBaseConfig } from '../base';
+import { NpmConfigBase, Settings } from '../base';
 
 /**
  * Implementing all relevant NPM configuration for the GitHubAction project.
- * @extends NpmBaseConfig
  */
-export class NpmConfigGitHubAction extends NpmBaseConfig<GitHubActionProject> {
+export class NpmConfigGitHubAction extends NpmConfigBase<GitHubActionProject> {
   constructor(project: GitHubActionProject) {
     super(project);
+  }
+
+  /**
+   * Gets the additional development dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
+   */
+  private get additionalDevDependencies(): string[] {
+    return [];
+  }
+
+  /**
+   * Gets the additional peer dependencies required for configuration.
+   *
+   * @returns A list of package names with version specifications.
+   */
+  private get additionalPeerDependencies(): string[] {
+    return [];
+  }
+
+  /**
+   * Gets the additional settings to be added to the project's configuration.
+   *
+   * @returns A settings object to be merged into the project's settings.
+   */
+  private get additionalSettings(): Settings {
+    return {
+      files: ['action.yml', 'README.md'],
+    };
+  }
+
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
+  private get additionalIgnorePatterns(): string[] {
+    return ['docs/'];
+  }
+
+  /**
+   * Gets additional ignore patterns to be added to the project's ignore configuration.
+   *
+   * @returns A list of ignore patterns.
+   */
+  private get additionalIgnorePrettierPatterns(): string[] {
+    return ['/package-lock.json', '/package.json', '/API.md'];
+  }
+
+  public override registerConfig(): void {
+    this.addDevDependencies(this.additionalDevDependencies);
+    this.addPeerDependencies(this.additionalPeerDependencies);
+    this.addSettings(this.additionalSettings);
+    this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
+    this.removeScriptsOnInit(this.removeScripts);
   }
 }

@@ -82,6 +82,35 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
   }
 
   /**
+   * Getter retrieving the npm scripts to be removed from NPM Package.
+   * These scripts are added by Projen on project initialization
+   * and are not needed for our projects.
+   * Overwrite this method if you want to keep the projen standard scripts.
+   * @return Projen standard script entries.
+   * @protected
+   */
+  protected get removeScripts(): string[] {
+    return [
+      'clobber',
+      'compile',
+      'default',
+      'eject',
+      'package',
+      'post-compile',
+      'post-upgrade',
+      'pre-compile',
+      'release',
+      'test',
+      'test:watch',
+      'unbump',
+      'upgrade',
+      'watch',
+      'projen',
+      'build',
+    ];
+  }
+
+  /**
    * Adds custom devDependencies to the project.
    * @param dependencies List of dependencies to add.
    */
@@ -180,6 +209,17 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
 
     for (const script in scripts) {
       packageJson!.patch(JsonPatch.add(`/scripts/${script}`, scripts[script]));
+    }
+  }
+
+  /**
+   * Removes the NPM Package scripts associated with Projen NPM Package initialization.
+   * Overwrite this method if you want to keep the projen standard scripts.
+   * @protected
+   */
+  public removeScriptsOnInit(scripts: string[]): void {
+    for (const script of scripts) {
+      this.project.removeScript(script);
     }
   }
 }
