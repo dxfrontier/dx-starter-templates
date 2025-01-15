@@ -21,6 +21,7 @@
 /.github/workflows/release.yml
 /.gitattributes
 /.gitignore
+/CHANGELOG.md
 /.commitlintrc.ts
 /.husky/commit-msg
 /.husky/pre-commit
