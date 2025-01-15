@@ -39,7 +39,7 @@ describe('GitHub Templates', (): void => {
 
 describe('GitHub Workflows', (): void => {
   test('Projen standard workflows are removed', (): void => {
-    github.testProjenWorkflows(snapshot);
+    github.testProjenWorkflows(snapshot, 1);
   });
 
   test('Release workflow template matches expected template', (): void => {
@@ -75,6 +75,7 @@ test('GitHub related files are added to .gitattributes and defined as linguist-g
     '/.projen/files.json linguist-generated',
     '/.projen/tasks.json linguist-generated',
     '/.vscode/settings.json linguist-generated',
+    '/CHANGELOG.md linguist-generated',
     '/cliff.toml linguist-generated',
     '/package-lock.json linguist-generated',
     '/package.json linguist-generated',
