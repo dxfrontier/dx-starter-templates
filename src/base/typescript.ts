@@ -39,5 +39,6 @@ export class TypeScriptBaseConfig<T extends BaseProject | JsiiProject> extends C
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class NonApiTypeScriptBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }

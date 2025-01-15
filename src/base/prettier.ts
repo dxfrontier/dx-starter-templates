@@ -102,6 +102,7 @@ export class PrettierBaseConfig<T extends BaseProject | JsiiProject> extends Con
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardPrettierBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
 

@@ -347,6 +347,7 @@ export class GitHubBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
 
@@ -367,13 +368,4 @@ export class NonApiGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject>
       config.createReleaseWorkflow();
     }
   }
-}
-
-/**
- * Applies the Projen-based GitHub configuration to the project.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonProjenGitHubBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(_config: Config<T>): void {}
 }

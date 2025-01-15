@@ -20,8 +20,6 @@ test('Config file matches expected template', (): void => {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/class-literal-property-style': 'off',
     '@typescript-eslint/no-empty-object-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
   };
   const additionalIgnores: string[] = ['lib/', '.jsii'];
   eslint.testConfigFile(snapshot, additionalRules, additionalIgnores);

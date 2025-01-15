@@ -3,6 +3,7 @@ import { JsiiProject } from '../jsii';
 import { Config, ConfigStrategy } from './config';
 import { BaseProject } from './project';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Settings = Record<string, any>; // to be compliant with projen api
 
 /**
@@ -25,7 +26,7 @@ export class NpmBaseConfig<T extends BaseProject | JsiiProject> extends Config<T
   constructor(project: T) {
     super(project);
 
-    const strategy = new ProjenStandardNpmBaseConfigStrategy();
+    const strategy: ConfigStrategy = new ProjenStandardNpmBaseConfigStrategy();
     this.setStrategy(strategy);
 
     this.dependencies = new Set(this.standardDependencies);

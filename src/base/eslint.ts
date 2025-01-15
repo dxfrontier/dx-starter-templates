@@ -40,8 +40,6 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/class-literal-property-style': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
     };
   }
 
@@ -132,6 +130,7 @@ export class EsLintBaseConfig<T extends BaseProject | JsiiProject> extends Confi
  * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
  */
 export class ProjenStandardEsLintBaseConfigStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
 

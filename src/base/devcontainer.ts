@@ -110,6 +110,7 @@ export class DevContainerBaseConfig<T extends BaseProject | JsiiProject> extends
 export class ProjenStandardDevContainerBaseConfigStrategy<T extends BaseProject | JsiiProject>
   implements ConfigStrategy
 {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyConfig(_config: Config<T>): void {}
 }
 
