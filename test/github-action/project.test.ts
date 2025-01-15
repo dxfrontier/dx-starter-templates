@@ -91,7 +91,6 @@ describe('GitHubActionsProject Constructor Options', (): void => {
       sampleCode: false,
       devContainer: false,
       jest: false,
-      typescript: false,
 
       commitlintEnabled: true,
       devContainerEnabled: true,

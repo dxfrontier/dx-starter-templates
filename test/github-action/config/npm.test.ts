@@ -37,14 +37,12 @@ test('DevDependencies are added properly', (): void => {
     '@commitlint/config-conventional': '^19.6.0',
     '@commitlint/prompt-cli': '^19.7.0',
     '@commitlint/types': '^19.5.0',
-    '@types/node': '^22.10.6',
+    '@types/node': '*',
     constructs: '^10.0.0',
     husky: '^9.1.7',
     'lint-staged': '^15.3.0',
     prettier: '^3.4.2',
     projen: '*',
-    'ts-node': '^10.9.2',
-    typescript: '^5.7.3',
   };
   npm.testDevDependencies(snapshot, expectedDevDependencies);
 });

@@ -56,7 +56,6 @@ test('Ignore patterns matches expected content', (): void => {
     '/cliff.toml',
     '/package-lock.json',
     '/package.json',
-    '/tsconfig.json',
   ];
   prettier.testIgnore(snapshot, expectedEntries);
 });
