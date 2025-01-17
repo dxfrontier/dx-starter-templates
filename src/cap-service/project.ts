@@ -71,7 +71,7 @@ export class CapServiceProject extends BaseProject {
   }
 
   protected override initializeBaseConfigs(options: BaseProjectOptions): void {
-    this.typescript = true;
+    super.initializeBaseConfigs(options);
 
     this.typescriptConfig = new TypeScriptConfigBase(this);
 

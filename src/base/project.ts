@@ -13,6 +13,7 @@ import { TypeScriptConfigBase } from './typescript';
 import { VsCodeConfigBase } from './vscode';
 import { registerConfig } from '../utils';
 import { CommitLintConfigBase } from './commitlint';
+import { IProjectKind, ProjectKind } from '../types/types';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
   /**
@@ -91,7 +92,7 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
 /**
  * Base class for managing project configuration.
  */
-export class BaseProject extends TypeScriptProject {
+export class BaseProject extends TypeScriptProject implements IProjectKind {
   /**
    * Configuration for commitlint settings in the project.
    * This property is initialized if `commitlintEnabled` option is provided during project creation.
@@ -173,6 +174,8 @@ export class BaseProject extends TypeScriptProject {
    */
   public typescript?: boolean;
 
+  public kind: ProjectKind;
+
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -184,6 +187,7 @@ export class BaseProject extends TypeScriptProject {
 
     new GitConfigBase(this);
     this.initializeBaseConfigs(options);
+    this.kind = 'base';
   }
 
   /**

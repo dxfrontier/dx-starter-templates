@@ -1,4 +1,4 @@
-import { CommitLintConfigBase, PrettierConfigBase } from '../base';
+import { PrettierConfigBase } from '../base';
 import { DevContainerConfigBase } from '../base/devcontainer';
 import { GitConfigBase } from '../base/git';
 import { GitHubConfigBase } from '../base/github';
@@ -17,12 +17,6 @@ export interface GitHubActionProjectOptions extends BaseProjectOptions {}
  * Base class for managing project GitHubAction configuration.
  */
 export class GitHubActionProject extends BaseProject {
-  /**
-   * Configuration for commitlint settings in the project.
-   * This property is initialized if `commitlintEnabled` option is provided during project creation.
-   */
-  public commitlintConfig?: CommitLintConfigBase;
-
   /**
    * Initializes the project.
    * @param options Additional project options.

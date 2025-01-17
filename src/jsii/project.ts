@@ -1,5 +1,4 @@
 import { cdk } from 'projen';
-import { Config } from '../base/config';
 import { CommitLintConfigBase } from '../base/commitlint';
 import { DevContainerConfigBase } from '../base/devcontainer';
 import { EsLintConfigBase } from '../base/eslint';
@@ -12,6 +11,8 @@ import { PrettierConfigBase } from '../base/prettier';
 import { VsCodeConfigBase } from '../base/vscode';
 import { NpmConfigJsii } from './npm';
 import { TypeScriptConfigJsii } from './typescript';
+import { registerConfig } from '../utils';
+import { IProjectKind, ProjectKind } from '../types/types';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   /**
@@ -74,7 +75,7 @@ export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
 /**
  * Base class for managing project Jsii configuration.
  */
-export class JsiiProject extends cdk.JsiiProject {
+export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
   /**
    * Configuration for commitlint settings in the project.
    * This property is initialized if `commitlintEnabled` option is provided during project creation.
@@ -138,6 +139,8 @@ export class JsiiProject extends cdk.JsiiProject {
    */
   public typescript?: boolean;
 
+  public kind: ProjectKind;
+
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -157,6 +160,7 @@ export class JsiiProject extends cdk.JsiiProject {
     });
 
     this.typescript = true;
+    this.kind = 'base';
 
     new GitConfigBase(this);
     new TypeScriptConfigJsii(this);
@@ -189,11 +193,7 @@ export class JsiiProject extends cdk.JsiiProject {
   }
 
   public override preSynthesize(): void {
-    for (const comp of this.components) {
-      if (comp instanceof Config) {
-        comp.registerConfig();
-      }
-    }
+    registerConfig(this.components);
     super.preSynthesize();
   }
 

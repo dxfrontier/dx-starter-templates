@@ -16,3 +16,19 @@ export type ProjectTypes = BaseProject | JsiiProject;
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Settings = Record<string, any>;
+
+/**
+ * Convenience type for guaranteeing type safety and avoiding too many circular dependencies.
+ */
+export interface IProjectKind {
+  /**
+   * Convenience type for guaranteeing type safety and avoiding too many circular dependencies.
+   */
+  kind: ProjectKind;
+}
+
+/**
+ * All possible project kinds.
+ * @see `ProjectKind`
+ */
+export type ProjectKind = 'base' | 'jsii';

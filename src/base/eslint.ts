@@ -1,7 +1,7 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
-import { isValidProjectTypes } from '../utils';
 import { ProjectTypes } from '../types/types';
+import { isValidProject } from '../utils';
 
 /**
  * Base class for implementing all relevant EsLint configuration.
@@ -133,7 +133,7 @@ export class EsLintConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (isValidProjectTypes(this.project)) {
+    if (isValidProject(this.project)) {
       this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
       this.project.npmConfig?.addScripts(this.additionalScripts);
       this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);

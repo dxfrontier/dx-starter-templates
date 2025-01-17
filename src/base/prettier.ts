@@ -2,7 +2,7 @@ import { JsonFile, TextFile } from 'projen';
 import { Config } from './config';
 import { TrailingComma } from 'projen/lib/javascript';
 import { ProjectTypes, Settings } from '../types';
-import { isValidProjectTypes } from '../utils';
+import { isValidProject } from '../utils';
 
 /**
  * Base class for implementing all relevant Prettier configuration.
@@ -112,7 +112,7 @@ export class PrettierConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (isValidProjectTypes(this.project)) {
+    if (isValidProject(this.project)) {
       this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
       this.project.npmConfig?.addScripts(this.additionalScripts);
     }
