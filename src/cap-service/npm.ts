@@ -1,4 +1,3 @@
-import { CapServiceProject } from '.';
 import { NpmConfigBase } from '../base';
 import { Settings } from '../types';
 
@@ -6,10 +5,6 @@ import { Settings } from '../types';
  * Implementing all relevant NPM configuration for the CapService project.
  */
 export class NpmConfigCapService extends NpmConfigBase {
-  constructor(project: CapServiceProject) {
-    super(project);
-  }
-
   // /**
   //  * Gets the additional development dependencies required for configuration.
   //  *

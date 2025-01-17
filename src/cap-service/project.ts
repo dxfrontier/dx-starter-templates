@@ -1,16 +1,14 @@
-import { BaseOptions, BaseProject, BaseProjectOptions, JestConfigBase, TypeScriptConfigBase } from '../base';
-import {
-  CommitLintConfigCapService,
-  NpmConfigCapService,
-  PrettierConfigCapService,
-  SampleCodeConfigCapService,
-  GitConfigCapService,
-  DevContainerConfigCapService,
-  GitHubConfigCapService,
-  HuskyConfigCapService,
-  VsCodeConfigCapService,
-  EsLintConfigCapService,
-} from '.';
+import { BaseProjectOptions, BaseProject, BaseOptions, TypeScriptConfigBase, JestConfigBase } from '../base';
+import { CommitLintConfigCapService } from './commitlint';
+import { DevContainerConfigCapService } from './devcontainer';
+import { EsLintConfigCapService } from './eslint';
+import { GitConfigCapService } from './git';
+import { GitHubConfigCapService } from './github';
+import { HuskyConfigCapService } from './husky';
+import { NpmConfigCapService } from './npm';
+import { PrettierConfigCapService } from './prettier';
+import { SampleCodeConfigCapService } from './samplecode';
+import { VsCodeConfigCapService } from './vscode';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
   readonly namespace?: string;

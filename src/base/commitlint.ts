@@ -1,6 +1,7 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes, Settings } from '../types';
+import { Settings } from '../types/types';
+import { isValidProjectTypes } from '../utils';
 
 /**
  * Base class for implementing all relevant CommitLint configuration.
@@ -8,10 +9,6 @@ import { ProjectTypes, Settings } from '../types';
  * This class acts as a base for handling CommitLint configuration within projects.
  */
 export class CommitLintConfigBase extends Config {
-  constructor(project: ProjectTypes) {
-    super(project);
-  }
-
   /**
    * Gets the additional development dependencies required for configuration.
    *
@@ -92,7 +89,7 @@ export class CommitLintConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (this.isValidProjectTypes(this.project)) {
+    if (isValidProjectTypes(this.project)) {
       this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
       this.project.npmConfig?.addSettings(this.additionalSettings);
       this.project.npmConfig?.addScripts(this.additionalScripts);

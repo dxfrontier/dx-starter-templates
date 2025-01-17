@@ -1,21 +1,6 @@
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { BaseOptions } from './options';
-// import {
-//   CommitLintConfigBase,
-//   DevContainerConfigBase,
-//   EsLintConfigBase,
-//   GitConfigBase,
-//   GitHubConfigBase,
-//   HuskyConfigBase,
-//   JestConfigBase,
-//   PrettierConfigBase,
-//   SampleCodeConfigBase,
-//   TypeScriptConfigBase,
-//   VsCodeConfigBase,
-// } from '.';
 import { NpmConfigBase } from './npm';
-import { Config } from './config';
-import { CommitLintConfigBase } from './commitlint';
 import { DevContainerConfigBase } from './devcontainer';
 import { EsLintConfigBase } from './eslint';
 import { GitConfigBase } from './git';
@@ -26,6 +11,8 @@ import { PrettierConfigBase } from './prettier';
 import { SampleCodeConfigBase } from './samplecode';
 import { TypeScriptConfigBase } from './typescript';
 import { VsCodeConfigBase } from './vscode';
+import { registerConfig } from '../utils';
+import { CommitLintConfigBase } from './commitlint';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
   /**
@@ -235,11 +222,7 @@ export class BaseProject extends TypeScriptProject {
   }
 
   public override preSynthesize(): void {
-    for (const comp of this.components) {
-      if (comp instanceof Config) {
-        comp.registerConfig();
-      }
-    }
+    registerConfig(this.components);
     super.preSynthesize();
   }
 

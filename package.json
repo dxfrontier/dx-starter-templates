@@ -21,9 +21,9 @@
     "test:watch": "npx projen test:watch",
     "watch": "npx projen watch",
     "projen": "npx projen",
+    "prettier": "prettier . --write",
     "install-dependencies": "npm install",
     "eslint": "eslint .",
-    "prettier": "prettier . --write",
     "commit": "commit",
     "prepare": "husky || true"
   },

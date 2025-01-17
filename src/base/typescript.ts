@@ -1,4 +1,3 @@
-import { ProjectTypes } from '../types';
 import { Config } from './config';
 
 /**
@@ -7,10 +6,6 @@ import { Config } from './config';
  * This class acts as a base for handling TypeScript configuration within projects.
  */
 export class TypeScriptConfigBase extends Config {
-  constructor(project: ProjectTypes) {
-    super(project);
-  }
-
   /**
    * Gets the additional development dependencies required for configuration.
    *

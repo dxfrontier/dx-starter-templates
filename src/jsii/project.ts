@@ -1,6 +1,4 @@
 import { cdk } from 'projen';
-// import { BaseOptions, CommitLintConfigBase, DevContainerConfigBase, EsLintConfigBase, GitConfigBase, GitHubConfigBase, HuskyConfigBase, JestConfigBase, PrettierConfigBase, VsCodeConfigBase } from '../base';
-// import { NpmConfigJsii, TypeScriptConfigJsii } from '.';
 import { Config } from '../base/config';
 import { CommitLintConfigBase } from '../base/commitlint';
 import { DevContainerConfigBase } from '../base/devcontainer';
@@ -162,7 +160,7 @@ export class JsiiProject extends cdk.JsiiProject {
 
     new GitConfigBase(this);
     new TypeScriptConfigJsii(this);
-    // this.npmConfig = new NpmConfigJsii(this);
+    this.npmConfig = new NpmConfigJsii(this);
 
     if (options.prettierEnabled) {
       this.prettierConfig = new PrettierConfigBase(this);

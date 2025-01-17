@@ -1,16 +1,9 @@
-import { GitHubActionProject } from './project';
 import { TypeScriptConfigBase } from '../base/typescript';
 
 /**
  * Implementing all relevant TypeScript configuration for the GitHubAction project.
  */
 export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase {
-  // protected settings: Settings;
-
-  constructor(project: GitHubActionProject) {
-    super(project);
-  }
-
   protected override get additionalDevDependencies(): string[] {
     return [];
   }

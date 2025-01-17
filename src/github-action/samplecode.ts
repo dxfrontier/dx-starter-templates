@@ -1,14 +1,9 @@
-import { GitHubActionProject } from './project';
 import { SampleCodeConfigBase } from '../base/samplecode';
 
 /**
  * Implementing all relevant SampleCode configuration for the GitHubAction project.
  */
 export class SampleCodeConfigGitHubAction extends SampleCodeConfigBase {
-  constructor(project: GitHubActionProject) {
-    super(project);
-  }
-
   protected override get sampleCodeFile(): Record<string, string[]> {
     return {
       'action.yml': [

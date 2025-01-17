@@ -1,6 +1,5 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes } from '../types';
 
 /**
  * Base class for implementing all relevant Husky configuration.
@@ -8,10 +7,6 @@ import { ProjectTypes } from '../types';
  * This class acts as a base for handling Husky configuration within projects.
  */
 export class HuskyConfigBase extends Config {
-  constructor(project: ProjectTypes) {
-    super(project);
-  }
-
   /**
    * Gets the additional development dependencies required for configuration.
    *

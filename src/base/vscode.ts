@@ -1,6 +1,6 @@
 import { JsonFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes, Settings } from '../types';
+import { Settings } from '../types';
 
 /**
  * Base class for implementing all relevant VS Code configuration.
@@ -8,10 +8,6 @@ import { ProjectTypes, Settings } from '../types';
  * This class acts as a base for handling VS Code configuration within projects.
  */
 export class VsCodeConfigBase extends Config {
-  constructor(project: ProjectTypes) {
-    super(project);
-  }
-
   /**
    * Gets the config file to be added to the project's configuration.
    *

@@ -1,5 +1,5 @@
-import { JsiiProject } from '..';
-import { BaseProject } from '..';
+import { JsiiProject } from '../jsii/project';
+import { BaseProject } from '../base/project';
 
 /**
  * Defines all possible project types.

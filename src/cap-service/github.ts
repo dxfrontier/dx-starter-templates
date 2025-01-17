@@ -1,15 +1,10 @@
 import { TextFile } from 'projen';
-import { CapServiceProject } from '.';
 import { GitHubConfigBase } from '../base';
 
 /**
  * Implementing all relevant GitHub configuration for the CapService project.
  */
 export class GitHubConfigCapService extends GitHubConfigBase {
-  constructor(project: CapServiceProject) {
-    super(project);
-  }
-
   protected override get configFilePullRequest(): Record<string, string[]> {
     return {
       '.github/pull_request_template.md': [

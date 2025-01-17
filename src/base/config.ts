@@ -1,7 +1,5 @@
 import { Component } from 'projen';
-import { ProjectTypes } from '../types';
-import { BaseProject } from './project';
-import { JsiiProject } from '../jsii/project';
+import { ProjectTypes } from '../types/types';
 
 /**
  * Base class for creating and managing project configurations.
@@ -18,10 +16,6 @@ export class Config extends Component {
   constructor(project: ProjectTypes) {
     super(project);
     this.project = project;
-  }
-
-  public isValidProjectTypes(project: unknown): project is ProjectTypes {
-    return project instanceof BaseProject || project instanceof JsiiProject;
   }
 
   /**

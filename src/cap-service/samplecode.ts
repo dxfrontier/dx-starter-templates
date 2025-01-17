@@ -1,5 +1,5 @@
 import { SampleFile } from 'projen';
-import { CapServiceProject, CapServiceProjectOptions } from '.';
+import { CapServiceProject, CapServiceProjectOptions } from './project';
 import { SampleCodeConfigBase } from '../base';
 
 /**

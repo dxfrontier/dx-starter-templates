@@ -1,6 +1,5 @@
 import { SampleFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes } from '../types';
 
 /**
  * Base class for implementing all relevant sample code configuration.
@@ -8,10 +7,6 @@ import { ProjectTypes } from '../types';
  * This class acts as a base for handling sample code configuration within projects.
  */
 export class SampleCodeConfigBase extends Config {
-  constructor(project: ProjectTypes) {
-    super(project);
-  }
-
   /**
    * Gets the sample file content.
    *

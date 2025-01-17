@@ -1,4 +1,3 @@
-import { GitHubActionProject } from './project';
 import { NpmConfigBase } from '../base/npm';
 import { Settings } from '../types';
 
@@ -6,10 +5,6 @@ import { Settings } from '../types';
  * Implementing all relevant NPM configuration for the GitHubAction project.
  */
 export class NpmConfigGitHubAction extends NpmConfigBase {
-  constructor(project: GitHubActionProject) {
-    super(project);
-  }
-
   // /**
   //  * Gets the additional development dependencies required for configuration.
   //  *

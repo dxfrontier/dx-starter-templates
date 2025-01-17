@@ -1,3 +1,4 @@
+import { CommitLintConfigBase, PrettierConfigBase } from '../base';
 import { DevContainerConfigBase } from '../base/devcontainer';
 import { GitConfigBase } from '../base/git';
 import { GitHubConfigBase } from '../base/github';
@@ -7,7 +8,6 @@ import { BaseProjectOptions, BaseProject } from '../base/project';
 import { VsCodeConfigBase } from '../base/vscode';
 import { CommitLintConfigGitHubAction } from './commitlint';
 import { NpmConfigGitHubAction } from './npm';
-import { PrettierConfigGitHubAction } from './prettier';
 import { SampleCodeConfigGitHubAction } from './samplecode';
 import { TypeScriptConfigGitHubAction } from './typescript';
 
@@ -17,6 +17,12 @@ export interface GitHubActionProjectOptions extends BaseProjectOptions {}
  * Base class for managing project GitHubAction configuration.
  */
 export class GitHubActionProject extends BaseProject {
+  /**
+   * Configuration for commitlint settings in the project.
+   * This property is initialized if `commitlintEnabled` option is provided during project creation.
+   */
+  public commitlintConfig?: CommitLintConfigBase;
+
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -34,9 +40,6 @@ export class GitHubActionProject extends BaseProject {
 
     this.npmConfig = new NpmConfigGitHubAction(this);
 
-    if (updatedOptions.prettierEnabled) {
-      this.prettierConfig = new PrettierConfigGitHubAction(this);
-    }
     if (updatedOptions.commitlintEnabled) {
       this.commitlintConfig = new CommitLintConfigGitHubAction(this);
     }
@@ -46,11 +49,14 @@ export class GitHubActionProject extends BaseProject {
   }
 
   protected override initializeBaseConfigs(options: BaseProjectOptions): void {
-    // super.initializeBaseConfigs(options);
+    super.initializeBaseConfigs(options);
 
     this.gitConfig = new GitConfigBase(this);
     this.typescriptConfig = new TypeScriptConfigGitHubAction(this);
 
+    if (options.prettierEnabled) {
+      this.prettierConfig = new PrettierConfigBase(this);
+    }
     if (options.devContainerEnabled) {
       this.devContainerConfig = new DevContainerConfigBase(this);
     }

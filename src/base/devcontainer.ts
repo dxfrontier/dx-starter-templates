@@ -1,6 +1,6 @@
 import { JsonFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes, Settings } from '../types';
+import { Settings } from '../types/types';
 
 /**
  * Base class for implementing all relevant DevContainer configuration.
@@ -8,10 +8,6 @@ import { ProjectTypes, Settings } from '../types';
  * This class acts as a base for handling DevContainer configuration within projects.
  */
 export class DevContainerConfigBase extends Config {
-  constructor(project: ProjectTypes) {
-    super(project);
-  }
-
   /**
    * Gets the additional npm scripts to be added to the project's configuration.
    *

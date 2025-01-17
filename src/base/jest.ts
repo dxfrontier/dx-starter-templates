@@ -1,4 +1,3 @@
-import { ProjectTypes } from '../types';
 import { Config } from './config';
 
 /**
@@ -6,8 +5,4 @@ import { Config } from './config';
  *
  * This class acts as a base for handling Jest configuration within projects.
  */
-export class JestConfigBase extends Config {
-  constructor(project: ProjectTypes) {
-    super(project);
-  }
-}
+export class JestConfigBase extends Config {}
