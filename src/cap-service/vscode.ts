@@ -1,23 +1,14 @@
 import { JsonFile } from 'projen';
 import { CapServiceProject } from '.';
-import {
-  VsCodeConfigBase,
-  ProjenStandardVsCodeConfigBaseStrategy,
-  NonApiVsCodeConfigBaseStrategy,
-  Config,
-  ConfigStrategy,
-  Settings,
-} from '../base';
+import { VsCodeConfigBase } from '../base';
+import { Settings } from '../types';
 
 /**
  * Implementing all relevant VsCode configuration for the CapService project.
  */
-export class VsCodeConfigCapService extends VsCodeConfigBase<CapServiceProject> {
-  constructor(project: CapServiceProject, useProjenApi: boolean) {
-    super(project, useProjenApi);
-
-    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
-    this.setStrategy(strategy);
+export class VsCodeConfigCapService extends VsCodeConfigBase {
+  constructor(project: CapServiceProject) {
+    super(project);
   }
 
   /**
@@ -102,20 +93,10 @@ export class VsCodeConfigCapService extends VsCodeConfigBase<CapServiceProject> 
     const filePathTasks: string = Object.keys(this.configFileTasks)[0];
     return [`/${filePath}`, `/${filePathLaunch}`, `/${filePathTasks}`];
   }
-}
 
-class ProjenStandardConfigStrategy extends ProjenStandardVsCodeConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonApiConfigStrategy extends NonApiVsCodeConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
-    if (config instanceof VsCodeConfigCapService) {
-      config.createConfigLaunch();
-      config.createConfigTasks();
-    }
+  public override applyConfig(): void {
+    super.applyConfig();
+    this.createConfigLaunch();
+    this.createConfigTasks();
   }
 }

@@ -1,21 +1,12 @@
 import { CapServiceProject } from '.';
-import {
-  Config,
-  PrettierConfigBase,
-  ProjenStandardPrettierConfigBaseStrategy,
-  NonApiPrettierConfigBaseStrategy,
-  ConfigStrategy,
-} from '../base';
+import { PrettierConfigBase } from '../base';
 
 /**
  * Implementing all relevant Prettier configuration for the CapService project.
  */
-export class PrettierConfigCapService extends PrettierConfigBase<CapServiceProject> {
-  constructor(project: CapServiceProject, useProjenApi: boolean) {
-    super(project, useProjenApi);
-
-    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
-    this.setStrategy(strategy);
+export class PrettierConfigCapService extends PrettierConfigBase {
+  constructor(project: CapServiceProject) {
+    super(project);
   }
 
   protected get additionalScripts(): Record<string, string> {
@@ -23,17 +14,5 @@ export class PrettierConfigCapService extends PrettierConfigBase<CapServiceProje
       ...super.additionalScripts,
       'prettier:cds': 'format-cds',
     };
-  }
-}
-
-class ProjenStandardConfigStrategy extends ProjenStandardPrettierConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonApiConfigStrategy extends NonApiPrettierConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
   }
 }

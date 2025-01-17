@@ -1,18 +1,19 @@
 import { cdk } from 'projen';
-import { BaseOptions, Config } from '../base';
-import {
-  CommitLintConfigJsii,
-  DevContainerConfigJsii,
-  EsLintConfigJsii,
-  GitConfigJsii,
-  GitHubConfigJsii,
-  HuskyConfigJsii,
-  JestConfigJsii,
-  NpmConfigJsii,
-  PrettierConfigJsii,
-  TypeScriptConfigJsii,
-  VsCodeConfigJsii,
-} from '.';
+// import { BaseOptions, CommitLintConfigBase, DevContainerConfigBase, EsLintConfigBase, GitConfigBase, GitHubConfigBase, HuskyConfigBase, JestConfigBase, PrettierConfigBase, VsCodeConfigBase } from '../base';
+// import { NpmConfigJsii, TypeScriptConfigJsii } from '.';
+import { Config } from '../base/config';
+import { CommitLintConfigBase } from '../base/commitlint';
+import { DevContainerConfigBase } from '../base/devcontainer';
+import { EsLintConfigBase } from '../base/eslint';
+import { GitHubConfigBase } from '../base/github';
+import { HuskyConfigBase } from '../base/husky';
+import { GitConfigBase } from '../base/git';
+import { JestConfigBase } from '../base/jest';
+import { BaseOptions } from '../base/options';
+import { PrettierConfigBase } from '../base/prettier';
+import { VsCodeConfigBase } from '../base/vscode';
+import { NpmConfigJsii } from './npm';
+import { TypeScriptConfigJsii } from './typescript';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   /**
@@ -80,37 +81,37 @@ export class JsiiProject extends cdk.JsiiProject {
    * Configuration for commitlint settings in the project.
    * This property is initialized if `commitlintEnabled` option is provided during project creation.
    */
-  public readonly commitlintConfig?: CommitLintConfigJsii;
+  public readonly commitlintConfig?: CommitLintConfigBase;
 
   /**
    * Configuration for development container settings in the project.
    * This property is initialized if `devContainerEnabled` option is provided during project creation.
    */
-  public readonly devContainerConfig?: DevContainerConfigJsii;
+  public readonly devContainerConfig?: DevContainerConfigBase;
 
   /**
    * Configuration for ESLint settings in the project.
    * This property is initialized if `eslintEnabled` option is provided during project creation.
    */
-  public readonly eslintConfig?: EsLintConfigJsii;
+  public readonly eslintConfig?: EsLintConfigBase;
 
   /**
    * Configuration for GitHub settings in the project.
    * This property is initialized if `githubEnabled` option is provided during project creation.
    */
-  public readonly githubConfig?: GitHubConfigJsii;
+  public readonly githubConfig?: GitHubConfigBase;
 
   /**
    * Configuration for Husky settings in the project.
    * This property is initialized if `huskyEnabled` option is provided during project creation.
    */
-  public readonly huskyConfig?: HuskyConfigJsii;
+  public readonly huskyConfig?: HuskyConfigBase;
 
   /**
    * Configuration for Jest settings in the project.
    * This property is initialized if `jestEnabled` option is provided during project creation.
    */
-  public readonly jestConfig?: JestConfigJsii;
+  public readonly jestConfig?: JestConfigBase;
 
   /**
    * Configuration for NPM settings in the project.
@@ -122,13 +123,22 @@ export class JsiiProject extends cdk.JsiiProject {
    * Configuration for Prettier settings in the project.
    * This property is initialized if `prettierEnabled` option is provided during project creation.
    */
-  public readonly prettierConfig?: PrettierConfigJsii;
+  public readonly prettierConfig?: PrettierConfigBase;
 
   /**
    * Configuration for VS Code settings in the project.
    * This property is initialized if `vscodeEnabled` option is provided during project creation.
    */
-  public readonly vscodeConfig?: VsCodeConfigJsii;
+  public readonly vscodeConfig?: VsCodeConfigBase;
+
+  /**
+   * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....
+   * for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled`
+   * If set to `true`, TypeScript-specific settings will be configured for the project.
+   * If set to `false` TypeScript will be completely removed from the project as
+   * Projen projects used in this context are always relying on TypeScript.
+   */
+  public typescript?: boolean;
 
   /**
    * Initializes the project.
@@ -148,33 +158,35 @@ export class JsiiProject extends cdk.JsiiProject {
       },
     });
 
-    new GitConfigJsii(this);
-    new TypeScriptConfigJsii(this);
-    this.npmConfig = new NpmConfigJsii(this);
+    this.typescript = true;
 
+    new GitConfigBase(this);
+    new TypeScriptConfigJsii(this);
+    // this.npmConfig = new NpmConfigJsii(this);
+
+    if (options.prettierEnabled) {
+      this.prettierConfig = new PrettierConfigBase(this);
+    }
     if (options.devContainerEnabled) {
-      this.devContainerConfig = new DevContainerConfigJsii(this, options.devContainer!);
+      this.devContainerConfig = new DevContainerConfigBase(this);
     }
     if (options.eslintEnabled) {
-      this.eslintConfig = new EsLintConfigJsii(this, options.eslint!);
+      this.eslintConfig = new EsLintConfigBase(this);
     }
     if (options.jestEnabled) {
-      this.jestConfig = new JestConfigJsii(this, options.jest!);
-    }
-    if (options.prettierEnabled) {
-      this.prettierConfig = new PrettierConfigJsii(this, options.prettier!);
+      this.jestConfig = new JestConfigBase(this);
     }
     if (options.vscodeEnabled) {
-      this.vscodeConfig = new VsCodeConfigJsii(this, options.vscode!);
+      this.vscodeConfig = new VsCodeConfigBase(this);
     }
     if (options.githubEnabled) {
-      this.githubConfig = new GitHubConfigJsii(this, options.github!);
+      this.githubConfig = new GitHubConfigBase(this);
     }
     if (options.commitlintEnabled) {
-      this.commitlintConfig = new CommitLintConfigJsii(this);
+      this.commitlintConfig = new CommitLintConfigBase(this);
     }
     if (options.huskyEnabled) {
-      this.huskyConfig = new HuskyConfigJsii(this);
+      this.huskyConfig = new HuskyConfigBase(this);
     }
   }
 

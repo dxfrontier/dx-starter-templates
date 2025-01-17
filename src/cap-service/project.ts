@@ -13,15 +13,6 @@ import {
 } from '.';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
-  readonly commitlintEnabled?: boolean;
-  readonly devContainerEnabled?: boolean;
-  readonly eslintEnabled?: boolean;
-  readonly githubEnabled?: boolean;
-  readonly huskyEnabled?: boolean;
-  readonly jestEnabled?: boolean;
-  readonly prettierEnabled?: boolean;
-  readonly vscodeEnabled?: boolean;
-  readonly sampleCodeEnabled?: boolean;
   readonly namespace?: string;
   readonly entityName?: string;
 }
@@ -59,19 +50,19 @@ export class CapServiceProject extends BaseProject {
       this.commitlintConfig = new CommitLintConfigCapService(this);
     }
     if (updatedOptions.devContainerEnabled) {
-      this.devContainerConfig = new DevContainerConfigCapService(this, options.devContainer!);
+      this.devContainerConfig = new DevContainerConfigCapService(this);
     }
     if (updatedOptions.eslintEnabled) {
-      this.eslintConfig = new EsLintConfigCapService(this, updatedOptions.eslint!);
+      this.eslintConfig = new EsLintConfigCapService(this);
     }
     if (updatedOptions.githubEnabled) {
-      this.githubConfig = new GitHubConfigCapService(this, updatedOptions.github!);
+      this.githubConfig = new GitHubConfigCapService(this);
     }
     if (updatedOptions.prettierEnabled) {
-      this.prettierConfig = new PrettierConfigCapService(this, updatedOptions.prettier!);
+      this.prettierConfig = new PrettierConfigCapService(this);
     }
     if (updatedOptions.vscodeEnabled) {
-      this.vscodeConfig = new VsCodeConfigCapService(this, updatedOptions.vscode!);
+      this.vscodeConfig = new VsCodeConfigCapService(this);
     }
     if (updatedOptions.huskyEnabled) {
       this.huskyConfig = new HuskyConfigCapService(this);
@@ -81,13 +72,13 @@ export class CapServiceProject extends BaseProject {
     }
   }
 
-  protected override initializeBaseConfigs(options: CapServiceProjectOptions): void {
+  protected override initializeBaseConfigs(options: BaseProjectOptions): void {
     this.typescript = true;
 
     this.typescriptConfig = new TypeScriptConfigBase(this);
 
     if (options.jestEnabled) {
-      this.jestConfig = new JestConfigBase(this, options.jest!);
+      this.jestConfig = new JestConfigBase(this);
     }
   }
 }

@@ -1,10 +1,11 @@
-import { JsiiProject } from '.';
-import { NpmConfigBase, Settings } from '../base';
+import { JsiiProject } from './project';
+import { NpmConfigBase } from '../base/npm';
+import { Settings } from '../types';
 
 /**
  * Implementing all relevant NPM configuration for the Jsii project.
  */
-export class NpmConfigJsii extends NpmConfigBase<JsiiProject> {
+export class NpmConfigJsii extends NpmConfigBase {
   constructor(project: JsiiProject) {
     super(project);
   }
@@ -69,7 +70,9 @@ export class NpmConfigJsii extends NpmConfigBase<JsiiProject> {
     this.addDevDependencies(this.additionalDevDependencies);
     this.addPeerDependencies(this.additionalPeerDependencies);
     this.addSettings(this.additionalSettings);
-    this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
+    if (this.isValidProjectTypes(this.project)) {
+      this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+      this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
+    }
   }
 }

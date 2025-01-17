@@ -1,28 +1,15 @@
 import { JsonFile } from 'projen';
-import { Settings } from '.';
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { BaseProject } from './project';
+import { Config } from './config';
+import { ProjectTypes, Settings } from '../types';
 
 /**
- * Base class for implementing all relevant VsCode configuration.
+ * Base class for implementing all relevant VS Code configuration.
  *
- * This class acts as a base for handling VsCode configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling VS Code configuration within projects.
  */
-export class VsCodeConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjenApi: boolean) {
+export class VsCodeConfigBase extends Config {
+  constructor(project: ProjectTypes) {
     super(project);
-
-    const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardVsCodeConfigBaseStrategy()
-      : new NonApiVsCodeConfigBaseStrategy();
-
-    this.setStrategy(strategy);
   }
 
   /**
@@ -52,16 +39,6 @@ export class VsCodeConfigBase<T extends BaseProject | JsiiProject> extends Confi
   }
 
   /**
-   * Creates the configuration file in the project directory.
-   */
-  public createConfig(): void {
-    const filePath: string = Object.keys(this.configFile)[0];
-    new JsonFile(this.project, filePath, {
-      obj: this.configFile[filePath],
-    });
-  }
-
-  /**
    * Gets additional ignore patterns to be added to the project's ignore configuration.
    *
    * @returns A list of ignore patterns.
@@ -74,27 +51,11 @@ export class VsCodeConfigBase<T extends BaseProject | JsiiProject> extends Confi
   public override registerConfig(): void {
     this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
   }
-}
 
-/**
- * Configuration strategy for Projen standard API VsCode base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenStandardVsCodeConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyConfig(_config: Config<T>): void {}
-}
-
-/**
- * Configuration strategy for Projen-tracked VsCode base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonApiVsCodeConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    if (config instanceof VsCodeConfigBase) {
-      config.createConfig();
-    }
+  public override applyConfig(): void {
+    const filePath: string = Object.keys(this.configFile)[0];
+    new JsonFile(this.project, filePath, {
+      obj: this.configFile[filePath],
+    });
   }
 }

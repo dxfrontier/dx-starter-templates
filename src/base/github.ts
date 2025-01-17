@@ -1,28 +1,17 @@
 import { TextFile } from 'projen';
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { BaseProject } from './project';
+import { Config } from './config';
+import { ProjectTypes } from '../types';
 
 /**
  * Base class for implementing all relevant GitHub configuration.
  *
- * This class acts as a base for handling GitHub configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling GitHub configuration within projects.
  */
-export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
+export class GitHubConfigBase extends Config {
   protected attributePatterns: string[];
 
-  constructor(project: T, useProjenApi: boolean) {
+  constructor(project: ProjectTypes) {
     super(project);
-
-    const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardGitHubConfigBaseStrategy()
-      : new NonApiGitHubConfigBaseStrategy();
-    this.setStrategy(strategy);
 
     this.attributePatterns = this.standardAttributesPatterns;
   }
@@ -400,15 +389,6 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
   }
 
   /**
-   * Retrieves all attribute patterns, including standard and custom ones.
-   *
-   * @returns An array of file or directory patterns that are ignored by the project.
-   */
-  public getAttributePatterns(): string[] {
-    return this.attributePatterns;
-  }
-
-  /**
    * Gets a list of all relevant config files.
    * @returns List of configs
    */
@@ -459,40 +439,23 @@ export class GitHubConfigBase<T extends BaseProject | JsiiProject> extends Confi
   }
 
   public override registerConfig(): void {
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    if (this.isValidProjectTypes(this.project)) {
+      this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    }
     this.addAttributePatterns(this.additionalAttributesPatterns);
   }
-}
 
-/**
- * Configuration strategy for Projen standard API GitHub base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenStandardGitHubConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyConfig(_config: Config<T>): void {}
-}
+  public override applyConfig(): void {
+    this.createPullRequest();
+    this.createBugIssue();
+    this.createFeatureIssue();
+    this.createHousekeepingIssue();
+    this.createQuestionIssue();
+    this.createCliff();
+    this.createReleaseWorkflow();
 
-/**
- * Configuration strategy for Projen-tracked GitHub base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonApiGitHubConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    if (config instanceof GitHubConfigBase) {
-      config.createPullRequest();
-      config.createBugIssue();
-      config.createFeatureIssue();
-      config.createHousekeepingIssue();
-      config.createQuestionIssue();
-      config.createCliff();
-      config.createReleaseWorkflow();
-
-      for (const value of config.getAttributePatterns()) {
-        config.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
-      }
+    for (const value of this.attributePatterns) {
+      this.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
     }
   }
 }

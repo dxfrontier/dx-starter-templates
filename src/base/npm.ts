@@ -1,37 +1,26 @@
 import { JsonPatch, ObjectFile } from 'projen';
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { BaseProject } from './project';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Settings = Record<string, any>; // to be compliant with projen api
+import { Config } from './config';
+import { ProjectTypes, Settings } from '../types';
+import { TypeScriptProject } from 'projen/lib/typescript';
 
 /**
  * Base class for implementing all relevant NPM configuration.
  *
- * This class acts as a base for handling NPM configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T Type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling NPM configuration within projects.
  */
-export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
-  protected dependencies: Set<string>;
-  protected devDependencies: Set<string>;
-  protected peerDependencies: Set<string>;
+export class NpmConfigBase extends Config {
+  protected dependencies: string[] = [];
+  protected devDependencies: string[] = [];
+  protected peerDependencies: string[] = [];
   protected settings: Settings;
   protected scripts: Record<string, string>;
 
-  constructor(project: T) {
+  constructor(project: ProjectTypes) {
     super(project);
 
-    const strategy: ConfigStrategy = new ProjenStandardNpmConfigBaseStrategy();
-    this.setStrategy(strategy);
-
-    this.dependencies = new Set(this.standardDependencies);
-    this.devDependencies = new Set(this.standardDevDependencies);
-    this.peerDependencies = new Set(this.standardPeerDependencies);
+    this.dependencies = [...this.standardDependencies];
+    this.devDependencies = [...this.standardDevDependencies];
+    this.peerDependencies = [...this.standardPeerDependencies];
     this.settings = this.standardSettings;
     this.scripts = this.standardScripts;
   }
@@ -115,7 +104,11 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
    * @param dependencies List of dependencies to add.
    */
   public addDependencies(dependencies: string[]): void {
-    dependencies.forEach((dep) => this.dependencies.add(dep));
+    dependencies.forEach((dep) => {
+      if (!this.dependencies.includes(dep)) {
+        this.dependencies.push(dep);
+      }
+    });
   }
 
   /**
@@ -123,7 +116,11 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
    * @param dependencies List of devDependencies to add.
    */
   public addDevDependencies(dependencies: string[]): void {
-    dependencies.forEach((dep) => this.devDependencies.add(dep));
+    dependencies.forEach((dep) => {
+      if (!this.devDependencies.includes(dep)) {
+        this.devDependencies.push(dep);
+      }
+    });
   }
 
   /**
@@ -131,7 +128,11 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
    * @param dependencies List of peerDependencies to add.
    */
   public addPeerDependencies(dependencies: string[]): void {
-    dependencies.forEach((dep) => this.peerDependencies.add(dep));
+    dependencies.forEach((dep) => {
+      if (!this.peerDependencies.includes(dep)) {
+        this.peerDependencies.push(dep);
+      }
+    });
   }
 
   /**
@@ -149,51 +150,6 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
    */
   public addScripts(scripts: Record<string, string>): void {
     this.scripts = { ...this.scripts, ...scripts };
-  }
-
-  /**
-   * Returns all dependencies, including standard and custom ones.
-   *
-   * @returns An array of dependencies.
-   */
-  public getDependencies(): string[] {
-    return Array.from(this.dependencies);
-  }
-
-  /**
-   * Returns all devDependencies, including standard and custom ones.
-   *
-   * @returns An array of devDependencies.
-   */
-  public getDevDependencies(): string[] {
-    return Array.from(this.devDependencies);
-  }
-
-  /**
-   * Returns all peerDependencies, including standard and custom ones.
-   *
-   * @returns An array of peerDependencies.
-   */
-  public getPeerDependencies(): string[] {
-    return Array.from(this.peerDependencies);
-  }
-
-  /**
-   * Returns all settings, including standard and custom ones.
-   *
-   * @returns A settings object.
-   */
-  public getSettings(): Settings {
-    return this.settings;
-  }
-
-  /**
-   * Returns all npm scripts, including standard and custom ones.
-   *
-   * @returns A record of script names and their commands.
-   */
-  public getScripts(): Record<string, string> {
-    return this.scripts;
   }
 
   /**
@@ -215,7 +171,7 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
   /**
    * Patches devDependencies in the `package.json` file.
    *
-   * @param scripts - A record of script names and their commands to patch.
+   * @param devDependencies - A list of development dependencies to patch.
    */
   public patchDevDependencyRemove(devDependencies: string[]): void {
     const packageJson: ObjectFile | undefined = this.project.tryFindObjectFile('package.json');
@@ -232,24 +188,19 @@ export class NpmConfigBase<T extends BaseProject | JsiiProject> extends Config<T
    */
   public removeScriptsOnInit(scripts: string[]): void {
     for (const script of scripts) {
-      this.project.removeScript(script);
+      if (this.project instanceof TypeScriptProject) {
+        this.project.removeScript(script);
+      }
     }
   }
-}
 
-/**
- * Configuration strategy for Projen standard API NPM base configuration.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenStandardNpmConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    if (config instanceof NpmConfigBase) {
-      config.project.addDeps(...config.getDependencies());
-      config.project.addDevDeps(...config.getDevDependencies());
-      config.project.addPeerDeps(...config.getPeerDependencies());
-      config.project.addFields(config.getSettings());
-      config.patchScriptsAdd(config.getScripts());
+  public override applyConfig(): void {
+    if (this.isValidProjectTypes(TypeScriptProject)) {
+      this.project.addDeps(...this.dependencies);
+      this.project.addDevDeps(...this.devDependencies);
+      this.project.addPeerDeps(...this.peerDependencies);
+      this.project.addFields(this.settings);
     }
+    this.patchScriptsAdd(this.scripts);
   }
 }

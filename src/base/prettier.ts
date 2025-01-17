@@ -1,30 +1,18 @@
 import { JsonFile, TextFile } from 'projen';
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { Settings } from './npm';
-import { BaseProject } from './project';
+import { Config } from './config';
 import { TrailingComma } from 'projen/lib/javascript';
+import { ProjectTypes, Settings } from '../types';
 
 /**
  * Base class for implementing all relevant Prettier configuration.
  *
- * This class acts as a base for handling Prettier configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling Prettier configuration within projects.
  */
-export class PrettierConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
+export class PrettierConfigBase extends Config {
   protected ignorePatterns: string[];
 
-  constructor(project: T, useProjenApi: boolean) {
+  constructor(project: ProjectTypes) {
     super(project);
-
-    const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardPrettierConfigBaseStrategy()
-      : new NonApiPrettierConfigBaseStrategy();
-    this.setStrategy(strategy);
 
     this.ignorePatterns = this.standardIgnorePatterns;
   }
@@ -103,18 +91,9 @@ export class PrettierConfigBase<T extends BaseProject | JsiiProject> extends Con
   }
 
   /**
-   * Retrieves all ignore patterns, including standard and custom ones.
-   *
-   * @returns An array of file or directory patterns that are ignored by the project.
-   */
-  public getIgnorePatterns(): Settings {
-    return this.ignorePatterns;
-  }
-
-  /**
    * Creates the configuration file in the project directory.
    */
-  public createConfig(): void {
+  protected createConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new JsonFile(this.project, filePath, {
       obj: this.configFile[filePath],
@@ -124,7 +103,7 @@ export class PrettierConfigBase<T extends BaseProject | JsiiProject> extends Con
   /**
    * Creates the ignore file in the project directory.
    */
-  public createIgnore(): void {
+  protected createIgnore(): void {
     const filePath: string = Object.keys(this.ignoreFile)[0];
     new TextFile(this.project, filePath, {
       lines: this.ignoreFile[filePath],
@@ -132,31 +111,14 @@ export class PrettierConfigBase<T extends BaseProject | JsiiProject> extends Con
   }
 
   public override registerConfig(): void {
-    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
-    this.project.npmConfig?.addScripts(this.additionalScripts);
-  }
-}
-
-/**
- * Configuration strategy for Projen standard API Prettier base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenStandardPrettierConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyConfig(_config: Config<T>): void {}
-}
-
-/**
- * Configuration strategy for Projen-tracked Prettier base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonApiPrettierConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    if (config instanceof PrettierConfigBase) {
-      config.createConfig();
-      config.createIgnore();
+    if (this.isValidProjectTypes(this.project)) {
+      this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
+      this.project.npmConfig?.addScripts(this.additionalScripts);
     }
+  }
+
+  public override applyConfig(): void {
+    this.createConfig();
+    this.createIgnore();
   }
 }

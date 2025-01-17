@@ -1,20 +1,17 @@
 import { SampleFile } from 'projen';
 import { CapServiceProject, CapServiceProjectOptions } from '.';
-import { SampleCodeConfigBase, Config, ConfigStrategy, SampleCodeConfigBaseStrategy } from '../base';
+import { SampleCodeConfigBase } from '../base';
 
 /**
  * Implementing all relevant SampleCode configuration for the CapService project.
  */
-export class SampleCodeConfigCapService extends SampleCodeConfigBase<CapServiceProject> {
+export class SampleCodeConfigCapService extends SampleCodeConfigBase {
   private options: CapServiceProjectOptions;
 
   constructor(project: CapServiceProject, options: CapServiceProjectOptions) {
     super(project);
 
     this.options = options;
-
-    const strategy: ConfigStrategy = new NonApiConfigStrategy();
-    this.setStrategy(strategy);
   }
 
   /**
@@ -367,15 +364,10 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase<CapServiceP
       }
     }
   }
-}
 
-class NonApiConfigStrategy extends SampleCodeConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
-    if (config instanceof SampleCodeConfigCapService) {
-      config.createRootTemplates();
-      config.createDbTemplates();
-      config.createDataTemplates();
-    }
+  public override applyConfig(): void {
+    this.createRootTemplates();
+    this.createDbTemplates();
+    this.createDataTemplates();
   }
 }
