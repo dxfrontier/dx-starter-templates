@@ -220,6 +220,7 @@ export function testDeploymentWorkflow(snapshot: SynthOutput, expectedTemplateLi
     '  pull_request:',
     '    branches:',
     '      - dev',
+    '      - main',
     '    types:',
     '      - closed',
     'jobs:',
@@ -243,7 +244,6 @@ export function testDeploymentWorkflow(snapshot: SynthOutput, expectedTemplateLi
     '          CF_SPACE_PROD: ${{ secrets.CF_SPACE_PROD }}',
     '          CF_USERNAME_PROD: ${{ secrets.CF_USERNAME_PROD }}',
     '          CF_PASSWORD_PROD: ${{ secrets.CF_PASSWORD_PROD }}',
-    '          BRANCH: dev',
   ];
 
   const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
