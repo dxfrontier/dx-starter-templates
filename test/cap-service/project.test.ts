@@ -111,6 +111,7 @@ describe('CapServicesProject Constructor Options', (): void => {
       prettierEnabled: true,
       vscodeEnabled: true,
       typescriptEnabled: true,
+      sampleCodeEnabled: true,
 
       githubOptions: { mergify: false, pullRequestLint: false },
       buildWorkflow: false,
