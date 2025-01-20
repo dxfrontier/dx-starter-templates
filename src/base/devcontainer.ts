@@ -10,17 +10,11 @@ import { Settings } from '../types/types';
  * This class acts as a base for handling DevContainer configuration within projects.
  */
 export class DevContainerConfigBase extends Config {
-  protected override get additionalScripts(): Record<string, string> {
-    return {
-      'install-dependencies': 'npm install',
-    };
-  }
-
   protected override get configFile(): Settings {
     return {
       '.devcontainer.json': {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
-        postCreateCommand: ['npm run install-dependencies'],
+        postCreateCommand: 'npm install',
         features: {
           'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
           'ghcr.io/devcontainers/features/github-cli': 'latest',
@@ -77,7 +71,6 @@ export class DevContainerConfigBase extends Config {
 
   public override registerConfig(): void {
     if (isValidProject(this.project)) {
-      (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
       (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     }
   }

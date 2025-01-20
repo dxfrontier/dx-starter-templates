@@ -94,7 +94,6 @@ test('Scripts are added properly', (): void => {
     docgen: 'npx projen docgen',
     eject: 'npx projen eject',
     eslint: 'eslint .',
-    'install-dependencies': 'npm install',
     package: 'npx projen package',
     'package-all': 'npx projen package-all',
     'package:js': 'npx projen package:js',

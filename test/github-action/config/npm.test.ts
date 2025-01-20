@@ -50,7 +50,6 @@ test('DevDependencies are added properly', (): void => {
 test('Scripts are added properly', (): void => {
   const expectedTasks: Record<string, unknown> = {
     commit: 'commit',
-    'install-dependencies': 'npm install',
     prepare: 'husky || true',
     prettier: 'prettier . --write',
   };
