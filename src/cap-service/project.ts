@@ -26,10 +26,19 @@ export class CapServiceProject extends BaseProject {
   constructor(options: CapServiceProjectOptions) {
     const updatedOptions = {
       ...options,
+      commitlintEnabled: options.commitlintEnabled ?? true,
+      devContainerEnabled: options.devContainerEnabled ?? true,
+      eslintEnabled: options.eslintEnabled ?? true,
+      githubEnabled: options.githubEnabled ?? true,
+      huskyEnabled: options.huskyEnabled ?? true,
+      jestEnabled: options.jestEnabled ?? true,
+      prettierEnabled: options.prettierEnabled ?? true,
+      vscodeEnabled: options.vscodeEnabled ?? true,
+      sampleCodeEnabled: options.sampleCodeEnabled ?? true,
       typescriptEnabled: true,
+      name: options.name,
       namespace: options.namespace ?? 'de.customer.org.project',
       description: options.description ?? 'SAP CAP Project',
-      name: options.name,
       entityName: options.entityName ?? 'Entity1',
     };
     super({

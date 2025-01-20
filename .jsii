@@ -727,7 +727,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 73
+            "line": 82
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -5451,5 +5451,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "sa7RNCadrRmWxaZgXxc19EQWzebpSh4G9AsGQ8uuNG8="
+  "fingerprint": "Uy7hBgje1I6ezsrDsHaRYBdYW8IxCA+K4u7uEaKAXc8="
 }
