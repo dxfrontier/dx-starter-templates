@@ -197,10 +197,10 @@ export class NpmConfigBase extends Config {
 
   public override applyConfig(): void {
     if (isValidProject(this.project)) {
-      this.project.addDeps(...this.dependencies);
-      this.project.addDevDeps(...this.devDependencies);
-      this.project.addPeerDeps(...this.peerDependencies);
-      this.project.addFields(this.settings);
+      (this.project as ProjectTypes).addDeps(...this.dependencies);
+      (this.project as ProjectTypes).addDevDeps(...this.devDependencies);
+      (this.project as ProjectTypes).addPeerDeps(...this.peerDependencies);
+      (this.project as ProjectTypes).addFields(this.settings);
     }
     this.patchScriptsAdd(this.scripts);
   }

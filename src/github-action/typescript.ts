@@ -1,3 +1,4 @@
+import { BaseProject } from '../base/project';
 import { TypeScriptConfigBase } from '../base/typescript';
 
 /**
@@ -9,7 +10,7 @@ export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase {
   }
 
   protected override get additionalIgnorePatterns(): string[] {
-    if (!this.project.typescript) {
+    if (this.project instanceof BaseProject && !this.project.typescript) {
       return [];
     }
 
@@ -28,7 +29,7 @@ export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase {
    */
   protected removeConfigFile(): void {
     const filePath: string = Object.keys(this.configFile)[0];
-    if (!this.project.typescript) {
+    if (this.project instanceof BaseProject && !this.project.typescript) {
       this.project.tryRemoveFile(filePath);
     }
   }
@@ -36,6 +37,8 @@ export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase {
   public override registerConfig(): void {
     super.registerConfig();
     this.removeConfigFile();
-    this.project.npmConfig?.patchDevDependencyRemove(this.removeDevDependencies);
+    if (this.project instanceof BaseProject) {
+      this.project.npmConfig?.patchDevDependencyRemove(this.removeDevDependencies);
+    }
   }
 }

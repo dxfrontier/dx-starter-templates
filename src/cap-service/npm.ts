@@ -1,28 +1,10 @@
-import { NpmConfigBase } from '../base';
+import { BaseProject, NpmConfigBase } from '../base';
 import { Settings } from '../types';
 
 /**
  * Implementing all relevant NPM configuration for the CapService project.
  */
 export class NpmConfigCapService extends NpmConfigBase {
-  // /**
-  //  * Gets the additional development dependencies required for configuration.
-  //  *
-  //  * @returns A list of package names with version specifications.
-  //  */
-  // private get additionalDevDependencies(): string[] {
-  //   return [];
-  // }
-
-  // /**
-  //  * Gets the additional peer dependencies required for configuration.
-  //  *
-  //  * @returns A list of package names with version specifications.
-  //  */
-  // private get additionalPeerDependencies(): string[] {
-  //   return [];
-  // }
-
   /**
    * Gets the additional settings to be added to the project's configuration.
    *
@@ -69,12 +51,12 @@ export class NpmConfigCapService extends NpmConfigBase {
   }
 
   public override registerConfig(): void {
-    // this.addDevDependencies(this.additionalDevDependencies);
-    // this.addPeerDependencies(this.additionalPeerDependencies);
-    this.addSettings(this.additionalSettings);
-    this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
-    this.removeScriptsOnInit(this.removeScripts);
-    this.project.githubConfig?.addAttributePatterns(this.additionalAttributesPatterns);
+    if (this.project instanceof BaseProject) {
+      this.addSettings(this.additionalSettings);
+      this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+      this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
+      this.removeScriptsOnInit(this.removeScripts);
+      this.project.githubConfig?.addAttributePatterns(this.additionalAttributesPatterns);
+    }
   }
 }

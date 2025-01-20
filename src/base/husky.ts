@@ -1,5 +1,7 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
+import { isValidProject } from '../utils';
+import { ProjectTypes } from '../types/types';
 
 /**
  * Base class for implementing all relevant Husky configuration.
@@ -53,9 +55,11 @@ export class HuskyConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
-    this.project.npmConfig?.addScripts(this.additionalScripts);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    if (isValidProject(this.project)) {
+      (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
+      (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    }
   }
 
   public override applyConfig(): void {

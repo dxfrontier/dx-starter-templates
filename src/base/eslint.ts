@@ -134,9 +134,9 @@ export class EsLintConfigBase extends Config {
 
   public override registerConfig(): void {
     if (isValidProject(this.project)) {
-      this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
-      this.project.npmConfig?.addScripts(this.additionalScripts);
-      this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+      (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
+      (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     }
   }
 

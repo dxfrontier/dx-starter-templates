@@ -441,7 +441,7 @@ export class GitHubConfigBase extends Config {
 
   public override registerConfig(): void {
     if (isValidProject(this.project)) {
-      this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     }
     this.addAttributePatterns(this.additionalAttributesPatterns);
   }

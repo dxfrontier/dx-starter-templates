@@ -1,3 +1,5 @@
+import { ProjectTypes } from '../types';
+import { isValidProject } from '../utils';
 import { Config } from './config';
 
 /**
@@ -37,7 +39,9 @@ export class TypeScriptConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    if (isValidProject(this.project)) {
+      (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    }
   }
 }

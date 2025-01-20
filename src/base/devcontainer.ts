@@ -1,6 +1,7 @@
 import { JsonFile } from 'projen';
 import { Config } from './config';
-import { Settings } from '../types/types';
+import { ProjectTypes, Settings } from '../types/types';
+import { isValidProject } from '../utils';
 
 /**
  * Base class for implementing all relevant DevContainer configuration.
@@ -89,8 +90,10 @@ export class DevContainerConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    this.project.npmConfig?.addScripts(this.additionalScripts);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    if (isValidProject(this.project)) {
+      (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    }
   }
 
   public override applyConfig(): void {

@@ -1,5 +1,5 @@
-import { Component } from 'projen';
-import { ProjectTypes } from '../types/types';
+import { Component, Project } from 'projen';
+// import { ProjectTypes } from '../types/types';
 
 /**
  * Base class for creating and managing project configurations.
@@ -7,15 +7,12 @@ import { ProjectTypes } from '../types/types';
  * It requires the project to be either a `BaseProject` or `JsiiProject`.
  */
 export class Config extends Component {
-  public override readonly project: ProjectTypes;
-
   /**
    * Initializes the config for a specified project.
    * @param project The project to configure the configuration module for.
    */
-  constructor(project: ProjectTypes) {
+  constructor(project: Project) {
     super(project);
-    this.project = project;
   }
 
   /**
