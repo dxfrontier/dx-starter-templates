@@ -5,7 +5,7 @@ import { Settings } from '../types';
  * Implementing all relevant DevContainer configuration for the CapService project.
  */
 export class DevContainerConfigCapService extends DevContainerConfigBase {
-  protected get additionalScripts(): Record<string, string> {
+  protected override get additionalScripts(): Record<string, string> {
     return {};
   }
 

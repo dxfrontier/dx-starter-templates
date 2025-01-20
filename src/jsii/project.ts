@@ -12,7 +12,7 @@ import { VsCodeConfigBase } from '../base/vscode';
 import { NpmConfigJsii } from './npm';
 import { TypeScriptConfigJsii } from './typescript';
 import { registerConfig } from '../utils';
-import { IProjectKind, ProjectKind } from '../types/types';
+import { IProjectKind, ProjectKind } from '../types/project';
 import { TypeScriptConfigBase } from '../base/typescript';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {

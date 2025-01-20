@@ -1,6 +1,6 @@
 import { Component } from 'projen/lib/component';
 import { Config } from './base/config';
-import { IProjectKind } from './types/types';
+import { IProjectKind } from './types/project';
 import { Project } from 'projen';
 import { BaseProject } from './base/project';
 

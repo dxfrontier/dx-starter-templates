@@ -1,6 +1,6 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes } from '../types/types';
+import { ProjectTypes } from '../types/project';
 import { isValidProject } from '../utils';
 
 /**
@@ -47,12 +47,7 @@ export class EsLintConfigBase extends Config {
     return [];
   }
 
-  /**
-   * Gets the additional development dependencies required for configuration.
-   *
-   * @returns A list of package names with version specifications.
-   */
-  protected get additionalDevDependencies(): string[] {
+  protected override get additionalDevDependencies(): string[] {
     return [
       '@typescript-eslint/eslint-plugin@^8.20.0',
       '@typescript-eslint/parser@^8.20.0',
@@ -65,23 +60,18 @@ export class EsLintConfigBase extends Config {
     ];
   }
 
-  /**
-   * Gets the additional npm scripts to be added to the project's configuration.
-   *
-   * @returns A record of script names and their corresponding commands.
-   */
-  protected get additionalScripts(): Record<string, string> {
+  protected override get additionalScripts(): Record<string, string> {
     return {
       eslint: 'eslint .',
     };
   }
 
-  /**
-   * Gets the configuration file content.
-   *
-   * @returns An object where the key is the filename and the value is an array of file lines.
-   */
-  protected get configFile(): Record<string, string[]> {
+  protected override get additionalIgnorePatterns(): string[] {
+    const filePath: string = Object.keys(this.configFile)[0];
+    return [`/${filePath}`];
+  }
+
+  protected override get configFile(): Record<string, string[]> {
     return {
       'eslint.config.mjs': [
         "import eslint from '@eslint/js';",
@@ -120,16 +110,6 @@ export class EsLintConfigBase extends Config {
    */
   public addIgnorePatterns(patterns: string[]): void {
     this.ignorePatterns = [...this.ignorePatterns, ...patterns];
-  }
-
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  protected get additionalIgnorePatterns(): string[] {
-    const filePath: string = Object.keys(this.configFile)[0];
-    return [`/${filePath}`];
   }
 
   public override registerConfig(): void {

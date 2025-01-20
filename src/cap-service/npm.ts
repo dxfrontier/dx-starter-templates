@@ -5,23 +5,13 @@ import { Settings } from '../types';
  * Implementing all relevant NPM configuration for the CapService project.
  */
 export class NpmConfigCapService extends NpmConfigBase {
-  /**
-   * Gets the additional settings to be added to the project's configuration.
-   *
-   * @returns A settings object to be merged into the project's settings.
-   */
-  private get additionalSettings(): Settings {
+  protected override get additionalSettings(): Settings {
     return {
       files: ['gen', 'README.md'],
     };
   }
 
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  private get additionalIgnorePatterns(): string[] {
+  protected override get additionalIgnorePatterns(): string[] {
     return ['docs/'];
   }
 
@@ -41,12 +31,7 @@ export class NpmConfigCapService extends NpmConfigBase {
     ];
   }
 
-  /**
-   * Gets additional attributes patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  private get additionalAttributesPatterns(): string[] {
+  protected override get additionalAttributesPatterns(): string[] {
     return ['@cds-models', 'dist', 'gen'];
   }
 
