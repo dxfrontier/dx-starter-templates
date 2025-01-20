@@ -1,29 +1,14 @@
 import { JsonFile } from 'projen';
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { Settings } from './npm';
-import { BaseProject } from './project';
+import { Config } from './config';
+import { ProjectTypes, Settings } from '../types/types';
+import { isValidProject } from '../utils';
 
 /**
  * Base class for implementing all relevant DevContainer configuration.
  *
- * This class acts as a base for handling DevContainer configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling DevContainer configuration within projects.
  */
-export class DevContainerConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T, useProjenApi: boolean) {
-    super(project);
-
-    const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardDevContainerConfigBaseStrategy()
-      : new NonApiDevContainerConfigBaseStrategy();
-    this.setStrategy(strategy);
-  }
-
+export class DevContainerConfigBase extends Config {
   /**
    * Gets the additional npm scripts to be added to the project's configuration.
    *
@@ -95,16 +80,6 @@ export class DevContainerConfigBase<T extends BaseProject | JsiiProject> extends
   }
 
   /**
-   * Creates the configuration file in the project directory.
-   */
-  public createConfig(): void {
-    const filePath: string = Object.keys(this.configFile)[0];
-    new JsonFile(this.project, filePath, {
-      obj: this.configFile[filePath],
-    });
-  }
-
-  /**
    * Gets additional ignore patterns to be added to the project's ignore configuration.
    *
    * @returns A list of ignore patterns.
@@ -115,32 +90,16 @@ export class DevContainerConfigBase<T extends BaseProject | JsiiProject> extends
   }
 
   public override registerConfig(): void {
-    this.project.npmConfig?.addScripts(this.additionalScripts);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
-  }
-}
-
-/**
- * Configuration strategy for Projen standard API DevContainer base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenStandardDevContainerConfigBaseStrategy<T extends BaseProject | JsiiProject>
-  implements ConfigStrategy
-{
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyConfig(_config: Config<T>): void {}
-}
-
-/**
- * Configuration strategy for Projen-tracked DevContainer base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonApiDevContainerConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    if (config instanceof DevContainerConfigBase) {
-      config.createConfig();
+    if (isValidProject(this.project)) {
+      (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     }
+  }
+
+  public override applyConfig(): void {
+    const filePath: string = Object.keys(this.configFile)[0];
+    new JsonFile(this.project, filePath, {
+      obj: this.configFile[filePath],
+    });
   }
 }

@@ -1,24 +1,10 @@
 import { TextFile } from 'projen';
-import { CapServiceProject } from '.';
-import {
-  GitHubConfigBase,
-  ProjenStandardGitHubConfigBaseStrategy,
-  NonApiGitHubConfigBaseStrategy,
-  Config,
-  ConfigStrategy,
-} from '../base';
+import { GitHubConfigBase } from '../base';
 
 /**
  * Implementing all relevant GitHub configuration for the CapService project.
  */
-export class GitHubConfigCapService extends GitHubConfigBase<CapServiceProject> {
-  constructor(project: CapServiceProject, useProjenApi: boolean) {
-    super(project, useProjenApi);
-
-    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
-    this.setStrategy(strategy);
-  }
-
+export class GitHubConfigCapService extends GitHubConfigBase {
   protected override get configFilePullRequest(): Record<string, string[]> {
     return {
       '.github/pull_request_template.md': [
@@ -205,20 +191,10 @@ export class GitHubConfigCapService extends GitHubConfigBase<CapServiceProject> 
       lines: this.configFileDeploymentWorkflow[filePath],
     });
   }
-}
 
-class ProjenStandardConfigStrategy extends ProjenStandardGitHubConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonApiConfigStrategy extends NonApiGitHubConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
-    if (config instanceof GitHubConfigCapService) {
-      config.createStoryIssue();
-      config.createDeploymentWorkflow();
-    }
+  public override applyConfig(): void {
+    super.applyConfig();
+    this.createStoryIssue();
+    this.createDeploymentWorkflow();
   }
 }

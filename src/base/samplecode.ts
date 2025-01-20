@@ -1,26 +1,12 @@
 import { SampleFile } from 'projen';
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { BaseProject } from './project';
+import { Config } from './config';
 
 /**
- * Base class for implementing all relevant SampleCode configuration.
+ * Base class for implementing all relevant sample code configuration.
  *
- * This class acts as a base for handling SampleCode configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling sample code configuration within projects.
  */
-export class SampleCodeConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T) {
-    super(project);
-
-    const strategy: ConfigStrategy = new SampleCodeConfigBaseStrategy();
-    this.setStrategy(strategy);
-  }
-
+export class SampleCodeConfigBase extends Config {
   /**
    * Gets the sample file content.
    *
@@ -33,24 +19,15 @@ export class SampleCodeConfigBase<T extends BaseProject | JsiiProject> extends C
   /**
    * Creates the sample file(s) in the project directory.
    */
-  public createSampleCode(): void {
+  protected createSampleCode(): void {
     for (const filePath in this.sampleCodeFile) {
       new SampleFile(this.project, filePath, {
         contents: this.sampleCodeFile[filePath].join('\n'),
       });
     }
   }
-}
 
-/**
- * Configuration strategy for SampleCode base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class SampleCodeConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    if (config instanceof SampleCodeConfigBase) {
-      config.createSampleCode();
-    }
+  public override applyConfig(): void {
+    this.createSampleCode();
   }
 }

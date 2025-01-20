@@ -1,30 +1,17 @@
-import {
-  BaseOptions,
-  BaseProject,
-  BaseProjectOptions,
-  DevContainerConfigBase,
-  GitConfigBase,
-  GitHubConfigBase,
-  HuskyConfigBase,
-  VsCodeConfigBase,
-} from '../base';
-import {
-  CommitLintConfigGitHubAction,
-  NpmConfigGitHubAction,
-  PrettierConfigGitHubAction,
-  TypeScriptConfigGitHubAction,
-  SampleCodeConfigGitHubAction,
-} from '.';
+import { PrettierConfigBase } from '../base';
+import { DevContainerConfigBase } from '../base/devcontainer';
+import { GitConfigBase } from '../base/git';
+import { GitHubConfigBase } from '../base/github';
+import { HuskyConfigBase } from '../base/husky';
+import { BaseOptions } from '../base/options';
+import { BaseProjectOptions, BaseProject } from '../base/project';
+import { VsCodeConfigBase } from '../base/vscode';
+import { CommitLintConfigGitHubAction } from './commitlint';
+import { NpmConfigGitHubAction } from './npm';
+import { SampleCodeConfigGitHubAction } from './samplecode';
+import { TypeScriptConfigGitHubAction } from './typescript';
 
-export interface GitHubActionProjectOptions extends BaseProjectOptions {
-  readonly commitlintEnabled?: boolean;
-  readonly devContainerEnabled?: boolean;
-  readonly githubEnabled?: boolean;
-  readonly huskyEnabled?: boolean;
-  readonly prettierEnabled?: boolean;
-  readonly vscodeEnabled?: boolean;
-  readonly sampleCodeEnabled?: boolean;
-}
+export interface GitHubActionProjectOptions extends BaseProjectOptions {}
 
 /**
  * Base class for managing project GitHubAction configuration.
@@ -47,9 +34,6 @@ export class GitHubActionProject extends BaseProject {
 
     this.npmConfig = new NpmConfigGitHubAction(this);
 
-    if (updatedOptions.prettierEnabled) {
-      this.prettierConfig = new PrettierConfigGitHubAction(this, updatedOptions.prettier!);
-    }
     if (updatedOptions.commitlintEnabled) {
       this.commitlintConfig = new CommitLintConfigGitHubAction(this);
     }
@@ -58,20 +42,23 @@ export class GitHubActionProject extends BaseProject {
     }
   }
 
-  protected override initializeBaseConfigs(options: GitHubActionProjectOptions): void {
+  protected override initializeBaseConfigs(options: BaseProjectOptions): void {
     super.initializeBaseConfigs(options);
 
     this.gitConfig = new GitConfigBase(this);
     this.typescriptConfig = new TypeScriptConfigGitHubAction(this);
 
+    if (options.prettierEnabled) {
+      this.prettierConfig = new PrettierConfigBase(this);
+    }
     if (options.devContainerEnabled) {
-      this.devContainerConfig = new DevContainerConfigBase(this, options.devContainer!);
+      this.devContainerConfig = new DevContainerConfigBase(this);
     }
     if (options.githubEnabled) {
-      this.githubConfig = new GitHubConfigBase(this, options.github!);
+      this.githubConfig = new GitHubConfigBase(this);
     }
     if (options.vscodeEnabled) {
-      this.vscodeConfig = new VsCodeConfigBase(this, options.vscode!);
+      this.vscodeConfig = new VsCodeConfigBase(this);
     }
     if (options.huskyEnabled) {
       this.huskyConfig = new HuskyConfigBase(this);

@@ -1,22 +1,16 @@
-import { GitHubActionProject } from '.';
-import { TypeScriptConfigBase } from '../base';
+import { BaseProject } from '../base/project';
+import { TypeScriptConfigBase } from '../base/typescript';
 
 /**
  * Implementing all relevant TypeScript configuration for the GitHubAction project.
  */
-export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase<GitHubActionProject> {
-  // protected settings: Settings;
-
-  constructor(project: GitHubActionProject) {
-    super(project);
-  }
-
+export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase {
   protected override get additionalDevDependencies(): string[] {
     return [];
   }
 
   protected override get additionalIgnorePatterns(): string[] {
-    if (!this.project.typescript) {
+    if (this.project instanceof BaseProject && !this.project.typescript) {
       return [];
     }
 
@@ -35,7 +29,7 @@ export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase<GitHubAct
    */
   protected removeConfigFile(): void {
     const filePath: string = Object.keys(this.configFile)[0];
-    if (!this.project.typescript) {
+    if (this.project instanceof BaseProject && !this.project.typescript) {
       this.project.tryRemoveFile(filePath);
     }
   }
@@ -43,6 +37,8 @@ export class TypeScriptConfigGitHubAction extends TypeScriptConfigBase<GitHubAct
   public override registerConfig(): void {
     super.registerConfig();
     this.removeConfigFile();
-    this.project.npmConfig?.patchDevDependencyRemove(this.removeDevDependencies);
+    if (this.project instanceof BaseProject) {
+      this.project.npmConfig?.patchDevDependencyRemove(this.removeDevDependencies);
+    }
   }
 }

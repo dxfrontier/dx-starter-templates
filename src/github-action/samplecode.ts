@@ -1,17 +1,9 @@
-import { GitHubActionProject } from '.';
-import { SampleCodeConfigBase, Config, ConfigStrategy, SampleCodeConfigBaseStrategy } from '../base';
+import { SampleCodeConfigBase } from '../base/samplecode';
 
 /**
  * Implementing all relevant SampleCode configuration for the GitHubAction project.
  */
-export class SampleCodeConfigGitHubAction extends SampleCodeConfigBase<GitHubActionProject> {
-  constructor(project: GitHubActionProject) {
-    super(project);
-
-    const strategy: ConfigStrategy = new NonApiConfigStrategy();
-    this.setStrategy(strategy);
-  }
-
+export class SampleCodeConfigGitHubAction extends SampleCodeConfigBase {
   protected override get sampleCodeFile(): Record<string, string[]> {
     return {
       'action.yml': [
@@ -45,11 +37,5 @@ export class SampleCodeConfigGitHubAction extends SampleCodeConfigBase<GitHubAct
         "  EXAMPLE_ENV_VAR: 'example-value'",
       ],
     };
-  }
-}
-
-class NonApiConfigStrategy extends SampleCodeConfigBaseStrategy<GitHubActionProject> {
-  applyConfig(config: Config<GitHubActionProject>): void {
-    super.applyConfig(config);
   }
 }

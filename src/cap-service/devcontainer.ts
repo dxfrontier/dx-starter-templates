@@ -1,24 +1,10 @@
-import { CapServiceProject } from '.';
-import {
-  DevContainerConfigBase,
-  ProjenStandardDevContainerConfigBaseStrategy,
-  NonApiDevContainerConfigBaseStrategy,
-  Config,
-  ConfigStrategy,
-  Settings,
-} from '../base';
+import { DevContainerConfigBase } from '../base';
+import { Settings } from '../types';
 
 /**
  * Implementing all relevant DevContainer configuration for the CapService project.
  */
-export class DevContainerConfigCapService extends DevContainerConfigBase<CapServiceProject> {
-  constructor(project: CapServiceProject, useProjenApi: boolean) {
-    super(project, useProjenApi);
-
-    const strategy: ConfigStrategy = useProjenApi ? new ProjenStandardConfigStrategy() : new NonApiConfigStrategy();
-    this.setStrategy(strategy);
-  }
-
+export class DevContainerConfigCapService extends DevContainerConfigBase {
   protected get additionalScripts(): Record<string, string> {
     return {};
   }
@@ -123,17 +109,5 @@ export class DevContainerConfigCapService extends DevContainerConfigBase<CapServ
         },
       },
     };
-  }
-}
-
-class ProjenStandardConfigStrategy extends ProjenStandardDevContainerConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
-  }
-}
-
-class NonApiConfigStrategy extends NonApiDevContainerConfigBaseStrategy<CapServiceProject> {
-  applyConfig(config: Config<CapServiceProject>): void {
-    super.applyConfig(config);
   }
 }

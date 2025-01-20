@@ -39,10 +39,10 @@ junit.xml
 tsconfig.json
 !/API.md
 !/.projenrc.ts
-!/.devcontainer.json
-!/eslint.config.mjs
 !/.prettierrc.json
 !/.prettierignore
+!/.devcontainer.json
+!/eslint.config.mjs
 !/.vscode/settings.json
 !/.github/pull_request_template.md
 !/.github/ISSUE_TEMPLATE/bug.yml

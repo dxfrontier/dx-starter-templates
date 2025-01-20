@@ -1,29 +1,19 @@
 import { TextFile } from 'projen';
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { BaseProject } from './project';
+import { Config } from './config';
+import { ProjectTypes } from '../types/types';
+import { isValidProject } from '../utils';
 
 /**
  * Base class for implementing all relevant EsLint configuration.
  *
- * This class acts as a base for handling EsLint configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling EsLint configuration within projects.
  */
-export class EsLintConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
+export class EsLintConfigBase extends Config {
   protected rules: Record<string, string>;
   protected ignorePatterns: string[];
 
-  constructor(project: T, useProjenApi: boolean) {
+  constructor(project: ProjectTypes) {
     super(project);
-
-    const strategy: ConfigStrategy = useProjenApi
-      ? new ProjenStandardEsLintConfigBaseStrategy()
-      : new NonApiEsLintConfigBaseStrategy();
-    this.setStrategy(strategy);
 
     this.rules = this.standardRules;
     this.ignorePatterns = this.standardIgnorePatterns;
@@ -133,34 +123,6 @@ export class EsLintConfigBase<T extends BaseProject | JsiiProject> extends Confi
   }
 
   /**
-   * Retrieves all linting rules, including standard and custom ones.
-   *
-   * @returns A record of rule names and their corresponding configurations.
-   */
-  public getRules(): Record<string, string> {
-    return this.rules;
-  }
-
-  /**
-   * Retrieves all ignore patterns, including standard and custom ones.
-   *
-   * @returns An array of file or directory patterns that are ignored by the project.
-   */
-  public getIgnorePatterns(): string[] {
-    return this.ignorePatterns;
-  }
-
-  /**
-   * Creates the configuration file in the project directory.
-   */
-  public createConfig(): void {
-    const filePath: string = Object.keys(this.configFile)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFile[filePath],
-    });
-  }
-
-  /**
    * Gets additional ignore patterns to be added to the project's ignore configuration.
    *
    * @returns A list of ignore patterns.
@@ -171,31 +133,17 @@ export class EsLintConfigBase<T extends BaseProject | JsiiProject> extends Confi
   }
 
   public override registerConfig(): void {
-    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
-    this.project.npmConfig?.addScripts(this.additionalScripts);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
-  }
-}
-
-/**
- * Configuration strategy for Projen standard API EsLint base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class ProjenStandardEsLintConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyConfig(_config: Config<T>): void {}
-}
-
-/**
- * Configuration strategy for Projen-tracked EsLint base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonApiEsLintConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  applyConfig(config: Config<T>): void {
-    if (config instanceof EsLintConfigBase) {
-      config.createConfig();
+    if (isValidProject(this.project)) {
+      (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
+      (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     }
+  }
+
+  public override applyConfig(): void {
+    const filePath: string = Object.keys(this.configFile)[0];
+    new TextFile(this.project, filePath, {
+      lines: this.configFile[filePath],
+    });
   }
 }

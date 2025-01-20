@@ -1,20 +1,19 @@
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { BaseOptions } from './options';
-import {
-  CommitLintConfigBase,
-  Config,
-  DevContainerConfigBase,
-  EsLintConfigBase,
-  GitConfigBase,
-  GitHubConfigBase,
-  HuskyConfigBase,
-  JestConfigBase,
-  NpmConfigBase,
-  PrettierConfigBase,
-  SampleCodeConfigBase,
-  TypeScriptConfigBase,
-  VsCodeConfigBase,
-} from '.';
+import { NpmConfigBase } from './npm';
+import { DevContainerConfigBase } from './devcontainer';
+import { EsLintConfigBase } from './eslint';
+import { GitConfigBase } from './git';
+import { GitHubConfigBase } from './github';
+import { HuskyConfigBase } from './husky';
+import { JestConfigBase } from './jest';
+import { PrettierConfigBase } from './prettier';
+import { SampleCodeConfigBase } from './samplecode';
+import { TypeScriptConfigBase } from './typescript';
+import { VsCodeConfigBase } from './vscode';
+import { registerConfig } from '../utils';
+import { CommitLintConfigBase } from './commitlint';
+import { IProjectKind, ProjectKind } from '../types/types';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
   /**
@@ -93,78 +92,78 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
 /**
  * Base class for managing project configuration.
  */
-export class BaseProject extends TypeScriptProject {
+export class BaseProject extends TypeScriptProject implements IProjectKind {
   /**
    * Configuration for commitlint settings in the project.
    * This property is initialized if `commitlintEnabled` option is provided during project creation.
    */
-  public commitlintConfig?: CommitLintConfigBase<BaseProject>;
+  public commitlintConfig?: CommitLintConfigBase;
 
   /**
    * Configuration for development container settings in the project.
    * This property is initialized if `devContainerEnabled` option is provided during project creation.
    */
-  public devContainerConfig?: DevContainerConfigBase<BaseProject>;
+  public devContainerConfig?: DevContainerConfigBase;
 
   /**
    * Configuration for ESLint settings in the project.
    * This property is initialized if `eslintEnabled` option is provided during project creation.
    */
-  public eslintConfig?: EsLintConfigBase<BaseProject>;
+  public eslintConfig?: EsLintConfigBase;
 
   /**
    * Configuration for Git settings in the project.
    * This property is always initialized as `gitConfig` when the project is created.
    */
-  public gitConfig?: GitConfigBase<BaseProject>;
+  public gitConfig?: GitConfigBase;
 
   /**
    * Configuration for GitHub settings in the project.
    * This property is initialized if `githubEnabled` option is provided during project creation.
    */
-  public githubConfig?: GitHubConfigBase<BaseProject>;
+  public githubConfig?: GitHubConfigBase;
 
   /**
    * Configuration for Husky settings in the project.
    * This property is initialized if `huskyEnabled` option is provided during project creation.
    */
-  public huskyConfig?: HuskyConfigBase<BaseProject>;
+  public huskyConfig?: HuskyConfigBase;
 
   /**
    * Configuration for Jest settings in the project.
    * This property is initialized if `jestEnabled` option is provided during project creation.
    */
-  public jestConfig?: JestConfigBase<BaseProject>;
+  public jestConfig?: JestConfigBase;
 
   /**
    * Configuration for NPM settings in the project.
    * This property is always initialized as `npmConfig` when the project is created.
    */
-  public npmConfig?: NpmConfigBase<BaseProject>;
+  public npmConfig?: NpmConfigBase;
 
   /**
    * Configuration for Prettier settings in the project.
    * This property is initialized if `prettierEnabled` option is provided during project creation.
    */
-  public prettierConfig?: PrettierConfigBase<BaseProject>;
+  public prettierConfig?: PrettierConfigBase;
 
   /**
    * Configuration for TypeScript settings in the project.
    * This property is always initialized as `typescriptConfig` when the project is created.
    */
-  public typescriptConfig?: TypeScriptConfigBase<BaseProject>;
+  public typescriptConfig?: TypeScriptConfigBase;
 
   /**
    * Configuration for VS Code settings in the project.
    * This property is initialized if `vscodeEnabled` option is provided during project creation.
    */
-  public vscodeConfig?: VsCodeConfigBase<BaseProject>;
+  public vscodeConfig?: VsCodeConfigBase;
 
   /**
    * Configuration for Sample Code in the project.
    * This property is initialized if `sampleCodeEnabled` option is provided during project creation.
    */
-  public sampleCodeConfig?: SampleCodeConfigBase<BaseProject>;
+  public sampleCodeConfig?: SampleCodeConfigBase;
 
   /**
    * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....
@@ -174,6 +173,8 @@ export class BaseProject extends TypeScriptProject {
    * Projen projects used in this context are always relying on TypeScript.
    */
   public typescript?: boolean;
+
+  public kind: ProjectKind;
 
   /**
    * Initializes the project.
@@ -186,6 +187,7 @@ export class BaseProject extends TypeScriptProject {
 
     new GitConfigBase(this);
     this.initializeBaseConfigs(options);
+    this.kind = 'base';
   }
 
   /**
@@ -224,11 +226,7 @@ export class BaseProject extends TypeScriptProject {
   }
 
   public override preSynthesize(): void {
-    for (const comp of this.components) {
-      if (comp instanceof Config) {
-        comp.registerConfig();
-      }
-    }
+    registerConfig(this.components);
     super.preSynthesize();
   }
 

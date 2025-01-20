@@ -1,25 +1,13 @@
-import { JsiiProject } from '../jsii';
-import { Config, ConfigStrategy } from './config';
-import { BaseProject } from './project';
+import { ProjectTypes } from '../types';
+import { isValidProject } from '../utils';
+import { Config } from './config';
 
 /**
  * Base class for implementing all relevant TypeScript configuration.
  *
- * This class acts as a base for handling TypeScript configuration within projects
- * that extend either `BaseProject` or `JsiiProject`. It determines the configuration
- * strategy to use based on whether Projen is being used.
- *
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- * @extends Config
+ * This class acts as a base for handling TypeScript configuration within projects.
  */
-export class TypeScriptConfigBase<T extends BaseProject | JsiiProject> extends Config<T> {
-  constructor(project: T) {
-    super(project);
-
-    const strategy: ConfigStrategy = new NonApiTypeScriptConfigBaseStrategy();
-    this.setStrategy(strategy);
-  }
-
+export class TypeScriptConfigBase extends Config {
   /**
    * Gets the additional development dependencies required for configuration.
    *
@@ -51,16 +39,9 @@ export class TypeScriptConfigBase<T extends BaseProject | JsiiProject> extends C
   }
 
   public override registerConfig(): void {
-    this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
-    this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    if (isValidProject(this.project)) {
+      (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
+      (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
+    }
   }
-}
-/**
- * Configuration strategy for Projen-tracked TypeScript base configuration.
- * @param project - The project instance.
- * @template T - The type of project, which extends `BaseProject` or `JsiiProject`.
- */
-export class NonApiTypeScriptConfigBaseStrategy<T extends BaseProject | JsiiProject> implements ConfigStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyConfig(_config: Config<T>): void {}
 }
