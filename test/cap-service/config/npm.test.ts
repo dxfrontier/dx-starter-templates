@@ -122,8 +122,6 @@ test('Projen standard npm scripts are removed from package.json', (): void => {
     'post-upgrade',
     'pre-compile',
     'release',
-    'test',
-    'test:watch',
     'unbump',
     'upgrade',
     'watch',

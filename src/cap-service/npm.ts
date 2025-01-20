@@ -5,6 +5,10 @@ import { Settings } from '../types';
  * Implementing all relevant NPM configuration for the CapService project.
  */
 export class NpmConfigCapService extends NpmConfigBase {
+  protected override get additionalDevDependencies(): string[] {
+    return ['npm-run-all@^4.1.5'];
+  }
+
   protected override get additionalSettings(): Settings {
     return {
       files: ['gen', 'README.md'],
@@ -37,6 +41,7 @@ export class NpmConfigCapService extends NpmConfigBase {
 
   public override registerConfig(): void {
     if (this.project instanceof BaseProject) {
+      this.addDevDependencies(this.additionalDevDependencies);
       this.addSettings(this.additionalSettings);
       this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
       this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
