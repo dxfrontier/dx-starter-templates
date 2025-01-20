@@ -1,0 +1,5455 @@
+{
+  "author": {
+    "email": "mathias.von-kaiz@abs-gmbh.de",
+    "name": "DXFrontier Dev Team",
+    "roles": [
+      "author"
+    ]
+  },
+  "dependencies": {
+    "constructs": "^10.4.2",
+    "projen": "^0.91.6"
+  },
+  "dependencyClosure": {
+    "constructs": {
+      "targets": {
+        "dotnet": {
+          "namespace": "Constructs",
+          "packageId": "Constructs"
+        },
+        "go": {
+          "moduleName": "github.com/aws/constructs-go"
+        },
+        "java": {
+          "maven": {
+            "artifactId": "constructs",
+            "groupId": "software.constructs"
+          },
+          "package": "software.constructs"
+        },
+        "js": {
+          "npm": "constructs"
+        },
+        "python": {
+          "distName": "constructs",
+          "module": "constructs"
+        }
+      }
+    },
+    "projen": {
+      "submodules": {
+        "projen.awscdk": {},
+        "projen.build": {},
+        "projen.cdk": {},
+        "projen.cdk8s": {},
+        "projen.cdktf": {},
+        "projen.circleci": {},
+        "projen.github": {},
+        "projen.github.workflows": {},
+        "projen.gitlab": {},
+        "projen.java": {},
+        "projen.javascript": {},
+        "projen.python": {},
+        "projen.release": {},
+        "projen.typescript": {},
+        "projen.vscode": {},
+        "projen.web": {}
+      },
+      "targets": {
+        "go": {
+          "moduleName": "github.com/projen/projen-go"
+        },
+        "java": {
+          "maven": {
+            "artifactId": "projen",
+            "groupId": "io.github.cdklabs"
+          },
+          "package": "io.github.cdklabs.projen"
+        },
+        "js": {
+          "npm": "projen"
+        },
+        "python": {
+          "distName": "projen",
+          "module": "projen"
+        }
+      }
+    }
+  },
+  "description": "@dxfrontier/projen-template-projects",
+  "docs": {
+    "stability": "stable"
+  },
+  "homepage": "https://github.com/dxfrontier/projen-template-projects.git",
+  "jsiiVersion": "5.7.4 (build fc2a28e)",
+  "license": "UNLICENSED",
+  "metadata": {
+    "jsii": {
+      "pacmak": {
+        "hasDefaultInterfaces": true
+      }
+    },
+    "tscRootDir": "src"
+  },
+  "name": "@dxfrontier/projen-template-projects",
+  "readme": {
+    "markdown": "# Projen-template-projects\n\nThe goal of **Projen-template-projects** is to reduce boilerplate code and create various templates.\n\n## Table of Contents\n\n- [Projen-template-projects](#projen-template-projects)\n  - [Table of Contents](#table-of-contents)\n  - [Prerequisites](#prerequisites)\n  - [`Usage`](#usage)\n    - [1. Create template for: `Github action`](#1-create-template-for-github-action)\n    - [2. Create template for: `CDS-TS-Dispatcher`](#2-create-template-for-cds-ts-dispatcher)\n  - [Contributing](#contributing)\n  - [License](#license)\n  - [Authors](#authors)\n\n## Prerequisites\n\nEnsure you have `Node.js`. You can download it from [Node.js Official Website](https://nodejs.org/en/download/package-manager).\n\n## `Usage`\n\n### 1. Create template for: `Github action`\n\nTo create a predefined structure for Github actions use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\n### 2. Create template for: `CDS-TS-Dispatcher`\n\nTo create a predefined structure for [CDS-TS-Dispatcher](https://github.com/dxfrontier/cds-ts-dispatcher) use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\nTODO: change `git_hub_action`\n\n> [!TIP]\n> The above 2 commands will start building the backbone project + adding some additional utils `prettier`, `lint-staged`, `commitlint`, `devcontainer`, `husky`\n\n## Contributing\n\nPull requests are welcome. For major changes, please open an issue first\nto discuss what you would like to change.\n\nPlease make sure to update tests as appropriate.\n\n## License\n\n![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)\n\nCopyright (c) 2025 DXFrontier\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## Authors\n\n- [@mathiasvkaiz](https://github.com/mathiasvkaiz)\n- [@ABS GmbH](https://www.abs-gmbh.de/) team\n\n<p align=\"right\">(<a href=\"#table-of-contents\">back to top</a>)</p>\n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dxfrontier/projen-template-projects.git"
+  },
+  "schema": "jsii/0.10.0",
+  "targets": {
+    "js": {
+      "npm": "@dxfrontier/projen-template-projects"
+    }
+  },
+  "types": {
+    "@dxfrontier/projen-template-projects.BaseOptions": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "docs": {
+        "stability": "stable",
+        "summary": "Utility for shared options."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.BaseOptions",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        }
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/options.ts",
+        "line": 8
+      },
+      "methods": [
+        {
+          "docs": {
+            "returns": "Merged options.",
+            "stability": "stable",
+            "summary": "Merges shared defaults with provided options."
+          },
+          "locationInModule": {
+            "filename": "src/base/options.ts",
+            "line": 14
+          },
+          "name": "sharedOptions",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "Specific project options to merge."
+              },
+              "name": "options",
+              "type": {
+                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+            }
+          },
+          "static": true
+        }
+      ],
+      "name": "BaseOptions",
+      "symbolId": "src/base/options:BaseOptions"
+    },
+    "@dxfrontier/projen-template-projects.BaseProject": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "projen.typescript.TypeScriptProject",
+      "docs": {
+        "stability": "stable",
+        "summary": "Base class for managing project configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.BaseProject",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the project."
+        },
+        "locationInModule": {
+          "filename": "src/base/project.ts",
+          "line": 183
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "Additional project options."
+            },
+            "name": "options",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "@dxfrontier/projen-template-projects.IProjectKind"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/project.ts",
+        "line": 95
+      },
+      "methods": [
+        {
+          "docs": {
+            "example": "const options: GitHubActionProjectOptions = {\n  eslintEnabled: true,\n  jestEnabled: false,\n  // other options...\n};\nthis.initializeBaseConfigs(options);@remarks[object Object]",
+            "remarks": "This method is responsible for initializing the core configurations related to TypeScript,\nESLint, and Jest, based on the provided options. The configuration objects are created and\ninitialized according to the flags passed in the `options` parameter. This allows the project\nto be configured with specific tools only when needed, without unnecessary overhead.\n\nThe method is overridden from the base class to provide a customized initialization process\nfor a project that is specifically tailored for GitHub Actions-based configurations.",
+            "stability": "stable",
+            "summary": "Initializes the base configurations for the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 224
+          },
+          "name": "initializeBaseConfigs",
+          "parameters": [
+            {
+              "docs": {
+                "remarks": "The `options` object is expected to be of type `GitHubActionProjectOptions` and contains flags\nthat enable or disable specific configurations like `eslintEnabled`, `jestEnabled`, etc. The method\nreads these flags and initializes the respective configuration objects (e.g., `typescriptConfig`,\n`eslintConfig`, `jestConfig`) based on their values.",
+                "summary": "- The configuration options used to initialize the various project settings."
+              },
+              "name": "options",
+              "type": {
+                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+              }
+            }
+          ],
+          "protected": true
+        },
+        {
+          "docs": {
+            "remarks": "Order is *not* guaranteed.",
+            "stability": "stable",
+            "summary": "Called after all components are synthesized."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 233
+          },
+          "name": "postSynthesize",
+          "overrides": "projen.Project"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Called before all components are synthesized."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 228
+          },
+          "name": "preSynthesize",
+          "overrides": "projen.Project"
+        }
+      ],
+      "name": "BaseProject",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Convenience type for guaranteeing type safety and avoiding too many circular dependencies."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 177
+          },
+          "name": "kind",
+          "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `commitlintEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for commitlint settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 100
+          },
+          "name": "commitlintConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `devContainerEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for development container settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 106
+          },
+          "name": "devContainerConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `eslintEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for ESLint settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 112
+          },
+          "name": "eslintConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.EsLintConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is always initialized as `gitConfig` when the project is created.",
+            "stability": "stable",
+            "summary": "Configuration for Git settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 118
+          },
+          "name": "gitConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.GitConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `githubEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for GitHub settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 124
+          },
+          "name": "githubConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.GitHubConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `huskyEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Husky settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 130
+          },
+          "name": "huskyConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.HuskyConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `jestEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Jest settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 136
+          },
+          "name": "jestConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.JestConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is always initialized as `npmConfig` when the project is created.",
+            "stability": "stable",
+            "summary": "Configuration for NPM settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 142
+          },
+          "name": "npmConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.NpmConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `prettierEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Prettier settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 148
+          },
+          "name": "prettierConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.PrettierConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `sampleCodeEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Sample Code in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 166
+          },
+          "name": "sampleCodeConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 175
+          },
+          "name": "typescript",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is always initialized as `typescriptConfig` when the project is created.",
+            "stability": "stable",
+            "summary": "Configuration for TypeScript settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 154
+          },
+          "name": "typescriptConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `vscodeEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for VS Code settings in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 160
+          },
+          "name": "vscodeConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigBase"
+          }
+        }
+      ],
+      "symbolId": "src/base/project:BaseProject"
+    },
+    "@dxfrontier/projen-template-projects.BaseProjectOptions": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "datatype": true,
+      "docs": {
+        "stability": "stable"
+      },
+      "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions",
+      "interfaces": [
+        "projen.typescript.TypeScriptProjectOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/base/project.ts",
+        "line": 18
+      },
+      "name": "BaseProjectOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, commitlint configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the commitlint configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 24
+          },
+          "name": "commitlintEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, dev container configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the dev container configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 31
+          },
+          "name": "devContainerEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, ESLint configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the ESLint configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 38
+          },
+          "name": "eslintEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, GitHub-related settings will be configured (e.g., issue templates, PR templates).",
+            "stability": "stable",
+            "summary": "Whether to enable the GitHub configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 45
+          },
+          "name": "githubEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, Husky hooks will be enabled to enforce code quality checks.",
+            "stability": "stable",
+            "summary": "Whether to enable the Husky configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 52
+          },
+          "name": "huskyEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, Jest testing framework will be configured for the project.",
+            "stability": "stable",
+            "summary": "Whether to enable the Jest configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 59
+          },
+          "name": "jestEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, Prettier code formatting configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the Prettier configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 66
+          },
+          "name": "prettierEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, sample code will be added to the project repository.",
+            "stability": "stable",
+            "summary": "Whether to include sample code in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 89
+          },
+          "name": "sampleCodeEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, TypeScript-specific settings will be configured for the project.\nIf set to `false` TypeScript will be completely removed from the project as\nProjen projects used in this context are always relying on TypeScript.",
+            "stability": "stable",
+            "summary": "Whether to enable the TypeScript configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 75
+          },
+          "name": "typescriptEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, VS Code settings will be applied for the project.",
+            "stability": "stable",
+            "summary": "Whether to enable the VS Code configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 82
+          },
+          "name": "vscodeEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ],
+      "symbolId": "src/base/project:BaseProjectOptions"
+    },
+    "@dxfrontier/projen-template-projects.CapServiceProject": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.BaseProject",
+      "docs": {
+        "stability": "stable",
+        "summary": "Base class for managing project CapService configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CapServiceProject",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the project."
+        },
+        "locationInModule": {
+          "filename": "src/cap-service/project.ts",
+          "line": 26
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "Additional project options."
+            },
+            "name": "options",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/project.ts",
+        "line": 21
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "This method is responsible for initializing the core configurations related to TypeScript,\nESLint, and Jest, based on the provided options. The configuration objects are created and\ninitialized according to the flags passed in the `options` parameter. This allows the project\nto be configured with specific tools only when needed, without unnecessary overhead.\n\nThe method is overridden from the base class to provide a customized initialization process\nfor a project that is specifically tailored for GitHub Actions-based configurations.",
+            "stability": "stable",
+            "summary": "Initializes the base configurations for the project."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/project.ts",
+            "line": 73
+          },
+          "name": "initializeBaseConfigs",
+          "overrides": "@dxfrontier/projen-template-projects.BaseProject",
+          "parameters": [
+            {
+              "name": "options",
+              "type": {
+                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+              }
+            }
+          ],
+          "protected": true
+        }
+      ],
+      "name": "CapServiceProject",
+      "symbolId": "src/cap-service/project:CapServiceProject"
+    },
+    "@dxfrontier/projen-template-projects.CapServiceProjectOptions": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "datatype": true,
+      "docs": {
+        "stability": "stable"
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions",
+      "interfaces": [
+        "@dxfrontier/projen-template-projects.BaseProjectOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/cap-service/project.ts",
+        "line": 13
+      },
+      "name": "CapServiceProjectOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "stable"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/project.ts",
+            "line": 15
+          },
+          "name": "entityName",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "stable"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/project.ts",
+            "line": 14
+          },
+          "name": "namespace",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/project:CapServiceProjectOptions"
+    },
+    "@dxfrontier/projen-template-projects.CommitLintConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling CommitLint configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant CommitLint configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/commitlint.ts",
+        "line": 11
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/commitlint.ts",
+            "line": 100
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/commitlint.ts",
+            "line": 91
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "CommitLintConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of package names with version specifications.",
+            "stability": "stable",
+            "summary": "Gets the additional development dependencies required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/commitlint.ts",
+            "line": 17
+          },
+          "name": "additionalDevDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/commitlint.ts",
+            "line": 56
+          },
+          "name": "additionalIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of script names and their corresponding commands.",
+            "stability": "stable",
+            "summary": "Gets the additional npm scripts to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/commitlint.ts",
+            "line": 45
+          },
+          "name": "additionalScripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A settings object to be merged into the project's settings.",
+            "stability": "stable",
+            "summary": "Gets the additional settings to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/commitlint.ts",
+            "line": 32
+          },
+          "name": "additionalSettings",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "An object where the key is the filename and the value is an array of file lines.",
+            "stability": "stable",
+            "summary": "Gets the configuration file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/commitlint.ts",
+            "line": 66
+          },
+          "name": "configFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/commitlint:CommitLintConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.CommitLintConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant CommitLint configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/commitlint.ts",
+        "line": 7
+      },
+      "name": "CommitLintConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the additional settings to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/commitlint.ts",
+            "line": 8
+          },
+          "name": "additionalSettings",
+          "overrides": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/commitlint:CommitLintConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.CommitLintConfigGitHubAction": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant CommitLint configuration for the GitHubAction project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigGitHubAction",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/commitlint.ts",
+        "line": 7
+      },
+      "name": "CommitLintConfigGitHubAction",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the additional settings to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/commitlint.ts",
+            "line": 8
+          },
+          "name": "additionalSettings",
+          "overrides": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/github-action/commitlint:CommitLintConfigGitHubAction"
+    },
+    "@dxfrontier/projen-template-projects.Config": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "projen.Component",
+      "docs": {
+        "remarks": "This class allows configuring a project using different strategies.\nIt requires the project to be either a `BaseProject` or `JsiiProject`.",
+        "stability": "stable",
+        "summary": "Base class for creating and managing project configurations."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.Config",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/config.ts",
+        "line": 9
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/config.ts",
+            "line": 39
+          },
+          "name": "applyConfig"
+        },
+        {
+          "docs": {
+            "remarks": "Order is *not* guaranteed.",
+            "stability": "stable",
+            "summary": "Called after synthesis."
+          },
+          "locationInModule": {
+            "filename": "src/base/config.ts",
+            "line": 46
+          },
+          "name": "postSynthesize",
+          "overrides": "projen.Component"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Called before synthesis."
+          },
+          "locationInModule": {
+            "filename": "src/base/config.ts",
+            "line": 41
+          },
+          "name": "preSynthesize",
+          "overrides": "projen.Component"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/config.ts",
+            "line": 27
+          },
+          "name": "registerConfig"
+        }
+      ],
+      "name": "Config",
+      "symbolId": "src/base/config:Config"
+    },
+    "@dxfrontier/projen-template-projects.DevContainerConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling DevContainer configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant DevContainer configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/devcontainer.ts",
+        "line": 11
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/devcontainer.ts",
+            "line": 99
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/devcontainer.ts",
+            "line": 92
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "DevContainerConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/devcontainer.ts",
+            "line": 87
+          },
+          "name": "additionalIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of script names and their corresponding commands.",
+            "stability": "stable",
+            "summary": "Gets the additional npm scripts to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/devcontainer.ts",
+            "line": 17
+          },
+          "name": "additionalScripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of the having the path to the file as key and the content as value.",
+            "stability": "stable",
+            "summary": "Gets the config file to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/devcontainer.ts",
+            "line": 28
+          },
+          "name": "configFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/devcontainer:DevContainerConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.DevContainerConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.DevContainerConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant DevContainer configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/devcontainer.ts",
+        "line": 7
+      },
+      "name": "DevContainerConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the additional npm scripts to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/devcontainer.ts",
+            "line": 8
+          },
+          "name": "additionalScripts",
+          "overrides": "@dxfrontier/projen-template-projects.DevContainerConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the config file to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/devcontainer.ts",
+            "line": 12
+          },
+          "name": "configFile",
+          "overrides": "@dxfrontier/projen-template-projects.DevContainerConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/devcontainer:DevContainerConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.EsLintConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling EsLint configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant EsLint configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.EsLintConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/eslint.ts",
+          "line": 15
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/eslint.ts",
+        "line": 11
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom ignore patterns to the project's configuration."
+          },
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 121
+          },
+          "name": "addIgnorePatterns",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- An array of file or directory patterns to be ignored."
+              },
+              "name": "patterns",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom linting rules to the project's configuration."
+          },
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 112
+          },
+          "name": "addRules",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- A record of rule names and their corresponding configurations."
+              },
+              "name": "rules",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "map"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 143
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 135
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "EsLintConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of package names with version specifications.",
+            "stability": "stable",
+            "summary": "Gets the additional development dependencies required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 55
+          },
+          "name": "additionalDevDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 130
+          },
+          "name": "additionalIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of script names and their corresponding commands.",
+            "stability": "stable",
+            "summary": "Gets the additional npm scripts to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 73
+          },
+          "name": "additionalScripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "An object where the key is the filename and the value is an array of file lines.",
+            "stability": "stable",
+            "summary": "Gets the configuration file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 84
+          },
+          "name": "configFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "An array of file or directory patterns to be ignored by the linter.",
+            "stability": "stable",
+            "summary": "Gets the standard ignore patterns for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 46
+          },
+          "name": "standardIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of rule names and their corresponding configurations.",
+            "stability": "stable",
+            "summary": "Gets the standard linting rules for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 27
+          },
+          "name": "standardRules",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 13
+          },
+          "name": "ignorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/eslint.ts",
+            "line": 12
+          },
+          "name": "rules",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/eslint:EsLintConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.EsLintConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.EsLintConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant EsLint configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.EsLintConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/eslint.ts",
+          "line": 15
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/eslint.ts",
+        "line": 6
+      },
+      "name": "EsLintConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the standard ignore patterns for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/eslint.ts",
+            "line": 7
+          },
+          "name": "standardIgnorePatterns",
+          "overrides": "@dxfrontier/projen-template-projects.EsLintConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/eslint:EsLintConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.GitConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling Git configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant Git configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/git.ts",
+          "line": 12
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/git.ts",
+        "line": 9
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom ignore patterns to the project's configuration."
+          },
+          "locationInModule": {
+            "filename": "src/base/git.ts",
+            "line": 32
+          },
+          "name": "addIgnorePatterns",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- An array of file or directory patterns to be ignored."
+              },
+              "name": "patterns",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/git.ts",
+            "line": 36
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "GitConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets the standard ignore patterns required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/git.ts",
+            "line": 23
+          },
+          "name": "standardIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/git.ts",
+            "line": 10
+          },
+          "name": "ignorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/git:GitConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.GitConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.GitConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant Git configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/git.ts",
+          "line": 12
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/git.ts",
+        "line": 6
+      },
+      "name": "GitConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the standard ignore patterns required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/git.ts",
+            "line": 7
+          },
+          "name": "standardIgnorePatterns",
+          "overrides": "@dxfrontier/projen-template-projects.GitConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/git:GitConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.GitHubActionProject": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.BaseProject",
+      "docs": {
+        "stability": "stable",
+        "summary": "Base class for managing project GitHubAction configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitHubActionProject",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the project."
+        },
+        "locationInModule": {
+          "filename": "src/github-action/project.ts",
+          "line": 24
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "Additional project options."
+            },
+            "name": "options",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.GitHubActionProjectOptions"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/project.ts",
+        "line": 19
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "This method is responsible for initializing the core configurations related to TypeScript,\nESLint, and Jest, based on the provided options. The configuration objects are created and\ninitialized according to the flags passed in the `options` parameter. This allows the project\nto be configured with specific tools only when needed, without unnecessary overhead.\n\nThe method is overridden from the base class to provide a customized initialization process\nfor a project that is specifically tailored for GitHub Actions-based configurations.",
+            "stability": "stable",
+            "summary": "Initializes the base configurations for the project."
+          },
+          "locationInModule": {
+            "filename": "src/github-action/project.ts",
+            "line": 45
+          },
+          "name": "initializeBaseConfigs",
+          "overrides": "@dxfrontier/projen-template-projects.BaseProject",
+          "parameters": [
+            {
+              "name": "options",
+              "type": {
+                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+              }
+            }
+          ],
+          "protected": true
+        }
+      ],
+      "name": "GitHubActionProject",
+      "symbolId": "src/github-action/project:GitHubActionProject"
+    },
+    "@dxfrontier/projen-template-projects.GitHubActionProjectOptions": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "datatype": true,
+      "docs": {
+        "stability": "stable"
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitHubActionProjectOptions",
+      "interfaces": [
+        "@dxfrontier/projen-template-projects.BaseProjectOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/github-action/project.ts",
+        "line": 14
+      },
+      "name": "GitHubActionProjectOptions",
+      "symbolId": "src/github-action/project:GitHubActionProjectOptions"
+    },
+    "@dxfrontier/projen-template-projects.GitHubConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling GitHub configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant GitHub configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/github.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/github.ts",
+        "line": 11
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom attributes patterns to the project's configuration."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 388
+          },
+          "name": "addAttributePatterns",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- An array of file or directory patterns to be added as attributes."
+              },
+              "name": "patterns",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 449
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a bug issue template file."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 326
+          },
+          "name": "createBugIssue"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a the git cliff template file."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 366
+          },
+          "name": "createCliff"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a feature request template file."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 336
+          },
+          "name": "createFeatureIssue"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a housekeeping issue template file."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 346
+          },
+          "name": "createHousekeepingIssue"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a pull request template file."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 316
+          },
+          "name": "createPullRequest"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a question issue template file."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 356
+          },
+          "name": "createQuestionIssue"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a release workflow template file."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 376
+          },
+          "name": "createReleaseWorkflow"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 442
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "GitHubConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional attributes patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 438
+          },
+          "name": "additionalAttributesPatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 427
+          },
+          "name": "additionalIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the bug issue template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 71
+          },
+          "name": "configFileBugIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the git cliff template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 192
+          },
+          "name": "configFileCliff",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the feature request template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 102
+          },
+          "name": "configFileFeatureIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the housekeeping issue template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 135
+          },
+          "name": "configFileHousekeepingIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the pull request template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 35
+          },
+          "name": "configFilePullRequest",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the question issue template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 168
+          },
+          "name": "configFileQuestionIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the release workflow template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 287
+          },
+          "name": "configFileReleaseWorkflow",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "List of configs",
+            "stability": "stable",
+            "summary": "Gets a list of all relevant config files."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 396
+          },
+          "name": "configs",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "collection": {
+                      "elementtype": {
+                        "primitive": "string"
+                      },
+                      "kind": "array"
+                    }
+                  },
+                  "kind": "map"
+                }
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of file path patterns, including dynamic configurations and static files like `.gitattributes` and `.gitignore`.",
+            "stability": "stable",
+            "summary": "Retrieves the file paths for all dynamic and static configuration files."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 413
+          },
+          "name": "filePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of attributes patterns.",
+            "stability": "stable",
+            "summary": "Gets the standard attributes patterns required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 25
+          },
+          "name": "standardAttributesPatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/github.ts",
+            "line": 12
+          },
+          "name": "attributePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/github:GitHubConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.GitHubConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant GitHub configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.GitHubConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/github.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/github.ts",
+        "line": 7
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 195
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a deployment workflow template file."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 188
+          },
+          "name": "createDeploymentWorkflow"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates a user story issue template file."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 178
+          },
+          "name": "createStoryIssue"
+        }
+      ],
+      "name": "GitHubConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 125
+          },
+          "name": "configFileDeploymentWorkflow",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the feature request template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 48
+          },
+          "name": "configFileFeatureIssue",
+          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the pull request template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 8
+          },
+          "name": "configFilePullRequest",
+          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the release workflow template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 99
+          },
+          "name": "configFileReleaseWorkflow",
+          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the story issue template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 81
+          },
+          "name": "configFileStoryIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets a list of all relevant config files."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/github.ts",
+            "line": 161
+          },
+          "name": "configs",
+          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "collection": {
+                      "elementtype": {
+                        "primitive": "string"
+                      },
+                      "kind": "array"
+                    }
+                  },
+                  "kind": "map"
+                }
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/github:GitHubConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.HuskyConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling Husky configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant Husky configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/husky.ts",
+        "line": 11
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/husky.ts",
+            "line": 65
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/husky.ts",
+            "line": 57
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "HuskyConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of package names with version specifications.",
+            "stability": "stable",
+            "summary": "Gets the additional development dependencies required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/husky.ts",
+            "line": 17
+          },
+          "name": "additionalDevDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/husky.ts",
+            "line": 49
+          },
+          "name": "additionalIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of script names and their corresponding commands.",
+            "stability": "stable",
+            "summary": "Gets the additional npm scripts to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/husky.ts",
+            "line": 26
+          },
+          "name": "additionalScripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "An object where the key is the filename and the value is an array of file lines.",
+            "stability": "stable",
+            "summary": "Gets the configuration file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/husky.ts",
+            "line": 37
+          },
+          "name": "configFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/husky:HuskyConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.HuskyConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant Husky configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.HuskyConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/husky.ts",
+        "line": 6
+      },
+      "name": "HuskyConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the configuration file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/husky.ts",
+            "line": 7
+          },
+          "name": "configFile",
+          "overrides": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/husky:HuskyConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.IProjectKind": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "docs": {
+        "stability": "stable",
+        "summary": "Convenience type for guaranteeing type safety and avoiding too many circular dependencies."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.IProjectKind",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/types/types.ts",
+        "line": 23
+      },
+      "name": "IProjectKind",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "stability": "stable",
+            "summary": "Convenience type for guaranteeing type safety and avoiding too many circular dependencies."
+          },
+          "locationInModule": {
+            "filename": "src/types/types.ts",
+            "line": 27
+          },
+          "name": "kind",
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ],
+      "symbolId": "src/types/types:IProjectKind"
+    },
+    "@dxfrontier/projen-template-projects.JestConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling Jest configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant Jest configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.JestConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/jest.ts",
+        "line": 8
+      },
+      "name": "JestConfigBase",
+      "symbolId": "src/base/jest:JestConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.JsiiProject": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "projen.cdk.JsiiProject",
+      "docs": {
+        "stability": "stable",
+        "summary": "Base class for managing project Jsii configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.JsiiProject",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the project."
+        },
+        "locationInModule": {
+          "filename": "src/jsii/project.ts",
+          "line": 148
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "Additional project options."
+            },
+            "name": "options",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.JsiiProjectOptions"
+            }
+          }
+        ]
+      },
+      "interfaces": [
+        "@dxfrontier/projen-template-projects.IProjectKind"
+      ],
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/project.ts",
+        "line": 78
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "Order is *not* guaranteed.",
+            "stability": "stable",
+            "summary": "Called after all components are synthesized."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 200
+          },
+          "name": "postSynthesize",
+          "overrides": "projen.Project"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Called before all components are synthesized."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 195
+          },
+          "name": "preSynthesize",
+          "overrides": "projen.Project"
+        }
+      ],
+      "name": "JsiiProject",
+      "properties": [
+        {
+          "docs": {
+            "remarks": "This property is initialized if `commitlintEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for commitlint settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 83
+          },
+          "name": "commitlintConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `devContainerEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for development container settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 89
+          },
+          "name": "devContainerConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `eslintEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for ESLint settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 95
+          },
+          "name": "eslintConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.EsLintConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `githubEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for GitHub settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 101
+          },
+          "name": "githubConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.GitHubConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `huskyEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Husky settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 107
+          },
+          "name": "huskyConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.HuskyConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `jestEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Jest settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 113
+          },
+          "name": "jestConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.JestConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is always initialized as `npmConfig` when the project is created.",
+            "stability": "stable",
+            "summary": "Configuration for NPM settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 119
+          },
+          "name": "npmConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.NpmConfigJsii"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `prettierEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Prettier settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 125
+          },
+          "name": "prettierConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.PrettierConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `vscodeEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for VS Code settings in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 131
+          },
+          "name": "vscodeConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Convenience type for guaranteeing type safety and avoiding too many circular dependencies."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 142
+          },
+          "name": "kind",
+          "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 140
+          },
+          "name": "typescript",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ],
+      "symbolId": "src/jsii/project:JsiiProject"
+    },
+    "@dxfrontier/projen-template-projects.JsiiProjectOptions": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "datatype": true,
+      "docs": {
+        "stability": "stable"
+      },
+      "fqn": "@dxfrontier/projen-template-projects.JsiiProjectOptions",
+      "interfaces": [
+        "projen.cdk.JsiiProjectOptions"
+      ],
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "src/jsii/project.ts",
+        "line": 17
+      },
+      "name": "JsiiProjectOptions",
+      "properties": [
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, commitlint configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the commitlint configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 23
+          },
+          "name": "commitlintEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, dev container configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the dev container configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 30
+          },
+          "name": "devContainerEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, ESLint configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the ESLint configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 37
+          },
+          "name": "eslintEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, GitHub-related settings will be configured (e.g., issue templates, PR templates).",
+            "stability": "stable",
+            "summary": "Whether to enable the GitHub configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 44
+          },
+          "name": "githubEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, Husky hooks will be enabled to enforce code quality checks.",
+            "stability": "stable",
+            "summary": "Whether to enable the Husky configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 51
+          },
+          "name": "huskyEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, Jest testing framework will be configured for the project.",
+            "stability": "stable",
+            "summary": "Whether to enable the Jest configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 58
+          },
+          "name": "jestEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, Prettier code formatting configuration will be enabled.",
+            "stability": "stable",
+            "summary": "Whether to enable the Prettier configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 65
+          },
+          "name": "prettierEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, VS Code settings will be applied for the project.",
+            "stability": "stable",
+            "summary": "Whether to enable the VS Code configuration for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 72
+          },
+          "name": "vscodeEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        }
+      ],
+      "symbolId": "src/jsii/project:JsiiProjectOptions"
+    },
+    "@dxfrontier/projen-template-projects.NpmConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling NPM configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant NPM configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.NpmConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/npm.ts",
+          "line": 19
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/npm.ts",
+        "line": 12
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom devDependencies to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 107
+          },
+          "name": "addDependencies",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "List of dependencies to add."
+              },
+              "name": "dependencies",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom devDependencies to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 119
+          },
+          "name": "addDevDependencies",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "List of devDependencies to add."
+              },
+              "name": "dependencies",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom devDependencies to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 131
+          },
+          "name": "addPeerDependencies",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "List of peerDependencies to add."
+              },
+              "name": "dependencies",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom npm scripts to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 152
+          },
+          "name": "addScripts",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- A record of script names and their commands."
+              },
+              "name": "scripts",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "map"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom settings to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 143
+          },
+          "name": "addSettings",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "Record of settings to add."
+              },
+              "name": "settings",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "any"
+                  },
+                  "kind": "map"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 198
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Patches devDependencies in the `package.json` file."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 177
+          },
+          "name": "patchDevDependencyRemove",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- A list of development dependencies to patch."
+              },
+              "name": "devDependencies",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Patches scripts in the `package.json` file. Projen public API is not used as it would create Projen related tasks like `npx projen task` and would not be convenient for projects that need a non Projen related approach on scaffolding."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 164
+          },
+          "name": "patchScriptsAdd",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- A record of script names and their commands to patch."
+              },
+              "name": "scripts",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "map"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "remarks": "Overwrite this method if you want to keep the projen standard scripts.",
+            "stability": "stable",
+            "summary": "Removes the NPM Package scripts associated with Projen NPM Package initialization."
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 190
+          },
+          "name": "removeScriptsOnInit",
+          "parameters": [
+            {
+              "name": "scripts",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "NpmConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "remarks": "These scripts are added by Projen on project initialization\nand are not needed for our projects.\nOverwrite this method if you want to keep the projen standard scripts.",
+            "returns": "Projen standard script entries.",
+            "stability": "stable",
+            "summary": "Getter retrieving the npm scripts to be removed from NPM Package."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 82
+          },
+          "name": "removeScripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of standard dependencies.",
+            "stability": "stable",
+            "summary": "Gets the standard dependencies for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 34
+          },
+          "name": "standardDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of standard devDependencies.",
+            "stability": "stable",
+            "summary": "Gets the standard devDependencies for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 43
+          },
+          "name": "standardDevDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of standard peerDependencies.",
+            "stability": "stable",
+            "summary": "Gets the standard peerDependencies for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 52
+          },
+          "name": "standardPeerDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of script names and their commands.",
+            "stability": "stable",
+            "summary": "Gets the standard npm scripts for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 70
+          },
+          "name": "standardScripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A settings object.",
+            "stability": "stable",
+            "summary": "Gets the standard settings for the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 61
+          },
+          "name": "standardSettings",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 13
+          },
+          "name": "dependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 14
+          },
+          "name": "devDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 15
+          },
+          "name": "peerDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 17
+          },
+          "name": "scripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/npm.ts",
+            "line": 16
+          },
+          "name": "settings",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/npm:NpmConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.NpmConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.NpmConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant NPM configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.NpmConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/npm.ts",
+          "line": 19
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/npm.ts",
+        "line": 7
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/npm.ts",
+            "line": 53
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "NpmConfigCapService",
+      "symbolId": "src/cap-service/npm:NpmConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.NpmConfigGitHubAction": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.NpmConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant NPM configuration for the GitHubAction project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.NpmConfigGitHubAction",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/npm.ts",
+          "line": 19
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/npm.ts",
+        "line": 8
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/github-action/npm.ts",
+            "line": 38
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "NpmConfigGitHubAction",
+      "symbolId": "src/github-action/npm:NpmConfigGitHubAction"
+    },
+    "@dxfrontier/projen-template-projects.NpmConfigJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.NpmConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant NPM configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.NpmConfigJsii",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/npm.ts",
+          "line": 19
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/npm.ts",
+        "line": 8
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 75
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.NpmConfigBase"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/npm.ts",
+            "line": 65
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "NpmConfigJsii",
+      "symbolId": "src/jsii/npm:NpmConfigJsii"
+    },
+    "@dxfrontier/projen-template-projects.PrettierConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling Prettier configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant Prettier configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.PrettierConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/prettier.ts",
+          "line": 15
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/prettier.ts",
+        "line": 12
+      },
+      "methods": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Adds custom ignore patterns to the project's configuration."
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 90
+          },
+          "name": "addIgnorePatterns",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "- An array of file or directory patterns to be ignored."
+              },
+              "name": "patterns",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 121
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the configuration file in the project directory."
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 97
+          },
+          "name": "createConfig",
+          "protected": true
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the ignore file in the project directory."
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 107
+          },
+          "name": "createIgnore",
+          "protected": true
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 114
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "PrettierConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of package names with version specifications.",
+            "stability": "stable",
+            "summary": "Gets the additional development dependencies required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 35
+          },
+          "name": "additionalDevDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of script names and their corresponding commands.",
+            "stability": "stable",
+            "summary": "Gets the additional npm scripts to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 44
+          },
+          "name": "additionalScripts",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of the having the path to the file as key and the content as value.",
+            "stability": "stable",
+            "summary": "Gets the config file to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 55
+          },
+          "name": "configFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of the having the path to the file as key and the content as value.",
+            "stability": "stable",
+            "summary": "Gets the ignore file to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 79
+          },
+          "name": "ignoreFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets the standard ignore patterns required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 26
+          },
+          "name": "standardIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/base/prettier.ts",
+            "line": 13
+          },
+          "name": "ignorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/prettier:PrettierConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.PrettierConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.PrettierConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant Prettier configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.PrettierConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/prettier.ts",
+          "line": 15
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/prettier.ts",
+        "line": 6
+      },
+      "name": "PrettierConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the additional npm scripts to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/prettier.ts",
+            "line": 7
+          },
+          "name": "additionalScripts",
+          "overrides": "@dxfrontier/projen-template-projects.PrettierConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/prettier:PrettierConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.SampleCodeConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling sample code configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant sample code configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/samplecode.ts",
+        "line": 9
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/samplecode.ts",
+            "line": 30
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the sample file(s) in the project directory."
+          },
+          "locationInModule": {
+            "filename": "src/base/samplecode.ts",
+            "line": 22
+          },
+          "name": "createSampleCode",
+          "protected": true
+        }
+      ],
+      "name": "SampleCodeConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "An object where the key is the filename and the value is an array of file lines.",
+            "stability": "stable",
+            "summary": "Gets the sample file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/samplecode.ts",
+            "line": 15
+          },
+          "name": "sampleCodeFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/samplecode:SampleCodeConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.SampleCodeConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant SampleCode configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/cap-service/samplecode.ts",
+          "line": 11
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.CapServiceProject"
+            }
+          },
+          {
+            "name": "options",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/samplecode.ts",
+        "line": 8
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/samplecode.ts",
+            "line": 368
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the template files for the data directory."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/samplecode.ts",
+            "line": 358
+          },
+          "name": "createDataTemplates"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the template files for the db directory."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/samplecode.ts",
+            "line": 345
+          },
+          "name": "createDbTemplates"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the template files for the root directory."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/samplecode.ts",
+            "line": 332
+          },
+          "name": "createRootTemplates"
+        }
+      ],
+      "name": "SampleCodeConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "Contents for sample data directory files.",
+            "stability": "stable",
+            "summary": "Capire data directory templates for the SampleCode configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/samplecode.ts",
+            "line": 314
+          },
+          "name": "sampleCodeFileDataTemplates",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "Contents for sample db directory files.",
+            "stability": "stable",
+            "summary": "Capire db directory templates for the SampleCode configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/samplecode.ts",
+            "line": 294
+          },
+          "name": "sampleCodeFileDbTemplates",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "Contents for sample root directory files.",
+            "stability": "stable",
+            "summary": "Capire root directory templates for the SampleCode configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/samplecode.ts",
+            "line": 22
+          },
+          "name": "sampleCodeFileRootTemplates",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/samplecode:SampleCodeConfigCapService"
+    },
+    "@dxfrontier/projen-template-projects.SampleCodeConfigGitHubAction": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant SampleCode configuration for the GitHubAction project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigGitHubAction",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/samplecode.ts",
+        "line": 6
+      },
+      "name": "SampleCodeConfigGitHubAction",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the sample file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/samplecode.ts",
+            "line": 7
+          },
+          "name": "sampleCodeFile",
+          "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/github-action/samplecode:SampleCodeConfigGitHubAction"
+    },
+    "@dxfrontier/projen-template-projects.TypeScriptConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling TypeScript configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant TypeScript configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/typescript.ts",
+        "line": 10
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/typescript.ts",
+            "line": 41
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "TypeScriptConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of package names with version specifications.",
+            "stability": "stable",
+            "summary": "Gets the additional development dependencies required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/typescript.ts",
+            "line": 16
+          },
+          "name": "additionalDevDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/typescript.ts",
+            "line": 25
+          },
+          "name": "additionalIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "An object where the key is the filename and the value is an array of file lines.",
+            "stability": "stable",
+            "summary": "Gets the configuration file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/typescript.ts",
+            "line": 35
+          },
+          "name": "configFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/typescript:TypeScriptConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant TypeScript configuration for the GitHubAction project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/github-action/typescript.ts",
+        "line": 7
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/github-action/typescript.ts",
+            "line": 37
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Removes the configuration module related config file."
+          },
+          "locationInModule": {
+            "filename": "src/github-action/typescript.ts",
+            "line": 30
+          },
+          "name": "removeConfigFile",
+          "protected": true
+        }
+      ],
+      "name": "TypeScriptConfigGitHubAction",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the additional development dependencies required for configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/typescript.ts",
+            "line": 8
+          },
+          "name": "additionalDevDependencies",
+          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/typescript.ts",
+            "line": 12
+          },
+          "name": "additionalIgnorePatterns",
+          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the development dependencies to be removed from configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/github-action/typescript.ts",
+            "line": 23
+          },
+          "name": "removeDevDependencies",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/github-action/typescript:TypeScriptConfigGitHubAction"
+    },
+    "@dxfrontier/projen-template-projects.TypeScriptConfigJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant TypeScript configuration for the Jsii project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigJsii",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/typescript.ts",
+        "line": 6
+      },
+      "name": "TypeScriptConfigJsii",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the configuration file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/typescript.ts",
+            "line": 7
+          },
+          "name": "configFile",
+          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/typescript:TypeScriptConfigJsii"
+    },
+    "@dxfrontier/projen-template-projects.VsCodeConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling VS Code configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant VS Code configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/vscode.ts",
+        "line": 11
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/vscode.ts",
+            "line": 54
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/vscode.ts",
+            "line": 48
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "VsCodeConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "returns": "A list of ignore patterns.",
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/vscode.ts",
+            "line": 43
+          },
+          "name": "additionalIgnorePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of the having the path to the file as key and the content as value.",
+            "stability": "stable",
+            "summary": "Gets the config file to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/vscode.ts",
+            "line": 17
+          },
+          "name": "configFile",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/vscode:VsCodeConfigBase"
+    },
+    "@dxfrontier/projen-template-projects.VsCodeConfigCapService": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.VsCodeConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant VsCode configuration for the CapService project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigCapService",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/cap-service/vscode.ts",
+          "line": 10
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "fqn": "@dxfrontier/projen-template-projects.CapServiceProject"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/cap-service/vscode.ts",
+        "line": 9
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/vscode.ts",
+            "line": 97
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.VsCodeConfigBase"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the launch configuration file in the project directory."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/vscode.ts",
+            "line": 73
+          },
+          "name": "createConfigLaunch"
+        },
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Creates the tasks configuration file in the project directory."
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/vscode.ts",
+            "line": 83
+          },
+          "name": "createConfigTasks"
+        }
+      ],
+      "name": "VsCodeConfigCapService",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/vscode.ts",
+            "line": 90
+          },
+          "name": "additionalIgnorePatterns",
+          "overrides": "@dxfrontier/projen-template-projects.VsCodeConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of the having the path to the file as key and the content as value.",
+            "stability": "stable",
+            "summary": "Gets the launch config file to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/vscode.ts",
+            "line": 19
+          },
+          "name": "configFileLaunch",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record of the having the path to the file as key and the content as value.",
+            "stability": "stable",
+            "summary": "Gets the tasks config file to be added to the project's configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/vscode.ts",
+            "line": 44
+          },
+          "name": "configFileTasks",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "any"
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/cap-service/vscode:VsCodeConfigCapService"
+    }
+  },
+  "version": "0.0.0",
+  "fingerprint": "sa7RNCadrRmWxaZgXxc19EQWzebpSh4G9AsGQ8uuNG8="
+}
