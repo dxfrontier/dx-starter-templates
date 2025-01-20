@@ -12,7 +12,8 @@ import { VsCodeConfigBase } from '../base/vscode';
 import { NpmConfigJsii } from './npm';
 import { TypeScriptConfigJsii } from './typescript';
 import { registerConfig } from '../utils';
-import { IProjectKind, ProjectKind } from '../types/types';
+import { IProjectKind, ProjectKind } from '../types/project';
+import { TypeScriptConfigBase } from '../base/typescript';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   /**
@@ -95,6 +96,12 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
   public readonly eslintConfig?: EsLintConfigBase;
 
   /**
+   * Configuration for Git settings in the project.
+   * This property is always initialized as `gitConfig` when the project is created.
+   */
+  public gitConfig?: GitConfigBase;
+
+  /**
    * Configuration for GitHub settings in the project.
    * This property is initialized if `githubEnabled` option is provided during project creation.
    */
@@ -131,6 +138,12 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
   public readonly vscodeConfig?: VsCodeConfigBase;
 
   /**
+   * Configuration for TypeScript settings in the project.
+   * This property is always initialized as `typescriptConfig` when the project is created.
+   */
+  public typescriptConfig?: TypeScriptConfigBase;
+
+  /**
    * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....
    * for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled`
    * If set to `true`, TypeScript-specific settings will be configured for the project.
@@ -162,8 +175,8 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
     this.typescript = true;
     this.kind = 'base';
 
-    new GitConfigBase(this);
-    new TypeScriptConfigJsii(this);
+    this.gitConfig = new GitConfigBase(this);
+    this.typescriptConfig = new TypeScriptConfigJsii(this);
     this.npmConfig = new NpmConfigJsii(this);
 
     if (options.prettierEnabled) {

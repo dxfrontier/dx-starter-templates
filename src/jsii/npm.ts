@@ -6,41 +6,21 @@ import { JsiiProject } from './project';
  * Implementing all relevant NPM configuration for the Jsii project.
  */
 export class NpmConfigJsii extends NpmConfigBase {
-  /**
-   * Gets the additional development dependencies required for configuration.
-   *
-   * @returns A list of package names with version specifications.
-   */
-  private get additionalDevDependencies(): string[] {
+  protected override get additionalDevDependencies(): string[] {
     return ['jsii@^5.7.4', 'jsii-diff@^1.106.0', 'jsii-docgen@^10.6.3', 'jsii-pacmak@^1.106.0', 'jsii-rosetta@^5.7.2'];
   }
 
-  /**
-   * Gets the additional peer dependencies required for configuration.
-   *
-   * @returns A list of package names with version specifications.
-   */
-  private get additionalPeerDependencies(): string[] {
+  protected override get additionalPeerDependencies(): string[] {
     return ['constructs@^10.4.2', 'projen@^0.91.6'];
   }
 
-  /**
-   * Gets the additional settings to be added to the project's configuration.
-   *
-   * @returns A settings object to be merged into the project's settings.
-   */
-  private get additionalSettings(): Settings {
+  protected override get additionalSettings(): Settings {
     return {
       files: ['lib', '.jsii', 'README.md'],
     };
   }
 
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  private get additionalIgnorePatterns(): string[] {
+  protected override get additionalIgnorePatterns(): string[] {
     return ['docs/', 'test/', 'lib/', '.jsii'];
   }
 

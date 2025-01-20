@@ -1,4 +1,4 @@
-import { ProjectTypes } from '../types';
+import { ConfigFile, ProjectTypes } from '../types';
 import { isValidProject } from '../utils';
 import { Config } from './config';
 
@@ -8,34 +8,28 @@ import { Config } from './config';
  * This class acts as a base for handling TypeScript configuration within projects.
  */
 export class TypeScriptConfigBase extends Config {
-  /**
-   * Gets the additional development dependencies required for configuration.
-   *
-   * @returns A list of package names with version specifications.
-   */
-  protected get additionalDevDependencies(): string[] {
+  protected override get additionalDevDependencies(): string[] {
     return ['typescript@^5.7.3', '@types/node@^22.10.6', 'ts-node@^10.9.2'];
   }
 
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  protected get additionalIgnorePatterns(): string[] {
+  protected override get additionalIgnorePatterns(): string[] {
     const filePath: string = Object.keys(this.configFile)[0];
     return [`/${filePath}`];
   }
 
-  /**
-   * Gets the configuration file content.
-   *
-   * @returns An object where the key is the filename and the value is an array of file lines.
-   */
-  protected get configFile(): Record<string, string[]> {
+  protected override get configFile(): ConfigFile {
     return {
-      'tsconfig.json': [],
+      'tsconfig.json': {},
     };
+  }
+
+  /**
+   * Retrieves the name to the TypeScript config file.
+   *
+   * @returns The name of the TypeScript config file.
+   */
+  public get configFileName(): string {
+    return Object.keys(this.configFile)[0];
   }
 
   public override registerConfig(): void {

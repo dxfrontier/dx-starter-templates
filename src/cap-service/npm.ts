@@ -5,23 +5,17 @@ import { Settings } from '../types';
  * Implementing all relevant NPM configuration for the CapService project.
  */
 export class NpmConfigCapService extends NpmConfigBase {
-  /**
-   * Gets the additional settings to be added to the project's configuration.
-   *
-   * @returns A settings object to be merged into the project's settings.
-   */
-  private get additionalSettings(): Settings {
+  protected override get additionalDevDependencies(): string[] {
+    return ['npm-run-all@^4.1.5'];
+  }
+
+  protected override get additionalSettings(): Settings {
     return {
       files: ['gen', 'README.md'],
     };
   }
 
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  private get additionalIgnorePatterns(): string[] {
+  protected override get additionalIgnorePatterns(): string[] {
     return ['docs/'];
   }
 
@@ -41,21 +35,17 @@ export class NpmConfigCapService extends NpmConfigBase {
     ];
   }
 
-  /**
-   * Gets additional attributes patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  private get additionalAttributesPatterns(): string[] {
+  protected override get additionalAttributesPatterns(): string[] {
     return ['@cds-models', 'dist', 'gen'];
   }
 
   public override registerConfig(): void {
     if (this.project instanceof BaseProject) {
+      this.addDevDependencies(this.additionalDevDependencies);
       this.addSettings(this.additionalSettings);
+      this.removeScriptsOnInit(this.removeScripts);
       this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
       this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
-      this.removeScriptsOnInit(this.removeScripts);
       this.project.githubConfig?.addAttributePatterns(this.additionalAttributesPatterns);
     }
   }

@@ -33,11 +33,15 @@ test('Files property in package.json is set properly', (): void => {
 
 test('DevDependencies are added properly', (): void => {
   const expectedDevDependencies: Record<string, string> = {
+    '@cap-js/cds-typer': '^0.32.0',
+    '@cap-js/cds-types': '^0.9.0',
     '@commitlint/cli': '^19.6.1',
     '@commitlint/config-conventional': '^19.6.0',
     '@commitlint/prompt-cli': '^19.7.0',
     '@commitlint/types': '^19.5.0',
-    '@types/jest': '*',
+    '@sap/cds-dk': '^8.6.1',
+    '@sap/cds-lsp': '^8.5.1',
+    '@types/jest': '^29.5.14',
     '@types/node': '^22.10.6',
     '@typescript-eslint/eslint-plugin': '^8.20.0',
     '@typescript-eslint/parser': '^8.20.0',
@@ -48,12 +52,13 @@ test('DevDependencies are added properly', (): void => {
     'eslint-plugin-import': '^2.31.0',
     'eslint-plugin-prettier': '^5.2.1',
     husky: '^9.1.7',
-    jest: '*',
-    'jest-junit': '^16',
+    jest: '^29.7.0',
+    'jest-junit': '^16.0.0',
     'lint-staged': '^15.3.0',
+    'npm-run-all': '^4.1.5',
     prettier: '^3.4.2',
     projen: '*',
-    'ts-jest': '*',
+    'ts-jest': '^29.2.5',
     'ts-node': '^10.9.2',
     typescript: '^5.7.3',
     'typescript-eslint': '^8.20.0',
@@ -61,13 +66,34 @@ test('DevDependencies are added properly', (): void => {
   npm.testDevDependencies(snapshot, expectedDevDependencies);
 });
 
+test('Dependencies are added properly', (): void => {
+  const expectedDependencies: Record<string, string> = {
+    '@dxfrontier/cds-ts-dispatcher': '^3.2.7',
+    '@sap/cds': '^8.6.1',
+    '@sap/xssec': '^4.2.8',
+  };
+  npm.testDependencies(snapshot, expectedDependencies);
+});
+
 test('Scripts are added properly', (): void => {
   const expectedTasks: Record<string, unknown> = {
-    commit: 'commit',
+    start: 'cds-serve --production',
+    'start:local': 'cds-ts serve',
+    watch: 'cds-ts watch',
     eslint: 'eslint .',
-    prepare: 'husky || true',
     prettier: 'prettier . --write',
     'prettier:cds': 'format-cds',
+    commit: 'commit',
+    prepare: 'husky || true',
+    'build:cds': 'cds-ts build --production',
+    'build:cds:message': 'echo "Build CDS ..."',
+    'build:ts': 'tsc',
+    'build:ts:message': 'echo "Transpile TS => JS ..."',
+    'build:srv:clean:ts': 'find gen/srv/srv -type f -name "*.ts" -delete',
+    'build:srv:clean:ts:message': 'echo "Clean TS files from srv folder ..."',
+    build: 'run-s build:cds:message build:cds build:ts:message build:ts build:srv:clean:ts:message build:srv:clean:ts',
+    test: 'jest --passWithNoTests --updateSnapshot',
+    'test:watch': 'jest --watch',
   };
   npm.testScripts(snapshot, expectedTasks);
 });
@@ -76,6 +102,10 @@ test('Other configuration modules specific settings in package.json are set prop
   const expectedSettings: Record<string, unknown> = {
     'lint-staged': {
       '**/*.{ts,tsx}': ['npm run eslint', 'npm run prettier', 'npm run prettier:cds'],
+    },
+    imports: {
+      '#cds-models/*': './@cds-models/*/index.js',
+      '#dispatcher': './@dispatcher/index.js',
     },
   };
   npm.testPackageJsonSettings(snapshot, expectedSettings);
@@ -94,11 +124,8 @@ test('Projen standard npm scripts are removed from package.json', (): void => {
     'post-upgrade',
     'pre-compile',
     'release',
-    'test',
-    'test:watch',
     'unbump',
     'upgrade',
-    'watch',
     'projen',
   ];
   const keyFound: boolean = keys.some((key: string): boolean => scriptsToRemove.includes(key));

@@ -1,7 +1,7 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
 import { isValidProject } from '../utils';
-import { ProjectTypes } from '../types/types';
+import { ProjectTypes } from '../types/project';
 
 /**
  * Base class for implementing all relevant Husky configuration.
@@ -9,49 +9,29 @@ import { ProjectTypes } from '../types/types';
  * This class acts as a base for handling Husky configuration within projects.
  */
 export class HuskyConfigBase extends Config {
-  /**
-   * Gets the additional development dependencies required for configuration.
-   *
-   * @returns A list of package names with version specifications.
-   */
-  protected get additionalDevDependencies(): string[] {
+  protected override get additionalDevDependencies(): string[] {
     return ['husky@^9.1.7'];
   }
 
-  /**
-   * Gets the additional npm scripts to be added to the project's configuration.
-   *
-   * @returns A record of script names and their corresponding commands.
-   */
-  protected get additionalScripts(): Record<string, string> {
+  protected override get additionalScripts(): Record<string, string> {
     return {
       prepare: 'husky || true',
     };
   }
 
-  /**
-   * Gets the configuration file content.
-   *
-   * @returns An object where the key is the filename and the value is an array of file lines.
-   */
-  protected get configFile(): Record<string, string[]> {
-    return {
-      '.husky/commit-msg': ['npx --no-install commitlint --edit "$1"'],
-      '.husky/pre-commit': ['npx lint-staged'],
-    };
-  }
-
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  protected get additionalIgnorePatterns(): string[] {
+  protected override get additionalIgnorePatterns(): string[] {
     const patterns: string[] = [];
     for (const filePath in this.configFile) {
       patterns.push(`/${filePath}`);
     }
     return patterns;
+  }
+
+  protected override get configFile(): Record<string, string[]> {
+    return {
+      '.husky/commit-msg': ['npx --no-install commitlint --edit "$1"'],
+      '.husky/pre-commit': ['npx lint-staged'],
+    };
   }
 
   public override registerConfig(): void {

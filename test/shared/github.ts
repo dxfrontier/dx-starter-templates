@@ -220,6 +220,7 @@ export function testDeploymentWorkflow(snapshot: SynthOutput, expectedTemplateLi
     '  pull_request:',
     '    branches:',
     '      - dev',
+    '      - main',
     '    types:',
     '      - closed',
     'jobs:',
@@ -243,7 +244,6 @@ export function testDeploymentWorkflow(snapshot: SynthOutput, expectedTemplateLi
     '          CF_SPACE_PROD: ${{ secrets.CF_SPACE_PROD }}',
     '          CF_USERNAME_PROD: ${{ secrets.CF_USERNAME_PROD }}',
     '          CF_PASSWORD_PROD: ${{ secrets.CF_PASSWORD_PROD }}',
-    '          BRANCH: dev',
   ];
 
   const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
@@ -265,11 +265,11 @@ export function testCliffToml(snapshot: SynthOutput): void {
     '# template for the changelog body',
     '# https://keats.github.io/tera/docs/#introduction',
     'body = """',
-    '{% if version %}',
+    '{% if version %}\\',
     '    ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}',
-    '{% else %}',
+    '{% else %}\\',
     '    ## [unreleased]',
-    '{% endif %}',
+    '{% endif %}\\',
     '{% for group, commits in commits | group_by(attribute="group") %}',
     '    ### {{ group | striptags | trim | upper_first }}',
     '    {% for commit in commits %}',

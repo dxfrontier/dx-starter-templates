@@ -1,6 +1,6 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes } from '../types/types';
+import { ProjectTypes } from '../types/project';
 import { isValidProject } from '../utils';
 
 /**
@@ -201,11 +201,11 @@ export class GitHubConfigBase extends Config {
         '# template for the changelog body',
         '# https://keats.github.io/tera/docs/#introduction',
         'body = """',
-        '{% if version %}',
+        '{% if version %}\\',
         '    ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}',
-        '{% else %}',
+        '{% else %}\\',
         '    ## [unreleased]',
-        '{% endif %}',
+        '{% endif %}\\',
         '{% for group, commits in commits | group_by(attribute="group") %}',
         '    ### {{ group | striptags | trim | upper_first }}',
         '    {% for commit in commits %}',
@@ -419,23 +419,13 @@ export class GitHubConfigBase extends Config {
     return [...dynamicFilePaths, ...staticFilePaths];
   }
 
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  protected get additionalIgnorePatterns(): string[] {
+  protected override get additionalIgnorePatterns(): string[] {
     const patterns: string[] = [...this.filePatterns, '/CHANGELOG.md'];
 
     return patterns;
   }
 
-  /**
-   * Gets additional attributes patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  protected get additionalAttributesPatterns(): string[] {
+  protected override get additionalAttributesPatterns(): string[] {
     return ['CHANGELOG.md'];
   }
 

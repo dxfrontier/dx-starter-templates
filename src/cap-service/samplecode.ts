@@ -1,6 +1,7 @@
 import { SampleFile } from 'projen';
 import { CapServiceProject, CapServiceProjectOptions } from './project';
-import { SampleCodeConfigBase } from '../base';
+import { BaseProject, SampleCodeConfigBase } from '../base';
+import { Settings } from '../types';
 
 /**
  * Implementing all relevant SampleCode configuration for the CapService project.
@@ -362,6 +363,48 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
           contents: this.sampleCodeFileDataTemplates[path].join('\n'),
         });
       }
+    }
+  }
+
+  protected override get additionalDevDependencies(): string[] {
+    return ['@cap-js/cds-typer@^0.32.0', '@cap-js/cds-types@^0.9.0', '@sap/cds-dk@^8.6.1', '@sap/cds-lsp@^8.5.1'];
+  }
+
+  protected override get additionalDependencies(): string[] {
+    return ['@dxfrontier/cds-ts-dispatcher@^3.2.7', '@sap/cds@^8.6.1', '@sap/xssec@^4.2.8'];
+  }
+
+  protected override get additionalScripts(): Record<string, string> {
+    return {
+      start: 'cds-serve --production',
+      'start:local': 'cds-ts serve',
+      watch: 'cds-ts watch',
+      'build:cds': 'cds-ts build --production',
+      'build:cds:message': 'echo "Build CDS ..."',
+      'build:ts': 'tsc',
+      'build:ts:message': 'echo "Transpile TS => JS ..."',
+      'build:srv:clean:ts': 'find gen/srv/srv -type f -name "*.ts" -delete',
+      'build:srv:clean:ts:message': 'echo "Clean TS files from srv folder ..."',
+      build:
+        'run-s build:cds:message build:cds build:ts:message build:ts build:srv:clean:ts:message build:srv:clean:ts',
+    };
+  }
+
+  protected override get additionalSettings(): Settings {
+    return {
+      imports: {
+        '#cds-models/*': './@cds-models/*/index.js',
+        '#dispatcher': './@dispatcher/index.js',
+      },
+    };
+  }
+
+  public override registerConfig(): void {
+    if (this.project instanceof BaseProject) {
+      this.project.npmConfig?.addDevDependencies(this.additionalDevDependencies);
+      this.project.npmConfig?.addDependencies(this.additionalDependencies);
+      this.project.npmConfig?.addScripts(this.additionalScripts);
+      this.project.npmConfig?.addSettings(this.additionalSettings);
     }
   }
 

@@ -1,6 +1,7 @@
 export * from './commitlint';
 export * from './devcontainer';
 export * from './eslint';
+export * from './jest';
 export * from './git';
 export * from './github';
 export * from './husky';
@@ -8,4 +9,5 @@ export * from './npm';
 export * from './project';
 export * from './prettier';
 export * from './vscode';
+export * from './typescript';
 export * from './samplecode';

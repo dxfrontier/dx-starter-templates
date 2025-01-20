@@ -71,7 +71,6 @@ describe('CapServicesProject Constructor Options', (): void => {
       prettierEnabled: true,
       vscodeEnabled: true,
       typescriptEnabled: true,
-      jest: true,
     };
 
     new CapServiceProject(options);
@@ -88,11 +87,6 @@ describe('CapServicesProject Constructor Options', (): void => {
       projenrcTs: true,
       disableTsconfigDev: true,
       disableTsconfig: false,
-      tsconfig: {
-        compilerOptions: {
-          allowImportingTsExtensions: true,
-        },
-      },
 
       prettier: false,
       eslint: false,
@@ -100,7 +94,7 @@ describe('CapServicesProject Constructor Options', (): void => {
       github: false,
       sampleCode: false,
       devContainer: false,
-      jest: true,
+      jest: false,
 
       commitlintEnabled: true,
       devContainerEnabled: true,

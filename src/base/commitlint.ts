@@ -1,7 +1,8 @@
 import { TextFile } from 'projen';
 import { Config } from './config';
-import { ProjectTypes, Settings } from '../types/types';
+import { ProjectTypes } from '../types/project';
 import { isValidProject } from '../utils';
+import { Settings } from '../types/types';
 
 /**
  * Base class for implementing all relevant CommitLint configuration.
@@ -9,12 +10,7 @@ import { isValidProject } from '../utils';
  * This class acts as a base for handling CommitLint configuration within projects.
  */
 export class CommitLintConfigBase extends Config {
-  /**
-   * Gets the additional development dependencies required for configuration.
-   *
-   * @returns A list of package names with version specifications.
-   */
-  protected get additionalDevDependencies(): string[] {
+  protected override get additionalDevDependencies(): string[] {
     return [
       '@commitlint/cli@^19.6.1',
       '@commitlint/config-conventional@^19.6.0',
@@ -24,12 +20,7 @@ export class CommitLintConfigBase extends Config {
     ];
   }
 
-  /**
-   * Gets the additional settings to be added to the project's configuration.
-   *
-   * @returns A settings object to be merged into the project's settings.
-   */
-  protected get additionalSettings(): Settings {
+  protected override get additionalSettings(): Settings {
     return {
       'lint-staged': {
         '**/*.ts': ['npm run eslint', 'npm run prettier'],
@@ -37,33 +28,18 @@ export class CommitLintConfigBase extends Config {
     };
   }
 
-  /**
-   * Gets the additional npm scripts to be added to the project's configuration.
-   *
-   * @returns A record of script names and their corresponding commands.
-   */
-  protected get additionalScripts(): Record<string, string> {
+  protected override get additionalScripts(): Record<string, string> {
     return {
       commit: 'commit',
     };
   }
 
-  /**
-   * Gets additional ignore patterns to be added to the project's ignore configuration.
-   *
-   * @returns A list of ignore patterns.
-   */
-  protected get additionalIgnorePatterns(): string[] {
+  protected override get additionalIgnorePatterns(): string[] {
     const filePath: string = Object.keys(this.configFile)[0];
     return [`/${filePath}`];
   }
 
-  /**
-   * Gets the configuration file content.
-   *
-   * @returns An object where the key is the filename and the value is an array of file lines.
-   */
-  protected get configFile(): Record<string, string[]> {
+  protected override get configFile(): Record<string, string[]> {
     return {
       '.commitlintrc.ts': [
         "import type { UserConfig } from '@commitlint/types';",

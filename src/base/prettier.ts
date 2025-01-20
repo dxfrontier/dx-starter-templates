@@ -27,32 +27,17 @@ export class PrettierConfigBase extends Config {
     return ['/.prettierignore', '/.prettierrc.json'];
   }
 
-  /**
-   * Gets the additional development dependencies required for configuration.
-   *
-   * @returns A list of package names with version specifications.
-   */
-  protected get additionalDevDependencies(): string[] {
+  protected override get additionalDevDependencies(): string[] {
     return ['prettier@^3.4.2'];
   }
 
-  /**
-   * Gets the additional npm scripts to be added to the project's configuration.
-   *
-   * @returns A record of script names and their corresponding commands.
-   */
-  protected get additionalScripts(): Record<string, string> {
+  protected override get additionalScripts(): Record<string, string> {
     return {
       prettier: 'prettier . --write',
     };
   }
 
-  /**
-   * Gets the config file to be added to the project's configuration.
-   *
-   * @returns A record of the having the path to the file as key and the content as value.
-   */
-  protected get configFile(): Settings {
+  protected override get configFile(): Settings {
     return {
       '.prettierrc.json': {
         overrides: [
@@ -71,12 +56,7 @@ export class PrettierConfigBase extends Config {
     };
   }
 
-  /**
-   * Gets the ignore file to be added to the project's configuration.
-   *
-   * @returns A record of the having the path to the file as key and the content as value.
-   */
-  protected get ignoreFile(): Record<string, string[]> {
+  protected override get ignoreFile(): Record<string, string[]> {
     return {
       '.prettierignore': [...this.ignorePatterns],
     };

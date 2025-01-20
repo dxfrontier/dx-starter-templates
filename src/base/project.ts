@@ -13,7 +13,7 @@ import { TypeScriptConfigBase } from './typescript';
 import { VsCodeConfigBase } from './vscode';
 import { registerConfig } from '../utils';
 import { CommitLintConfigBase } from './commitlint';
-import { IProjectKind, ProjectKind } from '../types/types';
+import { IProjectKind, ProjectKind } from '../types/project';
 
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
   /**

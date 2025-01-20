@@ -47,7 +47,7 @@ export function testDevDependencies(snapshot: SynthOutput, expectedDevDependenci
 /**
  * Validates that npm peer dependencies are added properly.
  * @param snapshot Synthesized project output.
- * @param expectedDevDependencies Records of expected peerDependencies to test for.
+ * @param expectedPeerDependencies Records of expected peerDependencies to test for.
  */
 export function testPeerDependencies(
   snapshot: SynthOutput,
@@ -59,6 +59,20 @@ export function testPeerDependencies(
     : standardPeerDependencies;
 
   expect(snapshot['package.json']!.peerDependencies).toStrictEqual(peerDependencies);
+}
+
+/**
+ * Validates that npm dependencies are added properly.
+ * @param snapshot Synthesized project output.
+ * @param expectedDependencies Records of expected dependencies to test for.
+ */
+export function testDependencies(snapshot: SynthOutput, expectedDependencies: Record<string, string> = {}): void {
+  const standardDependencies: Record<string, string> = {};
+  const dependencies: Record<string, string> = Object.keys(expectedDependencies).length
+    ? expectedDependencies
+    : standardDependencies;
+
+  expect(snapshot['package.json']!.dependencies).toStrictEqual(dependencies);
 }
 
 /**
@@ -77,9 +91,16 @@ export function testScripts(snapshot: SynthOutput, expectedTasks: Record<string,
  */
 export function testPackageJsonSettings(snapshot: SynthOutput, expectedSettings: Record<string, unknown>): void {
   const packageJson: any = snapshot['package.json'];
-  const relevantSettings: Record<string, unknown> = {
-    ...(packageJson?.['lint-staged'] ? { 'lint-staged': { ...packageJson['lint-staged'] } } : {}),
-    ...(packageJson?.['jsii'] ? { jsii: { ...packageJson['jsii'] } } : {}),
-  };
+
+  const relevantSettings: Record<string, unknown> = Object.keys(expectedSettings).reduce(
+    (acc: Record<string, unknown>, key: string): Record<string, unknown> => {
+      if (packageJson?.[key]) {
+        acc[key] = packageJson[key];
+      }
+      return acc;
+    },
+    {} as Record<string, unknown>,
+  );
+
   expect(relevantSettings).toStrictEqual(expectedSettings);
 }
