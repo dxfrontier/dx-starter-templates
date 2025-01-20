@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 
 
+## [0.3.1] - 2025-01-20
+
+
+### 🐛 Bug Fixes
+
+- *(cap-service)* 
+
+Changed preset handling
+
+
+### ⚙️ Miscellaneous Tasks
+
+- *(projen)* 
+
+Added .jsii
+
+- 
+
+Bump version, CHANGELOG.md generated (#170)
+
+
 ## [0.3.0] - 2025-01-20
 
 
