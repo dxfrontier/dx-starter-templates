@@ -1,4 +1,4 @@
-import { BaseProjectOptions, BaseProject, BaseOptions, TypeScriptConfigBase, JestConfigBase } from '../base';
+import { BaseProjectOptions, BaseProject, BaseOptions, JestConfigBase } from '../base';
 import { CommitLintConfigCapService } from './commitlint';
 import { DevContainerConfigCapService } from './devcontainer';
 import { EsLintConfigCapService } from './eslint';
@@ -8,6 +8,7 @@ import { HuskyConfigCapService } from './husky';
 import { NpmConfigCapService } from './npm';
 import { PrettierConfigCapService } from './prettier';
 import { SampleCodeConfigCapService } from './samplecode';
+import { TypeScriptConfigCapService } from './typescript';
 import { VsCodeConfigCapService } from './vscode';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
@@ -52,6 +53,7 @@ export class CapServiceProject extends BaseProject {
 
     this.gitConfig = new GitConfigCapService(this);
     this.npmConfig = new NpmConfigCapService(this);
+    this.typescriptConfig = new TypeScriptConfigCapService(this);
 
     if (updatedOptions.commitlintEnabled) {
       this.commitlintConfig = new CommitLintConfigCapService(this);
@@ -81,8 +83,6 @@ export class CapServiceProject extends BaseProject {
 
   protected override initializeBaseConfigs(options: BaseProjectOptions): void {
     super.initializeBaseConfigs(options);
-
-    this.typescriptConfig = new TypeScriptConfigBase(this);
 
     if (options.jestEnabled) {
       this.jestConfig = new JestConfigBase(this);

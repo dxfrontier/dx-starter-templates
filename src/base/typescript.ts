@@ -1,4 +1,4 @@
-import { ProjectTypes } from '../types';
+import { ProjectTypes, Settings } from '../types';
 import { isValidProject } from '../utils';
 import { Config } from './config';
 
@@ -32,9 +32,9 @@ export class TypeScriptConfigBase extends Config {
    *
    * @returns An object where the key is the filename and the value is an array of file lines.
    */
-  protected get configFile(): Record<string, string[]> {
+  protected get configFile(): Record<string, Settings> {
     return {
-      'tsconfig.json': [],
+      'tsconfig.json': {},
     };
   }
 
