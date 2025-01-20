@@ -43,9 +43,9 @@ export class NpmConfigCapService extends NpmConfigBase {
     if (this.project instanceof BaseProject) {
       this.addDevDependencies(this.additionalDevDependencies);
       this.addSettings(this.additionalSettings);
+      this.removeScriptsOnInit(this.removeScripts);
       this.project.eslintConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
       this.project.prettierConfig?.addIgnorePatterns(this.additionalIgnorePrettierPatterns);
-      this.removeScriptsOnInit(this.removeScripts);
       this.project.githubConfig?.addAttributePatterns(this.additionalAttributesPatterns);
     }
   }

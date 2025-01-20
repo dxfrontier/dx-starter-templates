@@ -91,9 +91,16 @@ export function testScripts(snapshot: SynthOutput, expectedTasks: Record<string,
  */
 export function testPackageJsonSettings(snapshot: SynthOutput, expectedSettings: Record<string, unknown>): void {
   const packageJson: any = snapshot['package.json'];
-  const relevantSettings: Record<string, unknown> = {
-    ...(packageJson?.['lint-staged'] ? { 'lint-staged': { ...packageJson['lint-staged'] } } : {}),
-    ...(packageJson?.['jsii'] ? { jsii: { ...packageJson['jsii'] } } : {}),
-  };
+
+  const relevantSettings: Record<string, unknown> = Object.keys(expectedSettings).reduce(
+    (acc: Record<string, unknown>, key: string): Record<string, unknown> => {
+      if (packageJson?.[key]) {
+        acc[key] = packageJson[key];
+      }
+      return acc;
+    },
+    {} as Record<string, unknown>,
+  );
+
   expect(relevantSettings).toStrictEqual(expectedSettings);
 }

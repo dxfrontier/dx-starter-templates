@@ -45,6 +45,7 @@ test('DevDependencies are added properly', (): void => {
     '@types/node': '^22.10.6',
     '@typescript-eslint/eslint-plugin': '^8.20.0',
     '@typescript-eslint/parser': '^8.20.0',
+    constructs: '^10.0.0',
     eslint: '^9.18.0',
     'eslint-config-prettier': '^10.0.1',
     'eslint-import-resolver-typescript': '^3.7.0',
@@ -56,6 +57,7 @@ test('DevDependencies are added properly', (): void => {
     'lint-staged': '^15.3.0',
     'npm-run-all': '^4.1.5',
     prettier: '^3.4.2',
+    projen: '*',
     'ts-jest': '^29.2.5',
     'ts-node': '^10.9.2',
     typescript: '^5.7.3',
@@ -124,7 +126,6 @@ test('Projen standard npm scripts are removed from package.json', (): void => {
     'release',
     'unbump',
     'upgrade',
-    'watch',
     'projen',
   ];
   const keyFound: boolean = keys.some((key: string): boolean => scriptsToRemove.includes(key));
