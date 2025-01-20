@@ -18,7 +18,6 @@ beforeEach((): void => {
     eslintEnabled: true,
     jestEnabled: true,
     sampleCodeEnabled: true,
-    jest: true,
   };
 
   project = new CapServiceProject(props);

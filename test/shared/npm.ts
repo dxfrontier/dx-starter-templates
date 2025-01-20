@@ -47,7 +47,7 @@ export function testDevDependencies(snapshot: SynthOutput, expectedDevDependenci
 /**
  * Validates that npm peer dependencies are added properly.
  * @param snapshot Synthesized project output.
- * @param expectedDevDependencies Records of expected peerDependencies to test for.
+ * @param expectedPeerDependencies Records of expected peerDependencies to test for.
  */
 export function testPeerDependencies(
   snapshot: SynthOutput,
@@ -59,6 +59,20 @@ export function testPeerDependencies(
     : standardPeerDependencies;
 
   expect(snapshot['package.json']!.peerDependencies).toStrictEqual(peerDependencies);
+}
+
+/**
+ * Validates that npm dependencies are added properly.
+ * @param snapshot Synthesized project output.
+ * @param expectedDependencies Records of expected dependencies to test for.
+ */
+export function testDependencies(snapshot: SynthOutput, expectedDependencies: Record<string, string> = {}): void {
+  const standardDependencies: Record<string, string> = {};
+  const dependencies: Record<string, string> = Object.keys(expectedDependencies).length
+    ? expectedDependencies
+    : standardDependencies;
+
+  expect(snapshot['package.json']!.dependencies).toStrictEqual(dependencies);
 }
 
 /**

@@ -1,10 +1,11 @@
-import { BaseProjectOptions, BaseProject, BaseOptions, JestConfigBase } from '../base';
+import { BaseProjectOptions, BaseProject, BaseOptions } from '../base';
 import { CommitLintConfigCapService } from './commitlint';
 import { DevContainerConfigCapService } from './devcontainer';
 import { EsLintConfigCapService } from './eslint';
 import { GitConfigCapService } from './git';
 import { GitHubConfigCapService } from './github';
 import { HuskyConfigCapService } from './husky';
+import { JestConfigCapService } from './jest';
 import { NpmConfigCapService } from './npm';
 import { PrettierConfigCapService } from './prettier';
 import { SampleCodeConfigCapService } from './samplecode';
@@ -44,11 +45,6 @@ export class CapServiceProject extends BaseProject {
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),
-      tsconfig: {
-        compilerOptions: {
-          allowImportingTsExtensions: true,
-        },
-      },
     });
 
     this.gitConfig = new GitConfigCapService(this);
@@ -63,6 +59,9 @@ export class CapServiceProject extends BaseProject {
     }
     if (updatedOptions.eslintEnabled) {
       this.eslintConfig = new EsLintConfigCapService(this);
+    }
+    if (updatedOptions.jestEnabled) {
+      this.jestConfig = new JestConfigCapService(this);
     }
     if (updatedOptions.githubEnabled) {
       this.githubConfig = new GitHubConfigCapService(this);
@@ -83,9 +82,5 @@ export class CapServiceProject extends BaseProject {
 
   protected override initializeBaseConfigs(options: BaseProjectOptions): void {
     super.initializeBaseConfigs(options);
-
-    if (options.jestEnabled) {
-      this.jestConfig = new JestConfigBase(this);
-    }
   }
 }

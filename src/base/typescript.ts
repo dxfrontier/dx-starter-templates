@@ -38,6 +38,15 @@ export class TypeScriptConfigBase extends Config {
     };
   }
 
+  /**
+   * Retrieves the name to the TypeScript config file.
+   *
+   * @returns The name of the TypeScript config file.
+   */
+  public get configFileName(): string {
+    return Object.keys(this.configFile)[0];
+  }
+
   public override registerConfig(): void {
     if (isValidProject(this.project)) {
       (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
