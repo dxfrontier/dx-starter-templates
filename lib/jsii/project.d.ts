@@ -4,11 +4,13 @@ import { DevContainerConfigBase } from '../base/devcontainer';
 import { EsLintConfigBase } from '../base/eslint';
 import { GitHubConfigBase } from '../base/github';
 import { HuskyConfigBase } from '../base/husky';
+import { GitConfigBase } from '../base/git';
 import { JestConfigBase } from '../base/jest';
 import { PrettierConfigBase } from '../base/prettier';
 import { VsCodeConfigBase } from '../base/vscode';
 import { NpmConfigJsii } from './npm';
-import { IProjectKind, ProjectKind } from '../types/types';
+import { IProjectKind, ProjectKind } from '../types/project';
+import { TypeScriptConfigBase } from '../base/typescript';
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
     /**
      * Whether to enable the commitlint configuration for the project.
@@ -79,6 +81,11 @@ export declare class JsiiProject extends cdk.JsiiProject implements IProjectKind
      */
     readonly eslintConfig?: EsLintConfigBase;
     /**
+     * Configuration for Git settings in the project.
+     * This property is always initialized as `gitConfig` when the project is created.
+     */
+    gitConfig?: GitConfigBase;
+    /**
      * Configuration for GitHub settings in the project.
      * This property is initialized if `githubEnabled` option is provided during project creation.
      */
@@ -108,6 +115,11 @@ export declare class JsiiProject extends cdk.JsiiProject implements IProjectKind
      * This property is initialized if `vscodeEnabled` option is provided during project creation.
      */
     readonly vscodeConfig?: VsCodeConfigBase;
+    /**
+     * Configuration for TypeScript settings in the project.
+     * This property is always initialized as `typescriptConfig` when the project is created.
+     */
+    typescriptConfig?: TypeScriptConfigBase;
     /**
      * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....
      * for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled`

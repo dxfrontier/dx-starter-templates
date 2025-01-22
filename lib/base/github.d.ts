@@ -1,5 +1,5 @@
 import { Config } from './config';
-import { ProjectTypes } from '../types/types';
+import { ProjectTypes } from '../types/project';
 /**
  * Base class for implementing all relevant GitHub configuration.
  *
@@ -108,17 +108,7 @@ export declare class GitHubConfigBase extends Config {
      * @returns A list of file path patterns, including dynamic configurations and static files like `.gitattributes` and `.gitignore`.
      */
     protected get filePatterns(): string[];
-    /**
-     * Gets additional ignore patterns to be added to the project's ignore configuration.
-     *
-     * @returns A list of ignore patterns.
-     */
     protected get additionalIgnorePatterns(): string[];
-    /**
-     * Gets additional attributes patterns to be added to the project's ignore configuration.
-     *
-     * @returns A list of ignore patterns.
-     */
     protected get additionalAttributesPatterns(): string[];
     registerConfig(): void;
     applyConfig(): void;

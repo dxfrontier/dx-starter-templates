@@ -12,11 +12,6 @@ export declare class VsCodeConfigBase extends Config {
      * @returns A record of the having the path to the file as key and the content as value.
      */
     protected get configFile(): Settings;
-    /**
-     * Gets additional ignore patterns to be added to the project's ignore configuration.
-     *
-     * @returns A list of ignore patterns.
-     */
     protected get additionalIgnorePatterns(): string[];
     registerConfig(): void;
     applyConfig(): void;

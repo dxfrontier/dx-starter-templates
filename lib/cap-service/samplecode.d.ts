@@ -1,5 +1,6 @@
 import { CapServiceProject, CapServiceProjectOptions } from './project';
 import { SampleCodeConfigBase } from '../base';
+import { Settings } from '../types';
 /**
  * Implementing all relevant SampleCode configuration for the CapService project.
  */
@@ -36,5 +37,10 @@ export declare class SampleCodeConfigCapService extends SampleCodeConfigBase {
      * Creates the template files for the data directory.
      */
     createDataTemplates(): void;
+    protected get additionalDevDependencies(): string[];
+    protected get additionalDependencies(): string[];
+    protected get additionalScripts(): Record<string, string>;
+    protected get additionalSettings(): Settings;
+    registerConfig(): void;
     applyConfig(): void;
 }

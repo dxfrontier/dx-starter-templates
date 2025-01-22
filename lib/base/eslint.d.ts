@@ -1,5 +1,5 @@
 import { Config } from './config';
-import { ProjectTypes } from '../types/types';
+import { ProjectTypes } from '../types/project';
 /**
  * Base class for implementing all relevant EsLint configuration.
  *
@@ -21,23 +21,9 @@ export declare class EsLintConfigBase extends Config {
      * @returns An array of file or directory patterns to be ignored by the linter.
      */
     protected get standardIgnorePatterns(): string[];
-    /**
-     * Gets the additional development dependencies required for configuration.
-     *
-     * @returns A list of package names with version specifications.
-     */
     protected get additionalDevDependencies(): string[];
-    /**
-     * Gets the additional npm scripts to be added to the project's configuration.
-     *
-     * @returns A record of script names and their corresponding commands.
-     */
     protected get additionalScripts(): Record<string, string>;
-    /**
-     * Gets the configuration file content.
-     *
-     * @returns An object where the key is the filename and the value is an array of file lines.
-     */
+    protected get additionalIgnorePatterns(): string[];
     protected get configFile(): Record<string, string[]>;
     /**
      * Adds custom linting rules to the project's configuration.
@@ -51,12 +37,6 @@ export declare class EsLintConfigBase extends Config {
      * @param patterns - An array of file or directory patterns to be ignored.
      */
     addIgnorePatterns(patterns: string[]): void;
-    /**
-     * Gets additional ignore patterns to be added to the project's ignore configuration.
-     *
-     * @returns A list of ignore patterns.
-     */
-    protected get additionalIgnorePatterns(): string[];
     registerConfig(): void;
     applyConfig(): void;
 }

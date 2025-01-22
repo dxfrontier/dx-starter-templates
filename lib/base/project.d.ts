@@ -11,7 +11,7 @@ import { SampleCodeConfigBase } from './samplecode';
 import { TypeScriptConfigBase } from './typescript';
 import { VsCodeConfigBase } from './vscode';
 import { CommitLintConfigBase } from './commitlint';
-import { IProjectKind, ProjectKind } from '../types/types';
+import { IProjectKind, ProjectKind } from '../types/project';
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
     /**
      * Whether to enable the commitlint configuration for the project.
