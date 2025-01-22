@@ -14,29 +14,9 @@ export declare class PrettierConfigBase extends Config {
      * @returns A list of ignore patterns.
      */
     protected get standardIgnorePatterns(): string[];
-    /**
-     * Gets the additional development dependencies required for configuration.
-     *
-     * @returns A list of package names with version specifications.
-     */
     protected get additionalDevDependencies(): string[];
-    /**
-     * Gets the additional npm scripts to be added to the project's configuration.
-     *
-     * @returns A record of script names and their corresponding commands.
-     */
     protected get additionalScripts(): Record<string, string>;
-    /**
-     * Gets the config file to be added to the project's configuration.
-     *
-     * @returns A record of the having the path to the file as key and the content as value.
-     */
     protected get configFile(): Settings;
-    /**
-     * Gets the ignore file to be added to the project's configuration.
-     *
-     * @returns A record of the having the path to the file as key and the content as value.
-     */
     protected get ignoreFile(): Record<string, string[]>;
     /**
      * Adds custom ignore patterns to the project's configuration.

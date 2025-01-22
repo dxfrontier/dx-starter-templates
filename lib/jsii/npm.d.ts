@@ -1,32 +1,13 @@
 import { NpmConfigBase } from '../base/npm';
+import { Settings } from '../types';
 /**
  * Implementing all relevant NPM configuration for the Jsii project.
  */
 export declare class NpmConfigJsii extends NpmConfigBase {
-    /**
-     * Gets the additional development dependencies required for configuration.
-     *
-     * @returns A list of package names with version specifications.
-     */
-    private get additionalDevDependencies();
-    /**
-     * Gets the additional peer dependencies required for configuration.
-     *
-     * @returns A list of package names with version specifications.
-     */
-    private get additionalPeerDependencies();
-    /**
-     * Gets the additional settings to be added to the project's configuration.
-     *
-     * @returns A settings object to be merged into the project's settings.
-     */
-    private get additionalSettings();
-    /**
-     * Gets additional ignore patterns to be added to the project's ignore configuration.
-     *
-     * @returns A list of ignore patterns.
-     */
-    private get additionalIgnorePatterns();
+    protected get additionalDevDependencies(): string[];
+    protected get additionalPeerDependencies(): string[];
+    protected get additionalSettings(): Settings;
+    protected get additionalIgnorePatterns(): string[];
     /**
      * Gets additional ignore patterns to be added to the project's ignore configuration.
      *

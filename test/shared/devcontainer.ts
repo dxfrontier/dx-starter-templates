@@ -70,8 +70,8 @@ export function testExtensions(snapshot: SynthOutput, expectedExtensions: string
  * Validates that container postCreateCommand is set properly.
  * @param snapshot Synthesized project output.
  */
-export function testCommand(snapshot: SynthOutput, expectedCommand: string[] = []): void {
-  const standardCommand: string[] = ['npm run install-dependencies'];
-  const command: string[] = Object.keys(expectedCommand).length ? expectedCommand : standardCommand;
+export function testCommand(snapshot: SynthOutput, expectedCommand: string = ''): void {
+  const standardCommand: string = 'npm install';
+  const command: string = expectedCommand ? expectedCommand : standardCommand;
   expect(snapshot['.devcontainer.json'].postCreateCommand).toStrictEqual(command);
 }

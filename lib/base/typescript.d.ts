@@ -1,3 +1,4 @@
+import { ConfigFile } from '../types';
 import { Config } from './config';
 /**
  * Base class for implementing all relevant TypeScript configuration.
@@ -5,23 +6,14 @@ import { Config } from './config';
  * This class acts as a base for handling TypeScript configuration within projects.
  */
 export declare class TypeScriptConfigBase extends Config {
-    /**
-     * Gets the additional development dependencies required for configuration.
-     *
-     * @returns A list of package names with version specifications.
-     */
     protected get additionalDevDependencies(): string[];
-    /**
-     * Gets additional ignore patterns to be added to the project's ignore configuration.
-     *
-     * @returns A list of ignore patterns.
-     */
     protected get additionalIgnorePatterns(): string[];
+    protected get configFile(): ConfigFile;
     /**
-     * Gets the configuration file content.
+     * Retrieves the name to the TypeScript config file.
      *
-     * @returns An object where the key is the filename and the value is an array of file lines.
+     * @returns The name of the TypeScript config file.
      */
-    protected get configFile(): Record<string, string[]>;
+    get configFileName(): string;
     registerConfig(): void;
 }

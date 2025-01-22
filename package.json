@@ -22,7 +22,6 @@
     "watch": "npx projen watch",
     "projen": "npx projen",
     "prettier": "prettier . --write",
-    "install-dependencies": "npm install",
     "eslint": "eslint .",
     "commit": "commit",
     "prepare": "husky || true"
@@ -69,7 +68,7 @@
   },
   "main": "lib/index.js",
   "license": "UNLICENSED",
-  "version": "0.3.1",
+  "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",
     "testMatch": [

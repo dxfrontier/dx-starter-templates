@@ -74,15 +74,15 @@ test('Container VsCode extensions are set properly', (): void => {
 });
 
 test('Container postCreateCommand is set properly', (): void => {
-  const expectedCommand: string[] = [
-    'sudo apt-get update',
-    'sudo apt-get install -y xdg-utils',
-    'npm install -g @sap/cds-dk typescript ts-node @ui5/cli git-cliff',
-    'npm install',
-    'wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -',
-    'echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list',
-    'sudo apt-get update',
-    'sudo apt-get install cf8-cli',
-  ];
+  const expectedCommand: string = `
+          sudo apt-get update && \
+          sudo apt-get install -y xdg-utils && \
+          npm install -g @sap/cds-dk typescript ts-node @ui5/cli git-cliff && \
+          npm install && \
+          wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
+          echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
+          sudo apt-get update && \
+          sudo apt-get install cf8-cli
+        `;
   devcontainer.testCommand(snapshot, expectedCommand);
 });

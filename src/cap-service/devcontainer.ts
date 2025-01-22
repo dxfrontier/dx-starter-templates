@@ -13,16 +13,16 @@ export class DevContainerConfigCapService extends DevContainerConfigBase {
     return {
       '.devcontainer.json': {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
-        postCreateCommand: [
-          'sudo apt-get update',
-          'sudo apt-get install -y xdg-utils',
-          'npm install -g @sap/cds-dk typescript ts-node @ui5/cli git-cliff',
-          'npm install',
-          'wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -',
-          'echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list',
-          'sudo apt-get update',
-          'sudo apt-get install cf8-cli',
-        ],
+        postCreateCommand: `
+          sudo apt-get update && \
+          sudo apt-get install -y xdg-utils && \
+          npm install -g @sap/cds-dk typescript ts-node @ui5/cli git-cliff && \
+          npm install && \
+          wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
+          echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
+          sudo apt-get update && \
+          sudo apt-get install cf8-cli
+        `,
         features: {
           'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
           'ghcr.io/devcontainers/features/github-cli': 'latest',
