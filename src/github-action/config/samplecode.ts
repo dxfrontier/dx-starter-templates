@@ -1,4 +1,4 @@
-import { SampleCodeConfigBase } from '../base/samplecode';
+import { SampleCodeConfigBase } from '../../base/config/samplecode';
 
 /**
  * Implementing all relevant SampleCode configuration for the GitHubAction project.

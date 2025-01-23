@@ -1,14 +1,14 @@
 import { PrettierConfigBase } from '../base';
-import { DevContainerConfigBase } from '../base/devcontainer';
-import { GitConfigBase } from '../base/git';
-import { GitHubConfigBase } from '../base/github';
-import { HuskyConfigBase } from '../base/husky';
-import { BaseOptions } from '../base/options';
+import { DevContainerConfigBase } from '../base/config/devcontainer';
+import { GitConfigBase } from '../base/config/git';
+import { GitHubConfigBase } from '../base/config/github';
+import { HuskyConfigBase } from '../base/config/husky';
+import { BaseOptions } from '../base/config/options';
 import { BaseProjectOptions, BaseProject } from '../base/project';
-import { VsCodeConfigBase } from '../base/vscode';
-import { CommitLintConfigGitHubAction } from './commitlint';
-import { NpmConfigGitHubAction } from './npm';
-import { SampleCodeConfigGitHubAction } from './samplecode';
+import { VsCodeConfigBase } from '../base/config/vscode';
+import { CommitLintConfigGitHubAction } from './config/commitlint';
+import { NpmConfigGitHubAction } from './config/npm';
+import { SampleCodeConfigGitHubAction } from './config/samplecode';
 import { TypeScriptConfigGitHubAction } from './typescript';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {}
