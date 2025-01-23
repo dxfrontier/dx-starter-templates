@@ -2,7 +2,7 @@ import { JsonFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes } from '../../types/project';
 import { isValidProject } from '../../utils';
-import { Settings } from '../../types/types';
+import { ConfigFile } from '../../types/types';
 
 /**
  * Base class for implementing all relevant DevContainer configuration.
@@ -10,7 +10,7 @@ import { Settings } from '../../types/types';
  * This class acts as a base for handling DevContainer configuration within projects.
  */
 export class DevContainerConfigBase extends Config {
-  protected override get configFile(): Settings {
+  protected override get configFile(): ConfigFile {
     return {
       '.devcontainer.json': {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',

@@ -1,7 +1,7 @@
 import { JsonFile, TextFile } from 'projen';
 import { Config } from '../config';
 import { TrailingComma } from 'projen/lib/javascript';
-import { ProjectTypes, Settings } from '../../types';
+import { ConfigFile, ProjectTypes } from '../../types';
 import { isValidProject } from '../../utils';
 
 /**
@@ -37,7 +37,7 @@ export class PrettierConfigBase extends Config {
     };
   }
 
-  protected override get configFile(): Settings {
+  protected override get configFile(): ConfigFile {
     return {
       '.prettierrc.json': {
         overrides: [

@@ -1,5 +1,5 @@
 import { DevContainerConfigBase } from '../../base';
-import { Settings } from '../../types';
+import { ConfigFile } from '../../types';
 
 /**
  * Implementing all relevant DevContainer configuration for the CapService project.
@@ -9,7 +9,7 @@ export class DevContainerConfigCapService extends DevContainerConfigBase {
     return {};
   }
 
-  protected override get configFile(): Settings {
+  protected override get configFile(): ConfigFile {
     return {
       '.devcontainer.json': {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',

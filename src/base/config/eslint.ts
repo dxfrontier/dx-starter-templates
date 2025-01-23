@@ -2,6 +2,7 @@ import { TextFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes } from '../../types/project';
 import { isValidProject } from '../../utils';
+import { ConfigFile } from '../../types';
 
 /**
  * Base class for implementing all relevant EsLint configuration.
@@ -71,7 +72,7 @@ export class EsLintConfigBase extends Config {
     return [`/${filePath}`];
   }
 
-  protected override get configFile(): Record<string, string[]> {
+  protected override get configFile(): ConfigFile {
     return {
       'eslint.config.mjs': [
         "import eslint from '@eslint/js';",
@@ -123,7 +124,7 @@ export class EsLintConfigBase extends Config {
   public override applyConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new TextFile(this.project, filePath, {
-      lines: this.configFile[filePath],
+      lines: this.configFile[filePath] as string[],
     });
   }
 }

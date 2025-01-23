@@ -2,7 +2,7 @@ import { TextFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes } from '../../types/project';
 import { isValidProject } from '../../utils';
-import { Settings } from '../../types/types';
+import { ConfigFile, Settings } from '../../types/types';
 
 /**
  * Base class for implementing all relevant CommitLint configuration.
@@ -39,7 +39,7 @@ export class CommitLintConfigBase extends Config {
     return [`/${filePath}`];
   }
 
-  protected override get configFile(): Record<string, string[]> {
+  protected override get configFile(): ConfigFile {
     return {
       '.commitlintrc.ts': [
         "import type { UserConfig } from '@commitlint/types';",
@@ -76,7 +76,7 @@ export class CommitLintConfigBase extends Config {
   public override applyConfig(): void {
     const filePath: string = Object.keys(this.configFile)[0];
     new TextFile(this.project, filePath, {
-      lines: this.configFile[filePath],
+      lines: this.configFile[filePath] as string[],
     });
   }
 }

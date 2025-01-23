@@ -2,6 +2,7 @@ import { TextFile } from 'projen';
 import { Config } from '../config';
 import { isValidProject } from '../../utils';
 import { ProjectTypes } from '../../types/project';
+import { ConfigFile } from '../../types';
 
 /**
  * Base class for implementing all relevant Husky configuration.
@@ -27,7 +28,7 @@ export class HuskyConfigBase extends Config {
     return patterns;
   }
 
-  protected override get configFile(): Record<string, string[]> {
+  protected override get configFile(): ConfigFile {
     return {
       '.husky/commit-msg': ['npx --no-install commitlint --edit "$1"'],
       '.husky/pre-commit': ['npx lint-staged'],
@@ -45,7 +46,7 @@ export class HuskyConfigBase extends Config {
   public override applyConfig(): void {
     for (const filePath in this.configFile) {
       new TextFile(this.project, filePath, {
-        lines: this.configFile[filePath],
+        lines: this.configFile[filePath] as string[],
       });
     }
   }

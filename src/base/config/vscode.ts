@@ -1,6 +1,6 @@
 import { JsonFile } from 'projen';
 import { Config } from '../config';
-import { ProjectTypes, Settings } from '../../types';
+import { ConfigFile, ProjectTypes } from '../../types';
 import { isValidProject } from '../../utils';
 
 /**
@@ -14,7 +14,7 @@ export class VsCodeConfigBase extends Config {
    *
    * @returns A record of the having the path to the file as key and the content as value.
    */
-  protected get configFile(): Settings {
+  protected get configFile(): ConfigFile {
     return {
       '.vscode/settings.json': {
         'editor.tabSize': 2,
