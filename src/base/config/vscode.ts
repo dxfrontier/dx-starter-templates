@@ -1,7 +1,7 @@
 import { JsonFile } from 'projen';
-import { Config } from './config';
-import { ProjectTypes, Settings } from '../types';
-import { isValidProject } from '../utils';
+import { Config } from '../config';
+import { ProjectTypes, Settings } from '../../types';
+import { isValidProject } from '../../utils';
 
 /**
  * Base class for implementing all relevant VS Code configuration.

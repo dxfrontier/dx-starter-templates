@@ -1,5 +1,5 @@
 import { SampleFile } from 'projen';
-import { Config } from './config';
+import { Config } from '../config';
 
 /**
  * Base class for implementing all relevant sample code configuration.

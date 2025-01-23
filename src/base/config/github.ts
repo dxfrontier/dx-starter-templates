@@ -1,7 +1,7 @@
 import { TextFile } from 'projen';
-import { Config } from './config';
-import { ProjectTypes } from '../types/project';
-import { isValidProject } from '../utils';
+import { Config } from '../config';
+import { ProjectTypes } from '../../types/project';
+import { isValidProject } from '../../utils';
 
 /**
  * Base class for implementing all relevant GitHub configuration.

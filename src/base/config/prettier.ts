@@ -1,8 +1,8 @@
 import { JsonFile, TextFile } from 'projen';
-import { Config } from './config';
+import { Config } from '../config';
 import { TrailingComma } from 'projen/lib/javascript';
-import { ProjectTypes, Settings } from '../types';
-import { isValidProject } from '../utils';
+import { ProjectTypes, Settings } from '../../types';
+import { isValidProject } from '../../utils';
 
 /**
  * Base class for implementing all relevant Prettier configuration.

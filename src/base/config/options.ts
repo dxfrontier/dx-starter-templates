@@ -1,4 +1,4 @@
-import { BaseProjectOptions } from './project';
+import { BaseProjectOptions } from '../project';
 // import { JsiiProjectOptions } from '../jsii';
 import { NodePackageManager } from 'projen/lib/javascript';
 

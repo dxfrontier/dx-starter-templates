@@ -1,8 +1,8 @@
 import { JsonPatch, ObjectFile } from 'projen';
-import { Config } from './config';
-import { ProjectTypes, Settings } from '../types';
+import { Config } from '../config';
+import { ProjectTypes, Settings } from '../../types';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { isValidProject } from '../utils';
+import { isValidProject } from '../../utils';
 
 /**
  * Base class for implementing all relevant NPM configuration.

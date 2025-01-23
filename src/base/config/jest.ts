@@ -1,4 +1,4 @@
-import { Config } from './config';
+import { Config } from '../config';
 
 /**
  * Base class for implementing all relevant Jest configuration.
