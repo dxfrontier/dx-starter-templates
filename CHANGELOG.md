@@ -2,9 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.2] - 2025-01-23
+
+### ⚙️ Miscellaneous Tasks
+
+- 
+
+Bump version, CHANGELOG.md generated (#178)
+
+- *(package)* 
+
+Added accidentally removed package version
+
+- *(build)* 
+
+Create codeowners file
 
 ## [0.3.1] - 2025-01-20
-
 
 ### 🐛 Bug Fixes
 
@@ -23,9 +37,7 @@ Added .jsii
 
 Bump version, CHANGELOG.md generated (#170)
 
-
 ## [0.3.0] - 2025-01-20
-
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -33,9 +45,7 @@ Bump version, CHANGELOG.md generated (#170)
 
 Bump version, CHANGELOG.md generated (#168)
 
-
 ## [0.2.0] - 2025-01-15
-
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -43,9 +53,7 @@ Bump version, CHANGELOG.md generated (#168)
 
 Bump version, CHANGELOG.md generated (#165)
 
-
 ## [0.1.1] - 2025-01-15
-
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -53,9 +61,7 @@ Bump version, CHANGELOG.md generated (#165)
 
 Bump version, CHANGELOG.md generated (#162)
 
-
 ## [0.1.0] - 2025-01-15
-
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -63,9 +69,7 @@ Bump version, CHANGELOG.md generated (#162)
 
 Bump version, CHANGELOG.md generated (#159)
 
-
 ## [0.0.1] - 2025-01-15
-
 
 ### 🚀 Features
 
