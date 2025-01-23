@@ -8239,6 +8239,193 @@ public readonly project: Project;
 ---
 
 
+### JestConfigCapService <a name="JestConfigCapService" id="@dxfrontier/projen-template-projects.JestConfigCapService"></a>
+
+Implementing all relevant Jest configuration for the CapService project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.JestConfigCapService.Initializer"></a>
+
+```typescript
+import { JestConfigCapService } from '@dxfrontier/projen-template-projects'
+
+new JestConfigCapService(project: Project)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | The project to configure the configuration module for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.JestConfigCapService.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+The project to configure the configuration module for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.applyConfig">applyConfig</a></code> | Applies the current configuration based on the strategy to the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
+
+---
+
+##### `toString` <a name="toString" id="@dxfrontier/projen-template-projects.JestConfigCapService.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.JestConfigCapService.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.JestConfigCapService.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@dxfrontier/projen-template-projects.JestConfigCapService.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+##### `applyConfig` <a name="applyConfig" id="@dxfrontier/projen-template-projects.JestConfigCapService.applyConfig"></a>
+
+```typescript
+public applyConfig(): void
+```
+
+Applies the current configuration based on the strategy to the project.
+
+To ensure proper configuration handling `applyConfig` should be called in
+`preSynthesize` phase of the configuration module and not from project itself.
+
+Subclasses should overwrite it to guarantee proper module configuration.
+
+##### `registerConfig` <a name="registerConfig" id="@dxfrontier/projen-template-projects.JestConfigCapService.registerConfig"></a>
+
+```typescript
+public registerConfig(): void
+```
+
+Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling.
+
+This methods should be called only in the projects `preSynthesize` phase
+and not on the configuration modules `preSynthesize` function otherwise
+it is not guaranteed that all needed modules are setup properly.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@dxfrontier/projen-template-projects.JestConfigCapService.isConstruct"></a>
+
+```typescript
+import { JestConfigCapService } from '@dxfrontier/projen-template-projects'
+
+JestConfigCapService.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.JestConfigCapService.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@dxfrontier/projen-template-projects.JestConfigCapService.isComponent"></a>
+
+```typescript
+import { JestConfigCapService } from '@dxfrontier/projen-template-projects'
+
+JestConfigCapService.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.JestConfigCapService.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@dxfrontier/projen-template-projects.JestConfigCapService.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@dxfrontier/projen-template-projects.JestConfigCapService.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.JestConfigCapService.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### JsiiProject <a name="JsiiProject" id="@dxfrontier/projen-template-projects.JsiiProject"></a>
 
 - *Implements:* <a href="#@dxfrontier/projen-template-projects.IProjectKind">IProjectKind</a>
@@ -8973,7 +9160,9 @@ When given a project, this it the project itself.
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.prettierConfig">prettierConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.PrettierConfigBase">PrettierConfigBase</a></code> | Configuration for Prettier settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.vscodeConfig">vscodeConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.VsCodeConfigBase">VsCodeConfigBase</a></code> | Configuration for VS Code settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.kind">kind</a></code> | <code>string</code> | Convenience type for guaranteeing type safety and avoiding too many circular dependencies. |
+| <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.gitConfig">gitConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitConfigBase">GitConfigBase</a></code> | Configuration for Git settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.typescript">typescript</a></code> | <code>boolean</code> | This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript. |
+| <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.typescriptConfig">typescriptConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase">TypeScriptConfigBase</a></code> | Configuration for TypeScript settings in the project. |
 
 ---
 
@@ -9865,6 +10054,20 @@ Convenience type for guaranteeing type safety and avoiding too many circular dep
 
 ---
 
+##### `gitConfig`<sup>Optional</sup> <a name="gitConfig" id="@dxfrontier/projen-template-projects.JsiiProject.property.gitConfig"></a>
+
+```typescript
+public readonly gitConfig: GitConfigBase;
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.GitConfigBase">GitConfigBase</a>
+
+Configuration for Git settings in the project.
+
+This property is always initialized as `gitConfig` when the project is created.
+
+---
+
 ##### `typescript`<sup>Optional</sup> <a name="typescript" id="@dxfrontier/projen-template-projects.JsiiProject.property.typescript"></a>
 
 ```typescript
@@ -9874,6 +10077,20 @@ public readonly typescript: boolean;
 - *Type:* boolean
 
 This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript.
+
+---
+
+##### `typescriptConfig`<sup>Optional</sup> <a name="typescriptConfig" id="@dxfrontier/projen-template-projects.JsiiProject.property.typescriptConfig"></a>
+
+```typescript
+public readonly typescriptConfig: TypeScriptConfigBase;
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase">TypeScriptConfigBase</a>
+
+Configuration for TypeScript settings in the project.
+
+This property is always initialized as `typescriptConfig` when the project is created.
 
 ---
 
@@ -12361,6 +12578,7 @@ Test whether the given construct is a component.
 | --- | --- | --- |
 | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase.property.configFileName">configFileName</a></code> | <code>string</code> | Retrieves the name to the TypeScript config file. |
 
 ---
 
@@ -12383,6 +12601,218 @@ public readonly project: Project;
 ```
 
 - *Type:* projen.Project
+
+---
+
+##### `configFileName`<sup>Required</sup> <a name="configFileName" id="@dxfrontier/projen-template-projects.TypeScriptConfigBase.property.configFileName"></a>
+
+```typescript
+public readonly configFileName: string;
+```
+
+- *Type:* string
+
+Retrieves the name to the TypeScript config file.
+
+---
+
+
+### TypeScriptConfigCapService <a name="TypeScriptConfigCapService" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService"></a>
+
+Implementing all relevant TypeScript configuration for the CapService project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.Initializer"></a>
+
+```typescript
+import { TypeScriptConfigCapService } from '@dxfrontier/projen-template-projects'
+
+new TypeScriptConfigCapService(project: Project)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | The project to configure the configuration module for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+The project to configure the configuration module for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.applyConfig">applyConfig</a></code> | Applies the current configuration based on the strategy to the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
+
+---
+
+##### `toString` <a name="toString" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+##### `applyConfig` <a name="applyConfig" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.applyConfig"></a>
+
+```typescript
+public applyConfig(): void
+```
+
+Applies the current configuration based on the strategy to the project.
+
+To ensure proper configuration handling `applyConfig` should be called in
+`preSynthesize` phase of the configuration module and not from project itself.
+
+Subclasses should overwrite it to guarantee proper module configuration.
+
+##### `registerConfig` <a name="registerConfig" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.registerConfig"></a>
+
+```typescript
+public registerConfig(): void
+```
+
+Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling.
+
+This methods should be called only in the projects `preSynthesize` phase
+and not on the configuration modules `preSynthesize` function otherwise
+it is not guaranteed that all needed modules are setup properly.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.isConstruct"></a>
+
+```typescript
+import { TypeScriptConfigCapService } from '@dxfrontier/projen-template-projects'
+
+TypeScriptConfigCapService.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.isComponent"></a>
+
+```typescript
+import { TypeScriptConfigCapService } from '@dxfrontier/projen-template-projects'
+
+TypeScriptConfigCapService.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigCapService.property.configFileName">configFileName</a></code> | <code>string</code> | Retrieves the name to the TypeScript config file. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+##### `configFileName`<sup>Required</sup> <a name="configFileName" id="@dxfrontier/projen-template-projects.TypeScriptConfigCapService.property.configFileName"></a>
+
+```typescript
+public readonly configFileName: string;
+```
+
+- *Type:* string
+
+Retrieves the name to the TypeScript config file.
 
 ---
 
@@ -12548,6 +12978,7 @@ Test whether the given construct is a component.
 | --- | --- | --- |
 | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction.property.configFileName">configFileName</a></code> | <code>string</code> | Retrieves the name to the TypeScript config file. |
 
 ---
 
@@ -12570,6 +13001,18 @@ public readonly project: Project;
 ```
 
 - *Type:* projen.Project
+
+---
+
+##### `configFileName`<sup>Required</sup> <a name="configFileName" id="@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction.property.configFileName"></a>
+
+```typescript
+public readonly configFileName: string;
+```
+
+- *Type:* string
+
+Retrieves the name to the TypeScript config file.
 
 ---
 
@@ -12735,6 +13178,7 @@ Test whether the given construct is a component.
 | --- | --- | --- |
 | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigJsii.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigJsii.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigJsii.property.configFileName">configFileName</a></code> | <code>string</code> | Retrieves the name to the TypeScript config file. |
 
 ---
 
@@ -12757,6 +13201,18 @@ public readonly project: Project;
 ```
 
 - *Type:* projen.Project
+
+---
+
+##### `configFileName`<sup>Required</sup> <a name="configFileName" id="@dxfrontier/projen-template-projects.TypeScriptConfigJsii.property.configFileName"></a>
+
+```typescript
+public readonly configFileName: string;
+```
+
+- *Type:* string
+
+Retrieves the name to the TypeScript config file.
 
 ---
 

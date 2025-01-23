@@ -1,13 +1,13 @@
 import { JsonFile } from 'projen';
 import { BaseProject } from '../base';
 import { TypeScriptConfigBase } from '../base/typescript';
-import { Settings } from '../types';
+import { ConfigFile } from '../types';
 
 /**
  * Implementing all relevant TypeScript configuration for the CapService project.
  */
 export class TypeScriptConfigCapService extends TypeScriptConfigBase {
-  protected override get configFile(): Record<string, Settings> {
+  protected override get configFile(): ConfigFile {
     return {
       'tsconfig.json': {
         compilerOptions: {

@@ -1,16 +1,16 @@
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { NpmConfigBase } from './npm';
-import { DevContainerConfigBase } from './devcontainer';
-import { EsLintConfigBase } from './eslint';
-import { GitConfigBase } from './git';
-import { GitHubConfigBase } from './github';
-import { HuskyConfigBase } from './husky';
-import { JestConfigBase } from './jest';
-import { PrettierConfigBase } from './prettier';
-import { SampleCodeConfigBase } from './samplecode';
+import { NpmConfigBase } from './config/npm';
+import { DevContainerConfigBase } from './config/devcontainer';
+import { EsLintConfigBase } from './config/eslint';
+import { GitConfigBase } from './config/git';
+import { GitHubConfigBase } from './config/github';
+import { HuskyConfigBase } from './config/husky';
+import { JestConfigBase } from './config/jest';
+import { PrettierConfigBase } from './config/prettier';
+import { SampleCodeConfigBase } from './config/samplecode';
 import { TypeScriptConfigBase } from './typescript';
-import { VsCodeConfigBase } from './vscode';
-import { CommitLintConfigBase } from './commitlint';
+import { VsCodeConfigBase } from './config/vscode';
+import { CommitLintConfigBase } from './config/commitlint';
 import { IProjectKind, ProjectKind } from '../types/project';
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
     /**
