@@ -1,4 +1,4 @@
-import { GitConfigBase } from '../base';
+import { GitConfigBase } from '../../base';
 
 /**
  * Implementing all relevant Git configuration for the CapService project.

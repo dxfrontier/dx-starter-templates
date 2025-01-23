@@ -1,4 +1,4 @@
-import { PrettierConfigBase } from '../base/prettier';
+import { PrettierConfigBase } from '../../base/config/prettier';
 
 /**
  * Implementing all relevant Prettier configuration for the CapService project.

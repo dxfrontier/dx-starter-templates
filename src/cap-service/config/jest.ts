@@ -1,7 +1,7 @@
-import { JestConfigBase } from '../base/jest';
-import { ProjectTypes } from '../types/project';
-import { Settings } from '../types/types';
-import { isValidProject } from '../utils';
+import { JestConfigBase } from '../../base/config/jest';
+import { ProjectTypes } from '../../types/project';
+import { Settings } from '../../types/types';
+import { isValidProject } from '../../utils';
 
 /**
  * Implementing all relevant Jest configuration for the CapService project.

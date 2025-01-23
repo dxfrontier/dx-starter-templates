@@ -1,4 +1,4 @@
-import { HuskyConfigBase } from '../base';
+import { HuskyConfigBase } from '../../base';
 
 /**
  * Implementing all relevant Husky configuration for the CapService project.

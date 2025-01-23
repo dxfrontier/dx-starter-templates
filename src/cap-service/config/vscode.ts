@@ -1,7 +1,7 @@
 import { JsonFile } from 'projen';
-import { CapServiceProject } from '.';
-import { VsCodeConfigBase } from '../base';
-import { Settings } from '../types';
+import { CapServiceProject } from '..';
+import { VsCodeConfigBase } from '../../base';
+import { Settings } from '../../types';
 
 /**
  * Implementing all relevant VsCode configuration for the CapService project.

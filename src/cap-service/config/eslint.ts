@@ -1,4 +1,4 @@
-import { EsLintConfigBase } from '../base';
+import { EsLintConfigBase } from '../../base';
 
 /**
  * Implementing all relevant EsLint configuration for the CapService project.

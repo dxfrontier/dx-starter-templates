@@ -1,5 +1,5 @@
-import { DevContainerConfigBase } from '../base';
-import { Settings } from '../types';
+import { DevContainerConfigBase } from '../../base';
+import { Settings } from '../../types';
 
 /**
  * Implementing all relevant DevContainer configuration for the CapService project.

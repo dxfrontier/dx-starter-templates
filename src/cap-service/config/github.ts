@@ -1,5 +1,5 @@
 import { TextFile } from 'projen';
-import { GitHubConfigBase } from '../base';
+import { GitHubConfigBase } from '../../base';
 
 /**
  * Implementing all relevant GitHub configuration for the CapService project.

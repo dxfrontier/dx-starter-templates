@@ -1,5 +1,5 @@
-import { CommitLintConfigBase } from '../base';
-import { Settings } from '../types';
+import { CommitLintConfigBase } from '../../base';
+import { Settings } from '../../types';
 
 /**
  * Implementing all relevant CommitLint configuration for the CapService project.
