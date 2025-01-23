@@ -1,6 +1,6 @@
-import { NpmConfigBase } from '../base/npm';
-import { Settings } from '../types';
-import { JsiiProject } from './project';
+import { NpmConfigBase } from '../../base/config/npm';
+import { Settings } from '../../types';
+import { JsiiProject } from '.././project';
 
 /**
  * Implementing all relevant NPM configuration for the Jsii project.
