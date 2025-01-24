@@ -1,5 +1,5 @@
 import { NpmConfigBase } from '../../base/config/npm';
-import { Settings } from '../../types';
+import { Settings } from '../../util/types';
 /**
  * Implementing all relevant NPM configuration for the GitHubAction project.
  */

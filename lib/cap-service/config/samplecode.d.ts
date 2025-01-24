@@ -1,6 +1,6 @@
 import { CapServiceProject, CapServiceProjectOptions } from '.././project';
 import { SampleCodeConfigBase } from '../../base';
-import { Settings } from '../../types';
+import { Settings } from '../../util/types';
 /**
  * Implementing all relevant SampleCode configuration for the CapService project.
  */

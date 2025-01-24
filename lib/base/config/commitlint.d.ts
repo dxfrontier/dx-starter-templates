@@ -1,5 +1,5 @@
 import { Config } from '../config';
-import { ConfigFile, Settings } from '../../types/types';
+import { ConfigFile, Settings } from '../../util/types/types';
 /**
  * Base class for implementing all relevant CommitLint configuration.
  *

@@ -1,5 +1,5 @@
 import { Config } from '../config';
-import { ProjectTypes, Settings } from '../../types';
+import { ProjectTypes, Settings } from '../../util/types';
 /**
  * Base class for implementing all relevant NPM configuration.
  *

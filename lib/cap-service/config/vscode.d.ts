@@ -1,6 +1,6 @@
 import { CapServiceProject } from '..';
 import { VsCodeConfigBase } from '../../base';
-import { Settings } from '../../types';
+import { Settings } from '../../util/types';
 /**
  * Implementing all relevant VsCode configuration for the CapService project.
  */

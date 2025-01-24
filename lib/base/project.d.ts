@@ -8,10 +8,10 @@ import { HuskyConfigBase } from './config/husky';
 import { JestConfigBase } from './config/jest';
 import { PrettierConfigBase } from './config/prettier';
 import { SampleCodeConfigBase } from './config/samplecode';
-import { TypeScriptConfigBase } from './typescript';
+import { TypeScriptConfigBase } from './config/typescript';
 import { VsCodeConfigBase } from './config/vscode';
 import { CommitLintConfigBase } from './config/commitlint';
-import { IProjectKind, ProjectKind } from '../types/project';
+import { IProjectKind, ProjectKind } from '../util/types/project';
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
     /**
      * Whether to enable the commitlint configuration for the project.

@@ -1,5 +1,5 @@
 import { Config } from '../config';
-import { ConfigFile } from '../../types/types';
+import { ConfigFile } from '../../util/types/types';
 /**
  * Base class for implementing all relevant DevContainer configuration.
  *
