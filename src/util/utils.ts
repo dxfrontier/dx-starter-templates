@@ -1,8 +1,8 @@
 import { Component } from 'projen/lib/component';
-import { Config } from './base/config';
-import { IProjectKind } from './types/project';
+import { Config } from '../base/config';
+import { IProjectKind } from './types';
 import { Project } from 'projen';
-import { BaseProject } from './base/project';
+import { BaseProject } from '../base/project';
 
 /**
  * Registers configuration for components that are instances of the `Config` class.

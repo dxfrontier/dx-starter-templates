@@ -1,5 +1,5 @@
 import { Config } from '../config';
-import { ProjectTypes } from '../../types/project';
+import { ProjectTypes } from '../../util/types/project';
 
 /**
  * Base class for implementing all relevant Git configuration.

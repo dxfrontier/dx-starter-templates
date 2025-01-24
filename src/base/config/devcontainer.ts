@@ -1,8 +1,8 @@
 import { JsonFile } from 'projen';
 import { Config } from '../config';
-import { ProjectTypes } from '../../types/project';
-import { isValidProject } from '../../utils';
-import { ConfigFile } from '../../types/types';
+import { ProjectTypes } from '../../util/types/project';
+import { isValidProject } from '../../util/utils';
+import { ConfigFile } from '../../util/types/types';
 
 /**
  * Base class for implementing all relevant DevContainer configuration.

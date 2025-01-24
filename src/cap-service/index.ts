@@ -9,5 +9,5 @@ export * from './config/npm';
 export * from './project';
 export * from './config/prettier';
 export * from './config/vscode';
-export * from './typescript';
+export * from './config/typescript';
 export * from './config/samplecode';

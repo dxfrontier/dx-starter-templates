@@ -10,10 +10,10 @@ import { BaseOptions } from '../base/config/options';
 import { PrettierConfigBase } from '../base/config/prettier';
 import { VsCodeConfigBase } from '../base/config/vscode';
 import { NpmConfigJsii } from './config/npm';
-import { TypeScriptConfigJsii } from './typescript';
-import { registerConfig } from '../utils';
-import { IProjectKind, ProjectKind } from '../types/project';
-import { TypeScriptConfigBase } from '../base/typescript';
+import { TypeScriptConfigJsii } from './config/typescript';
+import { registerConfig } from '../util/utils';
+import { IProjectKind, ProjectKind } from '../util/types/project';
+import { TypeScriptConfigBase } from '../base/config/typescript';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   /**

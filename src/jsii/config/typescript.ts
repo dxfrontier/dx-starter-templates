@@ -1,5 +1,5 @@
-import { TypeScriptConfigBase } from '../base/typescript';
-import { ConfigFile } from '../types';
+import { TypeScriptConfigBase } from '../../base/config/typescript';
+import { ConfigFile } from '../../util/types';
 
 /**
  * Implementing all relevant TypeScript configuration for the Jsii project.

@@ -1,7 +1,7 @@
 import { JsonFile } from 'projen';
-import { BaseProject } from '../base';
-import { TypeScriptConfigBase } from '../base/typescript';
-import { ConfigFile } from '../types';
+import { BaseProject } from '../../base';
+import { TypeScriptConfigBase } from '../../base/config/typescript';
+import { ConfigFile } from '../../util/types';
 
 /**
  * Implementing all relevant TypeScript configuration for the CapService project.

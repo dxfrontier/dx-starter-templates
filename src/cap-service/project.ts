@@ -9,7 +9,7 @@ import { JestConfigCapService } from './config/jest';
 import { NpmConfigCapService } from './config/npm';
 import { PrettierConfigCapService } from './config/prettier';
 import { SampleCodeConfigCapService } from './config/samplecode';
-import { TypeScriptConfigCapService } from './typescript';
+import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {

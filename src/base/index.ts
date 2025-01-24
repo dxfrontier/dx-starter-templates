@@ -10,6 +10,6 @@ export * from './config/npm';
 export * from './config/options';
 export * from './project';
 export * from './config/prettier';
-export * from './typescript';
+export * from './config/typescript';
 export * from './config/vscode';
 export * from './config/samplecode';

@@ -1,5 +1,5 @@
-import { BaseProject } from '../base/project';
-import { TypeScriptConfigBase } from '../base/typescript';
+import { BaseProject } from '../../base/project';
+import { TypeScriptConfigBase } from '../../base/config/typescript';
 
 /**
  * Implementing all relevant TypeScript configuration for the GitHubAction project.
