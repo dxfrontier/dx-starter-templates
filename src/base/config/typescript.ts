@@ -1,6 +1,6 @@
-import { ConfigFile, ProjectTypes } from '../types';
-import { isValidProject } from '../utils';
-import { Config } from './config';
+import { ConfigFile, ProjectTypes } from '../../util/types';
+import { isValidProject } from '../../util/utils';
+import { Config } from '../config';
 
 /**
  * Base class for implementing all relevant TypeScript configuration.

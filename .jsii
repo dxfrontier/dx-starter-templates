@@ -3332,7 +3332,7 @@
       "fqn": "@dxfrontier/projen-template-projects.IProjectKind",
       "kind": "interface",
       "locationInModule": {
-        "filename": "src/types/project.ts",
+        "filename": "src/util/types/project.ts",
         "line": 17
       },
       "name": "IProjectKind",
@@ -3344,7 +3344,7 @@
             "summary": "Convenience type for guaranteeing type safety and avoiding too many circular dependencies."
           },
           "locationInModule": {
-            "filename": "src/types/project.ts",
+            "filename": "src/util/types/project.ts",
             "line": 21
           },
           "name": "kind",
@@ -3353,7 +3353,7 @@
           }
         }
       ],
-      "symbolId": "src/types/project:IProjectKind"
+      "symbolId": "src/util/types/project:IProjectKind"
     },
     "@dxfrontier/projen-template-projects.JestConfigBase": {
       "assembly": "@dxfrontier/projen-template-projects",
@@ -5724,7 +5724,7 @@
       },
       "kind": "class",
       "locationInModule": {
-        "filename": "src/base/typescript.ts",
+        "filename": "src/base/config/typescript.ts",
         "line": 10
       },
       "methods": [
@@ -5735,7 +5735,7 @@
             "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
           },
           "locationInModule": {
-            "filename": "src/base/typescript.ts",
+            "filename": "src/base/config/typescript.ts",
             "line": 35
           },
           "name": "registerConfig",
@@ -5751,7 +5751,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/base/typescript.ts",
+            "filename": "src/base/config/typescript.ts",
             "line": 11
           },
           "name": "additionalDevDependencies",
@@ -5773,7 +5773,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/base/typescript.ts",
+            "filename": "src/base/config/typescript.ts",
             "line": 15
           },
           "name": "additionalIgnorePatterns",
@@ -5795,7 +5795,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/base/typescript.ts",
+            "filename": "src/base/config/typescript.ts",
             "line": 20
           },
           "name": "configFile",
@@ -5837,7 +5837,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/base/typescript.ts",
+            "filename": "src/base/config/typescript.ts",
             "line": 31
           },
           "name": "configFileName",
@@ -5846,7 +5846,7 @@
           }
         }
       ],
-      "symbolId": "src/base/typescript:TypeScriptConfigBase"
+      "symbolId": "src/base/config/typescript:TypeScriptConfigBase"
     },
     "@dxfrontier/projen-template-projects.TypeScriptConfigCapService": {
       "assembly": "@dxfrontier/projen-template-projects",
@@ -5879,7 +5879,7 @@
       },
       "kind": "class",
       "locationInModule": {
-        "filename": "src/cap-service/typescript.ts",
+        "filename": "src/cap-service/config/typescript.ts",
         "line": 9
       },
       "methods": [
@@ -5890,7 +5890,7 @@
             "summary": "Applies the current configuration based on the strategy to the project."
           },
           "locationInModule": {
-            "filename": "src/cap-service/typescript.ts",
+            "filename": "src/cap-service/config/typescript.ts",
             "line": 63
           },
           "name": "applyConfig",
@@ -5902,7 +5902,7 @@
             "summary": "Creates the configuration file in the project directory."
           },
           "locationInModule": {
-            "filename": "src/cap-service/typescript.ts",
+            "filename": "src/cap-service/config/typescript.ts",
             "line": 51
           },
           "name": "createConfig",
@@ -5915,7 +5915,7 @@
             "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
           },
           "locationInModule": {
-            "filename": "src/cap-service/typescript.ts",
+            "filename": "src/cap-service/config/typescript.ts",
             "line": 58
           },
           "name": "registerConfig",
@@ -5926,7 +5926,7 @@
             "stability": "stable"
           },
           "locationInModule": {
-            "filename": "src/cap-service/typescript.ts",
+            "filename": "src/cap-service/config/typescript.ts",
             "line": 40
           },
           "name": "removeConfigFile",
@@ -5942,7 +5942,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/cap-service/typescript.ts",
+            "filename": "src/cap-service/config/typescript.ts",
             "line": 10
           },
           "name": "configFile",
@@ -5977,7 +5977,7 @@
           }
         }
       ],
-      "symbolId": "src/cap-service/typescript:TypeScriptConfigCapService"
+      "symbolId": "src/cap-service/config/typescript:TypeScriptConfigCapService"
     },
     "@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction": {
       "assembly": "@dxfrontier/projen-template-projects",
@@ -6010,7 +6010,7 @@
       },
       "kind": "class",
       "locationInModule": {
-        "filename": "src/github-action/typescript.ts",
+        "filename": "src/github-action/config/typescript.ts",
         "line": 7
       },
       "methods": [
@@ -6021,7 +6021,7 @@
             "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
           },
           "locationInModule": {
-            "filename": "src/github-action/typescript.ts",
+            "filename": "src/github-action/config/typescript.ts",
             "line": 37
           },
           "name": "registerConfig",
@@ -6033,7 +6033,7 @@
             "summary": "Removes the configuration module related config file."
           },
           "locationInModule": {
-            "filename": "src/github-action/typescript.ts",
+            "filename": "src/github-action/config/typescript.ts",
             "line": 30
           },
           "name": "removeConfigFile",
@@ -6049,7 +6049,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/github-action/typescript.ts",
+            "filename": "src/github-action/config/typescript.ts",
             "line": 8
           },
           "name": "additionalDevDependencies",
@@ -6071,7 +6071,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/github-action/typescript.ts",
+            "filename": "src/github-action/config/typescript.ts",
             "line": 12
           },
           "name": "additionalIgnorePatterns",
@@ -6093,7 +6093,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/github-action/typescript.ts",
+            "filename": "src/github-action/config/typescript.ts",
             "line": 23
           },
           "name": "removeDevDependencies",
@@ -6108,7 +6108,7 @@
           }
         }
       ],
-      "symbolId": "src/github-action/typescript:TypeScriptConfigGitHubAction"
+      "symbolId": "src/github-action/config/typescript:TypeScriptConfigGitHubAction"
     },
     "@dxfrontier/projen-template-projects.TypeScriptConfigJsii": {
       "assembly": "@dxfrontier/projen-template-projects",
@@ -6141,7 +6141,7 @@
       },
       "kind": "class",
       "locationInModule": {
-        "filename": "src/jsii/typescript.ts",
+        "filename": "src/jsii/config/typescript.ts",
         "line": 7
       },
       "name": "TypeScriptConfigJsii",
@@ -6153,7 +6153,7 @@
           },
           "immutable": true,
           "locationInModule": {
-            "filename": "src/jsii/typescript.ts",
+            "filename": "src/jsii/config/typescript.ts",
             "line": 8
           },
           "name": "configFile",
@@ -6188,7 +6188,7 @@
           }
         }
       ],
-      "symbolId": "src/jsii/typescript:TypeScriptConfigJsii"
+      "symbolId": "src/jsii/config/typescript:TypeScriptConfigJsii"
     },
     "@dxfrontier/projen-template-projects.VsCodeConfigBase": {
       "assembly": "@dxfrontier/projen-template-projects",
@@ -6462,5 +6462,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "mN/XvlQ+ro0CUM03zyLOoR9SDQDP/3u5T6vYCePOme4="
+  "fingerprint": "+si4uQxV7JZekJ2OtV3F9/yWsxm5vzbo6L8Rf8G4Td0="
 }

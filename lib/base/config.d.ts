@@ -1,5 +1,5 @@
 import { Component, Project } from 'projen';
-import { ConfigFile, Settings } from '../types/types';
+import { ConfigFile, Settings } from '../util/types/types';
 /**
  * Base class for creating and managing project configurations.
  * This class allows configuring a project using different strategies.

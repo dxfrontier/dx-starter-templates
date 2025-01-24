@@ -1,8 +1,8 @@
 import { TextFile } from 'projen';
 import { Config } from '../config';
-import { isValidProject } from '../../utils';
-import { ProjectTypes } from '../../types/project';
-import { ConfigFile } from '../../types';
+import { isValidProject } from '../../util/utils';
+import { ProjectTypes } from '../../util/types/project';
+import { ConfigFile } from '../../util/types';
 
 /**
  * Base class for implementing all relevant Husky configuration.

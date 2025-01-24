@@ -1,5 +1,5 @@
 import { NpmConfigBase } from '../../base';
-import { Settings } from '../../types';
+import { Settings } from '../../util/types';
 /**
  * Implementing all relevant NPM configuration for the CapService project.
  */

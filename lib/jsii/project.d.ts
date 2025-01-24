@@ -9,8 +9,8 @@ import { JestConfigBase } from '../base/config/jest';
 import { PrettierConfigBase } from '../base/config/prettier';
 import { VsCodeConfigBase } from '../base/config/vscode';
 import { NpmConfigJsii } from './config/npm';
-import { IProjectKind, ProjectKind } from '../types/project';
-import { TypeScriptConfigBase } from '../base/typescript';
+import { IProjectKind, ProjectKind } from '../util/types/project';
+import { TypeScriptConfigBase } from '../base/config/typescript';
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
     /**
      * Whether to enable the commitlint configuration for the project.

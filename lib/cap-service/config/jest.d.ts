@@ -1,5 +1,5 @@
 import { JestConfigBase } from '../../base/config/jest';
-import { Settings } from '../../types/types';
+import { Settings } from '../../util/types/types';
 /**
  * Implementing all relevant Jest configuration for the CapService project.
  */

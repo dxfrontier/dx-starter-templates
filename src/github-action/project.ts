@@ -9,7 +9,7 @@ import { VsCodeConfigBase } from '../base/config/vscode';
 import { CommitLintConfigGitHubAction } from './config/commitlint';
 import { NpmConfigGitHubAction } from './config/npm';
 import { SampleCodeConfigGitHubAction } from './config/samplecode';
-import { TypeScriptConfigGitHubAction } from './typescript';
+import { TypeScriptConfigGitHubAction } from './config/typescript';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {}
 

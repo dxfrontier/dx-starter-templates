@@ -1,5 +1,5 @@
 import { Config } from '../config';
-import { ConfigFile } from '../../types';
+import { ConfigFile } from '../../util/types';
 /**
  * Base class for implementing all relevant Husky configuration.
  *

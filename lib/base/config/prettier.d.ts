@@ -1,5 +1,5 @@
 import { Config } from '../config';
-import { ConfigFile, ProjectTypes } from '../../types';
+import { ConfigFile, ProjectTypes } from '../../util/types';
 /**
  * Base class for implementing all relevant Prettier configuration.
  *

@@ -1,8 +1,8 @@
 import { TextFile } from 'projen';
 import { Config } from '../config';
-import { ProjectTypes } from '../../types/project';
-import { isValidProject } from '../../utils';
-import { ConfigFile, Settings } from '../../types/types';
+import { ProjectTypes } from '../../util/types/project';
+import { isValidProject } from '../../util/utils';
+import { ConfigFile, Settings } from '../../util/types/types';
 
 /**
  * Base class for implementing all relevant CommitLint configuration.

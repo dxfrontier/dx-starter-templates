@@ -1,5 +1,5 @@
 import { HuskyConfigBase } from '../../base';
-import { ConfigFile } from '../../types';
+import { ConfigFile } from '../../util/types';
 /**
  * Implementing all relevant Husky configuration for the CapService project.
  */

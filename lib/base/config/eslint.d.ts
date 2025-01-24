@@ -1,6 +1,6 @@
 import { Config } from '../config';
-import { ProjectTypes } from '../../types/project';
-import { ConfigFile } from '../../types';
+import { ProjectTypes } from '../../util/types/project';
+import { ConfigFile } from '../../util/types';
 /**
  * Base class for implementing all relevant EsLint configuration.
  *
