@@ -314,7 +314,7 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         } from '@dxfrontier/cds-ts-dispatcher';`,
         ``,
         `import { ${this.options.entityName} } from '#cds-models/ServiceA';`,
-        `import { MiddlewareMethodAfterRead1 } from '../../../middleware/MiddlewareAfterRead1';`,
+        `import { MiddlewareAfterRead } from '../../../middleware/MiddlewareAfterRead';`,
         `import { Middleware${this.options.entityName} } from '../../../middleware/Middleware${this.options.entityName}';`,
         ``,
         `@EntityHandler(${this.options.entityName})`,
@@ -324,7 +324,7 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         `  // @OnRead, @BeforeRead, @AfterRead, @OnUpdate ...`,
         ``,
         `  @AfterRead()`,
-        `  @Use(MiddlewareMethodAfterRead1)`,
+        `  @Use(MiddlewareAfterRead)`,
         `  public async afterRead(@Results() results: ${this.options.entityName}, @Req() req: TypedRequest<${this.options.entityName}>): Promise<${this.options.entityName}> {`,
         `    console.log(req);`,
         `    return results;`,
@@ -380,19 +380,19 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
       ],
       // End Middleware
 
-      // Start MiddlewareAfterRead1
+      // Start MiddlewareAfterRead
       'srv/middleware/MiddlewareAfterRead.ts': [
         `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
         `import type { ${this.options.entityName} } from '#cds-models/ServiceA';`,
         ``,
-        `export class Middleware${this.options.entityName} implements MiddlewareImpl {`,
+        `export class MiddlewareAfterRead implements MiddlewareImpl {`,
         `  public async use(req: TypedRequest<${this.options.entityName}>, next: NextMiddleware): Promise<void> {`,
         `    console.log('Middleware entity 1 : EXECUTED');`,
         `    await next();`,
         `  }`,
         `}`,
       ],
-      // End MiddlewareAfterRead1
+      // End MiddlewareAfterRead
 
       // Start Repository
       [`srv/repository/${this.options.entityName}Repository.ts`]: [
