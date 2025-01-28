@@ -463,10 +463,7 @@ test('Sample file ./srv/index.cds matches expected file template', (): void => {
   const project = new CapServiceProject(customProps);
   const snapshot = synthSnapshot(project);
 
-  const expectedTemplateLines: string[] = [
-    `using from './controller/service-1/service-1`,
-    `using from './authorization/authorization';`,
-  ];
+  const expectedTemplateLines: string[] = [`using from './controller/service-1/service-1'`];
   samplecode.testSampleFilesTemplates(snapshot, 'srv/index.cds', expectedTemplateLines);
 });
 
