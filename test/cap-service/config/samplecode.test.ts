@@ -491,7 +491,7 @@ test('Sample file ./srv/controller/service-1/handler/MyEntityHandler.ts matches 
         } from '@dxfrontier/cds-ts-dispatcher';`,
     ``,
     `import { ${customProps.entityName} } from '#cds-models/ServiceA';`,
-    `import { MiddlewareMethodAfterRead1 } from '../../../middleware/MiddlewareAfterRead1';`,
+    `import { MiddlewareAfterRead } from '../../../middleware/MiddlewareAfterRead';`,
     `import { Middleware${customProps.entityName} } from '../../../middleware/Middleware${customProps.entityName}';`,
     ``,
     `@EntityHandler(${customProps.entityName})`,
@@ -501,7 +501,7 @@ test('Sample file ./srv/controller/service-1/handler/MyEntityHandler.ts matches 
     `  // @OnRead, @BeforeRead, @AfterRead, @OnUpdate ...`,
     ``,
     `  @AfterRead()`,
-    `  @Use(MiddlewareMethodAfterRead1)`,
+    `  @Use(MiddlewareAfterRead)`,
     `  public async afterRead(@Results() results: ${customProps.entityName}, @Req() req: TypedRequest<${customProps.entityName}>): Promise<${customProps.entityName}> {`,
     `    console.log(req);`,
     `    return results;`,
@@ -626,7 +626,7 @@ test('Sample file ./srv/middleware/MyEntity.ts matches expected file template', 
     `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
     `import type { ${customProps.entityName} } from '#cds-models/ServiceA';`,
     ``,
-    `export class Middleware${customProps.entityName} implements MiddlewareImpl {`,
+    `export class MiddlewareAfterRead implements MiddlewareImpl {`,
     `  public async use(req: TypedRequest<${customProps.entityName}>, next: NextMiddleware): Promise<void> {`,
     `    console.log('Middleware entity 1 : EXECUTED');`,
     `    await next();`,
@@ -634,11 +634,7 @@ test('Sample file ./srv/middleware/MyEntity.ts matches expected file template', 
     `}`,
   ];
 
-  samplecode.testSampleFilesTemplates(
-    snapshot,
-    `srv/middleware/Middleware${customProps.entityName}.ts`,
-    expectedTemplateLines,
-  );
+  samplecode.testSampleFilesTemplates(snapshot, `srv/middleware/MiddlewareAfterRead.ts`, expectedTemplateLines);
 });
 
 test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file template', (): void => {
@@ -655,7 +651,7 @@ test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file 
     `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
     `import type { ${customProps.entityName} } from '#cds-models/ServiceA';`,
     ``,
-    `export class Middleware${customProps.entityName} implements MiddlewareImpl {`,
+    `export class MiddlewareAfterRead implements MiddlewareImpl {`,
     `  public async use(req: TypedRequest<${customProps.entityName}>, next: NextMiddleware): Promise<void> {`,
     `    console.log('Middleware entity 1 : EXECUTED');`,
     `    await next();`,
