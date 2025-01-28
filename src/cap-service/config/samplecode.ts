@@ -296,7 +296,7 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
   protected get sampleCodeFileSrvTemplates(): Record<string, string[]> {
     return {
       // Start index.ts
-      'srv/index.cds': [`using from './controller/service-1/service-1`, `using from './authorization/authorization';`],
+      'srv/index.cds': [`using from './controller/service-1/service-1'`],
       // End index.ts
 
       // Start Entity handler
