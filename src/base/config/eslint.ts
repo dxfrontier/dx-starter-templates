@@ -3,6 +3,7 @@ import { Config } from '../config';
 import { ProjectTypes } from '../../util/types/project';
 import { isValidProject } from '../../util/utils';
 import { ConfigFile } from '../../util/types';
+import { constants } from '../../util/constants';
 
 /**
  * Base class for implementing all relevant EsLint configuration.
@@ -50,14 +51,14 @@ export class EsLintConfigBase extends Config {
 
   protected override get additionalDevDependencies(): string[] {
     return [
-      '@typescript-eslint/eslint-plugin@^8.20.0',
+      `@typescript-eslint/eslint-plugin@^8.20.0`,
       '@typescript-eslint/parser@^8.20.0',
-      'eslint@^9.18.0',
-      'eslint-config-prettier@^10.0.1',
-      'eslint-import-resolver-typescript@^3.7.0',
-      'eslint-plugin-import@^2.31.0',
-      'eslint-plugin-prettier@^5.2.1',
-      'typescript-eslint@^8.20.0',
+      `${constants['eslint'].NAME}@${constants['eslint'].VERSION}`,
+      `${constants['eslint-config-prettier'].NAME}@${constants['eslint-config-prettier'].VERSION}`,
+      `${constants['eslint-import-resolver-typescript'].NAME}@${constants['eslint-import-resolver-typescript'].VERSION}`,
+      `${constants['eslint-plugin-import'].NAME}@${constants['eslint-plugin-import'].VERSION}`,
+      `${constants['eslint-plugin-prettier'].NAME}@${constants['eslint-plugin-prettier'].VERSION}`,
+      `typescript-eslint@^8.20.0`,
     ];
   }
 

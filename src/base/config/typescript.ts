@@ -1,3 +1,4 @@
+import { constants } from '../../util/constants';
 import { ConfigFile, ProjectTypes } from '../../util/types';
 import { isValidProject } from '../../util/utils';
 import { Config } from '../config';
@@ -9,7 +10,11 @@ import { Config } from '../config';
  */
 export class TypeScriptConfigBase extends Config {
   protected override get additionalDevDependencies(): string[] {
-    return ['typescript@^5.7.3', '@types/node@^22.10.6', 'ts-node@^10.9.2'];
+    return [
+      `${constants['typescript'].NAME}@${constants['typescript'].VERSION}`,
+      `${constants['@types/node'].NAME}@${constants['@types/node'].VERSION}`,
+      `${constants['ts-node'].NAME}@${constants['ts-node'].VERSION}`,
+    ];
   }
 
   protected override get additionalIgnorePatterns(): string[] {

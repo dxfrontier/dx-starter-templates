@@ -3,6 +3,7 @@ import { Config } from '../config';
 import { TrailingComma } from 'projen/lib/javascript';
 import { ConfigFile, ProjectTypes } from '../../util/types';
 import { isValidProject } from '../../util/utils';
+import { constants } from '../../util/constants';
 
 /**
  * Base class for implementing all relevant Prettier configuration.
@@ -28,7 +29,7 @@ export class PrettierConfigBase extends Config {
   }
 
   protected override get additionalDevDependencies(): string[] {
-    return ['prettier@^3.4.2'];
+    return [`${constants.prettier.NAME}@${constants.prettier.VERSION}`];
   }
 
   protected override get additionalScripts(): Record<string, string> {

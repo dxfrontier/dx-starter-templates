@@ -3,6 +3,7 @@ import { Config } from '../config';
 import { ProjectTypes } from '../../util/types/project';
 import { isValidProject } from '../../util/utils';
 import { ConfigFile, Settings } from '../../util/types/types';
+import { constants } from '../../util/constants';
 
 /**
  * Base class for implementing all relevant CommitLint configuration.
@@ -12,11 +13,11 @@ import { ConfigFile, Settings } from '../../util/types/types';
 export class CommitLintConfigBase extends Config {
   protected override get additionalDevDependencies(): string[] {
     return [
-      '@commitlint/cli@^19.6.1',
-      '@commitlint/config-conventional@^19.6.0',
-      '@commitlint/prompt-cli@^19.7.0',
-      '@commitlint/types@^19.5.0',
-      'lint-staged@^15.3.0',
+      `${constants['@commitlint/cli'].NAME}@${constants['@commitlint/cli'].VERSION}`,
+      `${constants['@commitlint/config-conventional'].NAME}@${constants['@commitlint/config-conventional'].VERSION}`,
+      `${constants['@commitlint/prompt-cli'].NAME}@${constants['@commitlint/prompt-cli'].VERSION}`,
+      `${constants['@commitlint/types'].NAME}@${constants['@commitlint/types'].VERSION}`,
+      `${constants['lint-staged'].NAME}@${constants['lint-staged'].VERSION}`,
     ];
   }
 

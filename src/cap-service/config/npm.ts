@@ -1,4 +1,5 @@
 import { BaseProject, NpmConfigBase } from '../../base';
+import { constants } from '../../util/constants';
 import { Settings } from '../../util/types';
 
 /**
@@ -6,7 +7,7 @@ import { Settings } from '../../util/types';
  */
 export class NpmConfigCapService extends NpmConfigBase {
   protected override get additionalDevDependencies(): string[] {
-    return ['npm-run-all@^4.1.5'];
+    return [`${constants['npm-run-all'].NAME}@${constants['npm-run-all'].VERSION}`];
   }
 
   protected override get additionalSettings(): Settings {

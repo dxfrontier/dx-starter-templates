@@ -1,4 +1,5 @@
 import { JestConfigBase } from '../../base/config/jest';
+import { constants } from '../../util/constants';
 import { ProjectTypes } from '../../util/types/project';
 import { Settings } from '../../util/types/types';
 import { isValidProject } from '../../util/utils';
@@ -8,7 +9,12 @@ import { isValidProject } from '../../util/utils';
  */
 export class JestConfigCapService extends JestConfigBase {
   protected override get additionalDevDependencies(): string[] {
-    return ['@types/jest@^29.5.14', 'jest@^29.7.0', 'jest-junit@^16.0.0', 'ts-jest@^29.2.5'];
+    return [
+      `${constants['@types/jest'].NAME}@${constants['@types/jest'].VERSION}`,
+      `${constants['jest'].NAME}@${constants['jest'].VERSION}`,
+      `${constants['jest-junit'].NAME}@${constants['jest-junit'].VERSION}`,
+      `${constants['ts-jest'].NAME}@${constants['ts-jest'].VERSION}`,
+    ];
   }
 
   protected override get additionalScripts(): Record<string, string> {

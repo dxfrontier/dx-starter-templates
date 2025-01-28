@@ -3,6 +3,7 @@ import { Config } from '../config';
 import { isValidProject } from '../../util/utils';
 import { ProjectTypes } from '../../util/types/project';
 import { ConfigFile } from '../../util/types';
+import { constants } from '../../util/constants';
 
 /**
  * Base class for implementing all relevant Husky configuration.
@@ -11,7 +12,7 @@ import { ConfigFile } from '../../util/types';
  */
 export class HuskyConfigBase extends Config {
   protected override get additionalDevDependencies(): string[] {
-    return ['husky@^9.1.7'];
+    return [`${constants.husky.NAME}@${constants.husky.VERSION}`];
   }
 
   protected override get additionalScripts(): Record<string, string> {
