@@ -470,7 +470,7 @@ test('Sample file ./srv/index.cds matches expected file template', (): void => {
   samplecode.testSampleFilesTemplates(snapshot, 'srv/index.cds', expectedTemplateLines);
 });
 
-test('Sample file ./srv/controller/service-1/handler/Entity1Handler.ts matches expected file template', (): void => {
+test('Sample file ./srv/controller/service-1/handler/MyEntityHandler.ts matches expected file template', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -495,11 +495,11 @@ test('Sample file ./srv/controller/service-1/handler/Entity1Handler.ts matches e
     ``,
     `import { ${customProps.entityName} } from '#cds-models/ServiceA';`,
     `import { MiddlewareMethodAfterRead1 } from '../../../middleware/MiddlewareAfterRead1';`,
-    `import { MiddlewareEntity1 } from '../../../middleware/MiddlewareEntity1';`,
+    `import { Middleware${customProps.entityName} } from '../../../middleware/Middleware${customProps.entityName}';`,
     ``,
     `@EntityHandler(${customProps.entityName})`,
-    `@Use(MiddlewareEntity1)`,
-    `export class Entity1Handler {`,
+    `@Use(Middleware${customProps.entityName})`,
+    `export class ${customProps.entityName}Handler {`,
     `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
     `  // @OnRead, @BeforeRead, @AfterRead, @OnUpdate ...`,
     ``,
@@ -513,7 +513,7 @@ test('Sample file ./srv/controller/service-1/handler/Entity1Handler.ts matches e
   ];
   samplecode.testSampleFilesTemplates(
     snapshot,
-    'srv/controller/service-1/handler/Entity1Handler.ts',
+    `srv/controller/service-1/handler/${customProps.entityName}Handler.ts`,
     expectedTemplateLines,
   );
 });
@@ -606,10 +606,10 @@ test('Sample file ./srv/controller/service-1/service-1.ts matches expected file 
 
   const expectedTemplateLines: string[] = [
     `import { CDSDispatcher } from '@dxfrontier/cds-ts-dispatcher';`,
-    `import { Entity1Handler } from './handler/Entity1Handler';`,
+    `import { ${customProps.entityName}Handler } from './handler/${customProps.entityName}Handler';`,
     `import { UnboundActionsHandler } from './handler/UnboundActionsHandler';`,
     '',
-    `export = new CDSDispatcher([Entity1Handler, UnboundActionsHandler]).initialize();`,
+    `export = new CDSDispatcher([${customProps.entityName}Handler, UnboundActionsHandler]).initialize();`,
   ];
 
   samplecode.testSampleFilesTemplates(snapshot, 'srv/controller/service-1/service-1.ts', expectedTemplateLines);
@@ -629,7 +629,7 @@ test('Sample file ./srv/middleware/MiddlewareEntity1.ts matches expected file te
     `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
     `import type { ${customProps.entityName} } from '#cds-models/ServiceA';`,
     ``,
-    `export class MiddlewareEntity1 implements MiddlewareImpl {`,
+    `export class Middleware${customProps.entityName} implements MiddlewareImpl {`,
     `  public async use(req: TypedRequest<${customProps.entityName}>, next: NextMiddleware): Promise<void> {`,
     `    console.log('Middleware entity 1 : EXECUTED');`,
     `    await next();`,
@@ -637,7 +637,11 @@ test('Sample file ./srv/middleware/MiddlewareEntity1.ts matches expected file te
     `}`,
   ];
 
-  samplecode.testSampleFilesTemplates(snapshot, 'srv/middleware/MiddlewareEntity1.ts', expectedTemplateLines);
+  samplecode.testSampleFilesTemplates(
+    snapshot,
+    `srv/middleware/Middleware${customProps.entityName}.ts`,
+    expectedTemplateLines,
+  );
 });
 
 test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file template', (): void => {
@@ -654,7 +658,7 @@ test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file 
     `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
     `import type { ${customProps.entityName} } from '#cds-models/ServiceA';`,
     ``,
-    `export class MiddlewareEntity1 implements MiddlewareImpl {`,
+    `export class Middleware${customProps.entityName} implements MiddlewareImpl {`,
     `  public async use(req: TypedRequest<${customProps.entityName}>, next: NextMiddleware): Promise<void> {`,
     `    console.log('Middleware entity 1 : EXECUTED');`,
     `    await next();`,
@@ -665,7 +669,7 @@ test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file 
   samplecode.testSampleFilesTemplates(snapshot, 'srv/middleware/MiddlewareAfterRead.ts', expectedTemplateLines);
 });
 
-test('Sample file ./srv/repository/Entity1Repository.ts matches expected file template', (): void => {
+test('Sample file ./srv/repository/MyEntityRepository.ts matches expected file template', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -682,7 +686,7 @@ test('Sample file ./srv/repository/Entity1Repository.ts matches expected file te
     `import { ${customProps.entityName} } from '#cds-models/ServiceA';`,
     ``,
     `@Repository()`,
-    `export class Entity1Repository extends BaseRepository<${customProps.entityName}> {`,
+    `export class ${customProps.entityName}Repository extends BaseRepository<${customProps.entityName}> {`,
     `  constructor() {`,
     `    super(${customProps.entityName});`,
     `  }`,
@@ -690,10 +694,14 @@ test('Sample file ./srv/repository/Entity1Repository.ts matches expected file te
     `}`,
   ];
 
-  samplecode.testSampleFilesTemplates(snapshot, 'srv/repository/Entity1Repository.ts', expectedTemplateLines);
+  samplecode.testSampleFilesTemplates(
+    snapshot,
+    `srv/repository/${customProps.entityName}Repository.ts`,
+    expectedTemplateLines,
+  );
 });
 
-test('Sample file ./srv/service/Entity1Service.ts matches expected file template', (): void => {
+test('Sample file ./srv/service/MyEntityService.ts matches expected file template', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -706,16 +714,20 @@ test('Sample file ./srv/service/Entity1Service.ts matches expected file template
   const expectedTemplateLines: string[] = [
     `import { Inject, Service, ServiceLogic, CDS_DISPATCHER } from '@dxfrontier/cds-ts-dispatcher';`,
     ``,
-    `import { Entity1Repository } from '../repository/Entity1Repository';`,
+    `import { ${customProps.entityName}Repository } from '../repository/${customProps.entityName}Repository';`,
     ``,
     `@ServiceLogic()`,
-    `export class Entity1Service {`,
+    `export class ${customProps.entityName}Service {`,
     `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
-    `  @Inject(Entity1Repository) private readonly entity1Service: Entity1Repository;`,
+    `  @Inject(${customProps.entityName}Repository) private readonly ${customProps.entityName}Service: ${customProps.entityName}Repository;`,
     `}`,
   ];
 
-  samplecode.testSampleFilesTemplates(snapshot, 'srv/service/Entity1Service.ts', expectedTemplateLines);
+  samplecode.testSampleFilesTemplates(
+    snapshot,
+    `srv/service/${customProps.entityName}Service.ts`,
+    expectedTemplateLines,
+  );
 });
 
 test('Sample file ./srv/util/constants/constants.ts matches expected file template', (): void => {
