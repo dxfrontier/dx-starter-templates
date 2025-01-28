@@ -12,6 +12,7 @@ import { synthSnapshot } from 'projen/lib/util/synth';
 import { CapServiceProject } from '../../../src/cap-service';
 import * as samplecode from '../../shared/samplecode';
 import { snapshot, props } from './setup';
+import { constants } from '../../../src/util/constants';
 
 const expectedTemplateLines: string[] = [
   "_schema-version: '3.1'",
@@ -125,8 +126,8 @@ test('Projen standard sample files are removed from file system', (): void => {
 
 test('Sample file mta.yaml matches expected file template', (): void => {
   const placeholders: Record<string, string> = {
-    __namespace__: 'de.customer.org.project',
-    __description__: 'SAP CAP Project',
+    __namespace__: constants.PROJECT_NAMESPACE,
+    __description__: constants.PROJECT_DESCRIPTION,
     __name__: 'my-cap-service',
   };
 
@@ -359,7 +360,7 @@ test('Sample file schema.cds matches expected file template', (): void => {
   const expectedTemplateLines: string[] = [
     "using { managed } from '@sap/cds/common';",
     '',
-    'namespace de.customer.org.project;',
+    `namespace de.customer.org.project;`,
     '',
     'entity Entity1 : managed {',
     '  key ID: Integer;',
@@ -450,4 +451,332 @@ test('Sample file de.mycustomer.myorg.myproject-MyEntity.texts.csv matches expec
     'test/data/de.mycustomer.myorg.myproject-MyEntity.texts.csv',
     expectedTemplateLines,
   );
+});
+
+test('Sample file ./srv/index.cds matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `using from './controller/service-1/service-1`,
+    `using from './authorization/authorization';`,
+  ];
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/index.cds', expectedTemplateLines);
+});
+
+test('Sample file ./srv/controller/service-1/handler/Entity1Handler.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import {
+          AfterRead,
+          EntityHandler,
+          Inject,
+          Req,
+          Results,
+          Service,
+          CDS_DISPATCHER,
+          type TypedRequest,
+          Use,
+        } from '@dxfrontier/cds-ts-dispatcher';`,
+    ``,
+    `import { ${customProps.entityName} } from '#cds-models/ServiceA';`,
+    `import { MiddlewareMethodAfterRead1 } from '../../../middleware/MiddlewareAfterRead1';`,
+    `import { MiddlewareEntity1 } from '../../../middleware/MiddlewareEntity1';`,
+    ``,
+    `@EntityHandler(${customProps.entityName})`,
+    `@Use(MiddlewareEntity1)`,
+    `export class Entity1Handler {`,
+    `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
+    `  // @OnRead, @BeforeRead, @AfterRead, @OnUpdate ...`,
+    ``,
+    `  @AfterRead()`,
+    `  @Use(MiddlewareMethodAfterRead1)`,
+    `  public async afterRead(@Results() results: ${customProps.entityName}, @Req() req: TypedRequest<${customProps.entityName}>): Promise<${customProps.entityName}> {`,
+    `    console.log(req);`,
+    `    return results;`,
+    `  }`,
+    `}`,
+  ];
+  samplecode.testSampleFilesTemplates(
+    snapshot,
+    'srv/controller/service-1/handler/Entity1Handler.ts',
+    expectedTemplateLines,
+  );
+});
+
+test('Sample file .srv/controller/service-1/handler/UnboundActionsHandler.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import { Inject, Service, CDS_DISPATCHER, UnboundActions } from '@dxfrontier/cds-ts-dispatcher';`,
+    ``,
+    `@UnboundActions()`,
+    `export class UnboundActionsHandler {`,
+    `  @Inject(CDS_DISPATCHER.SRV) private readonly service: Service;`,
+    `  // @OnError, @OnEvent, @OnAction, @OnFunction`,
+    `}`,
+  ];
+
+  samplecode.testSampleFilesTemplates(
+    snapshot,
+    'srv/controller/service-1/handler/UnboundActionsHandler.ts',
+    expectedTemplateLines,
+  );
+});
+
+test('Sample file ./srv/controller/service-1/handler/UnboundActionsHandler.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import { Inject, Service, CDS_DISPATCHER, UnboundActions } from '@dxfrontier/cds-ts-dispatcher';`,
+    ``,
+    `@UnboundActions()`,
+    `export class UnboundActionsHandler {`,
+    `  @Inject(CDS_DISPATCHER.SRV) private readonly service: Service;`,
+    `  // @OnError, @OnEvent, @OnAction, @OnFunction`,
+    `}`,
+  ];
+
+  samplecode.testSampleFilesTemplates(
+    snapshot,
+    'srv/controller/service-1/handler/UnboundActionsHandler.ts',
+    expectedTemplateLines,
+  );
+});
+
+test('Sample file ./srv/controller/service-1/service-1.cds matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `using {${customProps.namespace} as Base} from '../../../db/schema';`,
+    ``,
+    `service ServiceA {`,
+    `   @readonly`,
+    `   entity ${customProps.entityName} as projection on Base.${customProps.entityName};`,
+    `}`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/controller/service-1/service-1.cds', expectedTemplateLines);
+});
+
+test('Sample file ./srv/controller/service-1/service-1.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import { CDSDispatcher } from '@dxfrontier/cds-ts-dispatcher';`,
+    `import { Entity1Handler } from './handler/Entity1Handler';`,
+    `import { UnboundActionsHandler } from './handler/UnboundActionsHandler';`,
+    '',
+    `export = new CDSDispatcher([Entity1Handler, UnboundActionsHandler]).initialize();`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/controller/service-1/service-1.ts', expectedTemplateLines);
+});
+
+test('Sample file ./srv/middleware/MiddlewareEntity1.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
+    `import type { ${customProps.entityName} } from '#cds-models/ServiceA';`,
+    ``,
+    `export class MiddlewareEntity1 implements MiddlewareImpl {`,
+    `  public async use(req: TypedRequest<${customProps.entityName}>, next: NextMiddleware): Promise<void> {`,
+    `    console.log('Middleware entity 1 : EXECUTED');`,
+    `    await next();`,
+    `  }`,
+    `}`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/middleware/MiddlewareEntity1.ts', expectedTemplateLines);
+});
+
+test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
+    `import type { ${customProps.entityName} } from '#cds-models/ServiceA';`,
+    ``,
+    `export class MiddlewareEntity1 implements MiddlewareImpl {`,
+    `  public async use(req: TypedRequest<${customProps.entityName}>, next: NextMiddleware): Promise<void> {`,
+    `    console.log('Middleware entity 1 : EXECUTED');`,
+    `    await next();`,
+    `  }`,
+    `}`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/middleware/MiddlewareAfterRead.ts', expectedTemplateLines);
+});
+
+test('Sample file ./srv/repository/Entity1Repository.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import { Repository } from '@dxfrontier/cds-ts-dispatcher';`,
+    `import { BaseRepository } from '@dxfrontier/cds-ts-repository';`,
+    ``,
+    `import { ${customProps.entityName} } from '#cds-models/ServiceA';`,
+    ``,
+    `@Repository()`,
+    `export class Entity1Repository extends BaseRepository<${customProps.entityName}> {`,
+    `  constructor() {`,
+    `    super(${customProps.entityName});`,
+    `  }`,
+    `  // ... define custom CDS-QL actions if BaseRepository ones are not satisfying your needs !`,
+    `}`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/repository/Entity1Repository.ts', expectedTemplateLines);
+});
+
+test('Sample file ./srv/service/Entity1Service.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `import { Inject, Service, ServiceLogic, CDS_DISPATCHER } from '@dxfrontier/cds-ts-dispatcher';`,
+    ``,
+    `import { Entity1Repository } from '../repository/Entity1Repository';`,
+    ``,
+    `@ServiceLogic()`,
+    `export class Entity1Service {`,
+    `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
+    `  @Inject(Entity1Repository) private readonly entity1Service: Entity1Repository;`,
+    `}`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/service/Entity1Service.ts', expectedTemplateLines);
+});
+
+test('Sample file ./srv/util/constants/constants.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `const Constants = {`,
+    `  // Example`,
+    `  CONSTANT_1: {`,
+    `    PROP_CONSTANT_1: 'SOMETHING',`,
+    `  },`,
+    `};`,
+    ``,
+    `export default Constants;`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/util/constants/constants.ts', expectedTemplateLines);
+});
+
+test('Sample file ./srv/util/helpers/util.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [
+    `const Util = {`,
+    `  // Example`,
+    `  aHelperFunction() {`,
+    `    return 1;`,
+    `  },`,
+    `};`,
+    ``,
+    `export default Util;`,
+  ];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/util/helpers/util.ts', expectedTemplateLines);
+});
+
+test('Sample file ./srv/util/types/types.ts matches expected file template', (): void => {
+  const customProps = {
+    ...props,
+    namespace: 'de.mycustomer.myorg.myproject',
+    entityName: 'MyEntity',
+  };
+
+  const project = new CapServiceProject(customProps);
+  const snapshot = synthSnapshot(project);
+
+  const expectedTemplateLines: string[] = [`// Example`, `export type AType = string;`];
+
+  samplecode.testSampleFilesTemplates(snapshot, 'srv/util/types/types.ts', expectedTemplateLines);
 });
