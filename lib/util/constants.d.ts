@@ -2,6 +2,10 @@ declare const constants: {
     PROJECT_NAMESPACE: string;
     PROJECT_DESCRIPTION: string;
     ENTITY_NAME: string;
+    '@dxfrontier/cds-ts-repository': {
+        NAME: string;
+        VERSION: string;
+    };
     '@cap-js/cds-typer': {
         NAME: string;
         VERSION: string;
