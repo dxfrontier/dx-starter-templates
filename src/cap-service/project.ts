@@ -1,4 +1,5 @@
 import { BaseProjectOptions, BaseProject, BaseOptions } from '../base';
+import { constants } from '../util/constants';
 import { CommitLintConfigCapService } from './config/commitlint';
 import { DevContainerConfigCapService } from './config/devcontainer';
 import { EsLintConfigCapService } from './config/eslint';
@@ -39,9 +40,9 @@ export class CapServiceProject extends BaseProject {
       sampleCodeEnabled: options.sampleCodeEnabled ?? true,
       typescriptEnabled: true,
       name: options.name,
-      namespace: options.namespace ?? 'de.customer.org.project',
-      description: options.description ?? 'SAP CAP Project',
-      entityName: options.entityName ?? 'Entity1',
+      namespace: options.namespace ?? constants.PROJECT_NAMESPACE,
+      description: options.description ?? constants.PROJECT_DESCRIPTION,
+      entityName: options.entityName ?? constants.ENTITY_NAME,
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),

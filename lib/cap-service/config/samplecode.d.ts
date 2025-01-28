@@ -14,6 +14,12 @@ export declare class SampleCodeConfigCapService extends SampleCodeConfigBase {
      */
     protected get sampleCodeFileRootTemplates(): Record<string, string[]>;
     /**
+     * Capire `srv` directory templates for the SampleCode configuration.
+     * @return Contents for sample `srv` directory files.
+     * @protected
+     */
+    protected get sampleCodeFileSrvTemplates(): Record<string, string[]>;
+    /**
      * Capire db directory templates for the SampleCode configuration.
      * @return Contents for sample db directory files.
      * @protected
@@ -26,17 +32,10 @@ export declare class SampleCodeConfigCapService extends SampleCodeConfigBase {
      */
     protected get sampleCodeFileDataTemplates(): Record<string, string[]>;
     /**
-     * Creates the template files for the root directory.
+     * Creates the template files for the specified directory.
+     * @param templates The templates to create.
      */
-    createRootTemplates(): void;
-    /**
-     * Creates the template files for the db directory.
-     */
-    createDbTemplates(): void;
-    /**
-     * Creates the template files for the data directory.
-     */
-    createDataTemplates(): void;
+    createTemplates(templates: Record<string, string[]>): void;
     protected get additionalDevDependencies(): string[];
     protected get additionalDependencies(): string[];
     protected get additionalScripts(): Record<string, string>;

@@ -2,6 +2,7 @@ import { SampleFile } from 'projen';
 import { CapServiceProject, CapServiceProjectOptions } from '.././project';
 import { BaseProject, SampleCodeConfigBase } from '../../base';
 import { Settings } from '../../util/types';
+import { constants } from '../../util/constants';
 
 /**
  * Implementing all relevant SampleCode configuration for the CapService project.
@@ -288,6 +289,175 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
   }
 
   /**
+   * Capire `srv` directory templates for the SampleCode configuration.
+   * @return Contents for sample `srv` directory files.
+   * @protected
+   */
+  protected get sampleCodeFileSrvTemplates(): Record<string, string[]> {
+    return {
+      // Start index.ts
+      'srv/index.cds': [`using from './controller/service-1/service-1';`],
+      // End index.ts
+
+      // Start Entity handler
+      [`srv/controller/service-1/handler/${this.options.entityName}Handler.ts`]: [
+        `import {
+          AfterRead,
+          EntityHandler,
+          Inject,
+          Req,
+          Results,
+          Service,
+          CDS_DISPATCHER,
+          type TypedRequest,
+          Use,
+        } from '@dxfrontier/cds-ts-dispatcher';`,
+        ``,
+        `import { ${this.options.entityName} } from '#cds-models/ServiceA';`,
+        `import { MiddlewareAfterRead } from '../../../middleware/MiddlewareAfterRead';`,
+        `import { Middleware${this.options.entityName} } from '../../../middleware/Middleware${this.options.entityName}';`,
+        ``,
+        `@EntityHandler(${this.options.entityName})`,
+        `@Use(Middleware${this.options.entityName})`,
+        `export class ${this.options.entityName}Handler {`,
+        `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
+        `  // @OnRead, @BeforeRead, @AfterRead, @OnUpdate ...`,
+        ``,
+        `  @AfterRead()`,
+        `  @Use(MiddlewareAfterRead)`,
+        `  public async afterRead(@Results() results: ${this.options.entityName}, @Req() req: TypedRequest<${this.options.entityName}>): Promise<${this.options.entityName}> {`,
+        `    console.log(req);`,
+        `    return results;`,
+        `  }`,
+        `}`,
+      ],
+      // End
+
+      // Start UnboundActionsHandler
+      'srv/controller/service-1/handler/UnboundActionsHandler.ts': [
+        `import { Inject, Service, CDS_DISPATCHER, UnboundActions } from '@dxfrontier/cds-ts-dispatcher';`,
+        ``,
+        `@UnboundActions()`,
+        `export class UnboundActionsHandler {`,
+        `  @Inject(CDS_DISPATCHER.SRV) private readonly service: Service;`,
+        `  // @OnError, @OnEvent, @OnAction, @OnFunction`,
+        `}`,
+      ],
+      // End UnboundActionsHandler
+
+      // Start service-1.cds
+      'srv/controller/service-1/service-1.cds': [
+        `using {${this.options.namespace} as Base} from '../../../db/schema';`,
+        ``,
+        `service ServiceA {`,
+        `   @readonly`,
+        `   entity ${this.options.entityName} as projection on Base.${this.options.entityName};`,
+        `}`,
+      ],
+      // End service-1.cds
+
+      // Start service-1.ts
+      'srv/controller/service-1/service-1.ts': [
+        `import { CDSDispatcher } from '@dxfrontier/cds-ts-dispatcher';`,
+        `import { ${this.options.entityName}Handler } from './handler/${this.options.entityName}Handler';`,
+        `import { UnboundActionsHandler } from './handler/UnboundActionsHandler';`,
+        '',
+        `export = new CDSDispatcher([${this.options.entityName}Handler, UnboundActionsHandler]).initialize();`,
+      ],
+      // End service-1.ts
+
+      // Start Middleware
+      [`srv/middleware/Middleware${this.options.entityName}.ts`]: [
+        `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
+        `import type { ${this.options.entityName} } from '#cds-models/ServiceA';`,
+        ``,
+        `export class Middleware${this.options.entityName} implements MiddlewareImpl {`,
+        `  public async use(req: TypedRequest<${this.options.entityName}>, next: NextMiddleware): Promise<void> {`,
+        `    console.log('Middleware entity 1 : EXECUTED');`,
+        `    await next();`,
+        `  }`,
+        `}`,
+      ],
+      // End Middleware
+
+      // Start MiddlewareAfterRead
+      'srv/middleware/MiddlewareAfterRead.ts': [
+        `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
+        `import type { ${this.options.entityName} } from '#cds-models/ServiceA';`,
+        ``,
+        `export class MiddlewareAfterRead implements MiddlewareImpl {`,
+        `  public async use(req: TypedRequest<${this.options.entityName}>, next: NextMiddleware): Promise<void> {`,
+        `    console.log('Middleware entity 1 : EXECUTED');`,
+        `    await next();`,
+        `  }`,
+        `}`,
+      ],
+      // End MiddlewareAfterRead
+
+      // Start Repository
+      [`srv/repository/${this.options.entityName}Repository.ts`]: [
+        `import { Repository } from '@dxfrontier/cds-ts-dispatcher';`,
+        `import { BaseRepository } from '@dxfrontier/cds-ts-repository';`,
+        ``,
+        `import { ${this.options.entityName} } from '#cds-models/ServiceA';`,
+        ``,
+        `@Repository()`,
+        `export class ${this.options.entityName}Repository extends BaseRepository<${this.options.entityName}> {`,
+        `  constructor() {`,
+        `    super(${this.options.entityName});`,
+        `  }`,
+        `  // ... define custom CDS-QL actions if BaseRepository ones are not satisfying your needs !`,
+        `}`,
+      ],
+      // End Repository
+
+      // Start Service
+      [`srv/service/${this.options.entityName}Service.ts`]: [
+        `import { Inject, Service, ServiceLogic, CDS_DISPATCHER } from '@dxfrontier/cds-ts-dispatcher';`,
+        ``,
+        `import { ${this.options.entityName}Repository } from '../repository/${this.options.entityName}Repository';`,
+        ``,
+        `@ServiceLogic()`,
+        `export class ${this.options.entityName}Service {`,
+        `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
+        `  @Inject(${this.options.entityName}Repository) private readonly ${this.options.entityName}Service: ${this.options.entityName}Repository;`,
+        `}`,
+      ],
+      // End Service
+
+      // Start constants.ts
+      'srv/util/constants/constants.ts': [
+        `const Constants = {`,
+        `  // Example`,
+        `  CONSTANT_1: {`,
+        `    PROP_CONSTANT_1: 'SOMETHING',`,
+        `  },`,
+        `};`,
+        ``,
+        `export default Constants;`,
+      ],
+      // End constants.ts
+
+      // Start util.ts
+      'srv/util/helpers/util.ts': [
+        `const Util = {`,
+        `  // Example`,
+        `  aHelperFunction() {`,
+        `    return 1;`,
+        `  },`,
+        `};`,
+        ``,
+        `export default Util;`,
+      ],
+      // End util.ts
+
+      // Start types.ts
+      'srv/util/types/types.ts': [`// Example`, `export type AType = string;`],
+      // End types.ts
+    };
+  }
+
+  /**
    * Capire db directory templates for the SampleCode configuration.
    * @return Contents for sample db directory files.
    * @protected
@@ -328,50 +498,35 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
   }
 
   /**
-   * Creates the template files for the root directory.
+   * Creates the template files for the specified directory.
+   * @param templates The templates to create.
    */
-  public createRootTemplates(): void {
-    for (const path in this.sampleCodeFileRootTemplates) {
-      if (this.sampleCodeFileRootTemplates[path]) {
+  public createTemplates(templates: Record<string, string[]>): void {
+    for (const path in templates) {
+      if (templates[path]) {
         new SampleFile(this.project, path, {
-          contents: this.sampleCodeFileRootTemplates[path].join('\n'),
-        });
-      }
-    }
-  }
-
-  /**
-   * Creates the template files for the db directory.
-   */
-  public createDbTemplates(): void {
-    for (const path in this.sampleCodeFileDbTemplates) {
-      if (this.sampleCodeFileDbTemplates[path]) {
-        new SampleFile(this.project, path, {
-          contents: this.sampleCodeFileDbTemplates[path].join('\n'),
-        });
-      }
-    }
-  }
-
-  /**
-   * Creates the template files for the data directory.
-   */
-  public createDataTemplates(): void {
-    for (const path in this.sampleCodeFileDataTemplates) {
-      if (this.sampleCodeFileDataTemplates[path]) {
-        new SampleFile(this.project, path, {
-          contents: this.sampleCodeFileDataTemplates[path].join('\n'),
+          contents: templates[path].join('\n'),
         });
       }
     }
   }
 
   protected override get additionalDevDependencies(): string[] {
-    return ['@cap-js/cds-typer@^0.32.0', '@cap-js/cds-types@^0.9.0', '@sap/cds-dk@^8.6.1', '@sap/cds-lsp@^8.5.1'];
+    return [
+      `${constants['@cap-js/cds-typer'].NAME}@${constants['@cap-js/cds-typer'].VERSION}`,
+      `${constants['@cap-js/cds-types'].NAME}@${constants['@cap-js/cds-types'].VERSION}`,
+      `${constants['@sap/cds-dk'].NAME}@${constants['@sap/cds-dk'].VERSION}`,
+      `${constants['@sap/cds-lsp'].NAME}@${constants['@sap/cds-lsp'].VERSION}`,
+    ];
   }
 
   protected override get additionalDependencies(): string[] {
-    return ['@dxfrontier/cds-ts-dispatcher@^3.2.7', '@sap/cds@^8.6.1', '@sap/xssec@^4.2.8'];
+    return [
+      '@dxfrontier/cds-ts-dispatcher@^3.2.7',
+      `${constants['@dxfrontier/cds-ts-repository'].NAME}@${constants['@dxfrontier/cds-ts-repository'].VERSION}`,
+      `${constants['@sap/cds'].NAME}@${constants['@sap/cds'].VERSION}`,
+      `${constants['@sap/xssec'].NAME}@${constants['@sap/xssec'].VERSION}`,
+    ];
   }
 
   protected override get additionalScripts(): Record<string, string> {
@@ -409,8 +564,9 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
   }
 
   public override applyConfig(): void {
-    this.createRootTemplates();
-    this.createDbTemplates();
-    this.createDataTemplates();
+    this.createTemplates(this.sampleCodeFileRootTemplates);
+    this.createTemplates(this.sampleCodeFileDbTemplates);
+    this.createTemplates(this.sampleCodeFileDataTemplates);
+    this.createTemplates(this.sampleCodeFileSrvTemplates);
   }
 }

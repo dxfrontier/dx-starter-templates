@@ -1,4 +1,5 @@
 import { NpmConfigBase } from '../../base/config/npm';
+import { constants } from '../../util/constants';
 import { Settings } from '../../util/types';
 import { JsiiProject } from '.././project';
 
@@ -7,11 +8,20 @@ import { JsiiProject } from '.././project';
  */
 export class NpmConfigJsii extends NpmConfigBase {
   protected override get additionalDevDependencies(): string[] {
-    return ['jsii@^5.7.4', 'jsii-diff@^1.106.0', 'jsii-docgen@^10.6.3', 'jsii-pacmak@^1.106.0', 'jsii-rosetta@^5.7.2'];
+    return [
+      `${constants['jsii'].NAME}@${constants['jsii'].VERSION}`,
+      `${constants['jsii-diff'].NAME}@${constants['jsii-diff'].VERSION}`,
+      `${constants['jsii-docgen'].NAME}@${constants['jsii-docgen'].VERSION}`,
+      `${constants['jsii-pacmak'].NAME}@${constants['jsii-pacmak'].VERSION}`,
+      `${constants['jsii-rosetta'].NAME}@${constants['jsii-rosetta'].VERSION}`,
+    ];
   }
 
   protected override get additionalPeerDependencies(): string[] {
-    return ['constructs@^10.4.2', 'projen@^0.91.6'];
+    return [
+      `${constants.constructs.NAME}@${constants.constructs.VERSION}`,
+      `${constants.projen.NAME}@${constants.projen.VERSION}`,
+    ];
   }
 
   protected override get additionalSettings(): Settings {
