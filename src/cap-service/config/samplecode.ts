@@ -299,8 +299,8 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
       'srv/index.cds': [`using from './controller/service-1/service-1`, `using from './authorization/authorization';`],
       // End index.ts
 
-      // Start Entity1
-      'srv/controller/service-1/handler/Entity1Handler.ts': [
+      // Start Entity handler
+      [`srv/controller/service-1/handler/${this.options.entityName}Handler.ts`]: [
         `import {
           AfterRead,
           EntityHandler,
@@ -315,11 +315,13 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         ``,
         `import { ${this.options.entityName} } from '#cds-models/ServiceA';`,
         `import { MiddlewareMethodAfterRead1 } from '../../../middleware/MiddlewareAfterRead1';`,
-        `import { MiddlewareEntity1 } from '../../../middleware/MiddlewareEntity1';`,
+        [
+          `import { Middleware${this.options.entityName} } from '../../../middleware/Middleware${this.options.entityName}';`,
+        ],
         ``,
         `@EntityHandler(${this.options.entityName})`,
-        `@Use(MiddlewareEntity1)`,
-        `export class Entity1Handler {`,
+        [`@Use(Middleware${this.options.entityName})`],
+        [`export class ${this.options.entityName}Handler {`],
         `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
         `  // @OnRead, @BeforeRead, @AfterRead, @OnUpdate ...`,
         ``,
@@ -331,7 +333,7 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         `  }`,
         `}`,
       ],
-      // End Entity1
+      // End
 
       // Start UnboundActionsHandler
       'srv/controller/service-1/handler/UnboundActionsHandler.ts': [
@@ -359,33 +361,33 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
       // Start service-1.ts
       'srv/controller/service-1/service-1.ts': [
         `import { CDSDispatcher } from '@dxfrontier/cds-ts-dispatcher';`,
-        `import { Entity1Handler } from './handler/Entity1Handler';`,
+        `import { ${this.options.entityName}Handler } from './handler/${this.options.entityName}Handler';`,
         `import { UnboundActionsHandler } from './handler/UnboundActionsHandler';`,
         '',
-        `export = new CDSDispatcher([Entity1Handler, UnboundActionsHandler]).initialize();`,
+        `export = new CDSDispatcher([${this.options.entityName}Handler, UnboundActionsHandler]).initialize();`,
       ],
       // End service-1.ts
 
-      // Start MiddlewareEntity1
-      'srv/middleware/MiddlewareEntity1.ts': [
+      // Start Middleware
+      [`srv/middleware/Middleware${this.options.entityName}.ts`]: [
         `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
         `import type { ${this.options.entityName} } from '#cds-models/ServiceA';`,
         ``,
-        `export class MiddlewareEntity1 implements MiddlewareImpl {`,
+        `export class Middleware${this.options.entityName} implements MiddlewareImpl {`,
         `  public async use(req: TypedRequest<${this.options.entityName}>, next: NextMiddleware): Promise<void> {`,
         `    console.log('Middleware entity 1 : EXECUTED');`,
         `    await next();`,
         `  }`,
         `}`,
       ],
-      // End MiddlewareEntity1
+      // End Middleware
 
       // Start MiddlewareAfterRead1
       'srv/middleware/MiddlewareAfterRead.ts': [
         `import type { MiddlewareImpl, NextMiddleware, TypedRequest } from '@dxfrontier/cds-ts-dispatcher';`,
         `import type { ${this.options.entityName} } from '#cds-models/ServiceA';`,
         ``,
-        `export class MiddlewareEntity1 implements MiddlewareImpl {`,
+        `export class Middleware${this.options.entityName} implements MiddlewareImpl {`,
         `  public async use(req: TypedRequest<${this.options.entityName}>, next: NextMiddleware): Promise<void> {`,
         `    console.log('Middleware entity 1 : EXECUTED');`,
         `    await next();`,
@@ -394,42 +396,36 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
       ],
       // End MiddlewareAfterRead1
 
-      // Start Entity1Repository
-      'srv/repository/Entity1Repository.ts': [
+      // Start Repository
+      [`srv/repository/${this.options.entityName}Repository.ts`]: [
         `import { Repository } from '@dxfrontier/cds-ts-dispatcher';`,
         `import { BaseRepository } from '@dxfrontier/cds-ts-repository';`,
         ``,
         `import { ${this.options.entityName} } from '#cds-models/ServiceA';`,
         ``,
         `@Repository()`,
-        `export class Entity1Repository extends BaseRepository<${this.options.entityName}> {`,
+        `export class ${this.options.entityName}Repository extends BaseRepository<${this.options.entityName}> {`,
         `  constructor() {`,
         `    super(${this.options.entityName});`,
         `  }`,
         `  // ... define custom CDS-QL actions if BaseRepository ones are not satisfying your needs !`,
         `}`,
       ],
-      // End Entity1Repository
+      // End Repository
 
-      // Start Entity1Service
-      'srv/service/Entity1Service.ts': [
+      // Start Service
+      [`srv/service/${this.options.entityName}Service.ts`]: [
         `import { Inject, Service, ServiceLogic, CDS_DISPATCHER } from '@dxfrontier/cds-ts-dispatcher';`,
         ``,
-        `import { Entity1Repository } from '../repository/Entity1Repository';`,
+        `import { ${this.options.entityName}Repository } from '../repository/${this.options.entityName}Repository';`,
         ``,
         `@ServiceLogic()`,
-        `export class Entity1Service {`,
+        `export class ${this.options.entityName}Service {`,
         `  @Inject(CDS_DISPATCHER.SRV) private readonly srv: Service;`,
-        `  @Inject(Entity1Repository) private readonly entity1Service: Entity1Repository;`,
+        `  @Inject(${this.options.entityName}Repository) private readonly ${this.options.entityName}Service: ${this.options.entityName}Repository;`,
         `}`,
       ],
-      // End Entity1Service
-
-      // TODO: authorization should be removed or not ? !? !
-
-      // Start authorization.cds
-      // 'srv/authorization/authorization.cds': [],
-      // End authorization.cds
+      // End Service
 
       // Start constants.ts
       'srv/util/constants/constants.ts': [
