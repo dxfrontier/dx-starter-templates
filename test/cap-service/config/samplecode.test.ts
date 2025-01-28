@@ -615,7 +615,7 @@ test('Sample file ./srv/controller/service-1/service-1.ts matches expected file 
   samplecode.testSampleFilesTemplates(snapshot, 'srv/controller/service-1/service-1.ts', expectedTemplateLines);
 });
 
-test('Sample file ./srv/middleware/MiddlewareEntity1.ts matches expected file template', (): void => {
+test('Sample file ./srv/middleware/MyEntity.ts matches expected file template', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
