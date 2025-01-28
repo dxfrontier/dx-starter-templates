@@ -2,7 +2,10 @@ const constants = {
   PROJECT_NAMESPACE: 'de.customer.org.project',
   PROJECT_DESCRIPTION: 'SAP CAP Project',
   ENTITY_NAME: 'Entity1',
-
+  '@dxfrontier/cds-ts-repository': {
+    NAME: '@dxfrontier/cds-ts-repository',
+    VERSION: '^5.1.3',
+  },
   '@cap-js/cds-typer': {
     NAME: '@cap-js/cds-typer',
     VERSION: '^0.32.0',
