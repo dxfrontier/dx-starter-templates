@@ -12050,9 +12050,7 @@ new SampleCodeConfigCapService(project: CapServiceProject, options: CapServicePr
 | <code><a href="#@dxfrontier/projen-template-projects.SampleCodeConfigCapService.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
 | <code><a href="#@dxfrontier/projen-template-projects.SampleCodeConfigCapService.applyConfig">applyConfig</a></code> | Applies the current configuration based on the strategy to the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.SampleCodeConfigCapService.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
-| <code><a href="#@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createDataTemplates">createDataTemplates</a></code> | Creates the template files for the data directory. |
-| <code><a href="#@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createDbTemplates">createDbTemplates</a></code> | Creates the template files for the db directory. |
-| <code><a href="#@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createRootTemplates">createRootTemplates</a></code> | Creates the template files for the root directory. |
+| <code><a href="#@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createTemplates">createTemplates</a></code> | Creates the template files for the specified directory. |
 
 ---
 
@@ -12115,29 +12113,21 @@ This methods should be called only in the projects `preSynthesize` phase
 and not on the configuration modules `preSynthesize` function otherwise
 it is not guaranteed that all needed modules are setup properly.
 
-##### `createDataTemplates` <a name="createDataTemplates" id="@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createDataTemplates"></a>
+##### `createTemplates` <a name="createTemplates" id="@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createTemplates"></a>
 
 ```typescript
-public createDataTemplates(): void
+public createTemplates(templates: {[ key: string ]: string[]}): void
 ```
 
-Creates the template files for the data directory.
+Creates the template files for the specified directory.
 
-##### `createDbTemplates` <a name="createDbTemplates" id="@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createDbTemplates"></a>
+###### `templates`<sup>Required</sup> <a name="templates" id="@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createTemplates.parameter.templates"></a>
 
-```typescript
-public createDbTemplates(): void
-```
+- *Type:* {[ key: string ]: string[]}
 
-Creates the template files for the db directory.
+The templates to create.
 
-##### `createRootTemplates` <a name="createRootTemplates" id="@dxfrontier/projen-template-projects.SampleCodeConfigCapService.createRootTemplates"></a>
-
-```typescript
-public createRootTemplates(): void
-```
-
-Creates the template files for the root directory.
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 

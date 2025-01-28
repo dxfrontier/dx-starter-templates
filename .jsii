@@ -699,7 +699,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 28
+          "line": 29
         },
         "parameters": [
           {
@@ -716,7 +716,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 23
+        "line": 24
       },
       "methods": [
         {
@@ -727,7 +727,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 83
+            "line": 84
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -758,7 +758,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 15
+        "line": 16
       },
       "name": "CapServiceProjectOptions",
       "properties": [
@@ -770,7 +770,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 17
+            "line": 18
           },
           "name": "entityName",
           "optional": true,
@@ -786,7 +786,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 16
+            "line": 17
           },
           "name": "namespace",
           "optional": true,
@@ -830,7 +830,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/config/commitlint.ts",
-        "line": 12
+        "line": 13
       },
       "methods": [
         {
@@ -841,7 +841,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/commitlint.ts",
-            "line": 76
+            "line": 77
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -854,7 +854,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/commitlint.ts",
-            "line": 67
+            "line": 68
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -870,7 +870,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/commitlint.ts",
-            "line": 13
+            "line": 14
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -892,7 +892,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/commitlint.ts",
-            "line": 37
+            "line": 38
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -914,7 +914,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/commitlint.ts",
-            "line": 31
+            "line": 32
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -936,7 +936,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/commitlint.ts",
-            "line": 23
+            "line": 24
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -958,7 +958,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/commitlint.ts",
-            "line": 42
+            "line": 43
           },
           "name": "configFile",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -1677,7 +1677,7 @@
         },
         "locationInModule": {
           "filename": "src/base/config/eslint.ts",
-          "line": 16
+          "line": 17
         },
         "parameters": [
           {
@@ -1700,7 +1700,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/config/eslint.ts",
-        "line": 12
+        "line": 13
       },
       "methods": [
         {
@@ -1710,7 +1710,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 112
+            "line": 113
           },
           "name": "addIgnorePatterns",
           "parameters": [
@@ -1737,7 +1737,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 103
+            "line": 104
           },
           "name": "addRules",
           "parameters": [
@@ -1765,7 +1765,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 124
+            "line": 125
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -1778,7 +1778,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 116
+            "line": 117
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -1794,7 +1794,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 51
+            "line": 52
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -1816,7 +1816,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 70
+            "line": 71
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -1838,7 +1838,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 64
+            "line": 65
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -1860,7 +1860,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 75
+            "line": 76
           },
           "name": "configFile",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -1902,7 +1902,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 47
+            "line": 48
           },
           "name": "standardIgnorePatterns",
           "protected": true,
@@ -1924,7 +1924,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 28
+            "line": 29
           },
           "name": "standardRules",
           "protected": true,
@@ -1943,7 +1943,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 14
+            "line": 15
           },
           "name": "ignorePatterns",
           "protected": true,
@@ -1962,7 +1962,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/eslint.ts",
-            "line": 13
+            "line": 14
           },
           "name": "rules",
           "protected": true,
@@ -1992,7 +1992,7 @@
         },
         "locationInModule": {
           "filename": "src/base/config/eslint.ts",
-          "line": 16
+          "line": 17
         },
         "parameters": [
           {
@@ -3101,7 +3101,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/config/husky.ts",
-        "line": 12
+        "line": 13
       },
       "methods": [
         {
@@ -3112,7 +3112,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/husky.ts",
-            "line": 46
+            "line": 47
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -3125,7 +3125,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/husky.ts",
-            "line": 38
+            "line": 39
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -3141,7 +3141,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/husky.ts",
-            "line": 13
+            "line": 14
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3163,7 +3163,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/husky.ts",
-            "line": 23
+            "line": 24
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3185,7 +3185,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/husky.ts",
-            "line": 17
+            "line": 18
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3207,7 +3207,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/husky.ts",
-            "line": 31
+            "line": 32
           },
           "name": "configFile",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3425,7 +3425,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/config/jest.ts",
-        "line": 9
+        "line": 10
       },
       "methods": [
         {
@@ -3436,7 +3436,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/jest.ts",
-            "line": 63
+            "line": 69
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -3452,7 +3452,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/jest.ts",
-            "line": 10
+            "line": 11
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3474,7 +3474,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/jest.ts",
-            "line": 59
+            "line": 65
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3496,7 +3496,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/jest.ts",
-            "line": 14
+            "line": 20
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3518,7 +3518,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/jest.ts",
-            "line": 21
+            "line": 27
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4536,7 +4536,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/config/npm.ts",
-        "line": 7
+        "line": 8
       },
       "methods": [
         {
@@ -4547,7 +4547,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 42
+            "line": 43
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -4563,7 +4563,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 38
+            "line": 39
           },
           "name": "additionalAttributesPatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4585,7 +4585,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 8
+            "line": 9
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4607,7 +4607,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 18
+            "line": 19
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4629,7 +4629,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 12
+            "line": 13
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4786,7 +4786,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/jsii/config/npm.ts",
-        "line": 8
+        "line": 9
       },
       "methods": [
         {
@@ -4797,7 +4797,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/config/npm.ts",
-            "line": 55
+            "line": 65
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.NpmConfigBase"
@@ -4810,7 +4810,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/config/npm.ts",
-            "line": 45
+            "line": 55
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -4826,7 +4826,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/config/npm.ts",
-            "line": 9
+            "line": 10
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4848,7 +4848,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/config/npm.ts",
-            "line": 23
+            "line": 33
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4870,7 +4870,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/config/npm.ts",
-            "line": 13
+            "line": 20
           },
           "name": "additionalPeerDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4892,7 +4892,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/config/npm.ts",
-            "line": 17
+            "line": 27
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4924,7 +4924,7 @@
         },
         "locationInModule": {
           "filename": "src/base/config/prettier.ts",
-          "line": 15
+          "line": 16
         },
         "parameters": [
           {
@@ -4947,7 +4947,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/config/prettier.ts",
-        "line": 12
+        "line": 13
       },
       "methods": [
         {
@@ -4957,7 +4957,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 70
+            "line": 71
           },
           "name": "addIgnorePatterns",
           "parameters": [
@@ -4985,7 +4985,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 101
+            "line": 102
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -4997,7 +4997,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 77
+            "line": 78
           },
           "name": "createConfig",
           "protected": true
@@ -5009,7 +5009,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 87
+            "line": 88
           },
           "name": "createIgnore",
           "protected": true
@@ -5022,7 +5022,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 94
+            "line": 95
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -5038,7 +5038,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 30
+            "line": 31
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5060,7 +5060,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 34
+            "line": 35
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5082,7 +5082,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 40
+            "line": 41
           },
           "name": "configFile",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5123,7 +5123,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 59
+            "line": 60
           },
           "name": "ignoreFile",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5151,7 +5151,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 26
+            "line": 27
           },
           "name": "standardIgnorePatterns",
           "protected": true,
@@ -5170,7 +5170,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/prettier.ts",
-            "line": 13
+            "line": 14
           },
           "name": "ignorePatterns",
           "protected": true,
@@ -5200,7 +5200,7 @@
         },
         "locationInModule": {
           "filename": "src/base/config/prettier.ts",
-          "line": 15
+          "line": 16
         },
         "parameters": [
           {
@@ -5360,7 +5360,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/config/samplecode.ts",
-          "line": 12
+          "line": 13
         },
         "parameters": [
           {
@@ -5380,7 +5380,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/config/samplecode.ts",
-        "line": 9
+        "line": 10
       },
       "methods": [
         {
@@ -5391,7 +5391,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 411
+            "line": 565
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
@@ -5399,35 +5399,34 @@
         {
           "docs": {
             "stability": "stable",
-            "summary": "Creates the template files for the data directory."
+            "summary": "Creates the template files for the specified directory."
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 359
+            "line": 504
           },
-          "name": "createDataTemplates"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates the template files for the db directory."
-          },
-          "locationInModule": {
-            "filename": "src/cap-service/config/samplecode.ts",
-            "line": 346
-          },
-          "name": "createDbTemplates"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates the template files for the root directory."
-          },
-          "locationInModule": {
-            "filename": "src/cap-service/config/samplecode.ts",
-            "line": 333
-          },
-          "name": "createRootTemplates"
+          "name": "createTemplates",
+          "parameters": [
+            {
+              "docs": {
+                "summary": "The templates to create."
+              },
+              "name": "templates",
+              "type": {
+                "collection": {
+                  "elementtype": {
+                    "collection": {
+                      "elementtype": {
+                        "primitive": "string"
+                      },
+                      "kind": "array"
+                    }
+                  },
+                  "kind": "map"
+                }
+              }
+            }
+          ]
         },
         {
           "docs": {
@@ -5437,7 +5436,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 402
+            "line": 556
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -5453,7 +5452,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 373
+            "line": 523
           },
           "name": "additionalDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5475,7 +5474,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 369
+            "line": 514
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5497,7 +5496,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 377
+            "line": 531
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5519,7 +5518,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 393
+            "line": 547
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5545,7 +5544,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 315
+            "line": 485
           },
           "name": "sampleCodeFileDataTemplates",
           "protected": true,
@@ -5575,7 +5574,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 295
+            "line": 465
           },
           "name": "sampleCodeFileDbTemplates",
           "protected": true,
@@ -5605,9 +5604,39 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 23
+            "line": 24
           },
           "name": "sampleCodeFileRootTemplates",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "custom": {
+              "protected": "true"
+            },
+            "returns": "Contents for sample `srv` directory files.",
+            "stability": "stable",
+            "summary": "Capire `srv` directory templates for the SampleCode configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/cap-service/config/samplecode.ts",
+            "line": 296
+          },
+          "name": "sampleCodeFileSrvTemplates",
           "protected": true,
           "type": {
             "collection": {
@@ -5725,7 +5754,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/config/typescript.ts",
-        "line": 10
+        "line": 11
       },
       "methods": [
         {
@@ -5736,7 +5765,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/typescript.ts",
-            "line": 35
+            "line": 40
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -5752,7 +5781,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/typescript.ts",
-            "line": 11
+            "line": 12
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5774,7 +5803,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/typescript.ts",
-            "line": 15
+            "line": 20
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5796,7 +5825,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/typescript.ts",
-            "line": 20
+            "line": 25
           },
           "name": "configFile",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5838,7 +5867,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/typescript.ts",
-            "line": 31
+            "line": 36
           },
           "name": "configFileName",
           "type": {
@@ -6462,5 +6491,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "+si4uQxV7JZekJ2OtV3F9/yWsxm5vzbo6L8Rf8G4Td0="
+  "fingerprint": "BElIHfLzkIDkAHvqtfo1E5e3JbXjlVz/UncSy/1XXio="
 }
