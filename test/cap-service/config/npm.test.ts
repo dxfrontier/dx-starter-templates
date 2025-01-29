@@ -69,7 +69,6 @@ test('DevDependencies are added properly', (): void => {
 test('Dependencies are added properly', (): void => {
   const expectedDependencies: Record<string, string> = {
     '@dxfrontier/cds-ts-repository': '^5.1.3',
-    '@dxfrontier/cds-ts-dispatcher': '^3.2.7',
     '@sap/cds': '^8.6.1',
     '@sap/xssec': '^4.2.8',
   };
