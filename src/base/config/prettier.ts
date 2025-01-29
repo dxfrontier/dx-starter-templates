@@ -2,7 +2,7 @@ import { JsonFile, TextFile } from 'projen';
 import { Config } from '../config';
 import { TrailingComma } from 'projen/lib/javascript';
 import { ConfigFile, ProjectTypes } from '../../util/types';
-import { isValidProject } from '../../util/utils';
+import { util } from '../../util/utils';
 import { constants } from '../../util/constants';
 
 /**
@@ -93,7 +93,7 @@ export class PrettierConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (isValidProject(this.project)) {
+    if (util.isValidProject(this.project)) {
       (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
       (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
     }

@@ -2,7 +2,7 @@ import { JestConfigBase } from '../../base/config/jest';
 import { constants } from '../../util/constants';
 import { ProjectTypes } from '../../util/types/project';
 import { Settings } from '../../util/types/types';
-import { isValidProject } from '../../util/utils';
+import { util } from '../../util/utils';
 
 /**
  * Implementing all relevant Jest configuration for the CapService project.
@@ -67,7 +67,7 @@ export class JestConfigCapService extends JestConfigBase {
   }
 
   public override registerConfig(): void {
-    if (isValidProject(this.project)) {
+    if (util.isValidProject(this.project)) {
       (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
       (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
       (this.project as ProjectTypes).npmConfig?.addSettings(this.additionalSettings);

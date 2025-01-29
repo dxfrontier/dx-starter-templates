@@ -1,7 +1,7 @@
 import { TextFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes } from '../../util/types/project';
-import { isValidProject } from '../../util/utils';
+import { util } from '../../util/utils';
 import { ConfigFile, Settings } from '../../util/types/types';
 import { constants } from '../../util/constants';
 
@@ -66,7 +66,7 @@ export class CommitLintConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (isValidProject(this.project)) {
+    if (util.isValidProject(this.project)) {
       (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
       (this.project as ProjectTypes).npmConfig?.addSettings(this.additionalSettings);
       (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
