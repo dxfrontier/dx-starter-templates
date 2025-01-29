@@ -12,6 +12,7 @@ import { PrettierConfigCapService } from './config/prettier';
 import { SampleCodeConfigCapService } from './config/samplecode';
 import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
+import { exec, ExecException } from 'child_process';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
   readonly namespace?: string;
@@ -83,5 +84,26 @@ export class CapServiceProject extends BaseProject {
 
   protected override initializeBaseConfigs(options: BaseProjectOptions): void {
     super.initializeBaseConfigs(options);
+  }
+
+  public override postSynthesize(): void {
+    super.postSynthesize();
+
+    let hasRun = false;
+    process.on('beforeExit', (): void => {
+      if (hasRun) return;
+      hasRun = true;
+      console.log('Exiting projen and installing @dxfrontier/cds-ts-dispatcher ...');
+
+      exec(
+        'npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install @dxfrontier/cds-ts-dispatcher@^3.2.7',
+        (error: ExecException | null, stdout: string): void => {
+          if (error) {
+            console.error('Error exiting projen ... But exit will continue.');
+          }
+          console.log(`${stdout}`);
+        },
+      );
+    });
   }
 }
