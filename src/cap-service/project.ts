@@ -1,5 +1,6 @@
 import { BaseProjectOptions, BaseProject, BaseOptions } from '../base';
 import { constants } from '../util/constants';
+import { util } from '../util/utils';
 import { CommitLintConfigCapService } from './config/commitlint';
 import { DevContainerConfigCapService } from './config/devcontainer';
 import { EsLintConfigCapService } from './config/eslint';
@@ -90,6 +91,9 @@ export class CapServiceProject extends BaseProject {
     super.postSynthesize();
 
     let hasRun = false;
+
+    util.setupExitHandler(hasRun);
+
     process.on('beforeExit', (): void => {
       if (hasRun) return;
       hasRun = true;
