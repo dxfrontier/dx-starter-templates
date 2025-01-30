@@ -80,23 +80,7 @@ const constants = {
     NAME: 'eslint',
     VERSION: '^9.18.0',
   },
-  'eslint-config-prettier': {
-    NAME: 'eslint-config-prettier',
-    VERSION: '^10.0.1',
-  },
-  'eslint-import-resolver-typescript': {
-    NAME: 'eslint-import-resolver-typescript',
-    VERSION: '^3.7.0',
-  },
-  'eslint-plugin-import': {
-    NAME: 'eslint-plugin-import',
-    VERSION: '^2.31.0',
-  },
-  'eslint-plugin-prettier': {
-    NAME: 'eslint-plugin-prettier',
-    VERSION: '^5.2.1',
-  },
-  '@typescript-eslint': {
+  'typescript-eslint': {
     NAME: 'typescript-eslint',
     VERSION: '^8.20.0',
   },
