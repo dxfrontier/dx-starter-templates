@@ -8,6 +8,7 @@
  * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
  **/
 
+import { constants } from '../../../src/util/constants';
 import * as npm from '../../shared/npm';
 import { snapshot } from './setup';
 
@@ -42,43 +43,37 @@ test('Files property in package.json is set properly', (): void => {
 
 test('DevDependencies are added properly', (): void => {
   const expectedDevDependencies: Record<string, string> = {
-    '@commitlint/cli': '^19.6.1',
-    '@commitlint/config-conventional': '^19.6.0',
-    '@commitlint/prompt-cli': '^19.7.0',
-    '@commitlint/types': '^19.5.0',
-    '@types/jest': '*',
-    '@types/node': '^22.10.6',
-    '@typescript-eslint/eslint-plugin': '^8.20.0',
-    '@typescript-eslint/parser': '^8.20.0',
-    constructs: '10.4.2',
-    eslint: '^9.18.0',
-    'eslint-config-prettier': '^10.0.1',
-    'eslint-import-resolver-typescript': '^3.7.0',
-    'eslint-plugin-import': '^2.31.0',
-    'eslint-plugin-prettier': '^5.2.1',
-    husky: '^9.1.7',
-    jest: '*',
-    'jest-junit': '^16',
-    jsii: '^5.7.4',
-    'jsii-diff': '^1.106.0',
-    'jsii-docgen': '^10.6.3',
-    'jsii-pacmak': '^1.106.0',
-    'jsii-rosetta': '^5.7.2',
-    'lint-staged': '^15.3.0',
-    prettier: '^3.4.2',
-    projen: '0.91.6',
-    'ts-jest': '*',
-    'ts-node': '^10.9.2',
-    typescript: '^5.7.3',
-    'typescript-eslint': '^8.20.0',
+    [constants['@commitlint/cli'].NAME]: constants['@commitlint/cli'].VERSION,
+    [constants['@commitlint/config-conventional'].NAME]: constants['@commitlint/config-conventional'].VERSION,
+    [constants['@commitlint/prompt-cli'].NAME]: constants['@commitlint/prompt-cli'].VERSION,
+    [constants['@commitlint/types'].NAME]: constants['@commitlint/types'].VERSION,
+    [constants['@types/jest'].NAME]: '*',
+    [constants['@types/node'].NAME]: constants['@types/node'].VERSION,
+    [constants['constructs'].NAME]: '10.4.2', // ! This is injected by the jsii config module
+    [constants['eslint'].NAME]: constants['eslint'].VERSION,
+    [constants['husky'].NAME]: constants['husky'].VERSION,
+    [constants['jest'].NAME]: '*', // ! This is injected by the jsii config module
+    [constants['jest-junit'].NAME]: '^16', // ! This is injected by the jsii config module
+    [constants['jsii'].NAME]: constants['jsii'].VERSION,
+    [constants['jsii-diff'].NAME]: constants['jsii-diff'].VERSION,
+    [constants['jsii-docgen'].NAME]: constants['jsii-docgen'].VERSION,
+    [constants['jsii-pacmak'].NAME]: constants['jsii-pacmak'].VERSION,
+    [constants['jsii-rosetta'].NAME]: constants['jsii-rosetta'].VERSION,
+    [constants['lint-staged'].NAME]: constants['lint-staged'].VERSION,
+    [constants['prettier'].NAME]: constants['prettier'].VERSION,
+    [constants['projen'].NAME]: '0.91.6', // ! This is injected by the jsii config module
+    [constants['ts-jest'].NAME]: '*', // ! This is injected by the jsii config module
+    [constants[`ts-node`].NAME]: constants[`ts-node`].VERSION,
+    [constants['typescript'].NAME]: constants['typescript'].VERSION,
+    [constants['typescript-eslint'].NAME]: constants['typescript-eslint'].VERSION,
   };
   npm.testDevDependencies(snapshot, expectedDevDependencies);
 });
 
 test('PeerDependencies are added properly', (): void => {
   const expectedPeerDependencies: Record<string, string> = {
-    constructs: '^10.4.2',
-    projen: '^0.91.6',
+    [constants['constructs'].NAME]: constants['constructs'].VERSION,
+    [constants['projen'].NAME]: constants['projen'].VERSION,
   };
   npm.testPeerDependencies(snapshot, expectedPeerDependencies);
 });

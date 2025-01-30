@@ -8,6 +8,7 @@
  * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
  **/
 
+import { constants } from '../../../src/util/constants';
 import * as npm from '../../shared/npm';
 import { snapshot } from './setup';
 
@@ -33,44 +34,38 @@ test('Files property in package.json is set properly', (): void => {
 
 test('DevDependencies are added properly', (): void => {
   const expectedDevDependencies: Record<string, string> = {
-    '@cap-js/cds-typer': '^0.32.0',
-    '@cap-js/cds-types': '^0.9.0',
-    '@commitlint/cli': '^19.6.1',
-    '@commitlint/config-conventional': '^19.6.0',
-    '@commitlint/prompt-cli': '^19.7.0',
-    '@commitlint/types': '^19.5.0',
-    '@sap/cds-dk': '^8.6.1',
-    '@sap/cds-lsp': '^8.5.1',
-    '@types/jest': '^29.5.14',
-    '@types/node': '^22.10.6',
-    '@typescript-eslint/eslint-plugin': '^8.20.0',
-    '@typescript-eslint/parser': '^8.20.0',
-    constructs: '^10.0.0',
-    eslint: '^9.18.0',
-    'eslint-config-prettier': '^10.0.1',
-    'eslint-import-resolver-typescript': '^3.7.0',
-    'eslint-plugin-import': '^2.31.0',
-    'eslint-plugin-prettier': '^5.2.1',
-    husky: '^9.1.7',
-    jest: '^29.7.0',
-    'jest-junit': '^16.0.0',
-    'lint-staged': '^15.3.0',
-    'npm-run-all': '^4.1.5',
-    prettier: '^3.4.2',
-    projen: '*',
-    'ts-jest': '^29.2.5',
-    'ts-node': '^10.9.2',
-    typescript: '^5.7.3',
-    'typescript-eslint': '^8.20.0',
+    [constants['@cap-js/cds-typer'].NAME]: constants['@cap-js/cds-typer'].VERSION,
+    [constants['@cap-js/cds-types'].NAME]: constants['@cap-js/cds-types'].VERSION,
+    [constants['@commitlint/cli'].NAME]: constants['@commitlint/cli'].VERSION,
+    [constants['@commitlint/config-conventional'].NAME]: constants['@commitlint/config-conventional'].VERSION,
+    [constants['@commitlint/prompt-cli'].NAME]: constants['@commitlint/prompt-cli'].VERSION,
+    [constants['@commitlint/types'].NAME]: constants['@commitlint/types'].VERSION,
+    [constants['@sap/cds-dk'].NAME]: constants['@sap/cds-dk'].VERSION,
+    [constants['@sap/cds-lsp'].NAME]: constants['@sap/cds-lsp'].VERSION,
+    [constants['@types/jest'].NAME]: constants['@types/jest'].VERSION,
+    [constants['@types/node'].NAME]: constants['@types/node'].VERSION,
+    [constants['constructs'].NAME]: '^10.0.0', // ! This is injected by the jsii config module
+    [constants['eslint'].NAME]: constants['eslint'].VERSION,
+    [constants['husky'].NAME]: constants['husky'].VERSION,
+    [constants['jest'].NAME]: constants['jest'].VERSION,
+    [constants['jest-junit'].NAME]: constants['jest-junit'].VERSION,
+    [constants['lint-staged'].NAME]: constants['lint-staged'].VERSION,
+    [constants['npm-run-all'].NAME]: constants['npm-run-all'].VERSION,
+    [constants['prettier'].NAME]: constants['prettier'].VERSION,
+    [constants['projen'].NAME]: '*', // ! This is injected by the jsii config module
+    [constants['ts-jest'].NAME]: constants['ts-jest'].VERSION,
+    [constants[`ts-node`].NAME]: constants[`ts-node`].VERSION,
+    [constants['typescript'].NAME]: constants['typescript'].VERSION,
+    [constants['typescript-eslint'].NAME]: constants['typescript-eslint'].VERSION,
   };
   npm.testDevDependencies(snapshot, expectedDevDependencies);
 });
 
 test('Dependencies are added properly', (): void => {
   const expectedDependencies: Record<string, string> = {
-    '@dxfrontier/cds-ts-repository': '^5.1.3',
-    '@sap/cds': '^8.6.1',
-    '@sap/xssec': '^4.2.8',
+    [constants['@dxfrontier/cds-ts-repository'].NAME]: constants['@dxfrontier/cds-ts-repository'].VERSION,
+    [constants['@sap/cds'].NAME]: constants['@sap/cds'].VERSION,
+    [constants['@sap/xssec'].NAME]: constants['@sap/xssec'].VERSION,
   };
   npm.testDependencies(snapshot, expectedDependencies);
 });

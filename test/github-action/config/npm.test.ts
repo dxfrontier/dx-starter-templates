@@ -8,6 +8,7 @@
  * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
  **/
 
+import { constants } from '../../../src/util/constants';
 import * as npm from '../../shared/npm';
 import { snapshot } from './setup';
 
@@ -33,15 +34,15 @@ test('Files property in package.json is set properly', (): void => {
 
 test('DevDependencies are added properly', (): void => {
   const expectedDevDependencies: Record<string, string> = {
-    '@commitlint/cli': '^19.6.1',
-    '@commitlint/config-conventional': '^19.6.0',
-    '@commitlint/prompt-cli': '^19.7.0',
-    '@commitlint/types': '^19.5.0',
+    [constants['@commitlint/cli'].NAME]: constants['@commitlint/cli'].VERSION,
+    [constants['@commitlint/config-conventional'].NAME]: constants['@commitlint/config-conventional'].VERSION,
+    [constants['@commitlint/prompt-cli'].NAME]: constants['@commitlint/prompt-cli'].VERSION,
+    [constants['@commitlint/types'].NAME]: constants['@commitlint/types'].VERSION,
     '@types/node': '*',
-    constructs: '^10.0.0',
-    husky: '^9.1.7',
-    'lint-staged': '^15.3.0',
-    prettier: '^3.4.2',
+    constructs: '^10.0.0', // ????
+    [constants['husky'].NAME]: constants['husky'].VERSION,
+    [constants['lint-staged'].NAME]: constants['lint-staged'].VERSION,
+    [constants['prettier'].NAME]: constants['prettier'].VERSION,
     projen: '*',
   };
   npm.testDevDependencies(snapshot, expectedDevDependencies);
