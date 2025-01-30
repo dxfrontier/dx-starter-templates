@@ -1,7 +1,7 @@
 import { TextFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes } from '../../util/types/project';
-import { isValidProject } from '../../util/utils';
+import { util } from '../../util/utils';
 import { ConfigFile } from '../../util/types';
 import { constants } from '../../util/constants';
 
@@ -115,7 +115,7 @@ export class EsLintConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (isValidProject(this.project)) {
+    if (util.isValidProject(this.project)) {
       (this.project as ProjectTypes).npmConfig?.addDevDependencies(this.additionalDevDependencies);
       (this.project as ProjectTypes).npmConfig?.addScripts(this.additionalScripts);
       (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);

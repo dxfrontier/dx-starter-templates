@@ -1,7 +1,7 @@
 import { TextFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes } from '../../util/types/project';
-import { isValidProject } from '../../util/utils';
+import { util } from '../../util/utils';
 
 /**
  * Base class for implementing all relevant GitHub configuration.
@@ -430,7 +430,7 @@ export class GitHubConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (isValidProject(this.project)) {
+    if (util.isValidProject(this.project)) {
       (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     }
     this.addAttributePatterns(this.additionalAttributesPatterns);

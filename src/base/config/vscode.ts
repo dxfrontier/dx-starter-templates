@@ -1,7 +1,7 @@
 import { JsonFile } from 'projen';
 import { Config } from '../config';
 import { ConfigFile, ProjectTypes } from '../../util/types';
-import { isValidProject } from '../../util/utils';
+import { util } from '../../util/utils';
 
 /**
  * Base class for implementing all relevant VS Code configuration.
@@ -41,7 +41,7 @@ export class VsCodeConfigBase extends Config {
   }
 
   public override registerConfig(): void {
-    if (isValidProject(this.project)) {
+    if (util.isValidProject(this.project)) {
       (this.project as ProjectTypes).prettierConfig?.addIgnorePatterns(this.additionalIgnorePatterns);
     }
   }

@@ -11,7 +11,7 @@ import { PrettierConfigBase } from './config/prettier';
 import { SampleCodeConfigBase } from './config/samplecode';
 import { TypeScriptConfigBase } from './config/typescript';
 import { VsCodeConfigBase } from './config/vscode';
-import { registerConfig } from '../util/utils';
+import { util } from '../util/utils';
 import { CommitLintConfigBase } from './config/commitlint';
 import { IProjectKind, ProjectKind } from '../util/types/project';
 
@@ -226,7 +226,7 @@ export class BaseProject extends TypeScriptProject implements IProjectKind {
   }
 
   public override preSynthesize(): void {
-    registerConfig(this.components);
+    util.registerConfig(this.components);
     super.preSynthesize();
   }
 

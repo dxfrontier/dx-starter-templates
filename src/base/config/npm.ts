@@ -2,7 +2,7 @@ import { JsonPatch, ObjectFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes, Settings } from '../../util/types';
 import { TypeScriptProject } from 'projen/lib/typescript';
-import { isValidProject } from '../../util/utils';
+import { util } from '../../util/utils';
 
 /**
  * Base class for implementing all relevant NPM configuration.
@@ -196,7 +196,7 @@ export class NpmConfigBase extends Config {
   }
 
   public override applyConfig(): void {
-    if (isValidProject(this.project)) {
+    if (util.isValidProject(this.project)) {
       (this.project as ProjectTypes).addDeps(...this.dependencies);
       (this.project as ProjectTypes).addDevDeps(...this.devDependencies);
       (this.project as ProjectTypes).addPeerDeps(...this.peerDependencies);
