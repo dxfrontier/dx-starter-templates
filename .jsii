@@ -4560,7 +4560,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 44
+            "line": 47
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -4576,7 +4576,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 40
+            "line": 43
           },
           "name": "additionalAttributesPatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4620,7 +4620,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 20
+            "line": 23
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -4642,7 +4642,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/npm.ts",
-            "line": 14
+            "line": 17
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -6504,5 +6504,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "Tb6ELArOHcDNV9deujYZVZdtDQvq4GiKLDnm3IrX8jk="
+  "fingerprint": "5N/IV50/LQhKgrjUn7Egu0x0D7hpNaioKWjyKGkmQk0="
 }
