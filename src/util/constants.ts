@@ -7,7 +7,6 @@ const constants = {
     NAME: '@dxfrontier/cds-ts-dispatcher',
     VERSION: '^3.2.7',
   },
-
   '@dxfrontier/cds-ts-repository': {
     NAME: '@dxfrontier/cds-ts-repository',
     VERSION: '^5.1.3',
@@ -19,6 +18,10 @@ const constants = {
   '@cap-js/cds-types': {
     NAME: '@cap-js/cds-types',
     VERSION: '^0.9.0',
+  },
+  '@cap-js/sqlite': {
+    NAME: '@cap-js/sqlite',
+    VERSION: '^1.7.8',
   },
   '@sap/cds-dk': {
     NAME: '@sap/cds-dk',
