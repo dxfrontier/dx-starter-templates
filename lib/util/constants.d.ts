@@ -2,6 +2,10 @@ declare const constants: {
     PROJECT_NAMESPACE: string;
     PROJECT_DESCRIPTION: string;
     ENTITY_NAME: string;
+    '@dxfrontier/cds-ts-dispatcher': {
+        NAME: string;
+        VERSION: string;
+    };
     '@dxfrontier/cds-ts-repository': {
         NAME: string;
         VERSION: string;
@@ -74,23 +78,7 @@ declare const constants: {
         NAME: string;
         VERSION: string;
     };
-    'eslint-config-prettier': {
-        NAME: string;
-        VERSION: string;
-    };
-    'eslint-import-resolver-typescript': {
-        NAME: string;
-        VERSION: string;
-    };
-    'eslint-plugin-import': {
-        NAME: string;
-        VERSION: string;
-    };
-    'eslint-plugin-prettier': {
-        NAME: string;
-        VERSION: string;
-    };
-    '@typescript-eslint': {
+    'typescript-eslint': {
         NAME: string;
         VERSION: string;
     };
