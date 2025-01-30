@@ -18,6 +18,10 @@ declare const constants: {
         NAME: string;
         VERSION: string;
     };
+    '@cap-js/sqlite': {
+        NAME: string;
+        VERSION: string;
+    };
     '@sap/cds-dk': {
         NAME: string;
         VERSION: string;

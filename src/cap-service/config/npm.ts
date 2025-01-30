@@ -8,7 +8,10 @@ import { Settings } from '../../util/types';
  */
 export class NpmConfigCapService extends NpmConfigBase {
   protected override get additionalDevDependencies(): string[] {
-    return [`${constants['npm-run-all'].NAME}@${constants['npm-run-all'].VERSION}`];
+    return [
+      `${constants['npm-run-all'].NAME}@${constants['npm-run-all'].VERSION}`,
+      `${constants['@cap-js/sqlite'].NAME}@${constants['@cap-js/sqlite'].VERSION}`,
+    ];
   }
 
   protected override get additionalSettings(): Settings {

@@ -36,6 +36,7 @@ test('DevDependencies are added properly', (): void => {
   const expectedDevDependencies: Record<string, string> = {
     [constants['@cap-js/cds-typer'].NAME]: constants['@cap-js/cds-typer'].VERSION,
     [constants['@cap-js/cds-types'].NAME]: constants['@cap-js/cds-types'].VERSION,
+    [constants['@cap-js/sqlite'].NAME]: constants['@cap-js/sqlite'].VERSION,
     [constants['@commitlint/cli'].NAME]: constants['@commitlint/cli'].VERSION,
     [constants['@commitlint/config-conventional'].NAME]: constants['@commitlint/config-conventional'].VERSION,
     [constants['@commitlint/prompt-cli'].NAME]: constants['@commitlint/prompt-cli'].VERSION,
