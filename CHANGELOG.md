@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.3] - 2025-01-30
+
+### 🚀 Features
+
+- *(sqlite)* Added sqlite as default db (#202)
+
+### ⚙️ Miscellaneous Tasks
+
+- Bump version, CHANGELOG.md generated (#201)
+
 ## [0.4.2] - 2025-01-30
 
 ### ⚙️ Miscellaneous Tasks
