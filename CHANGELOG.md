@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.4] - 2025-01-31
+
+### 🚜 Refactor
+
+- *(project.ts)* Removed unused code from cap-service (#207)
+
+### ⚙️ Miscellaneous Tasks
+
+- Bump version, CHANGELOG.md generated (#203)
+- *(readme)* Updated main readme (#209)
+
 ## [0.4.3] - 2025-01-30
 
 ### 🚀 Features
