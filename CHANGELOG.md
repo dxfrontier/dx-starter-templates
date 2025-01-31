@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.4] - 2025-01-31
+
+### 🚀 Features
+
+- *(cds-models)* Added generation of the cds-models during startup of the `npx create cap_service`
+
+### 🚜 Refactor
+
+- *(cds-models)* Variant 2 of generation of cds-models as first variant failed
+- *(cds-models)* Try 3 of cds-models
+
+### ⚙️ Miscellaneous Tasks
+
+- Bump version, CHANGELOG.md generated (#203)
+
 ## [0.4.3] - 2025-01-30
 
 ### 🚀 Features
