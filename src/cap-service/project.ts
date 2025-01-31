@@ -1,5 +1,6 @@
 import { BaseProjectOptions, BaseProject, BaseOptions } from '../base';
 import { constants } from '../util/constants';
+import { util } from '../util/utils';
 import { CommitLintConfigCapService } from './config/commitlint';
 import { DevContainerConfigCapService } from './config/devcontainer';
 import { EsLintConfigCapService } from './config/eslint';
@@ -12,8 +13,6 @@ import { PrettierConfigCapService } from './config/prettier';
 import { SampleCodeConfigCapService } from './config/samplecode';
 import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
-
-import { exec, ExecException } from 'child_process';
 export interface CapServiceProjectOptions extends BaseProjectOptions {
   readonly namespace?: string;
   readonly entityName?: string;
@@ -93,28 +92,6 @@ export class CapServiceProject extends BaseProject {
     let hasRun = false;
 
     // util.generateCdsModels();
-    // util.setupExitHandler(hasRun);
-
-    if (hasRun) {
-      return;
-    }
-
-    hasRun = true;
-
-    const runProjenEjectAndInstall = () => {
-      const command = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION} && npx @cap-js/cds-typer "*" --outputDirectory @cds-models`;
-
-      exec(command, (error: ExecException | null, stdout: string): void => {
-        if (error) {
-          console.error('Error exiting projen ... But exit will continue.');
-        }
-
-        console.log(`${stdout}`);
-      });
-    };
-
-    runProjenEjectAndInstall();
-
-    console.log('Exiting projen and installing @dxfrontier/cds-ts-dispatcher ...');
+    util.setupExitHandler(hasRun);
   }
 }
