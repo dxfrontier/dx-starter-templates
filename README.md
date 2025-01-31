@@ -37,10 +37,8 @@ To create a predefined structure for [CDS-TS-Dispatcher](https://github.com/dxfr
 `Example:`
 
 ```bash
-$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects
+$ npx projen new cap_service --from git+https://github.com/dxfrontier/projen-template-projects
 ```
-
-TODO: change `git_hub_action`
 
 > [!TIP]
 > The above 2 commands will start building the backbone project + adding some additional utils `prettier`, `lint-staged`, `commitlint`, `devcontainer`, `husky`
