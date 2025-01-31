@@ -48,7 +48,7 @@ export const util = {
     }
 
     const runProjenEjectAndInstall = () => {
-      const command = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION}`;
+      const command = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION} && npx @cap-js/cds-typer "*" --outputDirectory @cds-models`;
 
       hasRun = true;
 

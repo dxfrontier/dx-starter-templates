@@ -91,7 +91,7 @@ export class CapServiceProject extends BaseProject {
     // eslint-disable-next-line prefer-const
     let hasRun = false;
 
-    util.generateCdsModels();
+    // util.generateCdsModels();
     util.setupExitHandler(hasRun);
   }
 }
