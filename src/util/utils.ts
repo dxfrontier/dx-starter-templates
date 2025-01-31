@@ -36,6 +36,12 @@ export const util = {
     return false;
   },
 
+  /**
+   * Sets up an exit handler to run the `projen eject` command and install the `@dxfrontier/cds-ts-dispatcher` package.
+   * @param hasRun A flag to indicate if the exit handler has already run.
+   *              If `true`, the handler will not run again.
+   *             If `false`, the handler will run and set the flag to `true`.
+   */
   setupExitHandler(hasRun: boolean): void {
     if (hasRun) {
       return;
@@ -58,5 +64,22 @@ export const util = {
     runProjenEjectAndInstall();
 
     console.log('Exiting projen and installing @dxfrontier/cds-ts-dispatcher ...');
+  },
+
+  /**
+   * Generates CDS models using the `@cap-js/cds-typer` package.
+   */
+  generateCdsModels() {
+    const command = `npx @cap-js/cds-typer "*" --outputDirectory @cds-models`;
+
+    exec(command, (error: ExecException | null, stdout: string): void => {
+      if (error) {
+        console.error('Error exiting projen ... But exit will continue.');
+      } else {
+        console.log('CDS models generated successfully.');
+      }
+
+      console.log(`${stdout}`);
+    });
   },
 };
