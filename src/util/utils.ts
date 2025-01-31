@@ -36,7 +36,7 @@ export const util = {
     return false;
   },
 
-  setupExitHandler(hasRun: boolean): void {
+  setupExitHandler(hasRun = false): void {
     if (hasRun) {
       return;
     }
