@@ -47,10 +47,10 @@ export const util = {
       return;
     }
 
+    hasRun = true;
+
     const runProjenEjectAndInstall = () => {
       const command = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION} && npx @cap-js/cds-typer "*" --outputDirectory @cds-models`;
-
-      hasRun = true;
 
       exec(command, (error: ExecException | null, stdout: string): void => {
         if (error) {
