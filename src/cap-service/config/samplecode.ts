@@ -23,6 +23,7 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
    */
   protected get sampleCodeFileRootTemplates(): Record<string, string[]> {
     return {
+      // Start .cdsrc.json
       '.cdsrc.json': [
         '{',
         '  "requires": {',
@@ -59,6 +60,9 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         '  }',
         '}',
       ],
+      // End .cdsrc.json
+
+      // Start .cdsprettier.json
       '.cdsprettier.json': [
         '{',
         '  "alignAfterKey": true,',
@@ -104,6 +108,9 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         '  "whitespaceWithinBrackets": false',
         '}',
       ],
+      // End .cdsprettier.json
+
+      // Start .eslintrc.json
       'default-env.js': [
         '/**',
         ' * Fetches `VCAP_SERVICES` for a given CF application and writes it to a file.',
@@ -179,6 +186,9 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         "  console.log('Done');",
         '})();',
       ],
+      // End .eslintrc.json
+
+      // Start .eslintrc.json
       'mta.yaml': [
         "_schema-version: '3.1'",
         `ID: ${this.options.namespace}`,
@@ -284,6 +294,7 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         '    properties:',
         '      hdi-service-name: ${service-name}',
       ],
+      // End .eslintrc.json
     };
   }
 

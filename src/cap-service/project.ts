@@ -13,6 +13,7 @@ import { PrettierConfigCapService } from './config/prettier';
 import { SampleCodeConfigCapService } from './config/samplecode';
 import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
+import { ReadmeConfigCapService } from './config/readme';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
   readonly namespace?: string;
@@ -40,13 +41,14 @@ export class CapServiceProject extends BaseProject {
       vscodeEnabled: options.vscodeEnabled ?? true,
       sampleCodeEnabled: options.sampleCodeEnabled ?? true,
       typescriptEnabled: true,
-      name: options.name,
+      name: options.name, // projen presets the option with 'project' if no custom option is given.
       namespace: options.namespace ?? constants.PROJECT_NAMESPACE,
       description: options.description ?? constants.PROJECT_DESCRIPTION,
       entityName: options.entityName ?? constants.ENTITY_NAME,
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),
+      readme: new ReadmeConfigCapService().getReadme(updatedOptions), // needs to be treated as special case due to Projen workflow.
     });
 
     this.gitConfig = new GitConfigCapService(this);
