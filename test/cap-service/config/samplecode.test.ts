@@ -137,7 +137,7 @@ test('Sample file mta.yaml matches expected file template', (): void => {
   samplecode.testSampleFilesTemplates(snapshot, 'mta.yaml', resolvedTemplateLines);
 });
 
-test('Sample file mta.yaml matches expected file template with given options', (): void => {
+test('Sample file mta.yaml matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     name: 'test-project',
@@ -370,7 +370,7 @@ test('Sample file schema.cds matches expected file template', (): void => {
   samplecode.testSampleFilesTemplates(snapshot, 'db/schema.cds', expectedTemplateLines);
 });
 
-test('Sample file schema.cds matches expected file template with given options', (): void => {
+test('Sample file schema.cds matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -403,7 +403,7 @@ test('Sample file de.customer.org.project-Entity1.csv matches expected file temp
   samplecode.testSampleFilesTemplates(snapshot, 'test/data/de.customer.org.project-Entity1.csv', expectedTemplateLines);
 });
 
-test('Sample file de.mycustomer.myorg.myproject-MyEntity.csv matches expected file template with given options', (): void => {
+test('Sample file de.mycustomer.myorg.myproject-MyEntity.csv matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -435,7 +435,7 @@ test('Sample file de.customer.org.project-Entity1.texts.csv matches expected fil
   );
 });
 
-test('Sample file de.mycustomer.myorg.myproject-MyEntity.texts.csv matches expected file template with given options', (): void => {
+test('Sample file de.mycustomer.myorg.myproject-MyEntity.texts.csv matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -453,7 +453,7 @@ test('Sample file de.mycustomer.myorg.myproject-MyEntity.texts.csv matches expec
   );
 });
 
-test('Sample file ./srv/index.cds matches expected file template', (): void => {
+test('Sample file ./srv/index.cds matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -467,7 +467,7 @@ test('Sample file ./srv/index.cds matches expected file template', (): void => {
   samplecode.testSampleFilesTemplates(snapshot, 'srv/index.cds', expectedTemplateLines);
 });
 
-test('Sample file ./srv/controller/service-1/handler/MyEntityHandler.ts matches expected file template', (): void => {
+test('Sample file ./srv/controller/service-1/handler/MyEntityHandler.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -515,7 +515,7 @@ test('Sample file ./srv/controller/service-1/handler/MyEntityHandler.ts matches 
   );
 });
 
-test('Sample file .srv/controller/service-1/handler/UnboundActionsHandler.ts matches expected file template', (): void => {
+test('Sample file .srv/controller/service-1/handler/UnboundActionsHandler.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -542,7 +542,7 @@ test('Sample file .srv/controller/service-1/handler/UnboundActionsHandler.ts mat
   );
 });
 
-test('Sample file ./srv/controller/service-1/handler/UnboundActionsHandler.ts matches expected file template', (): void => {
+test('Sample file ./srv/controller/service-1/handler/UnboundActionsHandler.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -569,7 +569,7 @@ test('Sample file ./srv/controller/service-1/handler/UnboundActionsHandler.ts ma
   );
 });
 
-test('Sample file ./srv/controller/service-1/service-1.cds matches expected file template', (): void => {
+test('Sample file ./srv/controller/service-1/service-1.cds matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -591,7 +591,7 @@ test('Sample file ./srv/controller/service-1/service-1.cds matches expected file
   samplecode.testSampleFilesTemplates(snapshot, 'srv/controller/service-1/service-1.cds', expectedTemplateLines);
 });
 
-test('Sample file ./srv/controller/service-1/service-1.ts matches expected file template', (): void => {
+test('Sample file ./srv/controller/service-1/service-1.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -612,7 +612,7 @@ test('Sample file ./srv/controller/service-1/service-1.ts matches expected file 
   samplecode.testSampleFilesTemplates(snapshot, 'srv/controller/service-1/service-1.ts', expectedTemplateLines);
 });
 
-test('Sample file ./srv/middleware/MyEntity.ts matches expected file template', (): void => {
+test('Sample file ./srv/middleware/MyEntity.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -637,7 +637,7 @@ test('Sample file ./srv/middleware/MyEntity.ts matches expected file template', 
   samplecode.testSampleFilesTemplates(snapshot, `srv/middleware/MiddlewareAfterRead.ts`, expectedTemplateLines);
 });
 
-test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file template', (): void => {
+test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -662,7 +662,7 @@ test('Sample file ./srv/middleware/MiddlewareAfterRead.ts matches expected file 
   samplecode.testSampleFilesTemplates(snapshot, 'srv/middleware/MiddlewareAfterRead.ts', expectedTemplateLines);
 });
 
-test('Sample file ./srv/repository/MyEntityRepository.ts matches expected file template', (): void => {
+test('Sample file ./srv/repository/MyEntityRepository.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -694,7 +694,7 @@ test('Sample file ./srv/repository/MyEntityRepository.ts matches expected file t
   );
 });
 
-test('Sample file ./srv/service/MyEntityService.ts matches expected file template', (): void => {
+test('Sample file ./srv/service/MyEntityService.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -723,7 +723,7 @@ test('Sample file ./srv/service/MyEntityService.ts matches expected file templat
   );
 });
 
-test('Sample file ./srv/util/constants/constants.ts matches expected file template', (): void => {
+test('Sample file ./srv/util/constants/constants.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -747,7 +747,7 @@ test('Sample file ./srv/util/constants/constants.ts matches expected file templa
   samplecode.testSampleFilesTemplates(snapshot, 'srv/util/constants/constants.ts', expectedTemplateLines);
 });
 
-test('Sample file ./srv/util/helpers/util.ts matches expected file template', (): void => {
+test('Sample file ./srv/util/helpers/util.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
@@ -771,7 +771,7 @@ test('Sample file ./srv/util/helpers/util.ts matches expected file template', ()
   samplecode.testSampleFilesTemplates(snapshot, 'srv/util/helpers/util.ts', expectedTemplateLines);
 });
 
-test('Sample file ./srv/util/types/types.ts matches expected file template', (): void => {
+test('Sample file ./srv/util/types/types.ts matches expected file template with given custom options', (): void => {
   const customProps = {
     ...props,
     namespace: 'de.mycustomer.myorg.myproject',
