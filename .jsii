@@ -93,7 +93,7 @@
   },
   "name": "@dxfrontier/projen-template-projects",
   "readme": {
-    "markdown": "# Projen-template-projects\n\nThe goal of **Projen-template-projects** is to reduce boilerplate code and create various templates.\n\n## Table of Contents\n\n- [Projen-template-projects](#projen-template-projects)\n  - [Table of Contents](#table-of-contents)\n  - [Prerequisites](#prerequisites)\n  - [`Usage`](#usage)\n    - [1. Create template for: `Github action`](#1-create-template-for-github-action)\n    - [2. Create template for: `CDS-TS-Dispatcher`](#2-create-template-for-cds-ts-dispatcher)\n  - [Contributing](#contributing)\n  - [License](#license)\n  - [Authors](#authors)\n\n## Prerequisites\n\nEnsure you have `Node.js`. You can download it from [Node.js Official Website](https://nodejs.org/en/download/package-manager).\n\n## `Usage`\n\n### 1. Create template for: `Github action`\n\nTo create a predefined structure for Github actions use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\n### 2. Create template for: `CDS-TS-Dispatcher`\n\nTo create a predefined structure for [CDS-TS-Dispatcher](https://github.com/dxfrontier/cds-ts-dispatcher) use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\nTODO: change `git_hub_action`\n\n> [!TIP]\n> The above 2 commands will start building the backbone project + adding some additional utils `prettier`, `lint-staged`, `commitlint`, `devcontainer`, `husky`\n\n## Contributing\n\nPull requests are welcome. For major changes, please open an issue first\nto discuss what you would like to change.\n\nPlease make sure to update tests as appropriate.\n\n## License\n\n![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)\n\nCopyright (c) 2025 DXFrontier\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## Authors\n\n- [@mathiasvkaiz](https://github.com/mathiasvkaiz)\n- [@ABS GmbH](https://www.abs-gmbh.de/) team\n\n<p align=\"right\">(<a href=\"#table-of-contents\">back to top</a>)</p>\n"
+    "markdown": "# Projen-template-projects\n\nThe goal of **Projen-template-projects** is to reduce boilerplate code and create various templates.\n\n## Table of Contents\n\n- [Projen-template-projects](#projen-template-projects)\n  - [Table of Contents](#table-of-contents)\n  - [Prerequisites](#prerequisites)\n  - [`Usage`](#usage)\n    - [1. Create template for: `Github action`](#1-create-template-for-github-action)\n    - [2. Create template for: `CDS-TS-Dispatcher`](#2-create-template-for-cds-ts-dispatcher)\n  - [Contributing](#contributing)\n  - [License](#license)\n  - [Authors](#authors)\n\n## Prerequisites\n\nEnsure you have `Node.js`. You can download it from [Node.js Official Website](https://nodejs.org/en/download/package-manager).\n\n## `Usage`\n\n### 1. Create template for: `Github action`\n\nTo create a predefined structure for Github actions use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\n### 2. Create template for: `CDS-TS-Dispatcher`\n\nTo create a predefined structure for [CDS-TS-Dispatcher](https://github.com/dxfrontier/cds-ts-dispatcher) use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new cap_service --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\n> [!TIP]\n> The above 2 commands will start building the backbone project + adding some additional utils `prettier`, `lint-staged`, `commitlint`, `devcontainer`, `husky`\n\n## Contributing\n\nPull requests are welcome. For major changes, please open an issue first\nto discuss what you would like to change.\n\nPlease make sure to update tests as appropriate.\n\n## License\n\n![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)\n\nCopyright (c) 2025 DXFrontier\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## Authors\n\n- [@mathiasvkaiz](https://github.com/mathiasvkaiz)\n- [@ABS GmbH](https://www.abs-gmbh.de/) team\n\n<p align=\"right\">(<a href=\"#table-of-contents\">back to top</a>)</p>\n"
   },
   "repository": {
     "type": "git",
@@ -699,7 +699,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 31
+          "line": 30
         },
         "parameters": [
           {
@@ -716,7 +716,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 26
+        "line": 25
       },
       "methods": [
         {
@@ -727,7 +727,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 86
+            "line": 85
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -749,7 +749,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 90
+            "line": 89
           },
           "name": "postSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject"
@@ -771,7 +771,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 18
+        "line": 17
       },
       "name": "CapServiceProjectOptions",
       "properties": [
@@ -783,7 +783,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 20
+            "line": 19
           },
           "name": "entityName",
           "optional": true,
@@ -799,7 +799,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 19
+            "line": 18
           },
           "name": "namespace",
           "optional": true,
@@ -5404,7 +5404,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 565
+            "line": 749
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
@@ -5416,7 +5416,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 504
+            "line": 688
           },
           "name": "createTemplates",
           "parameters": [
@@ -5449,7 +5449,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 556
+            "line": 740
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -5465,7 +5465,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 523
+            "line": 707
           },
           "name": "additionalDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5487,7 +5487,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 514
+            "line": 698
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5509,7 +5509,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 531
+            "line": 715
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5531,7 +5531,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 547
+            "line": 731
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5557,7 +5557,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 485
+            "line": 669
           },
           "name": "sampleCodeFileDataTemplates",
           "protected": true,
@@ -5587,7 +5587,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 465
+            "line": 649
           },
           "name": "sampleCodeFileDbTemplates",
           "protected": true,
@@ -5647,7 +5647,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 296
+            "line": 480
           },
           "name": "sampleCodeFileSrvTemplates",
           "protected": true,
@@ -6504,5 +6504,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "5N/IV50/LQhKgrjUn7Egu0x0D7hpNaioKWjyKGkmQk0="
+  "fingerprint": "9Hr1949FFO/vhjJL06jCEHbcpY7DUQ5eJKFwvnqzp+E="
 }
