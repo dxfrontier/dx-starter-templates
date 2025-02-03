@@ -2,7 +2,7 @@ import { HuskyConfigBase } from '../../base';
 import { ConfigFile } from '../../util/types';
 
 /**
- * Implementing all relevant Husky configuration for the JsiProject project.
+ * Implementing all relevant Husky configuration for the Jsii project.
  */
 export class HuskyConfigJsii extends HuskyConfigBase {
   protected override get configFile(): ConfigFile {
