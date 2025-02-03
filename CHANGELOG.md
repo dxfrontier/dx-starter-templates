@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2025-02-03
+
+### ⚙️ Miscellaneous Tasks
+
+- Bump version, CHANGELOG.md generated (#217)
+- *(build)* Added on the `pre-push` restore of the `cliff.toml` file to initial (#218)
+
 ## [0.4.5] - 2025-02-03
 
 ### ⚙️ Miscellaneous Tasks
