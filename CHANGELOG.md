@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.5] - 2025-02-03
+
+### ⚙️ Miscellaneous Tasks
+
+- Bump version, CHANGELOG.md generated (#210)
+- *(build)* Added pre-push husky hook with command `npx projen build` to automate this process (#215)
+
 ## [0.4.4] - 2025-01-31
 
 ### 🚜 Refactor
