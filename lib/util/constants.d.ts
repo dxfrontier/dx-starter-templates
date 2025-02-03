@@ -2,9 +2,6 @@ declare const constants: {
     PROJECT_NAMESPACE: string;
     PROJECT_DESCRIPTION: string;
     ENTITY_NAME: string;
-    CAP_SERVICE: {
-        PROJECT_NAME: string;
-    };
     '@dxfrontier/cds-ts-dispatcher': {
         NAME: string;
         VERSION: string;
