@@ -108,7 +108,6 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         '  "whitespaceWithinBrackets": false',
         '}',
       ],
-
       // End .cdsprettier.json
 
       // Start .eslintrc.json
@@ -187,7 +186,6 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         "  console.log('Done');",
         '})();',
       ],
-
       // End .eslintrc.json
 
       // Start .eslintrc.json
