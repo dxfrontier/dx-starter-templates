@@ -8,7 +8,11 @@ export class HuskyConfigJsii extends HuskyConfigBase {
   protected override get configFile(): ConfigFile {
     return {
       ...super.configFile,
-      '.husky/pre-push': ['npx projen build', 'git checkout -- cliff.toml'],
+      '.husky/pre-push': [
+        'npx projen build',
+        '# This will restore staged the modified files by running `npx projen`',
+        'git checkout -- cliff.toml package.json package-lock.json',
+      ],
     };
   }
 }
