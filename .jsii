@@ -5484,7 +5484,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 577
+            "line": 575
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
@@ -5496,7 +5496,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 516
+            "line": 514
           },
           "name": "createTemplates",
           "parameters": [
@@ -5529,7 +5529,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 568
+            "line": 566
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -5545,7 +5545,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 535
+            "line": 533
           },
           "name": "additionalDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5567,7 +5567,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 526
+            "line": 524
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5589,7 +5589,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 543
+            "line": 541
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5611,7 +5611,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 559
+            "line": 557
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5637,7 +5637,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 497
+            "line": 495
           },
           "name": "sampleCodeFileDataTemplates",
           "protected": true,
@@ -5667,7 +5667,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 477
+            "line": 475
           },
           "name": "sampleCodeFileDbTemplates",
           "protected": true,
@@ -5727,7 +5727,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 308
+            "line": 306
           },
           "name": "sampleCodeFileSrvTemplates",
           "protected": true,
@@ -6584,5 +6584,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "I0subRsRVB5pSvZSePaTEa2WgAEkbQFpla0O4owaA7o="
+  "fingerprint": "h/YkZDPi3eaxHBIRLUsdMFY6/OaBcM2tB+05tKy9Fs4="
 }
