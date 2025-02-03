@@ -2378,7 +2378,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 388
+            "line": 395
           },
           "name": "addAttributePatterns",
           "parameters": [
@@ -2406,7 +2406,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 439
+            "line": 446
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -2418,7 +2418,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 326
+            "line": 333
           },
           "name": "createBugIssue"
         },
@@ -2429,7 +2429,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 366
+            "line": 373
           },
           "name": "createCliff"
         },
@@ -2440,7 +2440,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 336
+            "line": 343
           },
           "name": "createFeatureIssue"
         },
@@ -2451,7 +2451,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 346
+            "line": 353
           },
           "name": "createHousekeepingIssue"
         },
@@ -2462,7 +2462,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 316
+            "line": 323
           },
           "name": "createPullRequest"
         },
@@ -2473,7 +2473,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 356
+            "line": 363
           },
           "name": "createQuestionIssue"
         },
@@ -2484,7 +2484,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 376
+            "line": 383
           },
           "name": "createReleaseWorkflow"
         },
@@ -2496,7 +2496,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 432
+            "line": 439
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -2512,7 +2512,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 428
+            "line": 435
           },
           "name": "additionalAttributesPatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2534,7 +2534,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 422
+            "line": 429
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2719,7 +2719,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 287
+            "line": 294
           },
           "name": "configFileReleaseWorkflow",
           "protected": true,
@@ -2746,7 +2746,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 396
+            "line": 403
           },
           "name": "configs",
           "protected": true,
@@ -2778,7 +2778,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 413
+            "line": 420
           },
           "name": "filePatterns",
           "protected": true,
@@ -6584,5 +6584,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "h/YkZDPi3eaxHBIRLUsdMFY6/OaBcM2tB+05tKy9Fs4="
+  "fingerprint": "UAERl/bFbsY4HZiYmScvd3W9x7w2laZYYk6gShvn/mc="
 }
