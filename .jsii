@@ -699,7 +699,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 30
+          "line": 31
         },
         "parameters": [
           {
@@ -716,7 +716,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 25
+        "line": 26
       },
       "methods": [
         {
@@ -727,7 +727,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 85
+            "line": 87
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -749,7 +749,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 89
+            "line": 91
           },
           "name": "postSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject"
@@ -771,7 +771,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 17
+        "line": 18
       },
       "name": "CapServiceProjectOptions",
       "properties": [
@@ -783,7 +783,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 19
+            "line": 20
           },
           "name": "entityName",
           "optional": true,
@@ -799,7 +799,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 18
+            "line": 19
           },
           "name": "namespace",
           "optional": true,
@@ -3341,7 +3341,7 @@
       "base": "@dxfrontier/projen-template-projects.HuskyConfigBase",
       "docs": {
         "stability": "stable",
-        "summary": "Implementing all relevant Husky configuration for the JsiProject project."
+        "summary": "Implementing all relevant Husky configuration for the Jsii project."
       },
       "fqn": "@dxfrontier/projen-template-projects.HuskyConfigJsii",
       "initializer": {
@@ -5484,7 +5484,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 564
+            "line": 577
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
@@ -5496,7 +5496,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 503
+            "line": 516
           },
           "name": "createTemplates",
           "parameters": [
@@ -5529,7 +5529,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 555
+            "line": 568
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -5545,7 +5545,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 522
+            "line": 535
           },
           "name": "additionalDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5567,7 +5567,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 513
+            "line": 526
           },
           "name": "additionalDevDependencies",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5589,7 +5589,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 530
+            "line": 543
           },
           "name": "additionalScripts",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5611,7 +5611,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 546
+            "line": 559
           },
           "name": "additionalSettings",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -5637,7 +5637,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 484
+            "line": 497
           },
           "name": "sampleCodeFileDataTemplates",
           "protected": true,
@@ -5667,7 +5667,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 464
+            "line": 477
           },
           "name": "sampleCodeFileDbTemplates",
           "protected": true,
@@ -5727,7 +5727,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/samplecode.ts",
-            "line": 295
+            "line": 308
           },
           "name": "sampleCodeFileSrvTemplates",
           "protected": true,
@@ -6584,5 +6584,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "AAgzXd1vP1kBuN+Q3O8ae/s2i2q8jPETfQjd0MFet54="
+  "fingerprint": "I0subRsRVB5pSvZSePaTEa2WgAEkbQFpla0O4owaA7o="
 }

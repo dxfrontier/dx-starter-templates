@@ -8052,7 +8052,7 @@ public readonly project: Project;
 
 ### HuskyConfigJsii <a name="HuskyConfigJsii" id="@dxfrontier/projen-template-projects.HuskyConfigJsii"></a>
 
-Implementing all relevant Husky configuration for the JsiProject project.
+Implementing all relevant Husky configuration for the Jsii project.
 
 #### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.Initializer"></a>
 
