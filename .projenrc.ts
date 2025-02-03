@@ -1,6 +1,4 @@
 import { JsiiProject } from './src/jsii/project';
-// import { GitHubActionProject } from './src/github-action/project';
-// import { TerraformModuleProject } from './src/terraform-module';
 
 export const project = new JsiiProject({
   name: '@dxfrontier/projen-template-projects',
