@@ -160,24 +160,6 @@ test('Sample file mta.yaml matches expected file template with given options', (
   samplecode.testSampleFilesTemplates(snapshot, 'mta.yaml', resolvedTemplateLines);
 });
 
-test('Sample file xs-security.json matches expected file template', (): void => {
-  const expectedTemplateLines: string[] = [
-    '{',
-    '  "scopes": [],',
-    '  "attributes": [],',
-    '  "role-templates": []',
-    '}',
-  ];
-
-  // due to json type received (not string) we stringify it upfront
-  const snapshotContent: string = JSON.stringify(snapshot['xs-security.json'], null, 2);
-  samplecode.testSampleFilesTemplates(
-    { 'xs-security.json': snapshotContent },
-    'xs-security.json',
-    expectedTemplateLines,
-  );
-});
-
 test('Sample file .cdsrc.json matches expected file template', (): void => {
   const expectedTemplateLines: string[] = [
     '{',

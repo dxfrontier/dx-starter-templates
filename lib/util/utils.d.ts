@@ -17,5 +17,5 @@ export declare const util: {
      * @returns `true` if the project's `kind` is either `base` or `jsii`; otherwise, `false`.
      */
     isValidProject(project: IProjectKind | Project): boolean;
-    setupExitHandler(hasRun: boolean): void;
+    setupExitHandler(hasRun?: boolean): void;
 };
