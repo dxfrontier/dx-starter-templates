@@ -40,6 +40,7 @@ export class BaseOptions {
       pullRequestTemplate: options.githubEnabled && options.pullRequestTemplate ? options.pullRequestTemplate : false,
       depsUpgrade: options.githubEnabled && options.depsUpgrade ? options.depsUpgrade : false,
       sampleCode: options.sampleCodeEnabled && options.sampleCode ? options.sampleCode : false,
+      readme: false,
     };
   }
 }
