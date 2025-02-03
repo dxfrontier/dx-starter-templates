@@ -1,1 +1,2 @@
 npx projen build
+git checkout -- cliff.toml
