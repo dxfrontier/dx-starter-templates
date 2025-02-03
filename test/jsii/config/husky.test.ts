@@ -24,6 +24,10 @@ test('Pre-commit hook matches expected template', (): void => {
 });
 
 test('Pre-push hook matches expected template', (): void => {
-  const expectedTemplateLines: string[] = ['npx projen build', 'git checkout -- cliff.toml'];
+  const expectedTemplateLines: string[] = [
+    'npx projen build',
+    '# This will restore staged the modified files by running `npx projen`',
+    'git checkout -- cliff.toml package.json package-lock.json',
+  ];
   husky.testPrePushHook(snapshot, expectedTemplateLines);
 });
