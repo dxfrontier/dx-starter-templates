@@ -12,6 +12,7 @@
     ".gitignore",
     ".husky/commit-msg",
     ".husky/pre-commit",
+    ".husky/pre-push",
     ".prettierignore",
     ".prettierrc.json",
     ".projen/deps.json",
