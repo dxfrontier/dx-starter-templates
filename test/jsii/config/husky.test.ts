@@ -22,3 +22,8 @@ test('Commit-msg hook matches expected template', (): void => {
 test('Pre-commit hook matches expected template', (): void => {
   husky.testPreCommitHook(snapshot);
 });
+
+test('Pre-push hook matches expected template', (): void => {
+  const expectedTemplateLines: string[] = ['npx projen build', 'git checkout -- cliff.toml'];
+  husky.testPrePushHook(snapshot, expectedTemplateLines);
+});
