@@ -21,8 +21,10 @@ export function testPreCommitHook(snapshot: SynthOutput): void {
 /**
  * Validates that pre-push hook matches expected template.
  * @param snapshot Synthesized project output.
+ * @param expectedTemplateLines Template content lines that are expected.
  */
-export function testPrePushHook(snapshot: SynthOutput): void {
-  const expectedTemplateLines: string = ['npm run build'].join('\n');
-  expect(snapshot['.husky/pre-push']).toStrictEqual(expectedTemplateLines);
+export function testPrePushHook(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
+  const standardTemplateLines: string[] = ['npm run build'];
+  const templateLines: string[] = expectedTemplateLines.length > 0 ? expectedTemplateLines : standardTemplateLines;
+  expect(snapshot['.husky/pre-push']).toStrictEqual(templateLines.join('\n'));
 }

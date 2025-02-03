@@ -8050,6 +8050,193 @@ public readonly project: Project;
 ---
 
 
+### HuskyConfigJsii <a name="HuskyConfigJsii" id="@dxfrontier/projen-template-projects.HuskyConfigJsii"></a>
+
+Implementing all relevant Husky configuration for the JsiProject project.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.Initializer"></a>
+
+```typescript
+import { HuskyConfigJsii } from '@dxfrontier/projen-template-projects'
+
+new HuskyConfigJsii(project: Project)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | The project to configure the configuration module for. |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+The project to configure the configuration module for.
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.applyConfig">applyConfig</a></code> | Applies the current configuration based on the strategy to the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
+
+---
+
+##### `toString` <a name="toString" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+##### `applyConfig` <a name="applyConfig" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.applyConfig"></a>
+
+```typescript
+public applyConfig(): void
+```
+
+Applies the current configuration based on the strategy to the project.
+
+To ensure proper configuration handling `applyConfig` should be called in
+`preSynthesize` phase of the configuration module and not from project itself.
+
+Subclasses should overwrite it to guarantee proper module configuration.
+
+##### `registerConfig` <a name="registerConfig" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.registerConfig"></a>
+
+```typescript
+public registerConfig(): void
+```
+
+Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling.
+
+This methods should be called only in the projects `preSynthesize` phase
+and not on the configuration modules `preSynthesize` function otherwise
+it is not guaranteed that all needed modules are setup properly.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.isConstruct"></a>
+
+```typescript
+import { HuskyConfigJsii } from '@dxfrontier/projen-template-projects'
+
+HuskyConfigJsii.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.isComponent"></a>
+
+```typescript
+import { HuskyConfigJsii } from '@dxfrontier/projen-template-projects'
+
+HuskyConfigJsii.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigJsii.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### JestConfigBase <a name="JestConfigBase" id="@dxfrontier/projen-template-projects.JestConfigBase"></a>
 
 Base class for implementing all relevant Jest configuration.

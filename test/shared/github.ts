@@ -364,6 +364,7 @@ export function testGitAttributes(snapshot: SynthOutput, expectedTemplateLines: 
     '/.gitignore linguist-generated',
     '/.husky/commit-msg linguist-generated',
     '/.husky/pre-commit linguist-generated',
+    '/.husky/pre-push linguist-generated',
     '/.prettierignore linguist-generated',
     '/.prettierrc.json linguist-generated',
     '/.projen/** linguist-generated',

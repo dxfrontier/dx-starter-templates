@@ -14,6 +14,7 @@ import { TypeScriptConfigJsii } from './config/typescript';
 import { util } from '../util/utils';
 import { IProjectKind, ProjectKind } from '../util/types/project';
 import { TypeScriptConfigBase } from '../base/config/typescript';
+import { HuskyConfigJsii } from './config/husky';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   /**
@@ -201,7 +202,7 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
       this.commitlintConfig = new CommitLintConfigBase(this);
     }
     if (options.huskyEnabled) {
-      this.huskyConfig = new HuskyConfigBase(this);
+      this.huskyConfig = new HuskyConfigJsii(this);
     }
   }
 

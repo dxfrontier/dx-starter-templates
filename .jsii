@@ -3336,6 +3336,86 @@
       ],
       "symbolId": "src/cap-service/config/husky:HuskyConfigCapService"
     },
+    "@dxfrontier/projen-template-projects.HuskyConfigJsii": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+      "docs": {
+        "stability": "stable",
+        "summary": "Implementing all relevant Husky configuration for the JsiProject project."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.HuskyConfigJsii",
+      "initializer": {
+        "docs": {
+          "stability": "stable",
+          "summary": "Initializes the config for a specified project."
+        },
+        "locationInModule": {
+          "filename": "src/base/config.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "docs": {
+              "summary": "The project to configure the configuration module for."
+            },
+            "name": "project",
+            "type": {
+              "fqn": "projen.Project"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/jsii/config/husky.ts",
+        "line": 7
+      },
+      "name": "HuskyConfigJsii",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets the configuration file content."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/jsii/config/husky.ts",
+            "line": 8
+          },
+          "name": "configFile",
+          "overrides": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "union": {
+                  "types": [
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "any"
+                        },
+                        "kind": "map"
+                      }
+                    },
+                    {
+                      "collection": {
+                        "elementtype": {
+                          "primitive": "string"
+                        },
+                        "kind": "array"
+                      }
+                    }
+                  ]
+                }
+              },
+              "kind": "map"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/jsii/config/husky:HuskyConfigJsii"
+    },
     "@dxfrontier/projen-template-projects.IProjectKind": {
       "assembly": "@dxfrontier/projen-template-projects",
       "docs": {
@@ -3563,7 +3643,7 @@
         },
         "locationInModule": {
           "filename": "src/jsii/project.ts",
-          "line": 161
+          "line": 162
         },
         "parameters": [
           {
@@ -3583,7 +3663,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/jsii/project.ts",
-        "line": 79
+        "line": 80
       },
       "methods": [
         {
@@ -3594,7 +3674,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 213
+            "line": 214
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -3606,7 +3686,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 208
+            "line": 209
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -3623,7 +3703,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 84
+            "line": 85
           },
           "name": "commitlintConfig",
           "optional": true,
@@ -3640,7 +3720,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 90
+            "line": 91
           },
           "name": "devContainerConfig",
           "optional": true,
@@ -3657,7 +3737,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 96
+            "line": 97
           },
           "name": "eslintConfig",
           "optional": true,
@@ -3674,7 +3754,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 108
+            "line": 109
           },
           "name": "githubConfig",
           "optional": true,
@@ -3691,7 +3771,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 114
+            "line": 115
           },
           "name": "huskyConfig",
           "optional": true,
@@ -3708,7 +3788,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 120
+            "line": 121
           },
           "name": "jestConfig",
           "optional": true,
@@ -3725,7 +3805,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 126
+            "line": 127
           },
           "name": "npmConfig",
           "optional": true,
@@ -3742,7 +3822,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 132
+            "line": 133
           },
           "name": "prettierConfig",
           "optional": true,
@@ -3759,7 +3839,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 138
+            "line": 139
           },
           "name": "vscodeConfig",
           "optional": true,
@@ -3774,7 +3854,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 155
+            "line": 156
           },
           "name": "kind",
           "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
@@ -3790,7 +3870,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 102
+            "line": 103
           },
           "name": "gitConfig",
           "optional": true,
@@ -3805,7 +3885,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 153
+            "line": 154
           },
           "name": "typescript",
           "optional": true,
@@ -3821,7 +3901,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 144
+            "line": 145
           },
           "name": "typescriptConfig",
           "optional": true,
@@ -3845,7 +3925,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/jsii/project.ts",
-        "line": 18
+        "line": 19
       },
       "name": "JsiiProjectOptions",
       "properties": [
@@ -3860,7 +3940,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 24
+            "line": 25
           },
           "name": "commitlintEnabled",
           "optional": true,
@@ -3879,7 +3959,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 31
+            "line": 32
           },
           "name": "devContainerEnabled",
           "optional": true,
@@ -3898,7 +3978,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 38
+            "line": 39
           },
           "name": "eslintEnabled",
           "optional": true,
@@ -3917,7 +3997,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 45
+            "line": 46
           },
           "name": "githubEnabled",
           "optional": true,
@@ -3936,7 +4016,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 52
+            "line": 53
           },
           "name": "huskyEnabled",
           "optional": true,
@@ -3955,7 +4035,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 59
+            "line": 60
           },
           "name": "jestEnabled",
           "optional": true,
@@ -3974,7 +4054,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 66
+            "line": 67
           },
           "name": "prettierEnabled",
           "optional": true,
@@ -3993,7 +4073,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 73
+            "line": 74
           },
           "name": "vscodeEnabled",
           "optional": true,
@@ -6504,5 +6584,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "L4S+YyRj7sZu25F+P7r7WFb7DLBn+zthY5zRDCPyjQ0="
+  "fingerprint": "AAgzXd1vP1kBuN+Q3O8ae/s2i2q8jPETfQjd0MFet54="
 }

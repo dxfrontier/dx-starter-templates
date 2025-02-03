@@ -29,6 +29,7 @@ test('Ignore patterns matches expected content', (): void => {
     '!/.github/workflows/release.yml',
     '!/.husky/commit-msg',
     '!/.husky/pre-commit',
+    '!/.husky/pre-push',
     '!/.prettierignore',
     '!/.prettierrc.json',
     '!/.projen/deps.json',

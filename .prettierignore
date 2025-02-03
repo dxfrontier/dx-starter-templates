@@ -25,3 +25,4 @@
 /.commitlintrc.ts
 /.husky/commit-msg
 /.husky/pre-commit
+/.husky/pre-push
