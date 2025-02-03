@@ -34,6 +34,7 @@ test('Ignore patterns matches expected content', (): void => {
     '/.gitignore',
     '/.husky/commit-msg',
     '/.husky/pre-commit',
+    '/.husky/pre-push',
     '/.prettierignore',
     '/.prettierrc.json',
     '/.projen/**',

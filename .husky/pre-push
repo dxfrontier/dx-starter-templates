@@ -1,0 +1,3 @@
+npx projen build
+# This will restore staged the modified files by running `npx projen`
+git checkout -- cliff.toml package.json package-lock.json

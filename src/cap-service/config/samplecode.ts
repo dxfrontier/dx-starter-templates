@@ -296,9 +296,7 @@ export class SampleCodeConfigCapService extends SampleCodeConfigBase {
         '    properties:',
         '      hdi-service-name: ${service-name}',
       ],
-
       // End .eslintrc.json
-      'xs-security.json': ['{', '  "scopes": [],', '  "attributes": [],', '  "role-templates": []', '}'],
     };
   }
 
