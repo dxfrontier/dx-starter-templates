@@ -13,6 +13,7 @@ import { PrettierConfigCapService } from './config/prettier';
 import { SampleCodeConfigCapService } from './config/samplecode';
 import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
+import { ReadmeConfigCapService } from './config/readme';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
   readonly namespace?: string;
@@ -44,6 +45,7 @@ export class CapServiceProject extends BaseProject {
       namespace: options.namespace ?? constants.PROJECT_NAMESPACE,
       description: options.description ?? constants.PROJECT_DESCRIPTION,
       entityName: options.entityName ?? constants.ENTITY_NAME,
+      readme: new ReadmeConfigCapService().getReadme(options), // special case
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),

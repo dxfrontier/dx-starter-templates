@@ -36,12 +36,14 @@ export const util = {
     return false;
   },
 
+  // TODO: add docs
   setupExitHandler(hasRun = false): void {
     if (hasRun) {
       return;
     }
 
-    const runProjenEjectAndInstall = () => {
+    //TODO: alter this to callback, so that project related logic can be injected here
+    const runProjenEjectAndInstall: () => void = (): void => {
       const command = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION}`;
 
       hasRun = true;
