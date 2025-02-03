@@ -41,14 +41,14 @@ export class CapServiceProject extends BaseProject {
       vscodeEnabled: options.vscodeEnabled ?? true,
       sampleCodeEnabled: options.sampleCodeEnabled ?? true,
       typescriptEnabled: true,
-      name: options.name,
+      name: options.name ?? constants.CAP_SERVICE.PROJECT_NAME,
       namespace: options.namespace ?? constants.PROJECT_NAMESPACE,
       description: options.description ?? constants.PROJECT_DESCRIPTION,
       entityName: options.entityName ?? constants.ENTITY_NAME,
-      readme: new ReadmeConfigCapService().getReadme(options), // special case
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),
+      readme: new ReadmeConfigCapService().getReadme(updatedOptions), // needs to be treated as special case due to Projen workflow.
     });
 
     this.gitConfig = new GitConfigCapService(this);

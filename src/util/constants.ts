@@ -3,6 +3,9 @@ const constants = {
   PROJECT_DESCRIPTION: 'SAP CAP Project',
   ENTITY_NAME: 'Entity1',
 
+  CAP_SERVICE: {
+    PROJECT_NAME: 'cap-service',
+  },
   '@dxfrontier/cds-ts-dispatcher': {
     NAME: '@dxfrontier/cds-ts-dispatcher',
     VERSION: '^3.2.7',
