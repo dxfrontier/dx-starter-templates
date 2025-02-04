@@ -7,6 +7,7 @@ export interface CapServiceProjectOptions extends BaseProjectOptions {
  * Base class for managing project CapService configuration.
  */
 export declare class CapServiceProject extends BaseProject {
+    static cleanCommand: string;
     /**
      * Initializes the project.
      * @param options Additional project options.
