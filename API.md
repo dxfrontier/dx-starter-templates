@@ -2455,6 +2455,7 @@ When given a project, this it the project itself.
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.typescript">typescript</a></code> | <code>boolean</code> | This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.typescriptConfig">typescriptConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase">TypeScriptConfigBase</a></code> | Configuration for TypeScript settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.vscodeConfig">vscodeConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.VsCodeConfigBase">VsCodeConfigBase</a></code> | Configuration for VS Code settings in the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.cleanCommand">cleanCommand</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -3397,6 +3398,16 @@ public readonly vscodeConfig: VsCodeConfigBase;
 Configuration for VS Code settings in the project.
 
 This property is initialized if `vscodeEnabled` option is provided during project creation.
+
+---
+
+##### `cleanCommand`<sup>Required</sup> <a name="cleanCommand" id="@dxfrontier/projen-template-projects.CapServiceProject.property.cleanCommand"></a>
+
+```typescript
+public readonly cleanCommand: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -6145,6 +6156,7 @@ When given a project, this it the project itself.
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.typescript">typescript</a></code> | <code>boolean</code> | This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.typescriptConfig">typescriptConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase">TypeScriptConfigBase</a></code> | Configuration for TypeScript settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.vscodeConfig">vscodeConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.VsCodeConfigBase">VsCodeConfigBase</a></code> | Configuration for VS Code settings in the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.cleanCommand">cleanCommand</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -7087,6 +7099,16 @@ public readonly vscodeConfig: VsCodeConfigBase;
 Configuration for VS Code settings in the project.
 
 This property is initialized if `vscodeEnabled` option is provided during project creation.
+
+---
+
+##### `cleanCommand`<sup>Required</sup> <a name="cleanCommand" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.cleanCommand"></a>
+
+```typescript
+public readonly cleanCommand: string;
+```
+
+- *Type:* string
 
 ---
 

@@ -17,5 +17,11 @@ export declare const util: {
      * @returns `true` if the project's `kind` is either `base` or `jsii`; otherwise, `false`.
      */
     isValidProject(project: IProjectKind | Project): boolean;
-    setupExitHandler(hasRun?: boolean): void;
+    /**
+     * This method is used to setup the exit handler for the project.
+     * It will eject the project and install the CDS dispatcher package.
+     * @param command The command to execute
+     * @param hasRun A flag to indicate if the command has already
+     */
+    setupExitHandler(command: string, hasRun?: boolean): void;
 };

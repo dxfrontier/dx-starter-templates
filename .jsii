@@ -699,7 +699,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 31
+          "line": 33
         },
         "parameters": [
           {
@@ -727,7 +727,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 87
+            "line": 89
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -749,13 +749,29 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 91
+            "line": 93
           },
           "name": "postSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject"
         }
       ],
       "name": "CapServiceProject",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/cap-service/project.ts",
+            "line": 27
+          },
+          "name": "cleanCommand",
+          "static": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ],
       "symbolId": "src/cap-service/project:CapServiceProject"
     },
     "@dxfrontier/projen-template-projects.CapServiceProjectOptions": {
@@ -2266,7 +2282,7 @@
         },
         "locationInModule": {
           "filename": "src/github-action/project.ts",
-          "line": 24
+          "line": 28
         },
         "parameters": [
           {
@@ -2283,7 +2299,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/project.ts",
-        "line": 19
+        "line": 20
       },
       "methods": [
         {
@@ -2294,7 +2310,7 @@
           },
           "locationInModule": {
             "filename": "src/github-action/project.ts",
-            "line": 45
+            "line": 49
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -2307,9 +2323,38 @@
             }
           ],
           "protected": true
+        },
+        {
+          "docs": {
+            "remarks": "Order is *not* guaranteed.",
+            "stability": "stable",
+            "summary": "Called after all components are synthesized."
+          },
+          "locationInModule": {
+            "filename": "src/github-action/project.ts",
+            "line": 72
+          },
+          "name": "postSynthesize",
+          "overrides": "@dxfrontier/projen-template-projects.BaseProject"
         }
       ],
       "name": "GitHubActionProject",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "locationInModule": {
+            "filename": "src/github-action/project.ts",
+            "line": 21
+          },
+          "name": "cleanCommand",
+          "static": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ],
       "symbolId": "src/github-action/project:GitHubActionProject"
     },
     "@dxfrontier/projen-template-projects.GitHubActionProjectOptions": {
@@ -2325,7 +2370,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/github-action/project.ts",
-        "line": 14
+        "line": 15
       },
       "name": "GitHubActionProjectOptions",
       "symbolId": "src/github-action/project:GitHubActionProjectOptions"
@@ -6584,5 +6629,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "UAERl/bFbsY4HZiYmScvd3W9x7w2laZYYk6gShvn/mc="
+  "fingerprint": "gnE7kwVpwFjFqmT2EH4akFcVQrCc7An7x5Q+kEwJgn4="
 }
