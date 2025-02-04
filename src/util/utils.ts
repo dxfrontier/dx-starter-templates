@@ -4,7 +4,6 @@ import { IProjectKind } from './types';
 import { Project } from 'projen';
 import { BaseProject } from '../base/project';
 import { exec, ExecException } from 'child_process';
-import { constants } from './constants';
 
 export const util = {
   /**
@@ -36,29 +35,26 @@ export const util = {
     return false;
   },
 
-  // TODO: add docs
-  setupExitHandler(hasRun = false): void {
+  /**
+   * This method is used to setup the exit handler for the project.
+   * It will eject the project and install the CDS dispatcher package.
+   * @param command The command to execute
+   * @param hasRun A flag to indicate if the command has already
+   */
+  setupExitHandler(command: string, hasRun = false): void {
     if (hasRun) {
       return;
     }
 
-    //TODO: alter this to callback, so that project related logic can be injected here
-    const runProjenEjectAndInstall: () => void = (): void => {
-      const command = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION}`;
-
-      hasRun = true;
-
-      exec(command, (error: ExecException | null, stdout: string): void => {
-        if (error) {
-          console.error('Error exiting projen ... But exit will continue.');
-        }
-
-        console.log(`${stdout}`);
-      });
+    const handleExecCallback = (error: ExecException | null, stdout: string): void => {
+      if (error) {
+        console.error('Error exiting projen ... But exit will continue.');
+      }
+      console.log(stdout);
     };
 
-    runProjenEjectAndInstall();
+    hasRun = true;
 
-    console.log('Exiting projen and installing @dxfrontier/cds-ts-dispatcher ...');
+    exec(command, handleExecCallback);
   },
 };

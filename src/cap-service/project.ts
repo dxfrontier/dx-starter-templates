@@ -1,6 +1,5 @@
 import { BaseProjectOptions, BaseProject, BaseOptions } from '../base';
 import { constants } from '../util/constants';
-import { util } from '../util/utils';
 import { CommitLintConfigCapService } from './config/commitlint';
 import { DevContainerConfigCapService } from './config/devcontainer';
 import { EsLintConfigCapService } from './config/eslint';
@@ -14,6 +13,7 @@ import { SampleCodeConfigCapService } from './config/samplecode';
 import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
 import { ReadmeConfigCapService } from './config/readme';
+import { util } from '../util/utils';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
   readonly namespace?: string;
@@ -24,6 +24,8 @@ export interface CapServiceProjectOptions extends BaseProjectOptions {
  * Base class for managing project CapService configuration.
  */
 export class CapServiceProject extends BaseProject {
+  static cleanCommand = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION}`;
+
   /**
    * Initializes the project.
    * @param options Additional project options.
@@ -91,6 +93,6 @@ export class CapServiceProject extends BaseProject {
   public override postSynthesize(): void {
     super.postSynthesize();
 
-    util.setupExitHandler();
+    util.setupExitHandler(CapServiceProject.cleanCommand);
   }
 }

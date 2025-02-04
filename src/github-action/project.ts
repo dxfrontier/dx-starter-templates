@@ -10,6 +10,7 @@ import { CommitLintConfigGitHubAction } from './config/commitlint';
 import { NpmConfigGitHubAction } from './config/npm';
 import { SampleCodeConfigGitHubAction } from './config/samplecode';
 import { TypeScriptConfigGitHubAction } from './config/typescript';
+import { util } from '../util/utils';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {}
 
@@ -17,10 +18,13 @@ export interface GitHubActionProjectOptions extends BaseProjectOptions {}
  * Base class for managing project GitHubAction configuration.
  */
 export class GitHubActionProject extends BaseProject {
+  static cleanCommand = 'npx projen eject && rm -rf .projenrc.ts.bak scripts .projen';
+
   /**
    * Initializes the project.
    * @param options Additional project options.
    */
+
   constructor(options: GitHubActionProjectOptions) {
     const updatedOptions = {
       ...options,
@@ -63,5 +67,11 @@ export class GitHubActionProject extends BaseProject {
     if (options.huskyEnabled) {
       this.huskyConfig = new HuskyConfigBase(this);
     }
+  }
+
+  public override postSynthesize(): void {
+    super.postSynthesize();
+
+    util.setupExitHandler(GitHubActionProject.cleanCommand);
   }
 }
