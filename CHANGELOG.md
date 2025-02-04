@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.3] - 2025-02-04
+
+### ⚙️ Miscellaneous Tasks
+
+- 
+
+Bump version, CHANGELOG.md generated (#224)
+
 ## [0.5.2] - 2025-02-03
 
 ### ⚙️ Miscellaneous Tasks
