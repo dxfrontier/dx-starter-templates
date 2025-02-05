@@ -26,6 +26,7 @@ test('Ignore patterns matches expected content', (): void => {
     '!/.github/ISSUE_TEMPLATE/housekeeping.yml',
     '!/.github/ISSUE_TEMPLATE/question.yml',
     '!/.github/pull_request_template.md',
+    '!/.github/workflows/enforce-labels.yml',
     '!/.github/workflows/release.yml',
     '!/.husky/commit-msg',
     '!/.husky/pre-commit',

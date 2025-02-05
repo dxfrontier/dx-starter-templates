@@ -2423,7 +2423,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 395
+            "line": 372
           },
           "name": "addAttributePatterns",
           "parameters": [
@@ -2451,87 +2451,10 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 446
+            "line": 424
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a bug issue template file."
-          },
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 333
-          },
-          "name": "createBugIssue"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a the git cliff template file."
-          },
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 373
-          },
-          "name": "createCliff"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a feature request template file."
-          },
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 343
-          },
-          "name": "createFeatureIssue"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a housekeeping issue template file."
-          },
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 353
-          },
-          "name": "createHousekeepingIssue"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a pull request template file."
-          },
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 323
-          },
-          "name": "createPullRequest"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a question issue template file."
-          },
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 363
-          },
-          "name": "createQuestionIssue"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a release workflow template file."
-          },
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 383
-          },
-          "name": "createReleaseWorkflow"
         },
         {
           "docs": {
@@ -2541,7 +2464,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 439
+            "line": 417
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -2557,7 +2480,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 435
+            "line": 413
           },
           "name": "additionalAttributesPatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2579,7 +2502,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 429
+            "line": 407
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2632,6 +2555,33 @@
             "line": 192
           },
           "name": "configFileCliff",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the workflow template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the enforce labels workflow template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/github.ts",
+            "line": 326
+          },
+          "name": "configFileEnforceLabelsWorkflow",
           "protected": true,
           "type": {
             "collection": {
@@ -2791,7 +2741,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 403
+            "line": 380
           },
           "name": "configs",
           "protected": true,
@@ -2823,7 +2773,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 420
+            "line": 398
           },
           "name": "filePatterns",
           "protected": true,
@@ -6629,5 +6579,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "HXzhXrAf20tsOmWg4xozl+vz56tF/Z8zWifvULZ45MM="
+  "fingerprint": "ZbOljficUgfVTbluq9WgSQdwzW2XQgVVtqzJT1Cb66s="
 }

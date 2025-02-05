@@ -7183,13 +7183,6 @@ new GitHubConfigBase(project: BaseProject | JsiiProject)
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.applyConfig">applyConfig</a></code> | Applies the current configuration based on the strategy to the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.addAttributePatterns">addAttributePatterns</a></code> | Adds custom attributes patterns to the project's configuration. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.createBugIssue">createBugIssue</a></code> | Creates a bug issue template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.createCliff">createCliff</a></code> | Creates a the git cliff template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.createFeatureIssue">createFeatureIssue</a></code> | Creates a feature request template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.createHousekeepingIssue">createHousekeepingIssue</a></code> | Creates a housekeeping issue template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.createPullRequest">createPullRequest</a></code> | Creates a pull request template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.createQuestionIssue">createQuestionIssue</a></code> | Creates a question issue template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase.createReleaseWorkflow">createReleaseWorkflow</a></code> | Creates a release workflow template file. |
 
 ---
 
@@ -7267,62 +7260,6 @@ Adds custom attributes patterns to the project's configuration.
 An array of file or directory patterns to be added as attributes.
 
 ---
-
-##### `createBugIssue` <a name="createBugIssue" id="@dxfrontier/projen-template-projects.GitHubConfigBase.createBugIssue"></a>
-
-```typescript
-public createBugIssue(): void
-```
-
-Creates a bug issue template file.
-
-##### `createCliff` <a name="createCliff" id="@dxfrontier/projen-template-projects.GitHubConfigBase.createCliff"></a>
-
-```typescript
-public createCliff(): void
-```
-
-Creates a the git cliff template file.
-
-##### `createFeatureIssue` <a name="createFeatureIssue" id="@dxfrontier/projen-template-projects.GitHubConfigBase.createFeatureIssue"></a>
-
-```typescript
-public createFeatureIssue(): void
-```
-
-Creates a feature request template file.
-
-##### `createHousekeepingIssue` <a name="createHousekeepingIssue" id="@dxfrontier/projen-template-projects.GitHubConfigBase.createHousekeepingIssue"></a>
-
-```typescript
-public createHousekeepingIssue(): void
-```
-
-Creates a housekeeping issue template file.
-
-##### `createPullRequest` <a name="createPullRequest" id="@dxfrontier/projen-template-projects.GitHubConfigBase.createPullRequest"></a>
-
-```typescript
-public createPullRequest(): void
-```
-
-Creates a pull request template file.
-
-##### `createQuestionIssue` <a name="createQuestionIssue" id="@dxfrontier/projen-template-projects.GitHubConfigBase.createQuestionIssue"></a>
-
-```typescript
-public createQuestionIssue(): void
-```
-
-Creates a question issue template file.
-
-##### `createReleaseWorkflow` <a name="createReleaseWorkflow" id="@dxfrontier/projen-template-projects.GitHubConfigBase.createReleaseWorkflow"></a>
-
-```typescript
-public createReleaseWorkflow(): void
-```
-
-Creates a release workflow template file.
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -7448,13 +7385,6 @@ new GitHubConfigCapService(project: BaseProject | JsiiProject)
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.applyConfig">applyConfig</a></code> | Applies the current configuration based on the strategy to the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.addAttributePatterns">addAttributePatterns</a></code> | Adds custom attributes patterns to the project's configuration. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createBugIssue">createBugIssue</a></code> | Creates a bug issue template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createCliff">createCliff</a></code> | Creates a the git cliff template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createFeatureIssue">createFeatureIssue</a></code> | Creates a feature request template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createHousekeepingIssue">createHousekeepingIssue</a></code> | Creates a housekeeping issue template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createPullRequest">createPullRequest</a></code> | Creates a pull request template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createQuestionIssue">createQuestionIssue</a></code> | Creates a question issue template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createReleaseWorkflow">createReleaseWorkflow</a></code> | Creates a release workflow template file. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createDeploymentWorkflow">createDeploymentWorkflow</a></code> | Creates a deployment workflow template file. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createStoryIssue">createStoryIssue</a></code> | Creates a user story issue template file. |
 
@@ -7534,62 +7464,6 @@ Adds custom attributes patterns to the project's configuration.
 An array of file or directory patterns to be added as attributes.
 
 ---
-
-##### `createBugIssue` <a name="createBugIssue" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createBugIssue"></a>
-
-```typescript
-public createBugIssue(): void
-```
-
-Creates a bug issue template file.
-
-##### `createCliff` <a name="createCliff" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createCliff"></a>
-
-```typescript
-public createCliff(): void
-```
-
-Creates a the git cliff template file.
-
-##### `createFeatureIssue` <a name="createFeatureIssue" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createFeatureIssue"></a>
-
-```typescript
-public createFeatureIssue(): void
-```
-
-Creates a feature request template file.
-
-##### `createHousekeepingIssue` <a name="createHousekeepingIssue" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createHousekeepingIssue"></a>
-
-```typescript
-public createHousekeepingIssue(): void
-```
-
-Creates a housekeeping issue template file.
-
-##### `createPullRequest` <a name="createPullRequest" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createPullRequest"></a>
-
-```typescript
-public createPullRequest(): void
-```
-
-Creates a pull request template file.
-
-##### `createQuestionIssue` <a name="createQuestionIssue" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createQuestionIssue"></a>
-
-```typescript
-public createQuestionIssue(): void
-```
-
-Creates a question issue template file.
-
-##### `createReleaseWorkflow` <a name="createReleaseWorkflow" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createReleaseWorkflow"></a>
-
-```typescript
-public createReleaseWorkflow(): void
-```
-
-Creates a release workflow template file.
 
 ##### `createDeploymentWorkflow` <a name="createDeploymentWorkflow" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createDeploymentWorkflow"></a>
 

@@ -100,7 +100,7 @@ describe('GitHub Templates', (): void => {
 
 describe('GitHub Workflows', (): void => {
   test('Projen standard workflows are removed', (): void => {
-    github.testProjenWorkflows(snapshot, 2);
+    github.testProjenWorkflows(snapshot, 3);
   });
 
   test('Release workflow template matches expected template', (): void => {
@@ -136,6 +136,10 @@ describe('GitHub Workflows', (): void => {
   test('Cliff toml template matches expected template', (): void => {
     github.testCliffToml(snapshot);
   });
+
+  test('Enforce labels toml template matches expected template', (): void => {
+    github.testCliffToml(snapshot);
+  });
 });
 
 test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
@@ -153,6 +157,7 @@ test('GitHub related files are added to .gitattributes and defined as linguist-g
     '/.github/ISSUE_TEMPLATE/story.yml linguist-generated',
     '/.github/pull_request_template.md linguist-generated',
     '/.github/workflows/deployment.yml linguist-generated',
+    '/.github/workflows/enforce-labels.yml linguist-generated',
     '/.github/workflows/release.yml linguist-generated',
     '/.gitignore linguist-generated',
     '/.husky/commit-msg linguist-generated',

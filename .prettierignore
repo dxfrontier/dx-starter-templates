@@ -19,6 +19,7 @@
 /.github/ISSUE_TEMPLATE/question.yml
 /cliff.toml
 /.github/workflows/release.yml
+/.github/workflows/enforce-labels.yml
 /.gitattributes
 /.gitignore
 /CHANGELOG.md

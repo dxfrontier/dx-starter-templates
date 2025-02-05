@@ -64,33 +64,18 @@ export declare class GitHubConfigBase extends Config {
      */
     protected get configFileReleaseWorkflow(): Record<string, string[]>;
     /**
-     * Creates a pull request template file.
+     * Retrieves the configuration for the enforce labels workflow template file.
+     *
+     * @returns A record where the key is the file path and the value is an array of strings
+     *          representing the content of the workflow template.
      */
-    createPullRequest(): void;
+    protected get configFileEnforceLabelsWorkflow(): Record<string, string[]>;
     /**
-     * Creates a bug issue template file.
+     * Creates a template file based on the provided configuration.
+     *
+     * @param config - The configuration object containing the file path and content.
      */
-    createBugIssue(): void;
-    /**
-     * Creates a feature request template file.
-     */
-    createFeatureIssue(): void;
-    /**
-     * Creates a housekeeping issue template file.
-     */
-    createHousekeepingIssue(): void;
-    /**
-     * Creates a question issue template file.
-     */
-    createQuestionIssue(): void;
-    /**
-     * Creates a the git cliff template file.
-     */
-    createCliff(): void;
-    /**
-     * Creates a release workflow template file.
-     */
-    createReleaseWorkflow(): void;
+    private createTemplateFile;
     /**
      * Adds custom attributes patterns to the project's configuration.
      *

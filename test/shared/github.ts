@@ -251,6 +251,40 @@ export function testDeploymentWorkflow(snapshot: SynthOutput, expectedTemplateLi
 }
 
 /**
+ * Validates that deployment workflow template matches expected template.
+ * @param snapshot Synthesized project output.
+ */
+export function testEnforceLabelsWorkflow(snapshot: SynthOutput, expectedTemplateLines: string[] = []): void {
+  const standardTemplateLines: string[] = [
+    'name: Enforce labels',
+    '',
+    'on:',
+    '  pull_request:',
+    '    types: [opened, labeled]',
+    '',
+    'permissions:',
+    '  contents: write',
+    '  pull-requests: read',
+    '',
+    'jobs:',
+    '  enforce-label-version-release:',
+    "    name: 'Enforce Labels: version: patch, version: minor, version: major, no_release'",
+    '    runs-on: ubuntu-latest',
+    '    steps:',
+    '      - name: Check out code',
+    '        uses: actions/checkout@v4',
+    '      - name: Enforce version release labels',
+    '        uses: yogevbd/enforce-label-action@2.2.2',
+    '        with:',
+    "          REQUIRED_LABELS_ANY: 'version: patch,version: minor,version: major,no_release'",
+    "          REQUIRED_LABELS_ANY_DESCRIPTION: \"Select at least one label ['version: patch', 'version: minor', 'version: major', 'no_release']\"",
+  ];
+
+  const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
+  expect(snapshot['.github/workflows/enforce-labels.yml']).toBe(lines.join('\n'));
+}
+
+/**
  * Validates that cliff toml template matches expected template.
  * @param snapshot Synthesized project output.
  */
@@ -367,6 +401,7 @@ export function testGitAttributes(snapshot: SynthOutput, expectedTemplateLines: 
     '/.github/ISSUE_TEMPLATE/housekeeping.yml linguist-generated',
     '/.github/ISSUE_TEMPLATE/question.yml linguist-generated',
     '/.github/pull_request_template.md linguist-generated',
+    '/.github/workflows/enforce-labels.yml linguist-generated',
     '/.github/workflows/release.yml linguist-generated',
     '/.gitignore linguist-generated',
     '/.husky/commit-msg linguist-generated',
