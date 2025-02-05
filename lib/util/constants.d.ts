@@ -1,6 +1,7 @@
 declare const constants: {
     PROJECT_NAMESPACE: string;
-    PROJECT_DESCRIPTION: string;
+    CAP_PROJECT_DESCRIPTION: string;
+    GITHUB_PROJECT_DESCRIPTION: string;
     ENTITY_NAME: string;
     '@dxfrontier/cds-ts-dispatcher': {
         NAME: string;
