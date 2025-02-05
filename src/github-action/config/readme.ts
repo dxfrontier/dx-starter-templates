@@ -6,7 +6,7 @@ import { ReadmeConfig } from '../../util/types';
  * Implementing all relevant Readme configuration for the CapService project.
  * We do not extend Base config classes as this is a special case.
  */
-export class ReadmeConfigGithub implements ReadmeConfig {
+export class ReadmeConfigGitHubAction implements ReadmeConfig {
   public getReadme(options: BaseProjectOptions): { filename: string; contents: string } {
     // Start README.md
     return {
