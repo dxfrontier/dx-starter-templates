@@ -11,6 +11,8 @@ import { NpmConfigGitHubAction } from './config/npm';
 import { SampleCodeConfigGitHubAction } from './config/samplecode';
 import { TypeScriptConfigGitHubAction } from './config/typescript';
 import { util } from '../util/utils';
+import { ReadmeConfigGitHubAction } from './config/readme';
+import { constants } from '../util/constants';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {}
 
@@ -31,9 +33,11 @@ export class GitHubActionProject extends BaseProject {
       typescriptEnabled: false,
       jestEnabled: false,
       eslintEnabled: false,
+      description: options.description ?? constants.GITHUB_PROJECT_DESCRIPTION,
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),
+      readme: new ReadmeConfigGitHubAction().getReadme(updatedOptions),
     });
 
     this.npmConfig = new NpmConfigGitHubAction(this);

@@ -1,6 +1,7 @@
 const constants = {
   PROJECT_NAMESPACE: 'de.customer.org.project',
-  PROJECT_DESCRIPTION: 'SAP CAP Project',
+  CAP_PROJECT_DESCRIPTION: 'SAP CAP Project',
+  GITHUB_PROJECT_DESCRIPTION: 'GITHUB Project',
   ENTITY_NAME: 'Entity1',
 
   '@dxfrontier/cds-ts-dispatcher': {

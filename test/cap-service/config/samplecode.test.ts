@@ -127,7 +127,7 @@ test('Projen standard sample files are removed from file system', (): void => {
 test('Sample file mta.yaml matches expected file template', (): void => {
   const placeholders: Record<string, string> = {
     __namespace__: constants.PROJECT_NAMESPACE,
-    __description__: constants.PROJECT_DESCRIPTION,
+    __description__: constants.CAP_PROJECT_DESCRIPTION,
     __name__: 'my-cap-service',
   };
 
