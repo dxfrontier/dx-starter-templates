@@ -11,6 +11,7 @@ import { NpmConfigGitHubAction } from './config/npm';
 import { SampleCodeConfigGitHubAction } from './config/samplecode';
 import { TypeScriptConfigGitHubAction } from './config/typescript';
 import { util } from '../util/utils';
+import { ReadmeConfigGithub } from './config/readme';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {}
 
@@ -34,6 +35,7 @@ export class GitHubActionProject extends BaseProject {
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),
+      readme: new ReadmeConfigGithub().getReadme(updatedOptions),
     });
 
     this.npmConfig = new NpmConfigGitHubAction(this);

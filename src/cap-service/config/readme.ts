@@ -1,15 +1,12 @@
-import { CapServiceProjectOptions } from '../project';
-
-interface ReadmeConfig {
-  getReadme(options: CapServiceProjectOptions): { filename: string; contents: string };
-}
+import { BaseProjectOptions } from '../../base';
+import { ReadmeConfig } from '../../util/types';
 
 /**
  * Implementing all relevant Readme configuration for the CapService project.
  * We do not extend Base config classes as this is a special case.
  */
 export class ReadmeConfigCapService implements ReadmeConfig {
-  public getReadme(options: CapServiceProjectOptions): { filename: string; contents: string } {
+  public getReadme(options: BaseProjectOptions): { filename: string; contents: string } {
     // Start README.md
     return {
       filename: 'README.md',
