@@ -318,72 +318,49 @@ export class GitHubConfigBase extends Config {
   }
 
   /**
-   * Creates a pull request template file.
+   * Retrieves the configuration for the enforce labels workflow template file.
+   *
+   * @returns A record where the key is the file path and the value is an array of strings
+   *          representing the content of the workflow template.
    */
-  public createPullRequest(): void {
-    const filePath: string = Object.keys(this.configFilePullRequest)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFilePullRequest[filePath],
-    });
+  protected get configFileEnforceLabelsWorkflow(): Record<string, string[]> {
+    return {
+      '.github/workflows/enforce-labels.yml': [
+        'name: Enforce labels',
+        '',
+        'on:',
+        '  pull_request:',
+        '    types: [opened, labeled]',
+        '',
+        'permissions:',
+        '  contents: write',
+        '  pull-requests: read',
+        '',
+        'jobs:',
+        '  enforce-label-version-release:',
+        "    name: 'Enforce Labels: version: patch, version: minor, version: major, no_release'",
+        '    runs-on: ubuntu-latest',
+        '    steps:',
+        '      - name: Check out code',
+        '        uses: actions/checkout@v4',
+        '      - name: Enforce version release labels',
+        '        uses: yogevbd/enforce-label-action@2.2.2',
+        '        with:',
+        "          REQUIRED_LABELS_ANY: 'version: patch,version: minor,version: major,no_release'",
+        "          REQUIRED_LABELS_ANY_DESCRIPTION: \"Select at least one label ['version: patch', 'version: minor', 'version: major', 'no_release']\"",
+      ],
+    };
   }
 
   /**
-   * Creates a bug issue template file.
+   * Creates a template file based on the provided configuration.
+   *
+   * @param config - The configuration object containing the file path and content.
    */
-  public createBugIssue(): void {
-    const filePath: string = Object.keys(this.configFileBugIssue)[0];
+  private createTemplateFile(config: Record<string, string[]>): void {
+    const filePath: string = Object.keys(config)[0];
     new TextFile(this.project, filePath, {
-      lines: this.configFileBugIssue[filePath],
-    });
-  }
-
-  /**
-   * Creates a feature request template file.
-   */
-  public createFeatureIssue(): void {
-    const filePath: string = Object.keys(this.configFileFeatureIssue)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFileFeatureIssue[filePath],
-    });
-  }
-
-  /**
-   * Creates a housekeeping issue template file.
-   */
-  public createHousekeepingIssue(): void {
-    const filePath: string = Object.keys(this.configFileHousekeepingIssue)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFileHousekeepingIssue[filePath],
-    });
-  }
-
-  /**
-   * Creates a question issue template file.
-   */
-  public createQuestionIssue(): void {
-    const filePath: string = Object.keys(this.configFileQuestionIssue)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFileQuestionIssue[filePath],
-    });
-  }
-
-  /**
-   * Creates a the git cliff template file.
-   */
-  public createCliff(): void {
-    const filePath: string = Object.keys(this.configFileCliff)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFileCliff[filePath],
-    });
-  }
-
-  /**
-   * Creates a release workflow template file.
-   */
-  public createReleaseWorkflow(): void {
-    const filePath: string = Object.keys(this.configFileReleaseWorkflow)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFileReleaseWorkflow[filePath],
+      lines: config[filePath],
     });
   }
 
@@ -409,6 +386,7 @@ export class GitHubConfigBase extends Config {
       this.configFileQuestionIssue,
       this.configFileCliff,
       this.configFileReleaseWorkflow,
+      this.configFileEnforceLabelsWorkflow,
     ];
   }
 
@@ -444,13 +422,14 @@ export class GitHubConfigBase extends Config {
   }
 
   public override applyConfig(): void {
-    this.createPullRequest();
-    this.createBugIssue();
-    this.createFeatureIssue();
-    this.createHousekeepingIssue();
-    this.createQuestionIssue();
-    this.createCliff();
-    this.createReleaseWorkflow();
+    this.createTemplateFile(this.configFilePullRequest);
+    this.createTemplateFile(this.configFileBugIssue);
+    this.createTemplateFile(this.configFileFeatureIssue);
+    this.createTemplateFile(this.configFileHousekeepingIssue);
+    this.createTemplateFile(this.configFileQuestionIssue);
+    this.createTemplateFile(this.configFileCliff);
+    this.createTemplateFile(this.configFileReleaseWorkflow);
+    this.createTemplateFile(this.configFileEnforceLabelsWorkflow);
 
     for (const value of this.attributePatterns) {
       this.project.gitattributes.addAttributes(`/${value}`, 'linguist-generated');
