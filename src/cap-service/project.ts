@@ -45,7 +45,7 @@ export class CapServiceProject extends BaseProject {
       typescriptEnabled: true,
       name: options.name, // projen presets the option with 'project' if no custom option is given.
       namespace: options.namespace ?? constants.PROJECT_NAMESPACE,
-      description: options.description ?? constants.PROJECT_DESCRIPTION,
+      description: options.description ?? constants.CAP_PROJECT_DESCRIPTION,
       entityName: options.entityName ?? constants.ENTITY_NAME,
     };
     super({
