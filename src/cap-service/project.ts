@@ -24,7 +24,7 @@ export interface CapServiceProjectOptions extends BaseProjectOptions {
  * Base class for managing project CapService configuration.
  */
 export class CapServiceProject extends BaseProject {
-  static cleanCommand = `npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION}`;
+  static cleanCommand = `npx @cap-js/cds-typer '*' --outputDirectory @cds-models && npx projen eject && rm -rf .projenrc.ts.bak scripts .projen && npm install ${constants['@dxfrontier/cds-ts-dispatcher'].NAME}@${constants['@dxfrontier/cds-ts-dispatcher'].VERSION}`;
 
   /**
    * Initializes the project.
