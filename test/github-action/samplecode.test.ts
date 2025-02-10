@@ -8,8 +8,8 @@
  * It is important that each test file imports and uses the `snapshot` otherwise the bootstrap will not run for this test file.
  **/
 
-import * as samplecode from '../../shared/samplecode';
-import { snapshot } from './setup';
+import * as samplecode from '../shared/samplecode';
+import { snapshot } from './util/setup';
 
 /**
  * We use not a describe block here because the jest test runner `Test Results` pane will show the test names.
