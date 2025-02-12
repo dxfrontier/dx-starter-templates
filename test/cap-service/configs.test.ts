@@ -269,6 +269,7 @@ describe('cap-service', (): void => {
     /**
      * End Github attributes
      */
+
     /**
      * Start Github templates
      */
@@ -357,6 +358,7 @@ describe('cap-service', (): void => {
     /**
      * End Github templates
      */
+
     /**
      * Start Github workflows
      */
