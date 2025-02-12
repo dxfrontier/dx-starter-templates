@@ -171,6 +171,9 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
           allowImportingTsExtensions: true,
         },
       },
+      jestOptions: {
+        extraCliOptions: ['--verbose'],
+      },
     });
 
     this.typescript = true;

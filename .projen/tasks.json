@@ -172,7 +172,7 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --updateSnapshot",
+          "exec": "jest --verbose --passWithNoTests --updateSnapshot",
           "receiveArgs": true
         }
       ]

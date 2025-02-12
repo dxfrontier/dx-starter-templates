@@ -108,6 +108,9 @@ describe('JsiiProject Constructor Options', (): void => {
       githubEnabled: true,
       huskyEnabled: true,
       jestEnabled: true,
+      jestOptions: {
+        extraCliOptions: ['--verbose'],
+      },
       prettierEnabled: true,
       vscodeEnabled: true,
 
