@@ -9,10 +9,10 @@
  **/
 
 import { synthSnapshot } from 'projen/lib/util/synth';
-import { CapServiceProject } from '../../../src/cap-service';
-import * as samplecode from '../../shared/samplecode';
-import { snapshot, props } from './setup';
-import { constants } from '../../../src/util/constants';
+import { CapServiceProject } from '../../src/cap-service';
+import * as samplecode from '../shared/samplecode';
+import { snapshot, props } from './util/setup';
+import { constants } from '../../src/util/constants';
 
 const expectedTemplateLines: string[] = [
   "_schema-version: '3.1'",
