@@ -3669,7 +3669,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 214
+            "line": 217
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -3681,7 +3681,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 209
+            "line": 212
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -6578,6 +6578,6 @@
       "symbolId": "src/cap-service/config/vscode:VsCodeConfigCapService"
     }
   },
-  "version": "0.5.4",
-  "fingerprint": "asbLMqs6cHfG7K4jaDkVLlO9T1vDQepdVRHmMLtzfNQ="
+  "version": "0.0.0",
+  "fingerprint": "H4x+Yg249swAXlCL1EywMgm1FHJ4S9bNCAeaVrDdQW4="
 }
