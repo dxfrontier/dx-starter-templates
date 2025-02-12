@@ -145,22 +145,66 @@ describe('jsii', (): void => {
   /**
    * Start Github
    */
-  describe('github templates', (): void => {
-    test('Projen standard workflows are removed', (): void => {
-      github.testProjenWorkflows(snapshot, 2);
+  describe('github', (): void => {
+    /**
+     * Start Github attributes
+     */
+    describe('Attributes', (): void => {
+      test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
+        github.testGitAttributes(snapshot);
+      });
     });
+    /**
+     * End Github attributes
+     */
 
-    test('Release workflow template matches expected template', (): void => {
-      github.testReleaseWorkflow(snapshot);
-    });
+    /**
+     * Start Github templates
+     */
+    describe('Templates', (): void => {
+      test('PR template matches expected template', (): void => {
+        github.testPrTemplate(snapshot);
+      });
 
-    test('Cliff toml template matches expected template', (): void => {
-      github.testCliffToml(snapshot);
-    });
+      test('Bug issue template matches expected template', (): void => {
+        github.testBugTemplate(snapshot);
+      });
 
-    test('GitHub related files are added to .gitattributes and defined as linguist-generated', (): void => {
-      github.testGitAttributes(snapshot);
+      test('Feature issue template matches expected template', (): void => {
+        github.testFeatureTemplate(snapshot);
+      });
+
+      test('Housekeeping issue template matches expected template', (): void => {
+        github.testBugTemplate(snapshot);
+      });
+
+      test('Question issue template matches expected template', (): void => {
+        github.testQuestionTemplate(snapshot);
+      });
     });
+    /**
+     * End Github templates
+     */
+
+    /**
+     * Start Github workflows
+     */
+    describe('Workflows', (): void => {
+      test('Projen standard workflows are removed', (): void => {
+        github.testProjenWorkflows(snapshot, 2);
+      });
+
+      test('Release workflow template matches expected template', (): void => {
+        github.testReleaseWorkflow(snapshot);
+      });
+
+      test('Cliff toml template matches expected template', (): void => {
+        github.testCliffToml(snapshot);
+      });
+    });
+    /**
+     * End Github workflows
+     */
   });
   /**
    * End Github
@@ -241,7 +285,6 @@ describe('jsii', (): void => {
   /**
    * Start npm
    */
-
   describe('npm', (): void => {
     test('General info in package.json is set properly', (): void => {
       const expectedInfo: Record<string, unknown> = {
@@ -348,7 +391,6 @@ describe('jsii', (): void => {
       npm.testPackageJsonSettings(snapshot, expectedSettings);
     });
   });
-
   /**
    * End npm
    */
@@ -356,7 +398,6 @@ describe('jsii', (): void => {
   /**
    * Start prettier
    */
-
   describe('prettier', (): void => {
     test('Prettier settings are set properly', (): void => {
       prettier.testSettings(snapshot);
@@ -397,7 +438,6 @@ describe('jsii', (): void => {
       prettier.testIgnore(snapshot, expectedEntries);
     });
   });
-
   /**
    * End prettier
    */
@@ -445,13 +485,11 @@ describe('jsii', (): void => {
   /**
    * Start vscode
    */
-
   describe('vscode', (): void => {
     test('VsCode settings are set properly', (): void => {
       vscode.testSettings(snapshot);
     });
   });
-
   /**
    * End vscode
    */
