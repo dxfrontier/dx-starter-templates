@@ -1,0 +1,20 @@
+name: Change PR Template for Dev to Main
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  update-pr-template:
+    if: github.base_ref == 'main' && github.head_ref == 'dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Replace PR Body for Dev → Main
+        run: |
+          gh pr edit ${{ github.event.pull_request.number }} --body "$(cat .github/PULL_REQUEST_TEMPLATE/dev-to-main.md)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
