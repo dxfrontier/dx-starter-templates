@@ -77,7 +77,8 @@ describe('jsii', (): void => {
       const expectedEntries: string[] = [
         '',
         '!/.commitlintrc.ts',
-        '!/.devcontainer.json',
+        '!/.devcontainer/devcontainer.json',
+        '!/.devcontainer/scripts/install-dependencies.sh',
         '!/.gitattributes',
         '!/.github/ISSUE_TEMPLATE/bug.yml',
         '!/.github/ISSUE_TEMPLATE/feature.yml',
@@ -407,7 +408,7 @@ describe('jsii', (): void => {
       const expectedEntries: string[] = [
         '*.snap',
         '/.commitlintrc.ts',
-        '/.devcontainer.json',
+        '/.devcontainer/devcontainer.json',
         '/.gitattributes',
         '/.github/ISSUE_TEMPLATE/bug.yml',
         '/.github/ISSUE_TEMPLATE/feature.yml',
