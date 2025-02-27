@@ -1502,7 +1502,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/devcontainer.ts",
-            "line": 78
+            "line": 84
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -1515,7 +1515,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/devcontainer.ts",
-            "line": 72
+            "line": 78
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -1531,7 +1531,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/devcontainer.ts",
-            "line": 67
+            "line": 73
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -6579,5 +6579,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "H4x+Yg249swAXlCL1EywMgm1FHJ4S9bNCAeaVrDdQW4="
+  "fingerprint": "2f3Rdgg7YO+aAFQ0xHOhyQfOEFvfm/NacV+xq5VkQ1o="
 }

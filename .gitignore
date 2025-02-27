@@ -41,7 +41,8 @@ tsconfig.json
 !/.projenrc.ts
 !/.prettierrc.json
 !/.prettierignore
-!/.devcontainer.json
+!/.devcontainer/devcontainer.json
+!/.devcontainer/scripts/install-dependencies.sh
 !/eslint.config.mjs
 !/.vscode/settings.json
 !/.github/pull_request_template.md

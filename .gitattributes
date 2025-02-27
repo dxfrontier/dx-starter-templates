@@ -3,7 +3,8 @@
 * text=auto eol=lf
 *.snap linguist-generated
 /.commitlintrc.ts linguist-generated
-/.devcontainer.json linguist-generated
+/.devcontainer/devcontainer.json linguist-generated
+/.devcontainer/scripts/install-dependencies.sh linguist-generated
 /.gitattributes linguist-generated
 /.github/ISSUE_TEMPLATE/bug.yml linguist-generated
 /.github/ISSUE_TEMPLATE/feature.yml linguist-generated
