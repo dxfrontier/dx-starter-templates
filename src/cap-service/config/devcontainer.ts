@@ -11,18 +11,9 @@ export class DevContainerConfigCapService extends DevContainerConfigBase {
 
   protected override get configFile(): ConfigFile {
     return {
-      '.devcontainer.json': {
+      '.devcontainer/devcontainer.json': {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
-        postCreateCommand: `
-          sudo apt-get update && \
-          sudo apt-get install -y xdg-utils && \
-          npm install -g @sap/cds-dk typescript ts-node @ui5/cli git-cliff && \
-          npm install && \
-          wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
-          echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
-          sudo apt-get update && \
-          sudo apt-get install cf8-cli
-        `,
+        postCreateCommand: 'bash scripts/install-dependencies.sh',
         features: {
           'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
           'ghcr.io/devcontainers/features/github-cli': 'latest',
@@ -108,6 +99,31 @@ export class DevContainerConfigCapService extends DevContainerConfigBase {
           },
         },
       },
+      '.devcontainer/scripts/install-dependencies.sh': [
+        '#!/bin/bash',
+        'set -e # Exit on error',
+        'set -x # Print commands for debugging',
+        '',
+        '# Install global npm packages',
+        'npm install -g mbt @sap/cds @sap/cds-dk ts-node',
+        '',
+        '# Install project dependencies',
+        'npm install',
+        '',
+        '# Generate CDS typings',
+        'npx @cap-js/cds-typer "*" --outputDirectory @cds-models',
+        '',
+        '# Add Cloud Foundry CLI repository',
+        'wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -',
+        'echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list',
+        '',
+        '# Update package lists and install required packages',
+        'sudo apt-get update',
+        'sudo apt-get install -y xdg-utils jq cf8-cli',
+        '',
+        '# Install Cloud Foundry MultiApps Plugin',
+        'cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plugin/releases/latest/download/multiapps-plugin.linux64',
+      ],
     };
   }
 }

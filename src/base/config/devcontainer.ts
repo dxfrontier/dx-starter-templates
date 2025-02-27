@@ -1,4 +1,4 @@
-import { JsonFile } from 'projen';
+import { JsonFile, TextFile } from 'projen';
 import { Config } from '../config';
 import { ProjectTypes } from '../../util/types/project';
 import { util } from '../../util/utils';
@@ -12,9 +12,9 @@ import { ConfigFile } from '../../util/types/types';
 export class DevContainerConfigBase extends Config {
   protected override get configFile(): ConfigFile {
     return {
-      '.devcontainer.json': {
+      '.devcontainer/devcontainer.json': {
         image: 'mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye',
-        postCreateCommand: 'npm install',
+        postCreateCommand: 'bash scripts/install-dependencies.sh',
         features: {
           'ghcr.io/devcontainers-contrib/features/curl-apt-get': 'latest',
           'ghcr.io/devcontainers/features/github-cli': 'latest',
@@ -61,6 +61,12 @@ export class DevContainerConfigBase extends Config {
           },
         },
       },
+      '.devcontainer/scripts/install-dependencies.sh': [
+        '#!/bin/bash',
+        'set -e # Exit on error',
+        'set -x # Print commands for debugging',
+        'npm install',
+      ],
     };
   }
 
@@ -76,9 +82,15 @@ export class DevContainerConfigBase extends Config {
   }
 
   public override applyConfig(): void {
-    const filePath: string = Object.keys(this.configFile)[0];
-    new JsonFile(this.project, filePath, {
-      obj: this.configFile[filePath],
+    const devContainerJson: string = Object.keys(this.configFile)[0];
+    new JsonFile(this.project, devContainerJson, {
+      obj: this.configFile[devContainerJson],
+    });
+
+    const devContainerDependencies: string = Object.keys(this.configFile)[1];
+    new TextFile(this.project, devContainerDependencies, {
+      lines: this.configFile[devContainerDependencies] as string[],
+      executable: true,
     });
   }
 }
