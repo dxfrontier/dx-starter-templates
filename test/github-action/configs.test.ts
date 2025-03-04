@@ -43,6 +43,14 @@ describe('github-action', (): void => {
     test('Container postCreateCommand is set properly', (): void => {
       devcontainer.testCommand(snapshot);
     });
+
+    test('Container postCreateCommand install-dependencies.sh are set properly', (): void => {
+      const expectedCommand: string = `#!/bin/bash
+set -e # Exit on error
+set -x # Print commands for debugging
+npm install`;
+      devcontainer.testInstallDependencies(snapshot, expectedCommand);
+    });
   });
   /**
    * End Devcontainer
@@ -56,7 +64,8 @@ describe('github-action', (): void => {
       const expectedEntries: string[] = [
         '',
         '!/.commitlintrc.ts',
-        '!/.devcontainer.json',
+        '!/.devcontainer/devcontainer.json',
+        '!/.devcontainer/scripts/install-dependencies.sh',
         '!/.gitattributes',
         '!/.github/ISSUE_TEMPLATE/bug.yml',
         '!/.github/ISSUE_TEMPLATE/feature.yml',
@@ -127,7 +136,8 @@ describe('github-action', (): void => {
           '',
           '* text=auto eol=lf',
           '/.commitlintrc.ts linguist-generated',
-          '/.devcontainer.json linguist-generated',
+          '/.devcontainer/devcontainer.json linguist-generated',
+          '/.devcontainer/scripts/install-dependencies.sh linguist-generated',
           '/.gitattributes linguist-generated',
           '/.github/ISSUE_TEMPLATE/bug.yml linguist-generated',
           '/.github/ISSUE_TEMPLATE/feature.yml linguist-generated',
@@ -339,7 +349,7 @@ describe('github-action', (): void => {
     test('Ignore patterns matches expected content', (): void => {
       const expectedEntries: string[] = [
         '/.commitlintrc.ts',
-        '/.devcontainer.json',
+        '/.devcontainer/devcontainer.json',
         '/.gitattributes',
         '/.github/ISSUE_TEMPLATE/bug.yml',
         '/.github/ISSUE_TEMPLATE/feature.yml',

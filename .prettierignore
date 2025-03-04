@@ -9,7 +9,7 @@
 /package-lock.json
 /package.json
 /API.md
-/.devcontainer.json
+/.devcontainer/devcontainer.json
 /eslint.config.mjs
 /.vscode/settings.json
 /.github/pull_request_template.md

@@ -1,7 +1,8 @@
 {
   "files": [
     ".commitlintrc.ts",
-    ".devcontainer.json",
+    ".devcontainer/devcontainer.json",
+    ".devcontainer/scripts/install-dependencies.sh",
     ".gitattributes",
     ".github/ISSUE_TEMPLATE/bug.yml",
     ".github/ISSUE_TEMPLATE/feature.yml",
