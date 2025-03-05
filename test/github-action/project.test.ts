@@ -166,6 +166,7 @@ describe('GitHubActionsProject Constructor Options', (): void => {
       prettierEnabled: true,
       vscodeEnabled: true,
       typescriptEnabled: false,
+      sampleCodeEnabled: true,
 
       githubOptions: { mergify: false, pullRequestLint: false },
       buildWorkflow: false,

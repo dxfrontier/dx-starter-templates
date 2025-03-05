@@ -2310,7 +2310,7 @@
           },
           "locationInModule": {
             "filename": "src/github-action/project.ts",
-            "line": 53
+            "line": 60
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -2332,7 +2332,7 @@
           },
           "locationInModule": {
             "filename": "src/github-action/project.ts",
-            "line": 76
+            "line": 83
           },
           "name": "postSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject"
@@ -6579,5 +6579,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "2f3Rdgg7YO+aAFQ0xHOhyQfOEFvfm/NacV+xq5VkQ1o="
+  "fingerprint": "uwHNF5uZCKgFD5kZg0uHeAE0OSabbAivS9TEYNcV778="
 }

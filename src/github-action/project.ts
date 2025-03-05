@@ -30,9 +30,16 @@ export class GitHubActionProject extends BaseProject {
   constructor(options: GitHubActionProjectOptions) {
     const updatedOptions = {
       ...options,
+      commitlintEnabled: options.commitlintEnabled ?? true,
+      devContainerEnabled: options.devContainerEnabled ?? true,
+      eslintEnabled: options.eslintEnabled ?? false,
+      githubEnabled: options.githubEnabled ?? true,
+      huskyEnabled: options.huskyEnabled ?? true,
+      jestEnabled: options.jestEnabled ?? false,
+      prettierEnabled: options.prettierEnabled ?? true,
+      vscodeEnabled: options.vscodeEnabled ?? true,
+      sampleCodeEnabled: options.sampleCodeEnabled ?? true,
       typescriptEnabled: false,
-      jestEnabled: false,
-      eslintEnabled: false,
       description: options.description ?? constants.GITHUB_PROJECT_DESCRIPTION,
     };
     super({
