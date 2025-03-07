@@ -20,7 +20,7 @@ export interface GitHubActionProjectOptions extends BaseProjectOptions {}
  * Base class for managing project GitHubAction configuration.
  */
 export class GitHubActionProject extends BaseProject {
-  static cleanCommand = 'npx projen eject && rm -rf .projenrc.ts.bak scripts .projen';
+  static cleanCommand = 'npx projen eject && rm -rf .projenrc.js.bak scripts .projen';
 
   /**
    * Initializes the project.
