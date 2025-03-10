@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.9] - 2025-03-10
+
+### 🐛 Bug Fixes
+
+- *(command)* Clean command it's `rm -rf .projen.ts.bak` and the fina… (#259)
+
+### ⚙️ Miscellaneous Tasks
+
+- Bump version, CHANGELOG.md generated (#257)
+
 ## [0.5.8] - 2025-03-05
 
 ### ⚙️ Miscellaneous Tasks
