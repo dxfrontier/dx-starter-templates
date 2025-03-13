@@ -60,6 +60,9 @@
     "constructs": "^10.4.2",
     "projen": "^0.91.6"
   },
+  "engines": {
+    "node": ">= 20.0"
+  },
   "main": "lib/index.js",
   "license": "UNLICENSED",
   "version": "0.5.9",
