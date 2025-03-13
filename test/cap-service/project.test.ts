@@ -285,6 +285,8 @@ describe('CapServicesProject Constructor Options', (): void => {
         filename: 'README.md',
         contents: expectedReadmeTemplateLines.join('\n'),
       },
+
+      minNodeVersion: '20.0',
     });
   });
 });

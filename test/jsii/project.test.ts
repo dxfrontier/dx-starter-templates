@@ -119,6 +119,7 @@ describe('JsiiProject Constructor Options', (): void => {
       release: false,
       pullRequestTemplate: false,
       depsUpgrade: false,
+      minNodeVersion: '20.0',
     });
   });
 
