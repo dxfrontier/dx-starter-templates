@@ -266,7 +266,7 @@ npm install`;
         [constants['@commitlint/config-conventional'].NAME]: constants['@commitlint/config-conventional'].VERSION,
         [constants['@commitlint/prompt-cli'].NAME]: constants['@commitlint/prompt-cli'].VERSION,
         [constants['@commitlint/types'].NAME]: constants['@commitlint/types'].VERSION,
-        '@types/node': '*',
+        '@types/node': '^20',
         constructs: '^10.0.0', // ????
         [constants['husky'].NAME]: constants['husky'].VERSION,
         [constants['lint-staged'].NAME]: constants['lint-staged'].VERSION,
