@@ -22,34 +22,6 @@ export declare class GitHubConfigBase extends Config {
      */
     protected get configFilePullRequest(): Record<string, string[]>;
     /**
-     * Retrieves the configuration for the bug issue template file.
-     *
-     * @returns A record where the key is the file path and the value is an array of strings
-     *          representing the content of the issue template.
-     */
-    protected get configFileBugIssue(): Record<string, string[]>;
-    /**
-     * Retrieves the configuration for the feature request template file.
-     *
-     * @returns A record where the key is the file path and the value is an array of strings
-     *          representing the content of the issue template.
-     */
-    protected get configFileFeatureIssue(): Record<string, string[]>;
-    /**
-     * Retrieves the configuration for the housekeeping issue template file.
-     *
-     * @returns A record where the key is the file path and the value is an array of strings
-     *          representing the content of the issue template.
-     */
-    protected get configFileHousekeepingIssue(): Record<string, string[]>;
-    /**
-     * Retrieves the configuration for the question issue template file.
-     *
-     * @returns A record where the key is the file path and the value is an array of strings
-     *          representing the content of the issue template.
-     */
-    protected get configFileQuestionIssue(): Record<string, string[]>;
-    /**
      * Retrieves the configuration for the git cliff template file.
      *
      * @returns A record where the key is the file path and the value is an array of strings

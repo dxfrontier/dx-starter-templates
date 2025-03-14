@@ -63,127 +63,6 @@ export class GitHubConfigBase extends Config {
   }
 
   /**
-   * Retrieves the configuration for the bug issue template file.
-   *
-   * @returns A record where the key is the file path and the value is an array of strings
-   *          representing the content of the issue template.
-   */
-  protected get configFileBugIssue(): Record<string, string[]> {
-    return {
-      '.github/ISSUE_TEMPLATE/bug.yml': [
-        'name: 🐞 Bug',
-        'description: File a bug/issue',
-        'title: "[BUG] <title>"',
-        'labels: ["type: bug"]',
-        'body:',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Current behavior',
-        "      description: A description of what you're experiencing.",
-        '    validations:',
-        '      required: true',
-        '',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Expected behavior',
-        '      description: A description of what you expected to happen.',
-        '    validations:',
-        '      required: true',
-      ],
-    };
-  }
-
-  /**
-   * Retrieves the configuration for the feature request template file.
-   *
-   * @returns A record where the key is the file path and the value is an array of strings
-   *          representing the content of the issue template.
-   */
-  protected get configFileFeatureIssue(): Record<string, string[]> {
-    return {
-      '.github/ISSUE_TEMPLATE/feature.yml': [
-        'name: 💡 Feature',
-        'description: Request for a new feature',
-        'title: "[FEATURE] <title>"',
-        'labels: ["type: feature"]',
-        'body:',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Description',
-        '      description: A description of the feature.',
-        '    validations:',
-        '      required: true',
-        '',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Task List',
-        '      description: Describe the steps to fulfill the feature.',
-        '      value: |',
-        '        - [ ] My First Task',
-        '    validations:',
-        '      required: true',
-      ],
-    };
-  }
-
-  /**
-   * Retrieves the configuration for the housekeeping issue template file.
-   *
-   * @returns A record where the key is the file path and the value is an array of strings
-   *          representing the content of the issue template.
-   */
-  protected get configFileHousekeepingIssue(): Record<string, string[]> {
-    return {
-      '.github/ISSUE_TEMPLATE/housekeeping.yml': [
-        'name: 💡 Housekeeping',
-        'description: Maintenance or refactoring task',
-        'title: "[HOUSEKEEPING] <title>"',
-        'labels: ["type: housekeeping"]',
-        'body:',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Description',
-        '      description: A description of the housekeeping task.',
-        '    validations:',
-        '      required: true',
-        '',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Task List',
-        '      description: Describe the steps to fulfill the housekeeping task.',
-        '      value: |',
-        '        - [ ] My First Task',
-        '    validations:',
-        '      required: true',
-      ],
-    };
-  }
-
-  /**
-   * Retrieves the configuration for the question issue template file.
-   *
-   * @returns A record where the key is the file path and the value is an array of strings
-   *          representing the content of the issue template.
-   */
-  protected get configFileQuestionIssue(): Record<string, string[]> {
-    return {
-      '.github/ISSUE_TEMPLATE/question.yml': [
-        'name: ❓ Question',
-        'description: Ask a question',
-        'title: "[QUESTION] <title>"',
-        'labels: ["type: question"]',
-        'body:',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Question',
-        '      description: What would you like to know? If you encounter unusual behavior or identified a missing feature, consider opening a bug report instead.',
-        '    validations:',
-        '      required: true',
-      ],
-    };
-  }
-
-  /**
    * Retrieves the configuration for the git cliff template file.
    *
    * @returns A record where the key is the file path and the value is an array of strings
@@ -380,10 +259,6 @@ export class GitHubConfigBase extends Config {
   protected get configs(): Record<string, string[]>[] {
     return [
       this.configFilePullRequest,
-      this.configFileBugIssue,
-      this.configFileFeatureIssue,
-      this.configFileHousekeepingIssue,
-      this.configFileQuestionIssue,
       this.configFileCliff,
       this.configFileReleaseWorkflow,
       this.configFileEnforceLabelsWorkflow,
@@ -423,10 +298,6 @@ export class GitHubConfigBase extends Config {
 
   public override applyConfig(): void {
     this.createTemplateFile(this.configFilePullRequest);
-    this.createTemplateFile(this.configFileBugIssue);
-    this.createTemplateFile(this.configFileFeatureIssue);
-    this.createTemplateFile(this.configFileHousekeepingIssue);
-    this.createTemplateFile(this.configFileQuestionIssue);
     this.createTemplateFile(this.configFileCliff);
     this.createTemplateFile(this.configFileReleaseWorkflow);
     this.createTemplateFile(this.configFileEnforceLabelsWorkflow);

@@ -45,57 +45,6 @@ export class GitHubConfigCapService extends GitHubConfigBase {
     };
   }
 
-  protected override get configFileFeatureIssue(): Record<string, string[]> {
-    return {
-      '.github/ISSUE_TEMPLATE/feature.yml': [
-        'name: 💡 Feature',
-        'description: Story related feature',
-        'title: "[FEATURE] <title>"',
-        'labels: ["type: feature"]',
-        'body:',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Description',
-        '      description: A description of the feature.',
-        '    validations:',
-        '      required: true',
-        '',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Task List',
-        '      description: Describe the steps to fulfill the feature.',
-        '      value: |',
-        '        - [ ] My First Task',
-        '    validations:',
-        '      required: true',
-      ],
-    };
-  }
-
-  /**
-   * Retrieves the configuration for the story issue template file.
-   *
-   * @returns A record where the key is the file path and the value is an array of strings
-   *          representing the content of the issue template.
-   */
-  protected get configFileStoryIssue(): Record<string, string[]> {
-    return {
-      '.github/ISSUE_TEMPLATE/story.yml': [
-        'name: 💡 Story',
-        'description: As a [role], I [want to], [so that]',
-        'title: "[STORY] <title>"',
-        'labels: ["type: story"]',
-        'body:',
-        '  - type: textarea',
-        '    attributes:',
-        '      label: Description',
-        "      description: Provide a brief overview of the story, focusing who want's to do what and why.",
-        '    validations:',
-        '      required: true',
-      ],
-    };
-  }
-
   protected override get configFileReleaseWorkflow(): Record<string, string[]> {
     return {
       '.github/workflows/release.yml': [
@@ -161,25 +110,10 @@ export class GitHubConfigCapService extends GitHubConfigBase {
   protected override get configs(): Record<string, string[]>[] {
     return [
       this.configFilePullRequest,
-      this.configFileBugIssue,
-      this.configFileFeatureIssue,
-      this.configFileHousekeepingIssue,
-      this.configFileQuestionIssue,
-      this.configFileStoryIssue,
       this.configFileCliff,
       this.configFileReleaseWorkflow,
       this.configFileDeploymentWorkflow,
     ];
-  }
-
-  /**
-   * Creates a user story issue template file.
-   */
-  public createStoryIssue(): void {
-    const filePath: string = Object.keys(this.configFileStoryIssue)[0];
-    new TextFile(this.project, filePath, {
-      lines: this.configFileStoryIssue[filePath],
-    });
   }
 
   /**
@@ -194,7 +128,6 @@ export class GitHubConfigCapService extends GitHubConfigBase {
 
   public override applyConfig(): void {
     super.applyConfig();
-    this.createStoryIssue();
     this.createDeploymentWorkflow();
   }
 }
