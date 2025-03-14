@@ -80,10 +80,6 @@ describe('jsii', (): void => {
         '!/.devcontainer/devcontainer.json',
         '!/.devcontainer/scripts/install-dependencies.sh',
         '!/.gitattributes',
-        '!/.github/ISSUE_TEMPLATE/bug.yml',
-        '!/.github/ISSUE_TEMPLATE/feature.yml',
-        '!/.github/ISSUE_TEMPLATE/housekeeping.yml',
-        '!/.github/ISSUE_TEMPLATE/question.yml',
         '!/.github/pull_request_template.md',
         '!/.github/workflows/enforce-labels.yml',
         '!/.github/workflows/release.yml',
@@ -165,22 +161,6 @@ describe('jsii', (): void => {
     describe('Templates', (): void => {
       test('PR template matches expected template', (): void => {
         github.testPrTemplate(snapshot);
-      });
-
-      test('Bug issue template matches expected template', (): void => {
-        github.testBugTemplate(snapshot);
-      });
-
-      test('Feature issue template matches expected template', (): void => {
-        github.testFeatureTemplate(snapshot);
-      });
-
-      test('Housekeeping issue template matches expected template', (): void => {
-        github.testBugTemplate(snapshot);
-      });
-
-      test('Question issue template matches expected template', (): void => {
-        github.testQuestionTemplate(snapshot);
       });
     });
     /**
@@ -410,10 +390,6 @@ describe('jsii', (): void => {
         '/.commitlintrc.ts',
         '/.devcontainer/devcontainer.json',
         '/.gitattributes',
-        '/.github/ISSUE_TEMPLATE/bug.yml',
-        '/.github/ISSUE_TEMPLATE/feature.yml',
-        '/.github/ISSUE_TEMPLATE/housekeeping.yml',
-        '/.github/ISSUE_TEMPLATE/question.yml',
         '/.github/pull_request_template.md',
         '/.github/workflows/enforce-labels.yml',
         '/.github/workflows/release.yml',
