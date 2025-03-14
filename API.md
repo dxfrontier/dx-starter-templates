@@ -7386,7 +7386,6 @@ new GitHubConfigCapService(project: BaseProject | JsiiProject)
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.addAttributePatterns">addAttributePatterns</a></code> | Adds custom attributes patterns to the project's configuration. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createDeploymentWorkflow">createDeploymentWorkflow</a></code> | Creates a deployment workflow template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createStoryIssue">createStoryIssue</a></code> | Creates a user story issue template file. |
 
 ---
 
@@ -7472,14 +7471,6 @@ public createDeploymentWorkflow(): void
 ```
 
 Creates a deployment workflow template file.
-
-##### `createStoryIssue` <a name="createStoryIssue" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createStoryIssue"></a>
-
-```typescript
-public createStoryIssue(): void
-```
-
-Creates a user story issue template file.
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 

@@ -2426,7 +2426,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 372
+            "line": 251
           },
           "name": "addAttributePatterns",
           "parameters": [
@@ -2454,7 +2454,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 424
+            "line": 299
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -2467,7 +2467,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 417
+            "line": 292
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -2483,7 +2483,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 413
+            "line": 288
           },
           "name": "additionalAttributesPatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2505,7 +2505,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 407
+            "line": 282
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2523,39 +2523,12 @@
           "docs": {
             "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
             "stability": "stable",
-            "summary": "Retrieves the configuration for the bug issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 71
-          },
-          "name": "configFileBugIssue",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
             "summary": "Retrieves the configuration for the git cliff template file."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 192
+            "line": 71
           },
           "name": "configFileCliff",
           "protected": true,
@@ -2582,63 +2555,9 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 326
+            "line": 205
           },
           "name": "configFileEnforceLabelsWorkflow",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the feature request template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 102
-          },
-          "name": "configFileFeatureIssue",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the housekeeping issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 135
-          },
-          "name": "configFileHousekeepingIssue",
           "protected": true,
           "type": {
             "collection": {
@@ -2685,39 +2604,12 @@
           "docs": {
             "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
             "stability": "stable",
-            "summary": "Retrieves the configuration for the question issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 168
-          },
-          "name": "configFileQuestionIssue",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
             "summary": "Retrieves the configuration for the release workflow template file."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 294
+            "line": 173
           },
           "name": "configFileReleaseWorkflow",
           "protected": true,
@@ -2744,7 +2636,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 380
+            "line": 259
           },
           "name": "configs",
           "protected": true,
@@ -2776,7 +2668,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 398
+            "line": 273
           },
           "name": "filePatterns",
           "protected": true,
@@ -2881,7 +2773,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 195
+            "line": 129
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase"
@@ -2893,20 +2785,9 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 188
+            "line": 122
           },
           "name": "createDeploymentWorkflow"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a user story issue template file."
-          },
-          "locationInModule": {
-            "filename": "src/cap-service/config/github.ts",
-            "line": 178
-          },
-          "name": "createStoryIssue"
         }
       ],
       "name": "GitHubConfigCapService",
@@ -2918,36 +2799,9 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 125
+            "line": 74
           },
           "name": "configFileDeploymentWorkflow",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the feature request template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/cap-service/config/github.ts",
-            "line": 48
-          },
-          "name": "configFileFeatureIssue",
-          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2998,37 +2852,10 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 99
+            "line": 48
           },
           "name": "configFileReleaseWorkflow",
           "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the story issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/cap-service/config/github.ts",
-            "line": 81
-          },
-          "name": "configFileStoryIssue",
           "protected": true,
           "type": {
             "collection": {
@@ -3052,7 +2879,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 161
+            "line": 110
           },
           "name": "configs",
           "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
@@ -6582,5 +6409,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "okx2MHyUNznRwEZyI+uLGAj0qR7WozXjAQfPvrgXi94="
+  "fingerprint": "xL1PCJOHSJiZ8UiNsM+Tr8yxiTxEABcQVWm+f5lHKVU="
 }
