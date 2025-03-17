@@ -188,7 +188,7 @@ export function testReleaseWorkflow(snapshot: SynthOutput, expectedTemplateLines
     'on:',
     '  pull_request:',
     '    branches:',
-    '      - main',
+    '      - dev',
     '    types:',
     '      - closed',
     'jobs:',

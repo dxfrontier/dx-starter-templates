@@ -2,7 +2,7 @@ name: Release
 on:
   pull_request:
     branches:
-      - main
+      - dev
     types:
       - closed
 jobs:

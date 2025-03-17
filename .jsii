@@ -6,6 +6,9 @@
       "author"
     ]
   },
+  "bin": {
+    "git-cliff": "bin/git-cliff"
+  },
   "dependencies": {
     "constructs": "^10.4.2",
     "projen": "^0.91.6"
@@ -6579,5 +6582,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "uwHNF5uZCKgFD5kZg0uHeAE0OSabbAivS9TEYNcV778="
+  "fingerprint": "okx2MHyUNznRwEZyI+uLGAj0qR7WozXjAQfPvrgXi94="
 }
