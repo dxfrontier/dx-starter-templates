@@ -67,6 +67,10 @@ npm install`;
         '!/.devcontainer/devcontainer.json',
         '!/.devcontainer/scripts/install-dependencies.sh',
         '!/.gitattributes',
+        '!/.github/ISSUE_TEMPLATE/bug.yml',
+        '!/.github/ISSUE_TEMPLATE/feature.yml',
+        '!/.github/ISSUE_TEMPLATE/housekeeping.yml',
+        '!/.github/ISSUE_TEMPLATE/question.yml',
         '!/.github/pull_request_template.md',
         '!/.github/workflows/enforce-labels.yml',
         '!/.github/workflows/release.yml',
@@ -135,6 +139,10 @@ npm install`;
           '/.devcontainer/devcontainer.json linguist-generated',
           '/.devcontainer/scripts/install-dependencies.sh linguist-generated',
           '/.gitattributes linguist-generated',
+          '/.github/ISSUE_TEMPLATE/bug.yml linguist-generated',
+          '/.github/ISSUE_TEMPLATE/feature.yml linguist-generated',
+          '/.github/ISSUE_TEMPLATE/housekeeping.yml linguist-generated',
+          '/.github/ISSUE_TEMPLATE/question.yml linguist-generated',
           '/.github/pull_request_template.md linguist-generated',
           '/.github/workflows/enforce-labels.yml linguist-generated',
           '/.github/workflows/release.yml linguist-generated',
@@ -167,6 +175,22 @@ npm install`;
     describe('Templates', (): void => {
       test('PR template matches expected template', (): void => {
         github.testPrTemplate(snapshot);
+      });
+
+      test('Bug issue template matches expected template', (): void => {
+        github.testBugTemplate(snapshot);
+      });
+
+      test('Feature issue template matches expected template', (): void => {
+        github.testFeatureTemplate(snapshot);
+      });
+
+      test('Housekeeping issue template matches expected template', (): void => {
+        github.testBugTemplate(snapshot);
+      });
+
+      test('Question issue template matches expected template', (): void => {
+        github.testQuestionTemplate(snapshot);
       });
     });
     /**
@@ -327,6 +351,10 @@ npm install`;
         '/.commitlintrc.ts',
         '/.devcontainer/devcontainer.json',
         '/.gitattributes',
+        '/.github/ISSUE_TEMPLATE/bug.yml',
+        '/.github/ISSUE_TEMPLATE/feature.yml',
+        '/.github/ISSUE_TEMPLATE/housekeeping.yml',
+        '/.github/ISSUE_TEMPLATE/question.yml',
         '/.github/pull_request_template.md',
         '/.github/workflows/enforce-labels.yml',
         '/.github/workflows/release.yml',

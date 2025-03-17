@@ -165,6 +165,11 @@ cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plu
         '!/.devcontainer/devcontainer.json',
         '!/.devcontainer/scripts/install-dependencies.sh',
         '!/.gitattributes',
+        '!/.github/ISSUE_TEMPLATE/bug.yml',
+        '!/.github/ISSUE_TEMPLATE/feature.yml',
+        '!/.github/ISSUE_TEMPLATE/housekeeping.yml',
+        '!/.github/ISSUE_TEMPLATE/question.yml',
+        '!/.github/ISSUE_TEMPLATE/story.yml',
         '!/.github/pull_request_template.md',
         '!/.github/workflows/deployment.yml',
         '!/.github/workflows/enforce-labels.yml',
@@ -246,6 +251,11 @@ cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plu
           '/.devcontainer/devcontainer.json linguist-generated',
           '/.devcontainer/scripts/install-dependencies.sh linguist-generated',
           '/.gitattributes linguist-generated',
+          '/.github/ISSUE_TEMPLATE/bug.yml linguist-generated',
+          '/.github/ISSUE_TEMPLATE/feature.yml linguist-generated',
+          '/.github/ISSUE_TEMPLATE/housekeeping.yml linguist-generated',
+          '/.github/ISSUE_TEMPLATE/question.yml linguist-generated',
+          '/.github/ISSUE_TEMPLATE/story.yml linguist-generated',
           '/.github/pull_request_template.md linguist-generated',
           '/.github/workflows/deployment.yml linguist-generated',
           '/.github/workflows/enforce-labels.yml linguist-generated',
@@ -321,6 +331,48 @@ cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plu
           '- [ ] API first: application can be used headless (with the API only)',
         ];
         github.testPrTemplate(snapshot, expectedTemplateLines);
+      });
+
+      test('Bug issue template matches expected template', (): void => {
+        github.testBugTemplate(snapshot);
+      });
+
+      test('Feature issue template matches expected template', (): void => {
+        const expectedTemplateLines: string[] = [
+          'name: 💡 Feature',
+          'description: Story related feature',
+          'title: "[FEATURE] <title>"',
+          'labels: ["type: feature"]',
+          'body:',
+          '  - type: textarea',
+          '    attributes:',
+          '      label: Description',
+          '      description: A description of the feature.',
+          '    validations:',
+          '      required: true',
+          '',
+          '  - type: textarea',
+          '    attributes:',
+          '      label: Task List',
+          '      description: Describe the steps to fulfill the feature.',
+          '      value: |',
+          '        - [ ] My First Task',
+          '    validations:',
+          '      required: true',
+        ];
+        github.testFeatureTemplate(snapshot, expectedTemplateLines);
+      });
+
+      test('Housekeeping issue template matches expected template', (): void => {
+        github.testBugTemplate(snapshot);
+      });
+
+      test('Question issue template matches expected template', (): void => {
+        github.testQuestionTemplate(snapshot);
+      });
+
+      test('Story issue template matches expected template', (): void => {
+        github.testStoryTemplate(snapshot);
       });
     });
     /**
@@ -597,6 +649,11 @@ cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plu
         '/.commitlintrc.ts',
         '/.devcontainer/devcontainer.json',
         '/.gitattributes',
+        '/.github/ISSUE_TEMPLATE/bug.yml',
+        '/.github/ISSUE_TEMPLATE/feature.yml',
+        '/.github/ISSUE_TEMPLATE/housekeeping.yml',
+        '/.github/ISSUE_TEMPLATE/question.yml',
+        '/.github/ISSUE_TEMPLATE/story.yml',
         '/.github/pull_request_template.md',
         '/.github/workflows/deployment.yml',
         '/.github/workflows/release.yml',
