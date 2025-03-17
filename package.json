@@ -65,7 +65,7 @@
   },
   "main": "lib/index.js",
   "license": "UNLICENSED",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "jest": {
     "coverageProvider": "v8",
     "testMatch": [
