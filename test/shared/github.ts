@@ -202,7 +202,7 @@ export function testReleaseWorkflow(snapshot: SynthOutput, expectedTemplateLines
     '        uses: dxfrontier/gh-action-release@main',
     '        with:',
     '          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}',
-    '          BRANCH: main',
+    '          BRANCH: dev',
   ];
 
   const lines: string[] = expectedTemplateLines.length ? expectedTemplateLines : standardTemplateLines;
