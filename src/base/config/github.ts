@@ -312,7 +312,7 @@ export class GitHubConfigBase extends Config {
         '        uses: dxfrontier/gh-action-release@main',
         '        with:',
         '          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}',
-        '          BRANCH: main',
+        '          BRANCH: dev',
       ],
     };
   }
