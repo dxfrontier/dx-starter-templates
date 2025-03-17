@@ -298,7 +298,7 @@ export class GitHubConfigBase extends Config {
         'on:',
         '  pull_request:',
         '    branches:',
-        '      - main',
+        '      - dev',
         '    types:',
         '      - closed',
         'jobs:',
