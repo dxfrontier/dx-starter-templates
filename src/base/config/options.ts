@@ -1,7 +1,7 @@
 import { BaseProjectOptions } from '../project';
-// import { JsiiProjectOptions } from '../jsii';
 import { NodePackageManager } from 'projen/lib/javascript';
 
+// TODO: rename BaseOptions to StandardProjenOptions
 /**
  * Utility for shared options.
  */

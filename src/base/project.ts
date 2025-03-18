@@ -14,7 +14,10 @@ import { VsCodeConfigBase } from './config/vscode';
 import { util } from '../util/utils';
 import { CommitLintConfigBase } from './config/commitlint';
 import { IProjectKind, ProjectKind } from '../util/types/project';
+// import { IssuesConfigCapService } from '../cap-service/config/issues';
+import { IssuesConfigBase } from '../base/config/issues';
 
+// TODO: refactor baseProjecOptions by extracting the common shared properties with the JsiiProjectOptions
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
   /**
    * Whether to enable the commitlint configuration for the project.
@@ -87,6 +90,13 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
    * @default false
    */
   readonly sampleCodeEnabled?: boolean;
+
+  /**
+   * Whether to include Github issues in the project.
+   * If set to `true`, sample code will be added to the project repository.
+   * @default false
+   */
+  readonly issuesEnabled?: boolean;
 }
 
 /**
@@ -164,6 +174,12 @@ export class BaseProject extends TypeScriptProject implements IProjectKind {
    * This property is initialized if `sampleCodeEnabled` option is provided during project creation.
    */
   public sampleCodeConfig?: SampleCodeConfigBase;
+
+  /**
+   * Configuration for Githug issues in the project.
+   * This property is initialized if `issuesEnabled` option is provided during project creation.
+   */
+  public issuesConfig?: IssuesConfigBase;
 
   /**
    * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....

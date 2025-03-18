@@ -15,6 +15,7 @@ import { util } from '../util/utils';
 import { IProjectKind, ProjectKind } from '../util/types/project';
 import { TypeScriptConfigBase } from '../base/config/typescript';
 import { HuskyConfigJsii } from './config/husky';
+import { IssuesConfigBase } from '../base/config/issues';
 
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
   /**
@@ -153,6 +154,12 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
    */
   public typescript?: boolean;
 
+  /**
+   * Configuration for Githug issues in the project.
+   * This property is initialized if `issuesEnabled` option is provided during project creation.
+   */
+  public issuesConfig?: IssuesConfigBase;
+
   public kind: ProjectKind;
 
   /**
@@ -182,6 +189,7 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
     this.gitConfig = new GitConfigBase(this);
     this.typescriptConfig = new TypeScriptConfigJsii(this);
     this.npmConfig = new NpmConfigJsii(this);
+    this.issuesConfig = new IssuesConfigBase(this);
 
     if (options.prettierEnabled) {
       this.prettierConfig = new PrettierConfigBase(this);

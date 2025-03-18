@@ -14,6 +14,8 @@ import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
 import { ReadmeConfigCapService } from './config/readme';
 import { util } from '../util/utils';
+// import { IssuesConfigCapService } from './config/issues';
+import { IssuesConfigBase } from '../base/config/issues';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
   readonly namespace?: string;
@@ -47,6 +49,7 @@ export class CapServiceProject extends BaseProject {
       namespace: options.namespace ?? constants.PROJECT_NAMESPACE,
       description: options.description ?? constants.CAP_PROJECT_DESCRIPTION,
       entityName: options.entityName ?? constants.ENTITY_NAME,
+      issuesEnabled: options.issuesEnabled ?? true,
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),
@@ -83,6 +86,9 @@ export class CapServiceProject extends BaseProject {
     }
     if (updatedOptions.sampleCodeEnabled) {
       this.sampleCodeConfig = new SampleCodeConfigCapService(this, updatedOptions);
+    }
+    if (updatedOptions.issuesEnabled) {
+      this.issuesConfig = new IssuesConfigBase(this);
     }
   }
 
