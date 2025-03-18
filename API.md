@@ -733,6 +733,7 @@ When given a project, this it the project itself.
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProject.property.gitConfig">gitConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitConfigBase">GitConfigBase</a></code> | Configuration for Git settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProject.property.githubConfig">githubConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase">GitHubConfigBase</a></code> | Configuration for GitHub settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProject.property.huskyConfig">huskyConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigBase">HuskyConfigBase</a></code> | Configuration for Husky settings in the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.BaseProject.property.issuesConfig">issuesConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a></code> | Configuration for Githug issues in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProject.property.jestConfig">jestConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.JestConfigBase">JestConfigBase</a></code> | Configuration for Jest settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProject.property.npmConfig">npmConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.NpmConfigBase">NpmConfigBase</a></code> | Configuration for NPM settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProject.property.prettierConfig">prettierConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.PrettierConfigBase">PrettierConfigBase</a></code> | Configuration for Prettier settings in the project. |
@@ -1586,6 +1587,20 @@ public readonly huskyConfig: HuskyConfigBase;
 Configuration for Husky settings in the project.
 
 This property is initialized if `huskyEnabled` option is provided during project creation.
+
+---
+
+##### `issuesConfig`<sup>Optional</sup> <a name="issuesConfig" id="@dxfrontier/projen-template-projects.BaseProject.property.issuesConfig"></a>
+
+```typescript
+public readonly issuesConfig: IssuesConfigBase;
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a>
+
+Configuration for Githug issues in the project.
+
+This property is initialized if `issuesEnabled` option is provided during project creation.
 
 ---
 
@@ -2448,6 +2463,7 @@ When given a project, this it the project itself.
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.gitConfig">gitConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitConfigBase">GitConfigBase</a></code> | Configuration for Git settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.githubConfig">githubConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase">GitHubConfigBase</a></code> | Configuration for GitHub settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.huskyConfig">huskyConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigBase">HuskyConfigBase</a></code> | Configuration for Husky settings in the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.issuesConfig">issuesConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a></code> | Configuration for Githug issues in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.jestConfig">jestConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.JestConfigBase">JestConfigBase</a></code> | Configuration for Jest settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.npmConfig">npmConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.NpmConfigBase">NpmConfigBase</a></code> | Configuration for NPM settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProject.property.prettierConfig">prettierConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.PrettierConfigBase">PrettierConfigBase</a></code> | Configuration for Prettier settings in the project. |
@@ -3302,6 +3318,20 @@ public readonly huskyConfig: HuskyConfigBase;
 Configuration for Husky settings in the project.
 
 This property is initialized if `huskyEnabled` option is provided during project creation.
+
+---
+
+##### `issuesConfig`<sup>Optional</sup> <a name="issuesConfig" id="@dxfrontier/projen-template-projects.CapServiceProject.property.issuesConfig"></a>
+
+```typescript
+public readonly issuesConfig: IssuesConfigBase;
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a>
+
+Configuration for Githug issues in the project.
+
+This property is initialized if `issuesEnabled` option is provided during project creation.
 
 ---
 
@@ -6149,6 +6179,7 @@ When given a project, this it the project itself.
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.gitConfig">gitConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitConfigBase">GitConfigBase</a></code> | Configuration for Git settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.githubConfig">githubConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigBase">GitHubConfigBase</a></code> | Configuration for GitHub settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.huskyConfig">huskyConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.HuskyConfigBase">HuskyConfigBase</a></code> | Configuration for Husky settings in the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.issuesConfig">issuesConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a></code> | Configuration for Githug issues in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.jestConfig">jestConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.JestConfigBase">JestConfigBase</a></code> | Configuration for Jest settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.npmConfig">npmConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.NpmConfigBase">NpmConfigBase</a></code> | Configuration for NPM settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProject.property.prettierConfig">prettierConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.PrettierConfigBase">PrettierConfigBase</a></code> | Configuration for Prettier settings in the project. |
@@ -7006,6 +7037,20 @@ This property is initialized if `huskyEnabled` option is provided during project
 
 ---
 
+##### `issuesConfig`<sup>Optional</sup> <a name="issuesConfig" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.issuesConfig"></a>
+
+```typescript
+public readonly issuesConfig: IssuesConfigBase;
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a>
+
+Configuration for Githug issues in the project.
+
+This property is initialized if `issuesEnabled` option is provided during project creation.
+
+---
+
 ##### `jestConfig`<sup>Optional</sup> <a name="jestConfig" id="@dxfrontier/projen-template-projects.GitHubActionProject.property.jestConfig"></a>
 
 ```typescript
@@ -7386,7 +7431,6 @@ new GitHubConfigCapService(project: BaseProject | JsiiProject)
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.addAttributePatterns">addAttributePatterns</a></code> | Adds custom attributes patterns to the project's configuration. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createDeploymentWorkflow">createDeploymentWorkflow</a></code> | Creates a deployment workflow template file. |
-| <code><a href="#@dxfrontier/projen-template-projects.GitHubConfigCapService.createStoryIssue">createStoryIssue</a></code> | Creates a user story issue template file. |
 
 ---
 
@@ -7472,14 +7516,6 @@ public createDeploymentWorkflow(): void
 ```
 
 Creates a deployment workflow template file.
-
-##### `createStoryIssue` <a name="createStoryIssue" id="@dxfrontier/projen-template-projects.GitHubConfigCapService.createStoryIssue"></a>
-
-```typescript
-public createStoryIssue(): void
-```
-
-Creates a user story issue template file.
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -8123,6 +8159,193 @@ The tree node.
 ---
 
 ##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.HuskyConfigJsii.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
+### IssuesConfigBase <a name="IssuesConfigBase" id="@dxfrontier/projen-template-projects.IssuesConfigBase"></a>
+
+Base class for implementing all relevant GitHub configuration.
+
+This class acts as a base for handling GitHub configuration within projects.
+
+#### Initializers <a name="Initializers" id="@dxfrontier/projen-template-projects.IssuesConfigBase.Initializer"></a>
+
+```typescript
+import { IssuesConfigBase } from '@dxfrontier/projen-template-projects'
+
+new IssuesConfigBase(project: BaseProject | JsiiProject)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.Initializer.parameter.project">project</a></code> | <code><a href="#@dxfrontier/projen-template-projects.BaseProject">BaseProject</a> \| <a href="#@dxfrontier/projen-template-projects.JsiiProject">JsiiProject</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.IssuesConfigBase.Initializer.parameter.project"></a>
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.BaseProject">BaseProject</a> | <a href="#@dxfrontier/projen-template-projects.JsiiProject">JsiiProject</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.applyConfig">applyConfig</a></code> | Applies the current configuration based on the strategy to the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.registerConfig">registerConfig</a></code> | Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling. |
+
+---
+
+##### `toString` <a name="toString" id="@dxfrontier/projen-template-projects.IssuesConfigBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@dxfrontier/projen-template-projects.IssuesConfigBase.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@dxfrontier/projen-template-projects.IssuesConfigBase.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@dxfrontier/projen-template-projects.IssuesConfigBase.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+##### `applyConfig` <a name="applyConfig" id="@dxfrontier/projen-template-projects.IssuesConfigBase.applyConfig"></a>
+
+```typescript
+public applyConfig(): void
+```
+
+Applies the current configuration based on the strategy to the project.
+
+To ensure proper configuration handling `applyConfig` should be called in
+`preSynthesize` phase of the configuration module and not from project itself.
+
+Subclasses should overwrite it to guarantee proper module configuration.
+
+##### `registerConfig` <a name="registerConfig" id="@dxfrontier/projen-template-projects.IssuesConfigBase.registerConfig"></a>
+
+```typescript
+public registerConfig(): void
+```
+
+Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling.
+
+This methods should be called only in the projects `preSynthesize` phase
+and not on the configuration modules `preSynthesize` function otherwise
+it is not guaranteed that all needed modules are setup properly.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@dxfrontier/projen-template-projects.IssuesConfigBase.isConstruct"></a>
+
+```typescript
+import { IssuesConfigBase } from '@dxfrontier/projen-template-projects'
+
+IssuesConfigBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.IssuesConfigBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@dxfrontier/projen-template-projects.IssuesConfigBase.isComponent"></a>
+
+```typescript
+import { IssuesConfigBase } from '@dxfrontier/projen-template-projects'
+
+IssuesConfigBase.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@dxfrontier/projen-template-projects.IssuesConfigBase.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@dxfrontier/projen-template-projects.IssuesConfigBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@dxfrontier/projen-template-projects.IssuesConfigBase.property.project"></a>
 
 ```typescript
 public readonly project: Project;
@@ -9244,6 +9467,7 @@ When given a project, this it the project itself.
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.vscodeConfig">vscodeConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.VsCodeConfigBase">VsCodeConfigBase</a></code> | Configuration for VS Code settings in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.kind">kind</a></code> | <code>string</code> | Convenience type for guaranteeing type safety and avoiding too many circular dependencies. |
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.gitConfig">gitConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.GitConfigBase">GitConfigBase</a></code> | Configuration for Git settings in the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.issuesConfig">issuesConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a></code> | Configuration for Githug issues in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.typescript">typescript</a></code> | <code>boolean</code> | This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript. |
 | <code><a href="#@dxfrontier/projen-template-projects.JsiiProject.property.typescriptConfig">typescriptConfig</a></code> | <code><a href="#@dxfrontier/projen-template-projects.TypeScriptConfigBase">TypeScriptConfigBase</a></code> | Configuration for TypeScript settings in the project. |
 
@@ -10148,6 +10372,20 @@ public readonly gitConfig: GitConfigBase;
 Configuration for Git settings in the project.
 
 This property is always initialized as `gitConfig` when the project is created.
+
+---
+
+##### `issuesConfig`<sup>Optional</sup> <a name="issuesConfig" id="@dxfrontier/projen-template-projects.JsiiProject.property.issuesConfig"></a>
+
+```typescript
+public readonly issuesConfig: IssuesConfigBase;
+```
+
+- *Type:* <a href="#@dxfrontier/projen-template-projects.IssuesConfigBase">IssuesConfigBase</a>
+
+Configuration for Githug issues in the project.
+
+This property is initialized if `issuesEnabled` option is provided during project creation.
 
 ---
 
@@ -13851,6 +14089,7 @@ const baseProjectOptions: BaseProjectOptions = { ... }
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProjectOptions.property.eslintEnabled">eslintEnabled</a></code> | <code>boolean</code> | Whether to enable the ESLint configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProjectOptions.property.githubEnabled">githubEnabled</a></code> | <code>boolean</code> | Whether to enable the GitHub configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProjectOptions.property.huskyEnabled">huskyEnabled</a></code> | <code>boolean</code> | Whether to enable the Husky configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.BaseProjectOptions.property.issuesEnabled">issuesEnabled</a></code> | <code>boolean</code> | Whether to include Github issues in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProjectOptions.property.jestEnabled">jestEnabled</a></code> | <code>boolean</code> | Whether to enable the Jest configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProjectOptions.property.prettierEnabled">prettierEnabled</a></code> | <code>boolean</code> | Whether to enable the Prettier configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.BaseProjectOptions.property.sampleCodeEnabled">sampleCodeEnabled</a></code> | <code>boolean</code> | Whether to include sample code in the project. |
@@ -16068,6 +16307,21 @@ If set to `true`, Husky hooks will be enabled to enforce code quality checks.
 
 ---
 
+##### `issuesEnabled`<sup>Optional</sup> <a name="issuesEnabled" id="@dxfrontier/projen-template-projects.BaseProjectOptions.property.issuesEnabled"></a>
+
+```typescript
+public readonly issuesEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to include Github issues in the project.
+
+If set to `true`, sample code will be added to the project repository.
+
+---
+
 ##### `jestEnabled`<sup>Optional</sup> <a name="jestEnabled" id="@dxfrontier/projen-template-projects.BaseProjectOptions.property.jestEnabled"></a>
 
 ```typescript
@@ -16312,6 +16566,7 @@ const capServiceProjectOptions: CapServiceProjectOptions = { ... }
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.eslintEnabled">eslintEnabled</a></code> | <code>boolean</code> | Whether to enable the ESLint configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.githubEnabled">githubEnabled</a></code> | <code>boolean</code> | Whether to enable the GitHub configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.huskyEnabled">huskyEnabled</a></code> | <code>boolean</code> | Whether to enable the Husky configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.issuesEnabled">issuesEnabled</a></code> | <code>boolean</code> | Whether to include Github issues in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.jestEnabled">jestEnabled</a></code> | <code>boolean</code> | Whether to enable the Jest configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.prettierEnabled">prettierEnabled</a></code> | <code>boolean</code> | Whether to enable the Prettier configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.sampleCodeEnabled">sampleCodeEnabled</a></code> | <code>boolean</code> | Whether to include sample code in the project. |
@@ -18531,6 +18786,21 @@ If set to `true`, Husky hooks will be enabled to enforce code quality checks.
 
 ---
 
+##### `issuesEnabled`<sup>Optional</sup> <a name="issuesEnabled" id="@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.issuesEnabled"></a>
+
+```typescript
+public readonly issuesEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to include Github issues in the project.
+
+If set to `true`, sample code will be added to the project repository.
+
+---
+
 ##### `jestEnabled`<sup>Optional</sup> <a name="jestEnabled" id="@dxfrontier/projen-template-projects.CapServiceProjectOptions.property.jestEnabled"></a>
 
 ```typescript
@@ -18795,6 +19065,7 @@ const gitHubActionProjectOptions: GitHubActionProjectOptions = { ... }
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.eslintEnabled">eslintEnabled</a></code> | <code>boolean</code> | Whether to enable the ESLint configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.githubEnabled">githubEnabled</a></code> | <code>boolean</code> | Whether to enable the GitHub configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.huskyEnabled">huskyEnabled</a></code> | <code>boolean</code> | Whether to enable the Husky configuration for the project. |
+| <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.issuesEnabled">issuesEnabled</a></code> | <code>boolean</code> | Whether to include Github issues in the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.jestEnabled">jestEnabled</a></code> | <code>boolean</code> | Whether to enable the Jest configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.prettierEnabled">prettierEnabled</a></code> | <code>boolean</code> | Whether to enable the Prettier configuration for the project. |
 | <code><a href="#@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.sampleCodeEnabled">sampleCodeEnabled</a></code> | <code>boolean</code> | Whether to include sample code in the project. |
@@ -21009,6 +21280,21 @@ public readonly huskyEnabled: boolean;
 Whether to enable the Husky configuration for the project.
 
 If set to `true`, Husky hooks will be enabled to enforce code quality checks.
+
+---
+
+##### `issuesEnabled`<sup>Optional</sup> <a name="issuesEnabled" id="@dxfrontier/projen-template-projects.GitHubActionProjectOptions.property.issuesEnabled"></a>
+
+```typescript
+public readonly issuesEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to include Github issues in the project.
+
+If set to `true`, sample code will be added to the project repository.
 
 ---
 

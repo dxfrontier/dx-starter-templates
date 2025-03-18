@@ -11,6 +11,7 @@ import { VsCodeConfigBase } from '../base/config/vscode';
 import { NpmConfigJsii } from './config/npm';
 import { IProjectKind, ProjectKind } from '../util/types/project';
 import { TypeScriptConfigBase } from '../base/config/typescript';
+import { IssuesConfigBase } from '../base/config/issues';
 export interface JsiiProjectOptions extends cdk.JsiiProjectOptions {
     /**
      * Whether to enable the commitlint configuration for the project.
@@ -128,6 +129,11 @@ export declare class JsiiProject extends cdk.JsiiProject implements IProjectKind
      * Projen projects used in this context are always relying on TypeScript.
      */
     typescript?: boolean;
+    /**
+     * Configuration for Githug issues in the project.
+     * This property is initialized if `issuesEnabled` option is provided during project creation.
+     */
+    issuesConfig?: IssuesConfigBase;
     kind: ProjectKind;
     /**
      * Initializes the project.

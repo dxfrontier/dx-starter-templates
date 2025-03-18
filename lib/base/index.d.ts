@@ -13,3 +13,4 @@ export * from './config/prettier';
 export * from './config/typescript';
 export * from './config/vscode';
 export * from './config/samplecode';
+export * from './config/issues';

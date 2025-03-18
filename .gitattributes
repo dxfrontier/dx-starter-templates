@@ -10,6 +10,7 @@
 /.github/ISSUE_TEMPLATE/feature.yml linguist-generated
 /.github/ISSUE_TEMPLATE/housekeeping.yml linguist-generated
 /.github/ISSUE_TEMPLATE/question.yml linguist-generated
+/.github/ISSUE_TEMPLATE/story.yml linguist-generated
 /.github/pull_request_template.md linguist-generated
 /.github/workflows/enforce-labels.yml linguist-generated
 /.github/workflows/release.yml linguist-generated

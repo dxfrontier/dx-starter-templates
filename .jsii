@@ -175,7 +175,7 @@
         },
         "locationInModule": {
           "filename": "src/base/project.ts",
-          "line": 183
+          "line": 199
         },
         "parameters": [
           {
@@ -195,7 +195,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/project.ts",
-        "line": 95
+        "line": 105
       },
       "methods": [
         {
@@ -207,7 +207,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 224
+            "line": 240
           },
           "name": "initializeBaseConfigs",
           "parameters": [
@@ -232,7 +232,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 233
+            "line": 249
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -244,7 +244,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 228
+            "line": 244
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -259,7 +259,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 177
+            "line": 193
           },
           "name": "kind",
           "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
@@ -275,7 +275,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 100
+            "line": 110
           },
           "name": "commitlintConfig",
           "optional": true,
@@ -291,7 +291,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 106
+            "line": 116
           },
           "name": "devContainerConfig",
           "optional": true,
@@ -307,7 +307,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 112
+            "line": 122
           },
           "name": "eslintConfig",
           "optional": true,
@@ -323,7 +323,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 118
+            "line": 128
           },
           "name": "gitConfig",
           "optional": true,
@@ -339,7 +339,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 124
+            "line": 134
           },
           "name": "githubConfig",
           "optional": true,
@@ -355,12 +355,28 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 130
+            "line": 140
           },
           "name": "huskyConfig",
           "optional": true,
           "type": {
             "fqn": "@dxfrontier/projen-template-projects.HuskyConfigBase"
+          }
+        },
+        {
+          "docs": {
+            "remarks": "This property is initialized if `issuesEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Githug issues in the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 182
+          },
+          "name": "issuesConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.IssuesConfigBase"
           }
         },
         {
@@ -371,7 +387,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 136
+            "line": 146
           },
           "name": "jestConfig",
           "optional": true,
@@ -387,7 +403,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 142
+            "line": 152
           },
           "name": "npmConfig",
           "optional": true,
@@ -403,7 +419,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 148
+            "line": 158
           },
           "name": "prettierConfig",
           "optional": true,
@@ -419,7 +435,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 166
+            "line": 176
           },
           "name": "sampleCodeConfig",
           "optional": true,
@@ -434,7 +450,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 175
+            "line": 191
           },
           "name": "typescript",
           "optional": true,
@@ -450,7 +466,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 154
+            "line": 164
           },
           "name": "typescriptConfig",
           "optional": true,
@@ -466,7 +482,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 160
+            "line": 170
           },
           "name": "vscodeConfig",
           "optional": true,
@@ -490,7 +506,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/base/project.ts",
-        "line": 18
+        "line": 21
       },
       "name": "BaseProjectOptions",
       "properties": [
@@ -505,7 +521,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 24
+            "line": 27
           },
           "name": "commitlintEnabled",
           "optional": true,
@@ -524,7 +540,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 31
+            "line": 34
           },
           "name": "devContainerEnabled",
           "optional": true,
@@ -543,7 +559,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 38
+            "line": 41
           },
           "name": "eslintEnabled",
           "optional": true,
@@ -562,7 +578,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 45
+            "line": 48
           },
           "name": "githubEnabled",
           "optional": true,
@@ -581,9 +597,28 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 52
+            "line": 55
           },
           "name": "huskyEnabled",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "default": "false",
+            "remarks": "If set to `true`, sample code will be added to the project repository.",
+            "stability": "stable",
+            "summary": "Whether to include Github issues in the project."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/project.ts",
+            "line": 99
+          },
+          "name": "issuesEnabled",
           "optional": true,
           "type": {
             "primitive": "boolean"
@@ -600,7 +635,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 59
+            "line": 62
           },
           "name": "jestEnabled",
           "optional": true,
@@ -619,7 +654,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 66
+            "line": 69
           },
           "name": "prettierEnabled",
           "optional": true,
@@ -638,7 +673,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 89
+            "line": 92
           },
           "name": "sampleCodeEnabled",
           "optional": true,
@@ -657,7 +692,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 75
+            "line": 78
           },
           "name": "typescriptEnabled",
           "optional": true,
@@ -676,7 +711,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 82
+            "line": 85
           },
           "name": "vscodeEnabled",
           "optional": true,
@@ -702,7 +737,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 33
+          "line": 35
         },
         "parameters": [
           {
@@ -719,7 +754,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 26
+        "line": 28
       },
       "methods": [
         {
@@ -730,7 +765,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 89
+            "line": 95
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -752,7 +787,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 93
+            "line": 99
           },
           "name": "postSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject"
@@ -766,7 +801,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 27
+            "line": 29
           },
           "name": "cleanCommand",
           "static": true,
@@ -790,7 +825,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 18
+        "line": 20
       },
       "name": "CapServiceProjectOptions",
       "properties": [
@@ -802,7 +837,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 20
+            "line": 22
           },
           "name": "entityName",
           "optional": true,
@@ -818,7 +853,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 19
+            "line": 21
           },
           "name": "namespace",
           "optional": true,
@@ -2285,7 +2320,7 @@
         },
         "locationInModule": {
           "filename": "src/github-action/project.ts",
-          "line": 30
+          "line": 31
         },
         "parameters": [
           {
@@ -2302,7 +2337,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/github-action/project.ts",
-        "line": 22
+        "line": 23
       },
       "methods": [
         {
@@ -2313,7 +2348,7 @@
           },
           "locationInModule": {
             "filename": "src/github-action/project.ts",
-            "line": 60
+            "line": 62
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -2335,7 +2370,7 @@
           },
           "locationInModule": {
             "filename": "src/github-action/project.ts",
-            "line": 83
+            "line": 88
           },
           "name": "postSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject"
@@ -2349,7 +2384,7 @@
           },
           "locationInModule": {
             "filename": "src/github-action/project.ts",
-            "line": 23
+            "line": 24
           },
           "name": "cleanCommand",
           "static": true,
@@ -2373,7 +2408,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/github-action/project.ts",
-        "line": 17
+        "line": 18
       },
       "name": "GitHubActionProjectOptions",
       "symbolId": "src/github-action/project:GitHubActionProjectOptions"
@@ -2523,33 +2558,6 @@
           "docs": {
             "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
             "stability": "stable",
-            "summary": "Retrieves the configuration for the bug issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 71
-          },
-          "name": "configFileBugIssue",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
             "summary": "Retrieves the configuration for the git cliff template file."
           },
           "immutable": true,
@@ -2604,60 +2612,6 @@
           "docs": {
             "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
             "stability": "stable",
-            "summary": "Retrieves the configuration for the feature request template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 102
-          },
-          "name": "configFileFeatureIssue",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the housekeeping issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 135
-          },
-          "name": "configFileHousekeepingIssue",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
             "summary": "Retrieves the configuration for the pull request template file."
           },
           "immutable": true,
@@ -2666,33 +2620,6 @@
             "line": 35
           },
           "name": "configFilePullRequest",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the question issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/base/config/github.ts",
-            "line": 168
-          },
-          "name": "configFileQuestionIssue",
           "protected": true,
           "type": {
             "collection": {
@@ -2896,17 +2823,6 @@
             "line": 188
           },
           "name": "createDeploymentWorkflow"
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Creates a user story issue template file."
-          },
-          "locationInModule": {
-            "filename": "src/cap-service/config/github.ts",
-            "line": 178
-          },
-          "name": "createStoryIssue"
         }
       ],
       "name": "GitHubConfigCapService",
@@ -2921,33 +2837,6 @@
             "line": 125
           },
           "name": "configFileDeploymentWorkflow",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the feature request template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/cap-service/config/github.ts",
-            "line": 48
-          },
-          "name": "configFileFeatureIssue",
-          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2992,8 +2881,9 @@
         },
         {
           "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
             "stability": "stable",
-            "summary": "Retrieves the configuration for the release workflow template file."
+            "summary": "Retrieves the configuration for the story issue template file."
           },
           "immutable": true,
           "locationInModule": {
@@ -3002,33 +2892,6 @@
           },
           "name": "configFileReleaseWorkflow",
           "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
-          "protected": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "collection": {
-                  "elementtype": {
-                    "primitive": "string"
-                  },
-                  "kind": "array"
-                }
-              },
-              "kind": "map"
-            }
-          }
-        },
-        {
-          "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
-            "stability": "stable",
-            "summary": "Retrieves the configuration for the story issue template file."
-          },
-          "immutable": true,
-          "locationInModule": {
-            "filename": "src/cap-service/config/github.ts",
-            "line": 81
-          },
-          "name": "configFileStoryIssue",
           "protected": true,
           "type": {
             "collection": {
@@ -3446,6 +3309,288 @@
       ],
       "symbolId": "src/util/types/project:IProjectKind"
     },
+    "@dxfrontier/projen-template-projects.IssuesConfigBase": {
+      "assembly": "@dxfrontier/projen-template-projects",
+      "base": "@dxfrontier/projen-template-projects.Config",
+      "docs": {
+        "remarks": "This class acts as a base for handling GitHub configuration within projects.",
+        "stability": "stable",
+        "summary": "Base class for implementing all relevant GitHub configuration."
+      },
+      "fqn": "@dxfrontier/projen-template-projects.IssuesConfigBase",
+      "initializer": {
+        "docs": {
+          "stability": "stable"
+        },
+        "locationInModule": {
+          "filename": "src/base/config/issues.ts",
+          "line": 14
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "type": {
+              "union": {
+                "types": [
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                  },
+                  {
+                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "src/base/config/issues.ts",
+        "line": 11
+      },
+      "methods": [
+        {
+          "docs": {
+            "remarks": "To ensure proper configuration handling `applyConfig` should be called in\n`preSynthesize` phase of the configuration module and not from project itself.\n\nSubclasses should overwrite it to guarantee proper module configuration.",
+            "stability": "stable",
+            "summary": "Applies the current configuration based on the strategy to the project."
+          },
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 445
+          },
+          "name": "applyConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        },
+        {
+          "docs": {
+            "remarks": "This methods should be called only in the projects `preSynthesize` phase\nand not on the configuration modules `preSynthesize` function otherwise\nit is not guaranteed that all needed modules are setup properly.",
+            "stability": "stable",
+            "summary": "Registers config to other configuration modules. Public API call addressing other modules should be performed here, to guarantee proper configuration handling."
+          },
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 438
+          },
+          "name": "registerConfig",
+          "overrides": "@dxfrontier/projen-template-projects.Config"
+        }
+      ],
+      "name": "IssuesConfigBase",
+      "properties": [
+        {
+          "docs": {
+            "stability": "stable",
+            "summary": "Gets additional ignore patterns to be added to the project's ignore configuration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 428
+          },
+          "name": "additionalIgnorePatterns",
+          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the bug issue template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 71
+          },
+          "name": "configFileBugIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the feature request template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 102
+          },
+          "name": "configFileFeatureIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the housekeeping issue template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 135
+          },
+          "name": "configFileHousekeepingIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
+            "stability": "stable",
+            "summary": "Retrieves the configuration for the question issue template file."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 168
+          },
+          "name": "configFileQuestionIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "stability": "stable"
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 186
+          },
+          "name": "configFileStoryIssue",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "primitive": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "List of configs",
+            "stability": "stable",
+            "summary": "Gets a list of all relevant config files."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 398
+          },
+          "name": "configs",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "collection": {
+                  "elementtype": {
+                    "collection": {
+                      "elementtype": {
+                        "primitive": "string"
+                      },
+                      "kind": "array"
+                    }
+                  },
+                  "kind": "map"
+                }
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "docs": {
+            "returns": "A list of file path patterns, including dynamic configurations.",
+            "stability": "stable",
+            "summary": "Retrieves the file paths for all dynamic configuration files."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "src/base/config/issues.ts",
+            "line": 418
+          },
+          "name": "filePatterns",
+          "protected": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "array"
+            }
+          }
+        }
+      ],
+      "symbolId": "src/base/config/issues:IssuesConfigBase"
+    },
     "@dxfrontier/projen-template-projects.JestConfigBase": {
       "assembly": "@dxfrontier/projen-template-projects",
       "base": "@dxfrontier/projen-template-projects.Config",
@@ -3641,7 +3786,7 @@
         },
         "locationInModule": {
           "filename": "src/jsii/project.ts",
-          "line": 162
+          "line": 169
         },
         "parameters": [
           {
@@ -3661,7 +3806,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/jsii/project.ts",
-        "line": 80
+        "line": 81
       },
       "methods": [
         {
@@ -3672,7 +3817,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 217
+            "line": 225
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -3684,7 +3829,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 212
+            "line": 220
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -3701,7 +3846,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 85
+            "line": 86
           },
           "name": "commitlintConfig",
           "optional": true,
@@ -3718,7 +3863,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 91
+            "line": 92
           },
           "name": "devContainerConfig",
           "optional": true,
@@ -3735,7 +3880,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 97
+            "line": 98
           },
           "name": "eslintConfig",
           "optional": true,
@@ -3752,7 +3897,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 109
+            "line": 110
           },
           "name": "githubConfig",
           "optional": true,
@@ -3769,7 +3914,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 115
+            "line": 116
           },
           "name": "huskyConfig",
           "optional": true,
@@ -3786,7 +3931,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 121
+            "line": 122
           },
           "name": "jestConfig",
           "optional": true,
@@ -3803,7 +3948,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 127
+            "line": 128
           },
           "name": "npmConfig",
           "optional": true,
@@ -3820,7 +3965,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 133
+            "line": 134
           },
           "name": "prettierConfig",
           "optional": true,
@@ -3837,7 +3982,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 139
+            "line": 140
           },
           "name": "vscodeConfig",
           "optional": true,
@@ -3852,7 +3997,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 156
+            "line": 163
           },
           "name": "kind",
           "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
@@ -3868,7 +4013,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 103
+            "line": 104
           },
           "name": "gitConfig",
           "optional": true,
@@ -3878,12 +4023,28 @@
         },
         {
           "docs": {
+            "remarks": "This property is initialized if `issuesEnabled` option is provided during project creation.",
+            "stability": "stable",
+            "summary": "Configuration for Githug issues in the project."
+          },
+          "locationInModule": {
+            "filename": "src/jsii/project.ts",
+            "line": 161
+          },
+          "name": "issuesConfig",
+          "optional": true,
+          "type": {
+            "fqn": "@dxfrontier/projen-template-projects.IssuesConfigBase"
+          }
+        },
+        {
+          "docs": {
             "stability": "stable",
             "summary": "This flag aligns with Projen structure using flags like `eslint`, `devContainer`, .... for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled` If set to `true`, TypeScript-specific settings will be configured for the project. If set to `false` TypeScript will be completely removed from the project as Projen projects used in this context are always relying on TypeScript."
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 154
+            "line": 155
           },
           "name": "typescript",
           "optional": true,
@@ -3899,7 +4060,7 @@
           },
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 145
+            "line": 146
           },
           "name": "typescriptConfig",
           "optional": true,
@@ -3923,7 +4084,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/jsii/project.ts",
-        "line": 19
+        "line": 20
       },
       "name": "JsiiProjectOptions",
       "properties": [
@@ -3938,7 +4099,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 25
+            "line": 26
           },
           "name": "commitlintEnabled",
           "optional": true,
@@ -3957,7 +4118,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 32
+            "line": 33
           },
           "name": "devContainerEnabled",
           "optional": true,
@@ -3976,7 +4137,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 39
+            "line": 40
           },
           "name": "eslintEnabled",
           "optional": true,
@@ -3995,7 +4156,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 46
+            "line": 47
           },
           "name": "githubEnabled",
           "optional": true,
@@ -4014,7 +4175,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 53
+            "line": 54
           },
           "name": "huskyEnabled",
           "optional": true,
@@ -4033,7 +4194,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 60
+            "line": 61
           },
           "name": "jestEnabled",
           "optional": true,
@@ -4052,7 +4213,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 67
+            "line": 68
           },
           "name": "prettierEnabled",
           "optional": true,
@@ -4071,7 +4232,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/jsii/project.ts",
-            "line": 74
+            "line": 75
           },
           "name": "vscodeEnabled",
           "optional": true,
@@ -6582,5 +6743,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "okx2MHyUNznRwEZyI+uLGAj0qR7WozXjAQfPvrgXi94="
+  "fingerprint": "ovdMmFUsGAY6LHqmzDdq2KdbrK7dVcS50GgxuSrGl1U="
 }
