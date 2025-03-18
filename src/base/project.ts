@@ -14,7 +14,6 @@ import { VsCodeConfigBase } from './config/vscode';
 import { util } from '../util/utils';
 import { CommitLintConfigBase } from './config/commitlint';
 import { IProjectKind, ProjectKind } from '../util/types/project';
-// import { IssuesConfigCapService } from '../cap-service/config/issues';
 import { IssuesConfigBase } from '../base/config/issues';
 
 // TODO: refactor baseProjecOptions by extracting the common shared properties with the JsiiProjectOptions

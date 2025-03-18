@@ -14,7 +14,6 @@ import { TypeScriptConfigCapService } from './config/typescript';
 import { VsCodeConfigCapService } from './config/vscode';
 import { ReadmeConfigCapService } from './config/readme';
 import { util } from '../util/utils';
-// import { IssuesConfigCapService } from './config/issues';
 import { IssuesConfigBase } from '../base/config/issues';
 
 export interface CapServiceProjectOptions extends BaseProjectOptions {
