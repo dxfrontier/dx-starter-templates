@@ -287,6 +287,7 @@ describe('CapServicesProject Constructor Options', (): void => {
       },
 
       minNodeVersion: '20.0',
+      issuesEnabled: true,
     });
   });
 });

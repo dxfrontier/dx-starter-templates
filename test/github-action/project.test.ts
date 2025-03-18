@@ -179,6 +179,7 @@ describe('GitHubActionsProject Constructor Options', (): void => {
         contents: expectedReadmeTemplateLines.join('\n'),
       },
       minNodeVersion: '20.0',
+      issuesEnabled: true,
     });
   });
 });
