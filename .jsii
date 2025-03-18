@@ -175,7 +175,7 @@
         },
         "locationInModule": {
           "filename": "src/base/project.ts",
-          "line": 199
+          "line": 198
         },
         "parameters": [
           {
@@ -195,7 +195,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/base/project.ts",
-        "line": 105
+        "line": 104
       },
       "methods": [
         {
@@ -207,7 +207,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 240
+            "line": 239
           },
           "name": "initializeBaseConfigs",
           "parameters": [
@@ -232,7 +232,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 249
+            "line": 248
           },
           "name": "postSynthesize",
           "overrides": "projen.Project"
@@ -244,7 +244,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 244
+            "line": 243
           },
           "name": "preSynthesize",
           "overrides": "projen.Project"
@@ -259,7 +259,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 193
+            "line": 192
           },
           "name": "kind",
           "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
@@ -275,7 +275,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 110
+            "line": 109
           },
           "name": "commitlintConfig",
           "optional": true,
@@ -291,7 +291,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 116
+            "line": 115
           },
           "name": "devContainerConfig",
           "optional": true,
@@ -307,7 +307,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 122
+            "line": 121
           },
           "name": "eslintConfig",
           "optional": true,
@@ -323,7 +323,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 128
+            "line": 127
           },
           "name": "gitConfig",
           "optional": true,
@@ -339,7 +339,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 134
+            "line": 133
           },
           "name": "githubConfig",
           "optional": true,
@@ -355,7 +355,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 140
+            "line": 139
           },
           "name": "huskyConfig",
           "optional": true,
@@ -371,7 +371,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 182
+            "line": 181
           },
           "name": "issuesConfig",
           "optional": true,
@@ -387,7 +387,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 146
+            "line": 145
           },
           "name": "jestConfig",
           "optional": true,
@@ -403,7 +403,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 152
+            "line": 151
           },
           "name": "npmConfig",
           "optional": true,
@@ -419,7 +419,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 158
+            "line": 157
           },
           "name": "prettierConfig",
           "optional": true,
@@ -435,7 +435,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 176
+            "line": 175
           },
           "name": "sampleCodeConfig",
           "optional": true,
@@ -450,7 +450,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 191
+            "line": 190
           },
           "name": "typescript",
           "optional": true,
@@ -466,7 +466,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 164
+            "line": 163
           },
           "name": "typescriptConfig",
           "optional": true,
@@ -482,7 +482,7 @@
           },
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 170
+            "line": 169
           },
           "name": "vscodeConfig",
           "optional": true,
@@ -506,7 +506,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/base/project.ts",
-        "line": 21
+        "line": 20
       },
       "name": "BaseProjectOptions",
       "properties": [
@@ -521,7 +521,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 27
+            "line": 26
           },
           "name": "commitlintEnabled",
           "optional": true,
@@ -540,7 +540,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 34
+            "line": 33
           },
           "name": "devContainerEnabled",
           "optional": true,
@@ -559,7 +559,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 41
+            "line": 40
           },
           "name": "eslintEnabled",
           "optional": true,
@@ -578,7 +578,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 48
+            "line": 47
           },
           "name": "githubEnabled",
           "optional": true,
@@ -597,7 +597,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 55
+            "line": 54
           },
           "name": "huskyEnabled",
           "optional": true,
@@ -616,7 +616,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 99
+            "line": 98
           },
           "name": "issuesEnabled",
           "optional": true,
@@ -635,7 +635,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 62
+            "line": 61
           },
           "name": "jestEnabled",
           "optional": true,
@@ -654,7 +654,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 69
+            "line": 68
           },
           "name": "prettierEnabled",
           "optional": true,
@@ -673,7 +673,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 92
+            "line": 91
           },
           "name": "sampleCodeEnabled",
           "optional": true,
@@ -692,7 +692,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 78
+            "line": 77
           },
           "name": "typescriptEnabled",
           "optional": true,
@@ -711,7 +711,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/project.ts",
-            "line": 85
+            "line": 84
           },
           "name": "vscodeEnabled",
           "optional": true,
@@ -737,7 +737,7 @@
         },
         "locationInModule": {
           "filename": "src/cap-service/project.ts",
-          "line": 35
+          "line": 34
         },
         "parameters": [
           {
@@ -754,7 +754,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 28
+        "line": 27
       },
       "methods": [
         {
@@ -765,7 +765,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 95
+            "line": 94
           },
           "name": "initializeBaseConfigs",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject",
@@ -787,7 +787,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 99
+            "line": 98
           },
           "name": "postSynthesize",
           "overrides": "@dxfrontier/projen-template-projects.BaseProject"
@@ -801,7 +801,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 29
+            "line": 28
           },
           "name": "cleanCommand",
           "static": true,
@@ -825,7 +825,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "src/cap-service/project.ts",
-        "line": 20
+        "line": 19
       },
       "name": "CapServiceProjectOptions",
       "properties": [
@@ -837,7 +837,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 22
+            "line": 21
           },
           "name": "entityName",
           "optional": true,
@@ -853,7 +853,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/project.ts",
-            "line": 21
+            "line": 20
           },
           "name": "namespace",
           "optional": true,
@@ -2461,7 +2461,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 372
+            "line": 251
           },
           "name": "addAttributePatterns",
           "parameters": [
@@ -2489,7 +2489,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 424
+            "line": 299
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -2502,7 +2502,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 417
+            "line": 292
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -2518,7 +2518,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 413
+            "line": 288
           },
           "name": "additionalAttributesPatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2540,7 +2540,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 407
+            "line": 282
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -2563,7 +2563,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 192
+            "line": 71
           },
           "name": "configFileCliff",
           "protected": true,
@@ -2590,7 +2590,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 326
+            "line": 205
           },
           "name": "configFileEnforceLabelsWorkflow",
           "protected": true,
@@ -2644,7 +2644,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 294
+            "line": 173
           },
           "name": "configFileReleaseWorkflow",
           "protected": true,
@@ -2671,7 +2671,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 380
+            "line": 259
           },
           "name": "configs",
           "protected": true,
@@ -2703,7 +2703,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/github.ts",
-            "line": 398
+            "line": 273
           },
           "name": "filePatterns",
           "protected": true,
@@ -2808,7 +2808,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 195
+            "line": 129
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase"
@@ -2820,7 +2820,7 @@
           },
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 188
+            "line": 122
           },
           "name": "createDeploymentWorkflow"
         }
@@ -2834,7 +2834,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 125
+            "line": 74
           },
           "name": "configFileDeploymentWorkflow",
           "protected": true,
@@ -2881,14 +2881,13 @@
         },
         {
           "docs": {
-            "returns": "A record where the key is the file path and the value is an array of strings\nrepresenting the content of the issue template.",
             "stability": "stable",
-            "summary": "Retrieves the configuration for the story issue template file."
+            "summary": "Retrieves the configuration for the release workflow template file."
           },
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 99
+            "line": 48
           },
           "name": "configFileReleaseWorkflow",
           "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
@@ -2915,7 +2914,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/cap-service/config/github.ts",
-            "line": 161
+            "line": 110
           },
           "name": "configs",
           "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
@@ -3324,7 +3323,7 @@
         },
         "locationInModule": {
           "filename": "src/base/config/issues.ts",
-          "line": 14
+          "line": 12
         },
         "parameters": [
           {
@@ -3358,7 +3357,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 445
+            "line": 206
           },
           "name": "applyConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -3371,7 +3370,7 @@
           },
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 438
+            "line": 200
           },
           "name": "registerConfig",
           "overrides": "@dxfrontier/projen-template-projects.Config"
@@ -3387,7 +3386,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 428
+            "line": 194
           },
           "name": "additionalIgnorePatterns",
           "overrides": "@dxfrontier/projen-template-projects.Config",
@@ -3410,7 +3409,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 71
+            "line": 22
           },
           "name": "configFileBugIssue",
           "protected": true,
@@ -3437,7 +3436,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 102
+            "line": 53
           },
           "name": "configFileFeatureIssue",
           "protected": true,
@@ -3464,7 +3463,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 135
+            "line": 86
           },
           "name": "configFileHousekeepingIssue",
           "protected": true,
@@ -3491,7 +3490,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 168
+            "line": 119
           },
           "name": "configFileQuestionIssue",
           "protected": true,
@@ -3516,7 +3515,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 186
+            "line": 137
           },
           "name": "configFileStoryIssue",
           "protected": true,
@@ -3543,7 +3542,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 398
+            "line": 171
           },
           "name": "configs",
           "protected": true,
@@ -3575,7 +3574,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "src/base/config/issues.ts",
-            "line": 418
+            "line": 186
           },
           "name": "filePatterns",
           "protected": true,
@@ -6743,5 +6742,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "ovdMmFUsGAY6LHqmzDdq2KdbrK7dVcS50GgxuSrGl1U="
+  "fingerprint": "0YyQ4tFqv4t49Fy64EaK2PMr2S5VTlrg52XrZq9E18s="
 }
