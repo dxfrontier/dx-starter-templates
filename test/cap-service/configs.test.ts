@@ -340,7 +340,7 @@ cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plu
       test('Feature issue template matches expected template', (): void => {
         const expectedTemplateLines: string[] = [
           'name: 💡 Feature',
-          'description: Story related feature',
+          'description: Request for a new feature',
           'title: "[FEATURE] <title>"',
           'labels: ["type: feature"]',
           'body:',

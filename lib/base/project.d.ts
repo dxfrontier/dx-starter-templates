@@ -12,6 +12,7 @@ import { TypeScriptConfigBase } from './config/typescript';
 import { VsCodeConfigBase } from './config/vscode';
 import { CommitLintConfigBase } from './config/commitlint';
 import { IProjectKind, ProjectKind } from '../util/types/project';
+import { IssuesConfigBase } from '../base/config/issues';
 export interface BaseProjectOptions extends TypeScriptProjectOptions {
     /**
      * Whether to enable the commitlint configuration for the project.
@@ -75,6 +76,12 @@ export interface BaseProjectOptions extends TypeScriptProjectOptions {
      * @default false
      */
     readonly sampleCodeEnabled?: boolean;
+    /**
+     * Whether to include Github issues in the project.
+     * If set to `true`, sample code will be added to the project repository.
+     * @default false
+     */
+    readonly issuesEnabled?: boolean;
 }
 /**
  * Base class for managing project configuration.
@@ -140,6 +147,11 @@ export declare class BaseProject extends TypeScriptProject implements IProjectKi
      * This property is initialized if `sampleCodeEnabled` option is provided during project creation.
      */
     sampleCodeConfig?: SampleCodeConfigBase;
+    /**
+     * Configuration for Githug issues in the project.
+     * This property is initialized if `issuesEnabled` option is provided during project creation.
+     */
+    issuesConfig?: IssuesConfigBase;
     /**
      * This flag aligns with Projen structure using flags like `eslint`, `devContainer`, ....
      * for defining if configuration functionality is enabled or not. Will align with `typescriptEnabled`

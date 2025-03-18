@@ -39,6 +39,11 @@ junit.xml
 tsconfig.json
 !/API.md
 !/.projenrc.ts
+!/.github/ISSUE_TEMPLATE/bug.yml
+!/.github/ISSUE_TEMPLATE/feature.yml
+!/.github/ISSUE_TEMPLATE/housekeeping.yml
+!/.github/ISSUE_TEMPLATE/question.yml
+!/.github/ISSUE_TEMPLATE/story.yml
 !/.prettierrc.json
 !/.prettierignore
 !/.devcontainer/devcontainer.json
@@ -46,10 +51,6 @@ tsconfig.json
 !/eslint.config.mjs
 !/.vscode/settings.json
 !/.github/pull_request_template.md
-!/.github/ISSUE_TEMPLATE/bug.yml
-!/.github/ISSUE_TEMPLATE/feature.yml
-!/.github/ISSUE_TEMPLATE/housekeeping.yml
-!/.github/ISSUE_TEMPLATE/question.yml
 !/cliff.toml
 !/.github/workflows/release.yml
 !/.github/workflows/enforce-labels.yml

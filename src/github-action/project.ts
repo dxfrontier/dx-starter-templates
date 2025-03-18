@@ -13,6 +13,7 @@ import { TypeScriptConfigGitHubAction } from './config/typescript';
 import { util } from '../util/utils';
 import { ReadmeConfigGitHubAction } from './config/readme';
 import { constants } from '../util/constants';
+import { IssuesConfigBase } from '../base/config/issues';
 
 export interface GitHubActionProjectOptions extends BaseProjectOptions {}
 
@@ -41,6 +42,7 @@ export class GitHubActionProject extends BaseProject {
       sampleCodeEnabled: options.sampleCodeEnabled ?? true,
       typescriptEnabled: false,
       description: options.description ?? constants.GITHUB_PROJECT_DESCRIPTION,
+      issuesEnabled: options.issuesEnabled ?? true,
     };
     super({
       ...BaseOptions.sharedOptions(updatedOptions),
@@ -77,6 +79,9 @@ export class GitHubActionProject extends BaseProject {
     }
     if (options.huskyEnabled) {
       this.huskyConfig = new HuskyConfigBase(this);
+    }
+    if (options.issuesEnabled) {
+      this.issuesConfig = new IssuesConfigBase(this);
     }
   }
 
