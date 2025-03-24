@@ -8,5 +8,5 @@ export declare class BaseOptions {
      * @param options Specific project options to merge.
      * @returns Merged options.
      */
-    static sharedOptions<T extends BaseProjectOptions>(options: T): T;
+    static sharedStandardOptions<T extends BaseProjectOptions>(options: T): T;
 }
