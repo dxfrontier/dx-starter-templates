@@ -4,7 +4,7 @@ The goal of **Projen-template-projects** is to reduce boilerplate code and creat
 
 ## Table of Contents
 
-- [Projen-template-projects](#projen-template-projects)
+- [Projen-template-projects](#dx-starter-templates)
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [`Usage`](#usage)
@@ -27,7 +27,7 @@ To create a predefined structure for Github actions use the below command line :
 `Example:`
 
 ```bash
-$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects
+$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/dx-starter-templates
 ```
 
 ### 2. Create template for: `CDS-TS-Dispatcher`
@@ -37,7 +37,7 @@ To create a predefined structure for [CDS-TS-Dispatcher](https://github.com/dxfr
 `Example:`
 
 ```bash
-$ npx projen new cap_service --from git+https://github.com/dxfrontier/projen-template-projects
+$ npx projen new cap_service --from git+https://github.com/dxfrontier/dx-starter-templates
 ```
 
 > [!TIP]
