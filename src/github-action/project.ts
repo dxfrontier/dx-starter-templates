@@ -45,7 +45,7 @@ export class GitHubActionProject extends BaseProject {
       issuesEnabled: options.issuesEnabled ?? true,
     };
     super({
-      ...BaseOptions.sharedOptions(updatedOptions),
+      ...BaseOptions.sharedStandardOptions(updatedOptions),
       readme: new ReadmeConfigGitHubAction().getReadme(updatedOptions),
     });
 

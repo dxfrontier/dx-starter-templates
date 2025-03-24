@@ -168,7 +168,7 @@ export class JsiiProject extends cdk.JsiiProject implements IProjectKind {
    */
   constructor(options: JsiiProjectOptions) {
     super({
-      ...BaseOptions.sharedOptions(options),
+      ...BaseOptions.sharedStandardOptions(options),
       // tsconfig.dev.json needs to be enabled for Jsii Projects
       projenrcTs: true,
       disableTsconfigDev: options.disableTsconfigDev ?? false,

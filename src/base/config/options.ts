@@ -11,7 +11,7 @@ export class BaseOptions {
    * @param options Specific project options to merge.
    * @returns Merged options.
    */
-  public static sharedOptions<T extends BaseProjectOptions>(options: T): T {
+  public static sharedStandardOptions<T extends BaseProjectOptions>(options: T): T {
     return {
       ...options,
       defaultReleaseBranch: options.defaultReleaseBranch ?? 'dev',
