@@ -290,11 +290,11 @@ describe('jsii', (): void => {
   describe('npm', (): void => {
     test('General info in package.json is set properly', (): void => {
       const expectedInfo: Record<string, unknown> = {
-        name: '@dxfrontier/projen-template-projects',
+        name: '@dxfrontier/dx-starter-templates',
         version: '0.0.0',
         repository: {
           type: 'git',
-          url: 'https://github.com/dxfrontier/projen-template-projects.git',
+          url: 'https://github.com/dxfrontier/dx-starter-templates.git',
         },
         author: {
           name: 'DXFrontier Dev Team',

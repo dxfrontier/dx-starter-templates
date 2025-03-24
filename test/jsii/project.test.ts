@@ -74,8 +74,8 @@ describe('JsiiProject Constructor Options', (): void => {
 
   test('Configuration is set properly', async (): Promise<void> => {
     expect(cdk.JsiiProject).toHaveBeenCalledWith({
-      name: '@dxfrontier/projen-template-projects',
-      repositoryUrl: 'https://github.com/dxfrontier/projen-template-projects.git',
+      name: '@dxfrontier/dx-starter-templates',
+      repositoryUrl: 'https://github.com/dxfrontier/dx-starter-templates.git',
       author: 'DXFrontier Dev Team',
       authorAddress: 'mathias.von-kaiz@abs-gmbh.de',
       copyrightOwner: 'ABS GmbH',

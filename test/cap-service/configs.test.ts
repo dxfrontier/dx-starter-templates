@@ -341,7 +341,7 @@ cf install-plugin -f https://github.com/cloudfoundry-incubator/multiapps-cli-plu
         const expectedTemplateLines: string[] = [
           'name: 💡 Feature',
           'description: Request for a new feature',
-          'title: "[FEATURE] <title>"',
+          'title: "[FEATURE]"',
           'labels: ["type: feature"]',
           'body:',
           '  - type: textarea',
