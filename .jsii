@@ -79,11 +79,11 @@
       }
     }
   },
-  "description": "@dxfrontier/projen-template-projects",
+  "description": "@dxfrontier/dx-starter-templates",
   "docs": {
     "stability": "stable"
   },
-  "homepage": "https://github.com/dxfrontier/projen-template-projects.git",
+  "homepage": "https://github.com/dxfrontier/dx-starter-templates.git",
   "jsiiVersion": "5.7.4 (build fc2a28e)",
   "license": "UNLICENSED",
   "metadata": {
@@ -94,28 +94,28 @@
     },
     "tscRootDir": "src"
   },
-  "name": "@dxfrontier/projen-template-projects",
+  "name": "@dxfrontier/dx-starter-templates",
   "readme": {
-    "markdown": "# Projen-template-projects\n\nThe goal of **Projen-template-projects** is to reduce boilerplate code and create various templates.\n\n## Table of Contents\n\n- [Projen-template-projects](#projen-template-projects)\n  - [Table of Contents](#table-of-contents)\n  - [Prerequisites](#prerequisites)\n  - [`Usage`](#usage)\n    - [1. Create template for: `Github action`](#1-create-template-for-github-action)\n    - [2. Create template for: `CDS-TS-Dispatcher`](#2-create-template-for-cds-ts-dispatcher)\n  - [Contributing](#contributing)\n  - [License](#license)\n  - [Authors](#authors)\n\n## Prerequisites\n\nEnsure you have `Node.js`. You can download it from [Node.js Official Website](https://nodejs.org/en/download/package-manager).\n\n## `Usage`\n\n### 1. Create template for: `Github action`\n\nTo create a predefined structure for Github actions use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\n### 2. Create template for: `CDS-TS-Dispatcher`\n\nTo create a predefined structure for [CDS-TS-Dispatcher](https://github.com/dxfrontier/cds-ts-dispatcher) use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new cap_service --from git+https://github.com/dxfrontier/projen-template-projects\n```\n\n> [!TIP]\n> The above 2 commands will start building the backbone project + adding some additional utils `prettier`, `lint-staged`, `commitlint`, `devcontainer`, `husky`\n\n## Contributing\n\nPull requests are welcome. For major changes, please open an issue first\nto discuss what you would like to change.\n\nPlease make sure to update tests as appropriate.\n\n## License\n\n![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)\n\nCopyright (c) 2025 DXFrontier\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## Authors\n\n- [@mathiasvkaiz](https://github.com/mathiasvkaiz)\n- [@ABS GmbH](https://www.abs-gmbh.de/) team\n\n<p align=\"right\">(<a href=\"#table-of-contents\">back to top</a>)</p>\n"
+    "markdown": "# Projen-template-projects\n\nThe goal of **Projen-template-projects** is to reduce boilerplate code and create various templates.\n\n## Table of Contents\n\n- [Projen-template-projects](#dx-starter-templates)\n  - [Table of Contents](#table-of-contents)\n  - [Prerequisites](#prerequisites)\n  - [`Usage`](#usage)\n    - [1. Create template for: `Github action`](#1-create-template-for-github-action)\n    - [2. Create template for: `CDS-TS-Dispatcher`](#2-create-template-for-cds-ts-dispatcher)\n  - [Contributing](#contributing)\n  - [License](#license)\n  - [Authors](#authors)\n\n## Prerequisites\n\nEnsure you have `Node.js`. You can download it from [Node.js Official Website](https://nodejs.org/en/download/package-manager).\n\n## `Usage`\n\n### 1. Create template for: `Github action`\n\nTo create a predefined structure for Github actions use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new git_hub_action --from git+https://github.com/dxfrontier/dx-starter-templates\n```\n\n### 2. Create template for: `CDS-TS-Dispatcher`\n\nTo create a predefined structure for [CDS-TS-Dispatcher](https://github.com/dxfrontier/cds-ts-dispatcher) use the below command line :\n\n`Example:`\n\n```bash\n$ npx projen new cap_service --from git+https://github.com/dxfrontier/dx-starter-templates\n```\n\n> [!TIP]\n> The above 2 commands will start building the backbone project + adding some additional utils `prettier`, `lint-staged`, `commitlint`, `devcontainer`, `husky`\n\n## Contributing\n\nPull requests are welcome. For major changes, please open an issue first\nto discuss what you would like to change.\n\nPlease make sure to update tests as appropriate.\n\n## License\n\n![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)\n\nCopyright (c) 2025 DXFrontier\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## Authors\n\n- [@mathiasvkaiz](https://github.com/mathiasvkaiz)\n- [@ABS GmbH](https://www.abs-gmbh.de/) team\n\n<p align=\"right\">(<a href=\"#table-of-contents\">back to top</a>)</p>\n"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dxfrontier/projen-template-projects.git"
+    "url": "https://github.com/dxfrontier/dx-starter-templates.git"
   },
   "schema": "jsii/0.10.0",
   "targets": {
     "js": {
-      "npm": "@dxfrontier/projen-template-projects"
+      "npm": "@dxfrontier/dx-starter-templates"
     }
   },
   "types": {
-    "@dxfrontier/projen-template-projects.BaseOptions": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.BaseOptions": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "docs": {
         "stability": "stable",
         "summary": "Utility for shared options."
       },
-      "fqn": "@dxfrontier/projen-template-projects.BaseOptions",
+      "fqn": "@dxfrontier/dx-starter-templates.BaseOptions",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -137,7 +137,7 @@
             "filename": "src/base/config/options.ts",
             "line": 14
           },
-          "name": "sharedOptions",
+          "name": "sharedStandardOptions",
           "parameters": [
             {
               "docs": {
@@ -145,13 +145,13 @@
               },
               "name": "options",
               "type": {
-                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+                "fqn": "@dxfrontier/dx-starter-templates.BaseProjectOptions"
               }
             }
           ],
           "returns": {
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+              "fqn": "@dxfrontier/dx-starter-templates.BaseProjectOptions"
             }
           },
           "static": true
@@ -160,14 +160,14 @@
       "name": "BaseOptions",
       "symbolId": "src/base/config/options:BaseOptions"
     },
-    "@dxfrontier/projen-template-projects.BaseProject": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.BaseProject": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "base": "projen.typescript.TypeScriptProject",
       "docs": {
         "stability": "stable",
         "summary": "Base class for managing project configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.BaseProject",
+      "fqn": "@dxfrontier/dx-starter-templates.BaseProject",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -184,13 +184,13 @@
             },
             "name": "options",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+              "fqn": "@dxfrontier/dx-starter-templates.BaseProjectOptions"
             }
           }
         ]
       },
       "interfaces": [
-        "@dxfrontier/projen-template-projects.IProjectKind"
+        "@dxfrontier/dx-starter-templates.IProjectKind"
       ],
       "kind": "class",
       "locationInModule": {
@@ -218,7 +218,7 @@
               },
               "name": "options",
               "type": {
-                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+                "fqn": "@dxfrontier/dx-starter-templates.BaseProjectOptions"
               }
             }
           ],
@@ -262,7 +262,7 @@
             "line": 192
           },
           "name": "kind",
-          "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
+          "overrides": "@dxfrontier/dx-starter-templates.IProjectKind",
           "type": {
             "primitive": "string"
           }
@@ -280,7 +280,7 @@
           "name": "commitlintConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.CommitLintConfigBase"
           }
         },
         {
@@ -296,7 +296,7 @@
           "name": "devContainerConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.DevContainerConfigBase"
           }
         },
         {
@@ -312,7 +312,7 @@
           "name": "eslintConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.EsLintConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.EsLintConfigBase"
           }
         },
         {
@@ -328,7 +328,7 @@
           "name": "gitConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.GitConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.GitConfigBase"
           }
         },
         {
@@ -344,7 +344,7 @@
           "name": "githubConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.GitHubConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.GitHubConfigBase"
           }
         },
         {
@@ -360,7 +360,7 @@
           "name": "huskyConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.HuskyConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.HuskyConfigBase"
           }
         },
         {
@@ -376,7 +376,7 @@
           "name": "issuesConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.IssuesConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.IssuesConfigBase"
           }
         },
         {
@@ -392,7 +392,7 @@
           "name": "jestConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.JestConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.JestConfigBase"
           }
         },
         {
@@ -408,7 +408,7 @@
           "name": "npmConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.NpmConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.NpmConfigBase"
           }
         },
         {
@@ -424,7 +424,7 @@
           "name": "prettierConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.PrettierConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.PrettierConfigBase"
           }
         },
         {
@@ -440,7 +440,7 @@
           "name": "sampleCodeConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.SampleCodeConfigBase"
           }
         },
         {
@@ -471,7 +471,7 @@
           "name": "typescriptConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase"
           }
         },
         {
@@ -487,19 +487,19 @@
           "name": "vscodeConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.VsCodeConfigBase"
           }
         }
       ],
       "symbolId": "src/base/project:BaseProject"
     },
-    "@dxfrontier/projen-template-projects.BaseProjectOptions": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.BaseProjectOptions": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "datatype": true,
       "docs": {
         "stability": "stable"
       },
-      "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions",
+      "fqn": "@dxfrontier/dx-starter-templates.BaseProjectOptions",
       "interfaces": [
         "projen.typescript.TypeScriptProjectOptions"
       ],
@@ -722,14 +722,14 @@
       ],
       "symbolId": "src/base/project:BaseProjectOptions"
     },
-    "@dxfrontier/projen-template-projects.CapServiceProject": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.BaseProject",
+    "@dxfrontier/dx-starter-templates.CapServiceProject": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.BaseProject",
       "docs": {
         "stability": "stable",
         "summary": "Base class for managing project CapService configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.CapServiceProject",
+      "fqn": "@dxfrontier/dx-starter-templates.CapServiceProject",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -746,7 +746,7 @@
             },
             "name": "options",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions"
+              "fqn": "@dxfrontier/dx-starter-templates.CapServiceProjectOptions"
             }
           }
         ]
@@ -768,12 +768,12 @@
             "line": 94
           },
           "name": "initializeBaseConfigs",
-          "overrides": "@dxfrontier/projen-template-projects.BaseProject",
+          "overrides": "@dxfrontier/dx-starter-templates.BaseProject",
           "parameters": [
             {
               "name": "options",
               "type": {
-                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+                "fqn": "@dxfrontier/dx-starter-templates.BaseProjectOptions"
               }
             }
           ],
@@ -790,7 +790,7 @@
             "line": 98
           },
           "name": "postSynthesize",
-          "overrides": "@dxfrontier/projen-template-projects.BaseProject"
+          "overrides": "@dxfrontier/dx-starter-templates.BaseProject"
         }
       ],
       "name": "CapServiceProject",
@@ -812,15 +812,15 @@
       ],
       "symbolId": "src/cap-service/project:CapServiceProject"
     },
-    "@dxfrontier/projen-template-projects.CapServiceProjectOptions": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.CapServiceProjectOptions": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "datatype": true,
       "docs": {
         "stability": "stable"
       },
-      "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions",
+      "fqn": "@dxfrontier/dx-starter-templates.CapServiceProjectOptions",
       "interfaces": [
-        "@dxfrontier/projen-template-projects.BaseProjectOptions"
+        "@dxfrontier/dx-starter-templates.BaseProjectOptions"
       ],
       "kind": "interface",
       "locationInModule": {
@@ -864,15 +864,15 @@
       ],
       "symbolId": "src/cap-service/project:CapServiceProjectOptions"
     },
-    "@dxfrontier/projen-template-projects.CommitLintConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.CommitLintConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling CommitLint configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant CommitLint configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.CommitLintConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -911,7 +911,7 @@
             "line": 77
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -924,7 +924,7 @@
             "line": 68
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "CommitLintConfigBase",
@@ -940,7 +940,7 @@
             "line": 14
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -962,7 +962,7 @@
             "line": 38
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -984,7 +984,7 @@
             "line": 32
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1006,7 +1006,7 @@
             "line": 24
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1028,7 +1028,7 @@
             "line": 43
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1061,14 +1061,14 @@
       ],
       "symbolId": "src/base/config/commitlint:CommitLintConfigBase"
     },
-    "@dxfrontier/projen-template-projects.CommitLintConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+    "@dxfrontier/dx-starter-templates.CommitLintConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.CommitLintConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant CommitLint configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.CommitLintConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1108,7 +1108,7 @@
             "line": 8
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.CommitLintConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -1122,14 +1122,14 @@
       ],
       "symbolId": "src/cap-service/config/commitlint:CommitLintConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.CommitLintConfigGitHubAction": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+    "@dxfrontier/dx-starter-templates.CommitLintConfigGitHubAction": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.CommitLintConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant CommitLint configuration for the GitHubAction project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigGitHubAction",
+      "fqn": "@dxfrontier/dx-starter-templates.CommitLintConfigGitHubAction",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1169,7 +1169,7 @@
             "line": 8
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.CommitLintConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.CommitLintConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -1183,15 +1183,15 @@
       ],
       "symbolId": "src/github-action/config/commitlint:CommitLintConfigGitHubAction"
     },
-    "@dxfrontier/projen-template-projects.Config": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.Config": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "base": "projen.Component",
       "docs": {
         "remarks": "This class allows configuring a project using different strategies.\nIt requires the project to be either a `BaseProject` or `JsiiProject`.",
         "stability": "stable",
         "summary": "Base class for creating and managing project configurations."
       },
-      "fqn": "@dxfrontier/projen-template-projects.Config",
+      "fqn": "@dxfrontier/dx-starter-templates.Config",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1496,15 +1496,15 @@
       ],
       "symbolId": "src/base/config:Config"
     },
-    "@dxfrontier/projen-template-projects.DevContainerConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.DevContainerConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling DevContainer configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant DevContainer configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.DevContainerConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1543,7 +1543,7 @@
             "line": 84
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -1556,7 +1556,7 @@
             "line": 78
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "DevContainerConfigBase",
@@ -1572,7 +1572,7 @@
             "line": 73
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1594,7 +1594,7 @@
             "line": 13
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1627,14 +1627,14 @@
       ],
       "symbolId": "src/base/config/devcontainer:DevContainerConfigBase"
     },
-    "@dxfrontier/projen-template-projects.DevContainerConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.DevContainerConfigBase",
+    "@dxfrontier/dx-starter-templates.DevContainerConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.DevContainerConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant DevContainer configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.DevContainerConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -1674,7 +1674,7 @@
             "line": 8
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1696,7 +1696,7 @@
             "line": 12
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.DevContainerConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.DevContainerConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -1729,15 +1729,15 @@
       ],
       "symbolId": "src/cap-service/config/devcontainer:DevContainerConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.EsLintConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.EsLintConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling EsLint configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant EsLint configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.EsLintConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.EsLintConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -1753,10 +1753,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -1835,7 +1835,7 @@
             "line": 119
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -1848,7 +1848,7 @@
             "line": 111
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "EsLintConfigBase",
@@ -1864,7 +1864,7 @@
             "line": 52
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1886,7 +1886,7 @@
             "line": 65
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1908,7 +1908,7 @@
             "line": 59
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -1930,7 +1930,7 @@
             "line": 70
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -2045,14 +2045,14 @@
       ],
       "symbolId": "src/base/config/eslint:EsLintConfigBase"
     },
-    "@dxfrontier/projen-template-projects.EsLintConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.EsLintConfigBase",
+    "@dxfrontier/dx-starter-templates.EsLintConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.EsLintConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant EsLint configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.EsLintConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.EsLintConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -2068,10 +2068,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -2097,7 +2097,7 @@
             "line": 7
           },
           "name": "standardIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.EsLintConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.EsLintConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2111,15 +2111,15 @@
       ],
       "symbolId": "src/cap-service/config/eslint:EsLintConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.GitConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.GitConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling Git configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant Git configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.GitConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.GitConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -2135,10 +2135,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -2190,7 +2190,7 @@
             "line": 36
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "GitConfigBase",
@@ -2239,14 +2239,14 @@
       ],
       "symbolId": "src/base/config/git:GitConfigBase"
     },
-    "@dxfrontier/projen-template-projects.GitConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.GitConfigBase",
+    "@dxfrontier/dx-starter-templates.GitConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.GitConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant Git configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.GitConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.GitConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -2262,10 +2262,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -2291,7 +2291,7 @@
             "line": 7
           },
           "name": "standardIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.GitConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.GitConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2305,14 +2305,14 @@
       ],
       "symbolId": "src/cap-service/config/git:GitConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.GitHubActionProject": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.BaseProject",
+    "@dxfrontier/dx-starter-templates.GitHubActionProject": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.BaseProject",
       "docs": {
         "stability": "stable",
         "summary": "Base class for managing project GitHubAction configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.GitHubActionProject",
+      "fqn": "@dxfrontier/dx-starter-templates.GitHubActionProject",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -2329,7 +2329,7 @@
             },
             "name": "options",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.GitHubActionProjectOptions"
+              "fqn": "@dxfrontier/dx-starter-templates.GitHubActionProjectOptions"
             }
           }
         ]
@@ -2351,12 +2351,12 @@
             "line": 62
           },
           "name": "initializeBaseConfigs",
-          "overrides": "@dxfrontier/projen-template-projects.BaseProject",
+          "overrides": "@dxfrontier/dx-starter-templates.BaseProject",
           "parameters": [
             {
               "name": "options",
               "type": {
-                "fqn": "@dxfrontier/projen-template-projects.BaseProjectOptions"
+                "fqn": "@dxfrontier/dx-starter-templates.BaseProjectOptions"
               }
             }
           ],
@@ -2373,7 +2373,7 @@
             "line": 88
           },
           "name": "postSynthesize",
-          "overrides": "@dxfrontier/projen-template-projects.BaseProject"
+          "overrides": "@dxfrontier/dx-starter-templates.BaseProject"
         }
       ],
       "name": "GitHubActionProject",
@@ -2395,15 +2395,15 @@
       ],
       "symbolId": "src/github-action/project:GitHubActionProject"
     },
-    "@dxfrontier/projen-template-projects.GitHubActionProjectOptions": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.GitHubActionProjectOptions": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "datatype": true,
       "docs": {
         "stability": "stable"
       },
-      "fqn": "@dxfrontier/projen-template-projects.GitHubActionProjectOptions",
+      "fqn": "@dxfrontier/dx-starter-templates.GitHubActionProjectOptions",
       "interfaces": [
-        "@dxfrontier/projen-template-projects.BaseProjectOptions"
+        "@dxfrontier/dx-starter-templates.BaseProjectOptions"
       ],
       "kind": "interface",
       "locationInModule": {
@@ -2413,15 +2413,15 @@
       "name": "GitHubActionProjectOptions",
       "symbolId": "src/github-action/project:GitHubActionProjectOptions"
     },
-    "@dxfrontier/projen-template-projects.GitHubConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.GitHubConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling GitHub configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant GitHub configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.GitHubConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -2437,10 +2437,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -2492,7 +2492,7 @@
             "line": 299
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -2505,7 +2505,7 @@
             "line": 292
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "GitHubConfigBase",
@@ -2521,7 +2521,7 @@
             "line": 288
           },
           "name": "additionalAttributesPatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -2543,7 +2543,7 @@
             "line": 282
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -2760,14 +2760,14 @@
       ],
       "symbolId": "src/base/config/github:GitHubConfigBase"
     },
-    "@dxfrontier/projen-template-projects.GitHubConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+    "@dxfrontier/dx-starter-templates.GitHubConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.GitHubConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant GitHub configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.GitHubConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.GitHubConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -2783,10 +2783,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -2811,7 +2811,7 @@
             "line": 129
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase"
+          "overrides": "@dxfrontier/dx-starter-templates.GitHubConfigBase"
         },
         {
           "docs": {
@@ -2863,7 +2863,7 @@
             "line": 8
           },
           "name": "configFilePullRequest",
-          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.GitHubConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2890,7 +2890,7 @@
             "line": 48
           },
           "name": "configFileReleaseWorkflow",
-          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.GitHubConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2917,7 +2917,7 @@
             "line": 110
           },
           "name": "configs",
-          "overrides": "@dxfrontier/projen-template-projects.GitHubConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.GitHubConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -2941,15 +2941,15 @@
       ],
       "symbolId": "src/cap-service/config/github:GitHubConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.HuskyConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.HuskyConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling Husky configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant Husky configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.HuskyConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -2988,7 +2988,7 @@
             "line": 47
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -3001,7 +3001,7 @@
             "line": 39
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "HuskyConfigBase",
@@ -3017,7 +3017,7 @@
             "line": 14
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3039,7 +3039,7 @@
             "line": 24
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3061,7 +3061,7 @@
             "line": 18
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3083,7 +3083,7 @@
             "line": 32
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3116,14 +3116,14 @@
       ],
       "symbolId": "src/base/config/husky:HuskyConfigBase"
     },
-    "@dxfrontier/projen-template-projects.HuskyConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+    "@dxfrontier/dx-starter-templates.HuskyConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.HuskyConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant Husky configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.HuskyConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.HuskyConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -3163,7 +3163,7 @@
             "line": 8
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.HuskyConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -3196,14 +3196,14 @@
       ],
       "symbolId": "src/cap-service/config/husky:HuskyConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.HuskyConfigJsii": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+    "@dxfrontier/dx-starter-templates.HuskyConfigJsii": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.HuskyConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant Husky configuration for the Jsii project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.HuskyConfigJsii",
+      "fqn": "@dxfrontier/dx-starter-templates.HuskyConfigJsii",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -3243,7 +3243,7 @@
             "line": 8
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.HuskyConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.HuskyConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -3276,13 +3276,13 @@
       ],
       "symbolId": "src/jsii/config/husky:HuskyConfigJsii"
     },
-    "@dxfrontier/projen-template-projects.IProjectKind": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.IProjectKind": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "docs": {
         "stability": "stable",
         "summary": "Convenience type for guaranteeing type safety and avoiding too many circular dependencies."
       },
-      "fqn": "@dxfrontier/projen-template-projects.IProjectKind",
+      "fqn": "@dxfrontier/dx-starter-templates.IProjectKind",
       "kind": "interface",
       "locationInModule": {
         "filename": "src/util/types/project.ts",
@@ -3308,15 +3308,15 @@
       ],
       "symbolId": "src/util/types/project:IProjectKind"
     },
-    "@dxfrontier/projen-template-projects.IssuesConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.IssuesConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling GitHub configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant GitHub configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.IssuesConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.IssuesConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -3332,10 +3332,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -3360,7 +3360,7 @@
             "line": 206
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -3373,7 +3373,7 @@
             "line": 200
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "IssuesConfigBase",
@@ -3389,7 +3389,7 @@
             "line": 194
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3590,15 +3590,15 @@
       ],
       "symbolId": "src/base/config/issues:IssuesConfigBase"
     },
-    "@dxfrontier/projen-template-projects.JestConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.JestConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling Jest configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant Jest configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.JestConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.JestConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -3628,14 +3628,14 @@
       "name": "JestConfigBase",
       "symbolId": "src/base/config/jest:JestConfigBase"
     },
-    "@dxfrontier/projen-template-projects.JestConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.JestConfigBase",
+    "@dxfrontier/dx-starter-templates.JestConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.JestConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant Jest configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.JestConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.JestConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -3674,7 +3674,7 @@
             "line": 69
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "JestConfigCapService",
@@ -3690,7 +3690,7 @@
             "line": 11
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3712,7 +3712,7 @@
             "line": 65
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3734,7 +3734,7 @@
             "line": 20
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3756,7 +3756,7 @@
             "line": 27
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -3770,14 +3770,14 @@
       ],
       "symbolId": "src/cap-service/config/jest:JestConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.JsiiProject": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.JsiiProject": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "base": "projen.cdk.JsiiProject",
       "docs": {
         "stability": "stable",
         "summary": "Base class for managing project Jsii configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.JsiiProject",
+      "fqn": "@dxfrontier/dx-starter-templates.JsiiProject",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -3794,13 +3794,13 @@
             },
             "name": "options",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.JsiiProjectOptions"
+              "fqn": "@dxfrontier/dx-starter-templates.JsiiProjectOptions"
             }
           }
         ]
       },
       "interfaces": [
-        "@dxfrontier/projen-template-projects.IProjectKind"
+        "@dxfrontier/dx-starter-templates.IProjectKind"
       ],
       "kind": "class",
       "locationInModule": {
@@ -3850,7 +3850,7 @@
           "name": "commitlintConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.CommitLintConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.CommitLintConfigBase"
           }
         },
         {
@@ -3867,7 +3867,7 @@
           "name": "devContainerConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.DevContainerConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.DevContainerConfigBase"
           }
         },
         {
@@ -3884,7 +3884,7 @@
           "name": "eslintConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.EsLintConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.EsLintConfigBase"
           }
         },
         {
@@ -3901,7 +3901,7 @@
           "name": "githubConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.GitHubConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.GitHubConfigBase"
           }
         },
         {
@@ -3918,7 +3918,7 @@
           "name": "huskyConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.HuskyConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.HuskyConfigBase"
           }
         },
         {
@@ -3935,7 +3935,7 @@
           "name": "jestConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.JestConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.JestConfigBase"
           }
         },
         {
@@ -3952,7 +3952,7 @@
           "name": "npmConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.NpmConfigJsii"
+            "fqn": "@dxfrontier/dx-starter-templates.NpmConfigJsii"
           }
         },
         {
@@ -3969,7 +3969,7 @@
           "name": "prettierConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.PrettierConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.PrettierConfigBase"
           }
         },
         {
@@ -3986,7 +3986,7 @@
           "name": "vscodeConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.VsCodeConfigBase"
           }
         },
         {
@@ -3999,7 +3999,7 @@
             "line": 163
           },
           "name": "kind",
-          "overrides": "@dxfrontier/projen-template-projects.IProjectKind",
+          "overrides": "@dxfrontier/dx-starter-templates.IProjectKind",
           "type": {
             "primitive": "string"
           }
@@ -4017,7 +4017,7 @@
           "name": "gitConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.GitConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.GitConfigBase"
           }
         },
         {
@@ -4033,7 +4033,7 @@
           "name": "issuesConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.IssuesConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.IssuesConfigBase"
           }
         },
         {
@@ -4064,19 +4064,19 @@
           "name": "typescriptConfig",
           "optional": true,
           "type": {
-            "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigBase"
+            "fqn": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase"
           }
         }
       ],
       "symbolId": "src/jsii/project:JsiiProject"
     },
-    "@dxfrontier/projen-template-projects.JsiiProjectOptions": {
-      "assembly": "@dxfrontier/projen-template-projects",
+    "@dxfrontier/dx-starter-templates.JsiiProjectOptions": {
+      "assembly": "@dxfrontier/dx-starter-templates",
       "datatype": true,
       "docs": {
         "stability": "stable"
       },
-      "fqn": "@dxfrontier/projen-template-projects.JsiiProjectOptions",
+      "fqn": "@dxfrontier/dx-starter-templates.JsiiProjectOptions",
       "interfaces": [
         "projen.cdk.JsiiProjectOptions"
       ],
@@ -4242,15 +4242,15 @@
       ],
       "symbolId": "src/jsii/project:JsiiProjectOptions"
     },
-    "@dxfrontier/projen-template-projects.NpmConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.NpmConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling NPM configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant NPM configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.NpmConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.NpmConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -4266,10 +4266,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -4429,7 +4429,7 @@
             "line": 198
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -4750,14 +4750,14 @@
       ],
       "symbolId": "src/base/config/npm:NpmConfigBase"
     },
-    "@dxfrontier/projen-template-projects.NpmConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.NpmConfigBase",
+    "@dxfrontier/dx-starter-templates.NpmConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.NpmConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant NPM configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.NpmConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.NpmConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -4773,10 +4773,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -4801,7 +4801,7 @@
             "line": 47
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "NpmConfigCapService",
@@ -4817,7 +4817,7 @@
             "line": 43
           },
           "name": "additionalAttributesPatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -4839,7 +4839,7 @@
             "line": 10
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -4861,7 +4861,7 @@
             "line": 23
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -4883,7 +4883,7 @@
             "line": 17
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -4897,14 +4897,14 @@
       ],
       "symbolId": "src/cap-service/config/npm:NpmConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.NpmConfigGitHubAction": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.NpmConfigBase",
+    "@dxfrontier/dx-starter-templates.NpmConfigGitHubAction": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.NpmConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant NPM configuration for the GitHubAction project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.NpmConfigGitHubAction",
+      "fqn": "@dxfrontier/dx-starter-templates.NpmConfigGitHubAction",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -4920,10 +4920,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -4948,7 +4948,7 @@
             "line": 28
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "NpmConfigGitHubAction",
@@ -4964,7 +4964,7 @@
             "line": 15
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -4986,7 +4986,7 @@
             "line": 9
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5000,14 +5000,14 @@
       ],
       "symbolId": "src/github-action/config/npm:NpmConfigGitHubAction"
     },
-    "@dxfrontier/projen-template-projects.NpmConfigJsii": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.NpmConfigBase",
+    "@dxfrontier/dx-starter-templates.NpmConfigJsii": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.NpmConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant NPM configuration for the Jsii project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.NpmConfigJsii",
+      "fqn": "@dxfrontier/dx-starter-templates.NpmConfigJsii",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -5023,10 +5023,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -5051,7 +5051,7 @@
             "line": 65
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.NpmConfigBase"
+          "overrides": "@dxfrontier/dx-starter-templates.NpmConfigBase"
         },
         {
           "docs": {
@@ -5064,7 +5064,7 @@
             "line": 55
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "NpmConfigJsii",
@@ -5080,7 +5080,7 @@
             "line": 10
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5102,7 +5102,7 @@
             "line": 33
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5124,7 +5124,7 @@
             "line": 20
           },
           "name": "additionalPeerDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5146,7 +5146,7 @@
             "line": 27
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5160,15 +5160,15 @@
       ],
       "symbolId": "src/jsii/config/npm:NpmConfigJsii"
     },
-    "@dxfrontier/projen-template-projects.PrettierConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.PrettierConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling Prettier configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant Prettier configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.PrettierConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.PrettierConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -5184,10 +5184,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -5239,7 +5239,7 @@
             "line": 102
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -5276,7 +5276,7 @@
             "line": 95
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "PrettierConfigBase",
@@ -5292,7 +5292,7 @@
             "line": 31
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5314,7 +5314,7 @@
             "line": 35
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5336,7 +5336,7 @@
             "line": 41
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5377,7 +5377,7 @@
             "line": 60
           },
           "name": "ignoreFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5437,14 +5437,14 @@
       ],
       "symbolId": "src/base/config/prettier:PrettierConfigBase"
     },
-    "@dxfrontier/projen-template-projects.PrettierConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.PrettierConfigBase",
+    "@dxfrontier/dx-starter-templates.PrettierConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.PrettierConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant Prettier configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.PrettierConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.PrettierConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -5460,10 +5460,10 @@
               "union": {
                 "types": [
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.BaseProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.BaseProject"
                   },
                   {
-                    "fqn": "@dxfrontier/projen-template-projects.JsiiProject"
+                    "fqn": "@dxfrontier/dx-starter-templates.JsiiProject"
                   }
                 ]
               }
@@ -5489,7 +5489,7 @@
             "line": 7
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.PrettierConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.PrettierConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -5503,15 +5503,15 @@
       ],
       "symbolId": "src/cap-service/config/prettier:PrettierConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.SampleCodeConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.SampleCodeConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling sample code configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant sample code configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.SampleCodeConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -5550,7 +5550,7 @@
             "line": 30
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -5597,14 +5597,14 @@
       ],
       "symbolId": "src/base/config/samplecode:SampleCodeConfigBase"
     },
-    "@dxfrontier/projen-template-projects.SampleCodeConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+    "@dxfrontier/dx-starter-templates.SampleCodeConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.SampleCodeConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant SampleCode configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.SampleCodeConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -5617,13 +5617,13 @@
           {
             "name": "project",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.CapServiceProject"
+              "fqn": "@dxfrontier/dx-starter-templates.CapServiceProject"
             }
           },
           {
             "name": "options",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.CapServiceProjectOptions"
+              "fqn": "@dxfrontier/dx-starter-templates.CapServiceProjectOptions"
             }
           }
         ]
@@ -5645,7 +5645,7 @@
             "line": 575
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase"
+          "overrides": "@dxfrontier/dx-starter-templates.SampleCodeConfigBase"
         },
         {
           "docs": {
@@ -5690,7 +5690,7 @@
             "line": 566
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "SampleCodeConfigCapService",
@@ -5706,7 +5706,7 @@
             "line": 533
           },
           "name": "additionalDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5728,7 +5728,7 @@
             "line": 524
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5750,7 +5750,7 @@
             "line": 541
           },
           "name": "additionalScripts",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5772,7 +5772,7 @@
             "line": 557
           },
           "name": "additionalSettings",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -5906,14 +5906,14 @@
       ],
       "symbolId": "src/cap-service/config/samplecode:SampleCodeConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.SampleCodeConfigGitHubAction": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+    "@dxfrontier/dx-starter-templates.SampleCodeConfigGitHubAction": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.SampleCodeConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant SampleCode configuration for the GitHubAction project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.SampleCodeConfigGitHubAction",
+      "fqn": "@dxfrontier/dx-starter-templates.SampleCodeConfigGitHubAction",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -5953,7 +5953,7 @@
             "line": 7
           },
           "name": "sampleCodeFile",
-          "overrides": "@dxfrontier/projen-template-projects.SampleCodeConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.SampleCodeConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -5972,15 +5972,15 @@
       ],
       "symbolId": "src/github-action/config/samplecode:SampleCodeConfigGitHubAction"
     },
-    "@dxfrontier/projen-template-projects.TypeScriptConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.TypeScriptConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling TypeScript configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant TypeScript configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -6019,7 +6019,7 @@
             "line": 40
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "TypeScriptConfigBase",
@@ -6035,7 +6035,7 @@
             "line": 12
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -6057,7 +6057,7 @@
             "line": 20
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -6079,7 +6079,7 @@
             "line": 25
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -6128,14 +6128,14 @@
       ],
       "symbolId": "src/base/config/typescript:TypeScriptConfigBase"
     },
-    "@dxfrontier/projen-template-projects.TypeScriptConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+    "@dxfrontier/dx-starter-templates.TypeScriptConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant TypeScript configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.TypeScriptConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -6174,7 +6174,7 @@
             "line": 63
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -6199,7 +6199,7 @@
             "line": 58
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase"
+          "overrides": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase"
         },
         {
           "docs": {
@@ -6226,7 +6226,7 @@
             "line": 10
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -6259,14 +6259,14 @@
       ],
       "symbolId": "src/cap-service/config/typescript:TypeScriptConfigCapService"
     },
-    "@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+    "@dxfrontier/dx-starter-templates.TypeScriptConfigGitHubAction": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant TypeScript configuration for the GitHubAction project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigGitHubAction",
+      "fqn": "@dxfrontier/dx-starter-templates.TypeScriptConfigGitHubAction",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -6305,7 +6305,7 @@
             "line": 37
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase"
+          "overrides": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase"
         },
         {
           "docs": {
@@ -6333,7 +6333,7 @@
             "line": 8
           },
           "name": "additionalDevDependencies",
-          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -6355,7 +6355,7 @@
             "line": 12
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -6390,14 +6390,14 @@
       ],
       "symbolId": "src/github-action/config/typescript:TypeScriptConfigGitHubAction"
     },
-    "@dxfrontier/projen-template-projects.TypeScriptConfigJsii": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+    "@dxfrontier/dx-starter-templates.TypeScriptConfigJsii": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant TypeScript configuration for the Jsii project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.TypeScriptConfigJsii",
+      "fqn": "@dxfrontier/dx-starter-templates.TypeScriptConfigJsii",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -6437,7 +6437,7 @@
             "line": 8
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.TypeScriptConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.TypeScriptConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -6470,15 +6470,15 @@
       ],
       "symbolId": "src/jsii/config/typescript:TypeScriptConfigJsii"
     },
-    "@dxfrontier/projen-template-projects.VsCodeConfigBase": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.Config",
+    "@dxfrontier/dx-starter-templates.VsCodeConfigBase": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.Config",
       "docs": {
         "remarks": "This class acts as a base for handling VS Code configuration within projects.",
         "stability": "stable",
         "summary": "Base class for implementing all relevant VS Code configuration."
       },
-      "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigBase",
+      "fqn": "@dxfrontier/dx-starter-templates.VsCodeConfigBase",
       "initializer": {
         "docs": {
           "stability": "stable",
@@ -6517,7 +6517,7 @@
             "line": 49
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         },
         {
           "docs": {
@@ -6530,7 +6530,7 @@
             "line": 43
           },
           "name": "registerConfig",
-          "overrides": "@dxfrontier/projen-template-projects.Config"
+          "overrides": "@dxfrontier/dx-starter-templates.Config"
         }
       ],
       "name": "VsCodeConfigBase",
@@ -6546,7 +6546,7 @@
             "line": 38
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -6569,7 +6569,7 @@
             "line": 17
           },
           "name": "configFile",
-          "overrides": "@dxfrontier/projen-template-projects.Config",
+          "overrides": "@dxfrontier/dx-starter-templates.Config",
           "protected": true,
           "type": {
             "collection": {
@@ -6602,14 +6602,14 @@
       ],
       "symbolId": "src/base/config/vscode:VsCodeConfigBase"
     },
-    "@dxfrontier/projen-template-projects.VsCodeConfigCapService": {
-      "assembly": "@dxfrontier/projen-template-projects",
-      "base": "@dxfrontier/projen-template-projects.VsCodeConfigBase",
+    "@dxfrontier/dx-starter-templates.VsCodeConfigCapService": {
+      "assembly": "@dxfrontier/dx-starter-templates",
+      "base": "@dxfrontier/dx-starter-templates.VsCodeConfigBase",
       "docs": {
         "stability": "stable",
         "summary": "Implementing all relevant VsCode configuration for the CapService project."
       },
-      "fqn": "@dxfrontier/projen-template-projects.VsCodeConfigCapService",
+      "fqn": "@dxfrontier/dx-starter-templates.VsCodeConfigCapService",
       "initializer": {
         "docs": {
           "stability": "stable"
@@ -6622,7 +6622,7 @@
           {
             "name": "project",
             "type": {
-              "fqn": "@dxfrontier/projen-template-projects.CapServiceProject"
+              "fqn": "@dxfrontier/dx-starter-templates.CapServiceProject"
             }
           }
         ]
@@ -6644,7 +6644,7 @@
             "line": 97
           },
           "name": "applyConfig",
-          "overrides": "@dxfrontier/projen-template-projects.VsCodeConfigBase"
+          "overrides": "@dxfrontier/dx-starter-templates.VsCodeConfigBase"
         },
         {
           "docs": {
@@ -6682,7 +6682,7 @@
             "line": 90
           },
           "name": "additionalIgnorePatterns",
-          "overrides": "@dxfrontier/projen-template-projects.VsCodeConfigBase",
+          "overrides": "@dxfrontier/dx-starter-templates.VsCodeConfigBase",
           "protected": true,
           "type": {
             "collection": {
@@ -6742,5 +6742,5 @@
     }
   },
   "version": "0.0.0",
-  "fingerprint": "0YyQ4tFqv4t49Fy64EaK2PMr2S5VTlrg52XrZq9E18s="
+  "fingerprint": "P7c8jY54qiL///lb9bqKxkblyccu5gdoW1lRh/mrJ1w="
 }

@@ -197,7 +197,7 @@ export class BaseProject extends TypeScriptProject implements IProjectKind {
    */
   constructor(options: BaseProjectOptions) {
     super({
-      ...BaseOptions.sharedOptions(options),
+      ...BaseOptions.sharedStandardOptions(options),
     });
 
     new GitConfigBase(this);

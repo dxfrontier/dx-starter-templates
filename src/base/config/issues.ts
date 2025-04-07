@@ -24,7 +24,7 @@ export class IssuesConfigBase extends Config {
       '.github/ISSUE_TEMPLATE/bug.yml': [
         'name: 🐞 Bug',
         'description: File a bug/issue',
-        'title: "[BUG] <title>"',
+        'title: "[BUG]"',
         'labels: ["type: bug"]',
         'body:',
         '  - type: textarea',
@@ -55,7 +55,7 @@ export class IssuesConfigBase extends Config {
       '.github/ISSUE_TEMPLATE/feature.yml': [
         'name: 💡 Feature',
         'description: Request for a new feature',
-        'title: "[FEATURE] <title>"',
+        'title: "[FEATURE]"',
         'labels: ["type: feature"]',
         'body:',
         '  - type: textarea',
@@ -88,7 +88,7 @@ export class IssuesConfigBase extends Config {
       '.github/ISSUE_TEMPLATE/housekeeping.yml': [
         'name: 💡 Housekeeping',
         'description: Maintenance or refactoring task',
-        'title: "[HOUSEKEEPING] <title>"',
+        'title: "[HOUSEKEEPING]"',
         'labels: ["type: housekeeping"]',
         'body:',
         '  - type: textarea',
@@ -121,7 +121,7 @@ export class IssuesConfigBase extends Config {
       '.github/ISSUE_TEMPLATE/question.yml': [
         'name: ❓ Question',
         'description: Ask a question',
-        'title: "[QUESTION] <title>"',
+        'title: "[QUESTION]"',
         'labels: ["type: question"]',
         'body:',
         '  - type: textarea',
@@ -139,7 +139,7 @@ export class IssuesConfigBase extends Config {
       '.github/ISSUE_TEMPLATE/story.yml': [
         'name: 💡 Story',
         'description: As a [role], I [want to], [so that]',
-        'title: "[STORY] <title>"',
+        'title: "[STORY]"',
         'labels: ["type: story"]',
         'body:',
         '  - type: textarea',

@@ -43,7 +43,7 @@ export function testBugTemplate(snapshot: SynthOutput): void {
   const expectedTemplateLines: string = [
     'name: 🐞 Bug',
     'description: File a bug/issue',
-    'title: "[BUG] <title>"',
+    'title: "[BUG]"',
     'labels: ["type: bug"]',
     'body:',
     '  - type: textarea',
@@ -71,7 +71,7 @@ export function testFeatureTemplate(snapshot: SynthOutput, expectedTemplateLines
   const standardTemplateLines: string[] = [
     'name: 💡 Feature',
     'description: Request for a new feature',
-    'title: "[FEATURE] <title>"',
+    'title: "[FEATURE]"',
     'labels: ["type: feature"]',
     'body:',
     '  - type: textarea',
@@ -133,7 +133,7 @@ export function testQuestionTemplate(snapshot: SynthOutput): void {
   const expectedTemplateLines: string = [
     'name: ❓ Question',
     'description: Ask a question',
-    'title: "[QUESTION] <title>"',
+    'title: "[QUESTION]"',
     'labels: ["type: question"]',
     'body:',
     '  - type: textarea',
@@ -154,7 +154,7 @@ export function testStoryTemplate(snapshot: SynthOutput): void {
   const expectedTemplateLines: string = [
     'name: 💡 Story',
     'description: As a [role], I [want to], [so that]',
-    'title: "[STORY] <title>"',
+    'title: "[STORY]"',
     'labels: ["type: story"]',
     'body:',
     '  - type: textarea',

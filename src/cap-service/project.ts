@@ -51,7 +51,7 @@ export class CapServiceProject extends BaseProject {
       issuesEnabled: options.issuesEnabled ?? true,
     };
     super({
-      ...BaseOptions.sharedOptions(updatedOptions),
+      ...BaseOptions.sharedStandardOptions(updatedOptions),
       readme: new ReadmeConfigCapService().getReadme(updatedOptions), // needs to be treated as special case due to Projen workflow.
     });
 

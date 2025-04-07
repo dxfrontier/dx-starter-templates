@@ -1,6 +1,6 @@
 name: 💡 Story
 description: As a [role], I [want to], [so that]
-title: "[STORY] <title>"
+title: "[STORY]"
 labels: ["type: story"]
 body:
   - type: textarea

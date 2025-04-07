@@ -1,6 +1,6 @@
 name: 💡 Housekeeping
 description: Maintenance or refactoring task
-title: "[HOUSEKEEPING] <title>"
+title: "[HOUSEKEEPING]"
 labels: ["type: housekeeping"]
 body:
   - type: textarea
